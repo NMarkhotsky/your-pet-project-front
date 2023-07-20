@@ -37,8 +37,6 @@ const schema = Yup.object().shape({
 });
 
 function UserPage() {
-  const [isFile, _] = useState(false);
-
   const [avatar, setAvatar] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -71,7 +69,7 @@ function UserPage() {
             <ImageBox></ImageBox>
 
             {/* <InputBox> */}
-            <label htmlFor="avatar">{!isFile ? "Edit photo" : "Confirm"}</label>
+            <label htmlFor="avatar">Edit photo</label>
             <Field
               style={{ display: "none" }}
               type="file"
