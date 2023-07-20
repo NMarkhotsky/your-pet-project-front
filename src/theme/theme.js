@@ -9,8 +9,8 @@ export const theme = {
       regular: 'Manrope-Regular', // <== font-family //  400
       medium: 'Manrope-Medium', // <== font-family //  500
       semiBold: 'Manrope-SemiBold', // <== font-family //  600
-      bold: 'Manrope-Bold', // font-family <== //  700
-      extraBold: 'Manrope-ExtraBold', // font-family <== //  800
+      bold: 'Manrope-Bold', // <== font-family //  700
+      extraBold: 'Manrope-ExtraBold', // <== font-family //  800
     },
     secondary: {
       regular: 'Inter-Regular', // <== font-family //  400
