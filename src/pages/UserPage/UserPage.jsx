@@ -37,7 +37,7 @@ const schema = Yup.object().shape({
 });
 
 function UserPage() {
-  const [isFile, setIsFile] = useState(false);
+  const [isFile, _] = useState(false);
 
   const [avatar, setAvatar] = useState("");
   const [name, setName] = useState("");
