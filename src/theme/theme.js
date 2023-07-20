@@ -1,4 +1,9 @@
 export const theme = {
+  media: {
+    phone: '(min-width: 320px)',
+    tablet: '(min-width: 768px)',
+    desktop: '(min-width: 1280px)',
+  },
   fonts: {
     main: {
       regular: 'Manrope-Regular', // font-weight: 400
