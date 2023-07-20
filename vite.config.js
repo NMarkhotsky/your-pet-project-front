@@ -7,5 +7,6 @@ export default defineConfig({
   base: '/you-pet-project-front',
   server: {
     open: '/you-pet-project-front',
+    port: 3000,
   },
 });
