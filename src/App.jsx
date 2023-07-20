@@ -1,4 +1,5 @@
-import { useAuth } from './hooks/useAuth/useAuth';
+import { useAuth } from "./hooks/useAuth/useAuth";
+
 
 function App() {
   const { user } = useAuth();
