@@ -36,7 +36,7 @@ export const InputBox = styled.div`
 
 export const Label = styled.label`
   font-size: 18px;
-  font-weight: 600;
+  font-weight: ${(props) => props.theme.fonts.main.semiBold};
   letter-spacing: 0.72px;
 `;
 
@@ -44,8 +44,8 @@ export const Input = styled(Field)`
   /* float: right; */
   outline: none;
   border-radius: 20px;
-  border: 1px solid #54adff;
-  font-size: 16px;
+  border: 1px solid ${(props) => props.theme.colors.blue};
+  font-size: ${(props) => props.theme.fontSizes.md};
   letter-spacing: 0.64px;
   padding: 4px 12px;
 `;
@@ -57,10 +57,10 @@ export const ButtonForm = styled.button`
   border: none;
   padding: 6px 0;
   border-radius: 40px;
-  background: #54adff;
+  background: ${(props) => props.theme.colors.blue};
   color: #fef9f9;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: ${(props) => props.theme.fontSizes.md};
+  font-weight: ${(props) => props.theme.fonts.main.bold};
   letter-spacing: 0.64px;
   margin-left: auto;
 `;
