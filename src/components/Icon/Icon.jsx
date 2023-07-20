@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import icons from '../../assets/icons/sprite.svg';
 
 export const Icon = ({ iconName, width, stroke, fill }) => {
