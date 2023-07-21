@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import {selectTablet } from '../../../utils/selectMediaRequests';
+import { selectTablet } from '../../../utils/selectMediaRequests';
 
 export const MainNavLinkBox = styled.div`
   display: none;
@@ -24,15 +24,13 @@ export const LinkLogStyled = styled(Link)`
   border-radius: 40px;
   border: 2px solid transparent;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: transparent;
     color: ${props => props.theme.colors.yellow};
     border: 2px solid ${props => props.theme.colors.yellow};
   }
 
-  &:hover svg use,
-  &:focus svg use {
+  &:hover svg use {
     fill: ${props => props.theme.colors.yellow};
   }
 `;
@@ -50,9 +48,10 @@ export const LinkRegStyled = styled(Link)`
   border-radius: 40px;
   font-family: ${props => props.theme.fonts.main.semiBold};
   letter-spacing: 0.64px;
+  display: flex;
+  align-items: center;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background: ${props => props.theme.colors.yellow};
     color: #fef9f9;
   }
