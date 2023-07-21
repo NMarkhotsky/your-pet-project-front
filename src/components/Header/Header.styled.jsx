@@ -18,11 +18,33 @@ export const StyledLink = styled(NavLink)`
   }
 `;
 
-export const Span = styled.span`
-    text-transform: uppercase;
-`
+export const HeaderStyle = styled.header`
+  display: flex;
+`;
 
-export const LinkStyled = styled(Link)`
-  padding: 8px 0;
+export const Image = styled.img`
+  display: block;
+`;
+
+export const Logo = styled(Link)`
+  display: block;
+`;
+
+export const Span = styled.span`
+  text-transform: uppercase;
+`;
+
+export const LinkLogStyled = styled(Link)`
+  color: #fef9f9;
+  padding: 8px 20px;
   background-color: ${(props) => props.theme.colors.yellow};
+  border-radius: 40px;
+`;
+
+export const LinkRegStyled = styled(Link)`
+  color: ${(props) => props.theme.colors.yellow};
+  padding: 8px 20px;
+  background-color: transparent;
+  border: 2px solid ${(props) => props.theme.colors.yellow};
+  border-radius: 40px;
 `;
