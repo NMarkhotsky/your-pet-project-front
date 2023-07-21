@@ -6,7 +6,7 @@ export const HeaderStyle = styled.header`
   background-color: '#FEF9F9';
   padding-top: 24px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
 
   @media ${selectTablet} {
@@ -30,13 +30,5 @@ export const Image = styled.img`
 export const Logo = styled(Link)`
   display: block;
   z-index: 11;
+  margin-right: 159px;
 `;
-
-// export const IconBurgerBox = styled.div`
-//   display: block;
-//   z-index: 99;
-
-//   @media ${selectDesktop} {
-//     display: none;
-//   }
-// `;
