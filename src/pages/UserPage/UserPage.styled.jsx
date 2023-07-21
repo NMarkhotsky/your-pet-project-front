@@ -36,7 +36,7 @@ export const InputBox = styled.div`
 
 export const Label = styled.label`
   font-size: 18px;
-  font-weight: ${(props) => props.theme.fonts.main.semiBold};
+  font-family: ${(props) => props.theme.fonts.main.semiBold};
   letter-spacing: 0.72px;
 `;
 
@@ -60,7 +60,7 @@ export const ButtonForm = styled.button`
   background: ${(props) => props.theme.colors.blue};
   color: #fef9f9;
   font-size: ${(props) => props.theme.fontSizes.md};
-  font-weight: ${(props) => props.theme.fonts.main.bold};
+  font-family: ${(props) => props.theme.fonts.main.bold};
   letter-spacing: 0.64px;
   margin-left: auto;
 `;

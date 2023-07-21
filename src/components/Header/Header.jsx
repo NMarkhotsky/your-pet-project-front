@@ -6,30 +6,45 @@ import {
   Image,
   Logo,
   HeaderStyle,
+  Navigation,
+  MainNavLinkBox,
+  IconBurgerBox,
 } from "./Header.styled";
 import logo from "../../assets/images/logo.png";
-import icon from "../../assets/icons/sprite.svg";
+import { Icon } from "../../components/Icon/Icon";
 
 export const Header = () => {
   return (
     <HeaderStyle>
       <Logo to="/">
-        <Image src={logo} width={162} />
+        <Image src={logo} />
       </Logo>
-      <nav>
-        <StyledLink to="">News</StyledLink>
-        <StyledLink to="">Find pet</StyledLink>
-        <StyledLink to="">Our friends</StyledLink>
-      </nav>
-      <div>
-        <LinkLogStyled>
+      <Navigation>
+        <StyledLink to="/news">News</StyledLink>
+        <StyledLink to="/notices/:categoryName">Find pet</StyledLink>
+        <StyledLink to="/friends">Our friends</StyledLink>
+      </Navigation>
+      <MainNavLinkBox>
+        <LinkLogStyled to="/login">
           Log <Span>in</Span>
-          <svg width="24" height="24">
-            <use href={`${icon}#icon-pawprint`} fill="#FEF9F9" />
-          </svg>
+          <Icon
+            iconName={"icon-pawprint"}
+            width={"24px"}
+            height={"24px"}
+            fill={"#FEF9F9"}
+          />
         </LinkLogStyled>
-        <LinkRegStyled>Registration</LinkRegStyled>
-      </div>
+        <LinkRegStyled to="/register">Registration</LinkRegStyled>
+      </MainNavLinkBox>
+
+      <IconBurgerBox>
+        <Icon
+          iconName={"icon-menu-hamburger"}
+          width={"24px"}
+          height={"24px"}
+          stroke={"#FFC107"}
+        />
+      </IconBurgerBox>
     </HeaderStyle>
   );
 };
