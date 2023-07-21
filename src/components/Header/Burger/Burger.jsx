@@ -7,7 +7,6 @@ import { NavRegAndLog } from '../NavRegAndLog/NavRegAndLog';
 
 export const Burger = () => {
   const [open, setOpen] = useState(false);
-  console.log(open);
 
   return (
     <>
