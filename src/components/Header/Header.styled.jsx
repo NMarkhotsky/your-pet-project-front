@@ -91,17 +91,16 @@ export const LinkLogStyled = styled(Link)`
   padding: 8px 20px;
   background-color: ${(props) => props.theme.colors.yellow};
   border-radius: 40px;
+  border: 2px solid transparent;
 
   &:hover {
     background-color: transparent;
     color: ${(props) => props.theme.colors.yellow};
-    border: 1px solid ${(props) => props.theme.colors.yellow};
+    border: 2px solid ${(props) => props.theme.colors.yellow};
   }
 
-  svg {
-    :hover {
-      fill: ${(props) => props.theme.colors.yellow};
-    }
+  &:hover svg use {
+    fill: ${(props) => props.theme.colors.yellow};
   }
 `;
 
@@ -123,6 +122,7 @@ export const LinkRegStyled = styled(Link)`
 
 export const IconBurgerBox = styled.div`
   display: block;
+  z-index: 99;
 
   @media ${selectDesktop} {
     display: none;

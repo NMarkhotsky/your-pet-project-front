@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   StyledLink,
   Span,
@@ -9,11 +10,21 @@ import {
   Navigation,
   MainNavLinkBox,
   IconBurgerBox,
-} from './Header.styled';
-import logo from '../../assets/images/logo.png';
-import { Icon } from '../../components/Icon/Icon';
+} from "./Header.styled";
+import logo from "../../assets/images/logo.png";
+import { Icon } from "../../components/Icon/Icon";
 
 export const Header = () => {
+  const [open, setOpen] = useState(false);
+
+  const openBurger = () => {
+    setOpen(true);
+  };
+
+  const closeBurger = () => {
+    setOpen(false);
+  };
+
   return (
     <HeaderStyle>
       <Logo to="/">
@@ -28,23 +39,34 @@ export const Header = () => {
         <LinkLogStyled to="/login">
           Log <Span>in</Span>
           <Icon
-            iconName={'icon-pawprint'}
-            width={'24px'}
-            height={'24px'}
-            fill={'#FEF9F9'}
+            iconName={"icon-pawprint"}
+            width={"24px"}
+            height={"24px"}
+            fill={"#FEF9F9"}
           />
         </LinkLogStyled>
         <LinkRegStyled to="/register">Registration</LinkRegStyled>
       </MainNavLinkBox>
 
-      <IconBurgerBox>
-        <Icon
-          iconName={'icon-menu-hamburger'}
-          width={'24px'}
-          height={'24px'}
-          stroke={'#FFC107'}
-        />
-      </IconBurgerBox>
+      {!open ? (
+        <IconBurgerBox onClick={openBurger}>
+          <Icon
+            iconName={"icon-menu-hamburger"}
+            width={"24px"}
+            height={"24px"}
+            stroke={"#FFC107"}
+          />
+        </IconBurgerBox>
+      ) : (
+        <IconBurgerBox onClick={closeBurger}>
+          <Icon
+            iconName={"icon-cross-small"}
+            width={"24px"}
+            height={"24px"}
+            stroke={"#FFC107"}
+          />
+        </IconBurgerBox>
+      )}
     </HeaderStyle>
   );
 };
