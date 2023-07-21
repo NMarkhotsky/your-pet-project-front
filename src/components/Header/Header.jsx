@@ -9,9 +9,9 @@ import {
   Navigation,
   MainNavLinkBox,
   IconBurgerBox,
-} from "./Header.styled";
-import logo from "../../assets/images/logo.png";
-import { Icon } from "../../components/Icon/Icon";
+} from './Header.styled';
+import logo from '../../assets/images/logo.png';
+import { Icon } from '../../components/Icon/Icon';
 
 export const Header = () => {
   return (
@@ -21,17 +21,17 @@ export const Header = () => {
       </Logo>
       <Navigation>
         <StyledLink to="/news">News</StyledLink>
-        <StyledLink to="/notices/:categoryName">Find pet</StyledLink>
+        <StyledLink to="/notices">Find pet</StyledLink>
         <StyledLink to="/friends">Our friends</StyledLink>
       </Navigation>
       <MainNavLinkBox>
         <LinkLogStyled to="/login">
           Log <Span>in</Span>
           <Icon
-            iconName={"icon-pawprint"}
-            width={"24px"}
-            height={"24px"}
-            fill={"#FEF9F9"}
+            iconName={'icon-pawprint'}
+            width={'24px'}
+            height={'24px'}
+            fill={'#FEF9F9'}
           />
         </LinkLogStyled>
         <LinkRegStyled to="/register">Registration</LinkRegStyled>
@@ -39,10 +39,10 @@ export const Header = () => {
 
       <IconBurgerBox>
         <Icon
-          iconName={"icon-menu-hamburger"}
-          width={"24px"}
-          height={"24px"}
-          stroke={"#FFC107"}
+          iconName={'icon-menu-hamburger'}
+          width={'24px'}
+          height={'24px'}
+          stroke={'#FFC107'}
         />
       </IconBurgerBox>
     </HeaderStyle>
