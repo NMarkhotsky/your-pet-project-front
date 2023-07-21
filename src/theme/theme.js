@@ -1,15 +1,20 @@
 export const theme = {
+  media: {
+    phone: '(min-width: 320px)',
+    tablet: '(min-width: 768px)',
+    desktop: '(min-width: 1280px)',
+  },
   fonts: {
     main: {
-      regular: 'Manrope-Regular', // font-weight: 400
-      medium: 'Manrope-Medium', // font-weight: 500
-      semiBold: 'Manrope-SemiBold', // font-weight: 600
-      bold: 'Manrope-Bold', // font-weight: 700
-      extraBold: 'Manrope-ExtraBold', // font-weight: 800
+      regular: 'Manrope-Regular', // <== font-family //  400
+      medium: 'Manrope-Medium', // <== font-family //  500
+      semiBold: 'Manrope-SemiBold', // <== font-family //  600
+      bold: 'Manrope-Bold', // <== font-family //  700
+      extraBold: 'Manrope-ExtraBold', // <== font-family //  800
     },
     secondary: {
-      regular: 'Inter-Regular', // font-weight: 400
-      medium: 'Inter-Medium', // font-weight: 500
+      regular: 'Inter-Regular', // <== font-family //  400
+      medium: 'Inter-Medium', // <== font-family //  500
     },
   },
   colors: {
