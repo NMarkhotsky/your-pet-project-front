@@ -5,9 +5,14 @@ import ChoiseDoneNext from "../ChoiseDoneNext/ChoiseDoneNext";
 import ChoiseCancelPrev from "../ChoiseCancelPrev/ChoiseCancelPrev";
 
 import { ButtonsWrapper, ChooseOptionWrapper, MyForm } from "./FormAddPet.styled";
+import PetInfo from "../PetInfo/PetInfo";
 
 const initialValues = {
   option: "",
+  petName: "",
+  dateOfBirth: "",
+  breed: "",
+  titleOfAdd: "",
 }
 
 function FormAddPet({ currentPage, setCurrentPage }) {
@@ -26,9 +31,11 @@ function FormAddPet({ currentPage, setCurrentPage }) {
 
   return (
     <MyForm onSubmit={formik.handleSubmit}>
-      <ChooseOptionWrapper>
+      {/* <ChooseOptionWrapper>
         <ChooseOption formik={formik} />
-      </ChooseOptionWrapper>
+      </ChooseOptionWrapper> */}
+
+      <PetInfo formik={formik} />
 
       <ButtonsWrapper>
         <ChoiseDoneNext

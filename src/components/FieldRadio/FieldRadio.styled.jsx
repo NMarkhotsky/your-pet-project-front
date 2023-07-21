@@ -10,6 +10,9 @@ export const Text = styled.span`
   cursor: pointer;
   border-radius: 40px;
   transition: all 300ms ease;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.56px;
 `;
 
 export const Input = styled.input`

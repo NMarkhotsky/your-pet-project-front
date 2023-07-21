@@ -1,15 +1,46 @@
 @import '/node_modules/modern-normalize/modern-normalize.css';
 
-:root {
-  font-family: Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@font-face {
+  font-family: 'Manrope-Regular';
+  src: url('./assets/fonts/manrope/Manrope-Regular.woff') format('woff');
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+@font-face {
+  font-family: 'Manrope-Medium';
+  src: url('./assets/fonts/manrope/Manrope-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Manrope-SemiBold';
+  src: url('./assets/fonts/manrope/Manrope-SemiBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Manrope-Bold';
+  src: url('./assets/fonts/manrope/Manrope-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Manrope-ExtraBold';
+  src: url('./assets/fonts/manrope/Manrope-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter-Regular';
+  src: url('./assets/fonts/inter/Inter-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Inter-Medium';
+  src: url('./assets/fonts/inter/Inter-Medium.woff') format('woff');
+}
+
+body {
+  font-family: 'Manrope-Regular';
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeSpeed;
 }
 
 code {
@@ -36,7 +67,6 @@ ol {
 
 img {
   display: block;
-  max-width: 100%;
   height: auto;
 }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { selectTablet } from "../../utils";
 
 export const MyForm = styled.form`
-  height: calc(100% - 110px);
+  height: calc(100% - 140px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
