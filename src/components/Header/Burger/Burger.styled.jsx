@@ -1,31 +1,21 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { selectDesktop } from '../../../utils/selectMediaRequests';
 
-export const StyledBurger = styled.button`
-  position: absolute;
-  top: 5%;
-  left: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
+export const StyledBurger = styled.div`
+  display: none;
+  z-index: 99;
 
-  &:focus {
-    outline: none;
+  @media (max-width: 1279px) {
+    display: flex;
+  }
+`;
+
+export const IconBurgerBox = styled.div`
+  @media (max-width: 1279px) {
+    display: block;
   }
 
-  div {
-    width: 2rem;
-    height: 0.25rem;
-    background: ${(props) => props.theme.colors.white};
-    border-radius: 10px;
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 1px;
+  @media ${selectDesktop} {
+    display: none;
   }
 `;
