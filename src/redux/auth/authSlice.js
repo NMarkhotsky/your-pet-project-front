@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { login, logout, register } from './operations';
 
 const initialState = {
-  user: { name: 'Test Redux', email: null, password: null },
+  user: { name: null, email: null, password: null },
   token: null,
   isLoggedIn: false,
   isNewUser: false,
