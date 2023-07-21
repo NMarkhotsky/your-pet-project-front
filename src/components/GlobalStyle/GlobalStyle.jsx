@@ -19,13 +19,13 @@ export const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: 'Manrope-Medium';
   src: url(${ManropeMedium}) format('woff');
-    font-weight: 500;
+  font-weight: 500;
 }
 
 @font-face {
   font-family: 'Manrope-SemiBold';
   src: url(${ManropeSemiBold}) format('woff');
-    font-weight: 600;
+  font-weight: 600;
 }
 
 @font-face {
@@ -54,11 +54,13 @@ export const GlobalStyle = createGlobalStyle`
 
 
 body {
-  font-family: 'Manrope-Regular';
-  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.main.regular};
+  font-size: ${({ theme }) => theme.fontSizes.sm};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeSpeed;
+
+  background-color: ${({ theme }) => theme.colors.bgdColor};
 }
 
 code {
