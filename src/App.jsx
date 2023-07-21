@@ -1,7 +1,13 @@
+import { GlobalStyle } from './components/GlobalStyle/GlobalStyle';
 import SharedLayout from './components/SharedLayout/SharedLayout';
 
 function App() {
-  return <SharedLayout />;
+  return (
+    <>
+      <GlobalStyle />
+      <SharedLayout />
+    </>
+  );
 }
 
 export default App;
