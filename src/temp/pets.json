@@ -7,7 +7,8 @@
       "comments": "Loves playing fetch!",
       "place": "Kyiv",
       "sex": "Male",
-      "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Luna",
@@ -16,7 +17,8 @@
       "comments": "A fluffy and gentle cat.",
       "place": "Lviv",
       "sex": "Female",
-      "url": "https://example.com/rocky.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Max",
@@ -25,7 +27,8 @@
       "comments": "Great at guarding the house.",
       "place": "Kharkiv",
       "sex": "Male",
-      "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Coco",
@@ -34,7 +37,8 @@
       "comments": "Enjoys napping on the couch.",
       "place": "Dnipro",
       "sex": "Female",
-      "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Rocky",
@@ -43,7 +47,8 @@
       "comments": "Loves swimming in the river.",
       "place": "Odessa",
       "sex": "Male",
-      "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Molly",
@@ -52,7 +57,8 @@
       "comments": "Energetic and loves running.",
       "place": "Zaporizhzhia",
       "sex": "Female",
-      "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Leo",
@@ -61,7 +67,8 @@
       "comments": "Curious and playful.",
       "place": "Vinnytsia",
       "sex": "Male",
-      "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Bella",
@@ -70,7 +77,8 @@
       "comments": "Loves learning new tricks.",
       "place": "Kherson",
       "sex": "Female",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Oscar",
@@ -79,7 +87,8 @@
       "comments": "Very affectionate and gentle.",
       "place": "Poltava",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Lucy",
@@ -88,7 +97,8 @@
       "comments": "Adores climbing and jumping.",
       "place": "Chernihiv",
       "sex": "Female",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Charlie",
@@ -97,7 +107,8 @@
       "comments": "Has a great sense of smell.",
       "place": "Sumy",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Daisy",
@@ -106,7 +117,8 @@
       "comments": "Loves digging in the garden.",
       "place": "Rivne",
       "sex": "Female",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Milo",
@@ -115,7 +127,8 @@
       "comments": "Tiny but full of energy.",
       "place": "Ternopil",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Sophie",
@@ -124,7 +137,8 @@
       "comments": "Likes playing with paper balls.",
       "place": "Cherkasy",
       "sex": "Female",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Teddy",
@@ -133,7 +147,8 @@
       "comments": "Loves cuddling on the couch.",
       "place": "Ivano-Frankivsk",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Zoe",
@@ -142,7 +157,8 @@
       "comments": "Talkative and affectionate.",
       "place": "Khmelnytskyi",
       "sex": "Female",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Lucky",
@@ -151,7 +167,8 @@
       "comments": "Highly energetic and smart.",
       "place": "Zhytomyr",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Mia",
@@ -160,7 +177,8 @@
       "comments": "Loves lounging in the sun.",
       "place": "Kropyvnytskyi",
       "sex": "Female",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Bruno",
@@ -169,7 +187,8 @@
       "comments": "Protective and loyal.",
       "place": "Mariupol",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Nala",
@@ -178,7 +197,8 @@
       "comments": "Fearless and confident.",
       "place": "Mykolaiv",
       "sex": "Female",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Harley",
@@ -187,7 +207,8 @@
       "comments": "Loves herding anything that moves.",
       "place": "Brovary",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Cleo",
@@ -196,7 +217,8 @@
       "comments": "Playful and affectionate.",
       "place": "Kremenchuk",
       "sex": "Female",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     },
     {
       "name": "Toby",
@@ -205,7 +227,8 @@
       "comments": "Always up for a game of fetch.",
       "place": "Chernivtsi",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "sell"
     },
     {
       "name": "Lola",
@@ -214,7 +237,8 @@
       "comments": "Playful and affectionate.",
       "place": "Kyiv",
       "sex": "Male",
-       "url": "https://example.com/coco.jpg"
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
+      "status": "in good hands"
     }
 ]
 }

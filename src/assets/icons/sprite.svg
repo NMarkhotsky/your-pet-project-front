@@ -50,9 +50,9 @@
     <symbol id="icon-heart" viewBox="0 0 32 32">
       <path fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.775 16.063 16 26.666l10.225-10.603A6.403 6.403 0 0 0 28 11.619c0-3.471-2.714-6.285-6.061-6.285a5.954 5.954 0 0 0-4.286 1.841L16 8.89l-1.653-1.715a5.953 5.953 0 0 0-4.286-1.841C6.714 5.334 4 8.148 4 11.619c0 1.667.639 3.266 1.775 4.444z" />
     </symbol>
-   <symbol id="icon-heart-full" viewBox="0 0 32 32">
-       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.775 16.063 16 26.666l10.225-10.603A6.403 6.403 0 0 0 28 11.619c0-3.471-2.714-6.285-6.061-6.285a5.954 5.954 0 0 0-4.286 1.841L16 8.89l-1.653-1.715a5.953 5.953 0 0 0-4.286-1.841C6.714 5.334 4 8.148 4 11.619c0 1.667.639 3.266 1.775 4.444z"/>
-   </symbol>
+    <symbol id="icon-heart-full" viewBox="0 0 32 32">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5.775 16.063 16 26.666l10.225-10.603A6.403 6.403 0 0 0 28 11.619c0-3.471-2.714-6.285-6.061-6.285a5.954 5.954 0 0 0-4.286 1.841L16 8.89l-1.653-1.715a5.953 5.953 0 0 0-4.286-1.841C6.714 5.334 4 8.148 4 11.619c0 1.667.639 3.266 1.775 4.444z"/>
+    </symbol>
     <symbol id="icon-location" viewBox="0 0 32 32">
       <path fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.92" d="M26.57 14.72c0 5.655-4.585 10.24-10.24 12.8-5.655-2.56-10.24-7.145-10.24-12.8S10.675 4.48 16.33 4.48s10.24 4.585 10.24 10.24z" />
       <path fill="none"  stroke-linecap="round" stroke-linejoin="round" stroke-width="1.92" d="M20.17 14.72a3.84 3.84 0 1 1-7.68 0 3.84 3.84 0 0 1 7.68 0z" />
