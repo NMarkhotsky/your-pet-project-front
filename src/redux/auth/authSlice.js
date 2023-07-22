@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { login, logout, register } from './operations';
 
 const initialState = {
-  user: { name: 'Test Redux', email: null, password: null },
+  user: { name: null, email: null, password: null },
   token: null,
   isLoggedIn: false,
   isNewUser: false,
@@ -22,6 +22,13 @@ const handleRejected = (state, action) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    setIsNewUserFalse: {
+      reducer(state) {
+        state.isNewUser = false;
+      },
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -38,7 +45,7 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isNewUser = false;
+        // state.isNewUser = false;
       })
       .addCase(logout.fulfilled, (state) => {
         state.isRefreshing = false;
@@ -46,7 +53,7 @@ const authSlice = createSlice({
         state.isLoggedIn = false;
         state.user = { name: null, email: null, password: null };
         state.token = null;
-        state.isNewUser = false;
+        // state.isNewUser = false;
       })
       .addMatcher(
         isAnyOf(register.pending, login.pending, logout.pending),
