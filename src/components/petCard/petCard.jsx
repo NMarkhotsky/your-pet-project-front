@@ -2,7 +2,7 @@
 // import React from "react";
 import PropTypes from 'prop-types';
 import { Icon } from "../Icon/Icon";
-import { List, Item, Div, Image, Div1, Text, Div2, Button, List1, Item1, Span, Div3, Text1, Button1 } from "./PetCard.styled";
+import { List, Item, ContainerPetInfo, Image, ContainerPetStatus, TextStatus, ContainerButton, Button, ListPetInfo, ItemPetInfo, SpanPetText, ContainerButtonLearnMore, TextPetName, ButtonLearnMore } from "./PetCard.styled";
 
 export const PetCard = (props) => {
     
@@ -10,11 +10,11 @@ export const PetCard = (props) => {
         <List>
         {props.pets.map(pet => (
             <Item key={pet.name}>
-                <Div>
+                <ContainerPetInfo>
                     <Image src={pet.url} alt="pet" loading="lazy"></Image>
-                    <Div1>
-                        <Text>{pet.status}</Text>
-                        <Div2>
+                    <ContainerPetStatus>
+                        <TextStatus>{pet.status}</TextStatus>
+                        <ContainerButton>
                             <Button aria-label="add to favorites">
                                 <Icon
                                     iconName={'icon-heart'}
@@ -24,10 +24,10 @@ export const PetCard = (props) => {
                                     fill={'#54ADFF'}
                                 />
                             </Button>
-                        </Div2>
-                    </Div1>
-                    <List1>
-                        <Item1>
+                        </ContainerButton>
+                    </ContainerPetStatus>
+                    <ListPetInfo>
+                        <ItemPetInfo>
                             <Icon
                                 iconName={'icon-location'}
                                 width={'24px'}
@@ -35,9 +35,9 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <Span>{pet.place}</Span>
-                        </Item1>
-                        <Item1>
+                            <SpanPetText>{pet.place}</SpanPetText>
+                        </ItemPetInfo>
+                        <ItemPetInfo>
                             <Icon
                                 iconName={'icon-clock'}
                                 width={'24px'}
@@ -45,9 +45,9 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <Span>{pet.birthday}</Span>
-                        </Item1>
-                        <Item1>
+                            <SpanPetText>{pet.birthday}</SpanPetText>
+                        </ItemPetInfo>
+                        <ItemPetInfo>
                             <Icon
                                 iconName={'icon-female'}
                                 width={'24px'}
@@ -55,13 +55,13 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <Span>{pet.sex}</Span>
-                        </Item1>
-                    </List1>
-                </Div>
-                <Div3>
-                    <Text1>{pet.name}</Text1>
-                    <Button1>
+                            <SpanPetText>{pet.sex}</SpanPetText>
+                        </ItemPetInfo>
+                    </ListPetInfo>
+                </ContainerPetInfo>
+                <ContainerButtonLearnMore>
+                    <TextPetName>{pet.name}</TextPetName>
+                    <ButtonLearnMore>
                         <span>Learn more</span>
                         <Icon
                             iconName={'icon-pawprint'}
@@ -70,8 +70,8 @@ export const PetCard = (props) => {
                             stroke={'#54ADFF'}
                             fill={'#54ADFF'}
                         />
-                    </Button1>
-                </Div3>
+                    </ButtonLearnMore>
+                </ContainerButtonLearnMore>
             </Item>
         ))}
         </List>

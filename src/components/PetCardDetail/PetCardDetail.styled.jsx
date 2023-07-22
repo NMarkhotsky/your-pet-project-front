@@ -11,7 +11,7 @@ export const Modal = styled.div`
     }
 `;
 
-export const Div = styled.div`
+export const ModalLayout = styled.div`
     position: fixed;
     display: flex;
     align-items: center;
@@ -32,7 +32,7 @@ export const Div = styled.div`
     }
 `;
 
-export const Div1 = styled.div`
+export const ModalCardWrapper = styled.div`
     position: absolute;
     top: 10%;
     min-height: 200px;
@@ -71,7 +71,7 @@ export const ButtonClose = styled.button`
     }
 `;
 
-export const Div2 = styled.div`
+export const ModalCard = styled.div`
     padding: 44px 12px 16px;
     width: 280px;
 
@@ -84,7 +84,7 @@ export const Div2 = styled.div`
     }
 `;
 
-export const Div3 = styled.div`
+export const ModalCardInfo = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -99,7 +99,7 @@ export const Div3 = styled.div`
     }
 `;
 
-export const Div4 = styled.div`
+export const ModalCardImage = styled.div`
     position: relative;
     margin: 0 auto;
     height: 240px;
@@ -127,7 +127,7 @@ export const Image = styled.img`
     }
 `;
 
-export const Span = styled.span`
+export const SpanStatus = styled.span`
     position: absolute;
     display: flex;
     align-items: center;
@@ -150,7 +150,7 @@ export const Span = styled.span`
     }
 `;
 
-export const Div5 = styled.div`
+export const ModalCardText = styled.div`
 
     @media ${selectTablet} {
         flex-grow: 1;
@@ -219,7 +219,7 @@ export const Tr = styled.tr`
     }
 `;
 
-export const Td = styled.td`
+export const TdName = styled.td`
     display: table-cell;
     vertical-align: inherit;
     font-size: ${props => props.theme.fontSizes.sm};
@@ -238,7 +238,7 @@ export const Td = styled.td`
     }
 `;
 
-export const Td1 = styled.td`
+export const TdValue = styled.td`
     word-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -291,7 +291,7 @@ export const Text = styled.p`
     }
 `
 
-export const Div6 = styled.div`
+export const ButtonsWrapper = styled.div`
     display: flex;
     flex-direction: column-reverse;
     gap: 8px;
@@ -330,7 +330,7 @@ export const Button = styled.button`
     }
 `;
 
-export const Span1 = styled.span`
+export const ButtonTextAdd = styled.span`
     font-size: ${props => props.theme.fontSizes.md};
     font-family: ${props => props.theme.fonts.main.bold};
     letter-spacing: .04em;
@@ -345,7 +345,7 @@ export const Span1 = styled.span`
     }
 `;
 
-export const Link1 = styled.a`
+export const ButtonLinkContact = styled.a`
     position: relative;
     display: flex;
     align-items: center;
@@ -375,7 +375,7 @@ export const Link1 = styled.a`
     }
 `;
 
-export const Span2 = styled.span`
+export const ButtonTextContact = styled.span`
     font-size: ${props => props.theme.fontSizes.md};
     font-family: ${props => props.theme.fonts.main.bold};
     letter-spacing: .04em;

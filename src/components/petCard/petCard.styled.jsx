@@ -39,7 +39,7 @@ export const Item = styled.li`
     }
 `;
 
-export const Div = styled.div`
+export const ContainerPetInfo = styled.div`
     display: block;
     position: relative;
     margin-bottom: 20px;
@@ -67,7 +67,7 @@ export const Image = styled.img`
     }
 `;
 
-export const Div1 = styled.div`
+export const ContainerPetStatus = styled.div`
     position: absolute;
     display: flex;
     align-items: flex-start;
@@ -83,7 +83,7 @@ export const Div1 = styled.div`
     }
 `;
 
-export const Text = styled.p`
+export const TextStatus = styled.p`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,7 +103,7 @@ export const Text = styled.p`
     }
 `;
 
-export const Div2 = styled.div`
+export const ContainerButton = styled.div`
     display: block;
 `;
 
@@ -131,7 +131,7 @@ export const Button = styled.button`
     }
 `;
 
-export const List1 = styled.ul`
+export const ListPetInfo = styled.ul`
     position: absolute;
     display: flex;
     justify-content: space-between;
@@ -152,7 +152,7 @@ export const List1 = styled.ul`
     }
 `;
 
-export const Item1 = styled.li`
+export const ItemPetInfo = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -176,7 +176,7 @@ export const Item1 = styled.li`
     }
 `;
 
-export const Span = styled.span`
+export const SpanPetText = styled.span`
     font-size: ${props => props.theme.fontSizes.xs};
     font-family: ${props => props.theme.fonts.main.semiBold};
     letter-spacing: .04em;
@@ -197,7 +197,7 @@ export const Span = styled.span`
     }
 `;
 
-export const Div3 = styled.div`
+export const ContainerButtonLearnMore = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -212,7 +212,7 @@ export const Div3 = styled.div`
     }
 `;
 
-export const Text1 = styled.p`
+export const TextPetName = styled.p`
     width: 231px;
     word-wrap: break-word;
     font-size: ${props => props.theme.fontSizes.xl};
@@ -229,7 +229,7 @@ export const Text1 = styled.p`
     }
 `;
 
-export const Button1 = styled.button`
+export const ButtonLearnMore = styled.button`
     position: relative;
     display: flex;
     align-items: center;
