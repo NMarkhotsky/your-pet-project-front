@@ -2,20 +2,20 @@
 // import React from "react";
 import PropTypes from 'prop-types';
 import { Icon } from "../Icon/Icon";
-import { PetInfo, PetDiv, PetImg, PetDiv1, PetP, PetDiv2, PetButton, PetUl, PetLi1, PetSpan, PetDiv3, PetP1, PetButton1 } from "./petCard.styled";
+import { List, Item, Div, Image, Div1, Text, Div2, Button, List1, Item1, Span, Div3, Text1, Button1 } from "./PetCard.styled";
 
 export const PetCard = (props) => {
     
     return (
-        <>
+        <List>
         {props.pets.map(pet => (
-            <PetInfo key={pet.name}>
-                <PetDiv>
-                    <PetImg src={pet.url} alt="pet" loading="lazy"></PetImg>
-                    <PetDiv1>
-                        <PetP>{pet.status}</PetP>
-                        <PetDiv2>
-                            <PetButton aria-label="add to favorites">
+            <Item key={pet.name}>
+                <Div>
+                    <Image src={pet.url} alt="pet" loading="lazy"></Image>
+                    <Div1>
+                        <Text>{pet.status}</Text>
+                        <Div2>
+                            <Button aria-label="add to favorites">
                                 <Icon
                                     iconName={'icon-heart'}
                                     width={'24px'}
@@ -23,11 +23,11 @@ export const PetCard = (props) => {
                                     stroke={'#54ADFF'}
                                     fill={'#54ADFF'}
                                 />
-                            </PetButton>
-                        </PetDiv2>
-                    </PetDiv1>
-                    <PetUl>
-                        <PetLi1>
+                            </Button>
+                        </Div2>
+                    </Div1>
+                    <List1>
+                        <Item1>
                             <Icon
                                 iconName={'icon-location'}
                                 width={'24px'}
@@ -35,9 +35,9 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <PetSpan>{pet.place}</PetSpan>
-                        </PetLi1>
-                        <PetLi1>
+                            <Span>{pet.place}</Span>
+                        </Item1>
+                        <Item1>
                             <Icon
                                 iconName={'icon-clock'}
                                 width={'24px'}
@@ -45,9 +45,9 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <PetSpan>{pet.birthday}</PetSpan>
-                        </PetLi1>
-                        <PetLi1>
+                            <Span>{pet.birthday}</Span>
+                        </Item1>
+                        <Item1>
                             <Icon
                                 iconName={'icon-female'}
                                 width={'24px'}
@@ -55,13 +55,13 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <PetSpan>{pet.sex}</PetSpan>
-                        </PetLi1>
-                    </PetUl>
-                </PetDiv>
-                <PetDiv3>
-                    <PetP1>{pet.name}</PetP1>
-                    <PetButton1>
+                            <Span>{pet.sex}</Span>
+                        </Item1>
+                    </List1>
+                </Div>
+                <Div3>
+                    <Text1>{pet.name}</Text1>
+                    <Button1>
                         <span>Learn more</span>
                         <Icon
                             iconName={'icon-pawprint'}
@@ -70,11 +70,11 @@ export const PetCard = (props) => {
                             stroke={'#54ADFF'}
                             fill={'#54ADFF'}
                         />
-                    </PetButton1>
-                </PetDiv3>
-            </PetInfo>
+                    </Button1>
+                </Div3>
+            </Item>
         ))}
-        </>
+        </List>
     )
 }
 
