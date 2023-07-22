@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Form, Field } from "formik";
+import styled from 'styled-components';
+import { Form, Field } from 'formik';
 
 export const Container = styled.div`
   background-color: #fef9f9;
@@ -7,6 +7,7 @@ export const Container = styled.div`
 `;
 
 export const ImageBox = styled.div`
+  position: relative;
   border-radius: 40px;
   margin: 0 auto;
   width: 182px;
@@ -21,6 +22,7 @@ export const ImageInputBox = styled.div`
 `;
 
 export const FormBox = styled(Form)`
+  position: relative;
   width: 395px;
   padding: 20px 24px 16px;
   background-color: #ffffff;
@@ -29,14 +31,15 @@ export const FormBox = styled(Form)`
 `;
 
 export const InputBox = styled.div`
-  /* display: flex; */
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 10px;
 `;
 
 export const Label = styled.label`
   font-size: 18px;
-  font-family: ${(props) => props.theme.fonts.main.semiBold};
+  font-family: ${props => props.theme.fonts.main.semiBold};
   letter-spacing: 0.72px;
 `;
 
@@ -44,8 +47,8 @@ export const Input = styled(Field)`
   /* float: right; */
   outline: none;
   border-radius: 20px;
-  border: 1px solid ${(props) => props.theme.colors.blue};
-  font-size: ${(props) => props.theme.fontSizes.md};
+  border: 1px solid ${props => props.theme.colors.blue};
+  font-size: ${props => props.theme.fontSizes.md};
   letter-spacing: 0.64px;
   padding: 4px 12px;
 `;
@@ -57,10 +60,30 @@ export const ButtonForm = styled.button`
   border: none;
   padding: 6px 0;
   border-radius: 40px;
-  background: ${(props) => props.theme.colors.blue};
+  background: ${props => props.theme.colors.blue};
   color: #fef9f9;
-  font-size: ${(props) => props.theme.fontSizes.md};
-  font-family: ${(props) => props.theme.fonts.main.bold};
+  font-size: ${props => props.theme.fontSizes.md};
+  font-family: ${props => props.theme.fonts.main.bold};
   letter-spacing: 0.64px;
   margin-left: auto;
+`;
+
+export const LogoutBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
+`;
+
+export const LogoutText = styled.p`
+  color: ${props => props.theme.colors.grey};
+  font-size: ${props => props.theme.fontSizes.md};
+  font-family: ${props => props.theme.fonts.main.medium};
+  letter-spacing: 0.64px;
+`;
+
+export const EditIcon = styled.span`
+  display: block;
+  position: absolute;
+  /* top: 18; */
+  /* right: 18; */
 `;
