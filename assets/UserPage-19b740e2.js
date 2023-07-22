@@ -1,4 +1,4 @@
-import{s as P,g as Dr,r as m,h as zn,j as d,I as Z,P as be}from"./index-8fe5b921.js";const Vn=P.section`
+import{s as P,g as Dr,r as m,h as zn,j as d,I as Z,P as be}from"./index-85c0fb33.js";const Vn=P.section`
   display: flex;
   gap: 32px;
   background-color: #fef9f9;
