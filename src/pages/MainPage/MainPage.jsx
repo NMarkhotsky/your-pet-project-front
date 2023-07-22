@@ -1,5 +1,7 @@
+import { Container } from './MainPage.styled';
+
 function MainPage() {
-  return <h1>MainPage</h1>;
+  return <Container></Container>;
 }
 
 export default MainPage;
