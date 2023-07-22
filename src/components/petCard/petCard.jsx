@@ -2,20 +2,20 @@
 // import React from "react";
 import PropTypes from 'prop-types';
 import { Icon } from "../Icon/Icon";
-import { PetInfo, PetDiv, PetImg, PetDiv1, PetP, PetDiv2, PetButton, PetUl, PetLi1, PetSpan, PetDiv3, PetP1, PetButton1 } from "./petCard.styled";
+import { List, Item, ContainerPetInfo, Image, ContainerPetStatus, TextStatus, ContainerButton, Button, ListPetInfo, ItemPetInfo, SpanPetText, ContainerButtonLearnMore, TextPetName, ButtonLearnMore } from "./PetCard.styled";
 
 export const PetCard = (props) => {
     
     return (
-        <>
+        <List>
         {props.pets.map(pet => (
-            <PetInfo key={pet.name}>
-                <PetDiv>
-                    <PetImg src={pet.url} alt="pet" loading="lazy"></PetImg>
-                    <PetDiv1>
-                        <PetP>{pet.status}</PetP>
-                        <PetDiv2>
-                            <PetButton aria-label="add to favorites">
+            <Item key={pet.name}>
+                <ContainerPetInfo>
+                    <Image src={pet.url} alt="pet" loading="lazy"></Image>
+                    <ContainerPetStatus>
+                        <TextStatus>{pet.status}</TextStatus>
+                        <ContainerButton>
+                            <Button aria-label="add to favorites">
                                 <Icon
                                     iconName={'icon-heart'}
                                     width={'24px'}
@@ -23,11 +23,11 @@ export const PetCard = (props) => {
                                     stroke={'#54ADFF'}
                                     fill={'#54ADFF'}
                                 />
-                            </PetButton>
-                        </PetDiv2>
-                    </PetDiv1>
-                    <PetUl>
-                        <PetLi1>
+                            </Button>
+                        </ContainerButton>
+                    </ContainerPetStatus>
+                    <ListPetInfo>
+                        <ItemPetInfo>
                             <Icon
                                 iconName={'icon-location'}
                                 width={'24px'}
@@ -35,9 +35,9 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <PetSpan>{pet.place}</PetSpan>
-                        </PetLi1>
-                        <PetLi1>
+                            <SpanPetText>{pet.place}</SpanPetText>
+                        </ItemPetInfo>
+                        <ItemPetInfo>
                             <Icon
                                 iconName={'icon-clock'}
                                 width={'24px'}
@@ -45,9 +45,9 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <PetSpan>{pet.birthday}</PetSpan>
-                        </PetLi1>
-                        <PetLi1>
+                            <SpanPetText>{pet.birthday}</SpanPetText>
+                        </ItemPetInfo>
+                        <ItemPetInfo>
                             <Icon
                                 iconName={'icon-female'}
                                 width={'24px'}
@@ -55,13 +55,13 @@ export const PetCard = (props) => {
                                 stroke={'#54ADFF'}
                                 fill={'#54ADFF'}
                             />
-                            <PetSpan>{pet.sex}</PetSpan>
-                        </PetLi1>
-                    </PetUl>
-                </PetDiv>
-                <PetDiv3>
-                    <PetP1>{pet.name}</PetP1>
-                    <PetButton1>
+                            <SpanPetText>{pet.sex}</SpanPetText>
+                        </ItemPetInfo>
+                    </ListPetInfo>
+                </ContainerPetInfo>
+                <ContainerButtonLearnMore>
+                    <TextPetName>{pet.name}</TextPetName>
+                    <ButtonLearnMore>
                         <span>Learn more</span>
                         <Icon
                             iconName={'icon-pawprint'}
@@ -70,11 +70,11 @@ export const PetCard = (props) => {
                             stroke={'#54ADFF'}
                             fill={'#54ADFF'}
                         />
-                    </PetButton1>
-                </PetDiv3>
-            </PetInfo>
+                    </ButtonLearnMore>
+                </ContainerButtonLearnMore>
+            </Item>
         ))}
-        </>
+        </List>
     )
 }
 

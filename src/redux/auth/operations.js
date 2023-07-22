@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = '';
+axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
 
 const authHeader = {
   set(token) {
