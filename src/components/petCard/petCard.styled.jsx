@@ -1,157 +1,265 @@
 import { styled } from "styled-components";
+import { selectDesktop, selectTablet } from "../../utils/selectMediaRequests";
 
-export const PetInfo = styled.li`
-    background-color: #fff;
-    border-radius: 0 0 40px 40px;
-    box-shadow: 3px 8px 14px rgba(136,198,253,.19);
-    padding-bottom: 24px;
-    width: 288px;
-    height: 456px;
-`;
-
-export const PetDiv = styled.div`
-    height: 288px;
-    margin-bottom: 20px;
-    position: relative;
-    width: 100%;
-`;
-
-export const PetImg = styled.img`
-    width: 288px;
-    height: 288px;
-    object-fit: cover;
-`;
-
-export const PetDiv1 = styled.div`
-    align-items: flex-start;
+export const List = styled.ul`
     display: flex;
+    align-items: center;
+    flex-direction: column;
+    list-style: none;
+    margin-bottom: 60px;
+    width: 100%;
+    row-gap: 24px;
+
+    @media ${selectTablet} {
+        flex-direction: row;
+        flex-wrap: wrap;
+        column-gap: 32px;
+    }
+
+    @media ${selectDesktop} {
+    }
+`;
+
+export const Item = styled.li`
+    display: list-item;
+    text-align: -webkit-match-parent;
+    padding-bottom: 24px;
+    width: 280px;
+    list-style: none;
+    border-radius: 0 0 40px 40px;
+    box-shadow: ${props => props.theme.boxShadow.main};
+    background-color: ${props => props.theme.colors.white};
+
+    @media ${selectTablet} {
+        width: 336px;
+    }
+
+    @media ${selectDesktop} {
+        width: 288px;
+    }
+`;
+
+export const ContainerPetInfo = styled.div`
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+    height: 288px;
+    width: 100%;
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
+    }
+`;
+
+export const Image = styled.img`
+    overflow-clip-margin: content-box;
+    overflow: clip;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
+    }
+`;
+
+export const ContainerPetStatus = styled.div`
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
     justify-content: space-between;
     left: 0;
-    position: absolute;
-    right: 12px;
     top: 12px;
+    right: 12px;
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
+    }
 `;
 
-export const PetP = styled.p`
-    align-items: center;
-    background-color: #cce4fb;
-    border-radius: 0 16px 16px 0;
-    color: #111;
+export const TextStatus = styled.p`
     display: flex;
-    font-size: 14px;
-    font-weight: 500;
+    align-items: center;
     justify-content: center;
-    line-height: 19px;
     padding: 11px 17px;
     width: 126px;
+    border-radius: 0 16px 16px 0;
+    font-size: ${props => props.theme.fontSizes.sm};
+    font-family: ${props => props.theme.fonts.main.medium};
+    line-height: 19px;
+    background-color: ${props => props.theme.colors.blueLight};
+    color: ${props => props.theme.colors.black};
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
+    }
 `;
 
-export const PetDiv2 = styled.div`
+export const ContainerButton = styled.div`
+    display: block;
 `;
 
-export const PetButton = styled.button`
-    align-items: center;
-    background-color: #c5dff6;
-    border: none;
-    border-radius: 50%;
-    color: transparent;
+export const Button = styled.button`
     display: flex;
-    height: 40px;
+    align-items: center;
     justify-content: center;
-    line-height: 0;
     margin: 0;
     padding: 0;
     width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    line-height: 0;
+    color: transparent;
+    background-color: ${props => props.theme.colors.blueLight};
+
     &:hover, focus {
-        // background-color: #3498db;
-        transition: color 250ms cubic-bezier(0.215,0.61,0.355,1);
+    }
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
     }
 `;
 
-export const PetUl = styled.ul`
-    bottom: 12px;
+export const ListPetInfo = styled.ul`
+    position: absolute;
     display: flex;
     justify-content: space-between;
+    padding: 0;
+    bottom: 12px;
+    right: 8px;
     left: 8px;
     list-style: none;
-    position: absolute;
-    right: 8px;
-`;
 
-export const PetLi1 = styled.li`
-    cursor: pointer;
-    align-items: center;
-    background-color: #cce4fb;
-    border-radius: 16px;
-    color: #111;
-    display: flex;
-    gap: 3px;
-    justify-content: center;
-    width: 84px;
-    &:hover, focus {
-        background-color: #3498db;
-        transition: background-color 250ms cubic-bezier(0.215,0.61,0.355,1);
-        color: #fff;
+    @media ${selectTablet} {
+        left: 24px;
+        right: 24px;
+    }
+
+    @media ${selectDesktop} {
+        left: 12px;
+        right: 12px;
     }
 `;
 
-export const PetSpan = styled.span`
-    font-size: 12px;
-    font-weight: 600;
+export const ItemPetInfo = styled.li`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    gap: 3px;
+    border-radius: 16px;
+    text-align: -webkit-match-parent;
+    background-color: ${props => props.theme.colors.blueLight};
+    color: ${props => props.theme.colors.black};
+    cursor: pointer;
+
+    &:hover, focus {
+        background-color: ${props => props.theme.colors.blue};
+        color: ${props => props.theme.colors.white};
+    }
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
+    }
+`;
+
+export const SpanPetText = styled.span`
+    font-size: ${props => props.theme.fontSizes.xs};
+    font-family: ${props => props.theme.fonts.main.semiBold};
     letter-spacing: .04em;
     line-height: 16px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    // &:hover, focus {
-    //     color: #fff;
-    // }
+    color: ${props => props.theme.colors.black};
+
+    &:hover, focus {
+        color: ${props => props.theme.colors.white};
+    }
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
+    }
 `;
 
-export const PetDiv3 = styled.div`
+export const ContainerButtonLearnMore = styled.div`
     display: flex;
     flex-direction: column;
-    height: 120px;
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
+    height: 120px;
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
+    }
 `;
 
-export const PetP1 = styled.p`
+export const TextPetName = styled.p`
+    width: 231px;
     word-wrap: break-word;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: ${props => props.theme.fontSizes.xl};
+    font-family: ${props => props.theme.fonts.main.bold};
     line-height: 33px;
     max-height: 66px;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 231px;
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
+    }
 `;
 
-export const PetButton1 = styled.button`
-    align-items: center;
-    background-color: transparent;
-    border: 2px solid #54adff;
-    border-radius: 40px;
-    color: #54adff;
+export const ButtonLearnMore = styled.button`
+    position: relative;
     display: flex;
-    font-size: 16px;
-    font-weight: 600;
-    gap: 12px;
-    height: 38px;
+    align-items: center;
     justify-content: center;
-    letter-spacing: .04em;
-    line-height: 22px;
+    gap: 12px;
     margin: 0 auto;
     padding: 6px 28px;
-    position: relative;
     width: 248px;
+    height: 38px;
+    border: 2px solid #54adff;
+    border-radius: 40px;
+    color: ${props => props.theme.colors.blue};
+    background-color: transparent;
+    font-size: ${props => props.theme.fontSizes.md};
+    font-family: ${props => props.theme.fonts.main.semiBold};
+    letter-spacing: .04em;
+    line-height: 22px;
+
     &:hover, focus {
-        background-color: #3498db;
-        transition: background-color 250ms cubic-bezier(0.215,0.61,0.355,1);
-        color: #fff;
+        background-color: ${props => props.theme.colors.blue};
+        color: ${props => props.theme.colors.white};
+    }
+
+    @media ${selectTablet} {
+    }
+
+    @media ${selectDesktop} {
     }
 `;
 
 export const PetSpan1 = styled.span`
+    z-index: 5;
 `;
