@@ -18,6 +18,7 @@ export const theme = {
     },
   },
   colors: {
+    bgdColor: '#FEF9F9',
     yellow: '#FFC107',
     white: '#FDF7F2',
     black: '#111',
