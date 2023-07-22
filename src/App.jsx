@@ -4,8 +4,8 @@ import SharedLayout from './components/SharedLayout/SharedLayout';
 function App() {
   return (
     <>
-      <GlobalStyle />
       <SharedLayout />
+      <GlobalStyle />
     </>
   );
 }
