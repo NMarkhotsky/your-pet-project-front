@@ -1,10 +1,10 @@
+import { FormTitle, StyledContainer } from './AuthFormContainer.styled';
 import PropTypes from 'prop-types';
-import { StyledContainer } from './AuthFormContainer.styled';
 
 function AuthFormContainer({ title, children }) {
   return (
     <StyledContainer>
-      <h1>{title}</h1>
+      <FormTitle>{title}</FormTitle>
       {children}
     </StyledContainer>
   );

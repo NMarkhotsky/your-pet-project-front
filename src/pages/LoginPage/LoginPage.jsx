@@ -1,5 +1,12 @@
+import AuthFormContainer from '../../components/Auth/common/AuthFormContainer/AuthFormContainer';
+import { LoginForm } from '../../components/Auth/LoginForm/LoginForm';
+
 function LoginPage() {
-  return <h1>LoginPage</h1>;
+  return (
+    <AuthFormContainer title="Login">
+      <LoginForm />
+    </AuthFormContainer>
+  );
 }
 
 export default LoginPage;
