@@ -35,7 +35,7 @@ export const FormBox = styled(Form)`
   border-radius: 40px;
   position: relative;
   padding: 20px 8px 16px;
-  margin-bottom: 46px; 
+  margin-bottom: 46px;
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     display: flex;
@@ -48,6 +48,7 @@ export const FormBox = styled(Form)`
 
   @media ${selectDesktop} {
     box-shadow: ${props => props.theme.boxShadow.main};
+    width: 395px;
   }
 `;
 
