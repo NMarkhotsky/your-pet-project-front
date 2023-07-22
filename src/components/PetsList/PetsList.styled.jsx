@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { selectTablet } from '../../utils/selectMediaRequests';
 
 export const ContainerList = styled.div``;
 
@@ -10,9 +11,13 @@ export const TopPart = styled.div`
 
 export const ListTitle = styled.h2`
   font-family: ${props => props.theme.fonts.main.medium};
-  font-size: ${props => props.theme.fontSizes.xxl};
+  font-size: ${props => props.theme.fontSizes.lg};
   color: ${props => props.theme.colors.black};
   margin-bottom: 24px;
+
+  @media ${selectTablet} {
+    font-size: ${props => props.theme.fontSizes.xxl};
+  }
 `;
 
 export const PetsCardList = styled.ul``;

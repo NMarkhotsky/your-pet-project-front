@@ -8,7 +8,9 @@
       "place": "Kyiv",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Luna",
@@ -18,7 +20,9 @@
       "place": "Lviv",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Max",
@@ -28,7 +32,9 @@
       "place": "Kharkiv",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Coco",
@@ -38,7 +44,9 @@
       "place": "Dnipro",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Rocky",
@@ -48,7 +56,9 @@
       "place": "Odessa",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Molly",
@@ -58,7 +68,9 @@
       "place": "Zaporizhzhia",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Leo",
@@ -68,7 +80,9 @@
       "place": "Vinnytsia",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Bella",
@@ -78,7 +92,9 @@
       "place": "Kherson",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Oscar",
@@ -88,7 +104,9 @@
       "place": "Poltava",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Lucy",
@@ -98,7 +116,9 @@
       "place": "Chernihiv",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Charlie",
@@ -108,7 +128,9 @@
       "place": "Sumy",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Daisy",
@@ -118,7 +140,9 @@
       "place": "Rivne",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Milo",
@@ -128,7 +152,9 @@
       "place": "Ternopil",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Sophie",
@@ -138,7 +164,9 @@
       "place": "Cherkasy",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Teddy",
@@ -148,7 +176,9 @@
       "place": "Ivano-Frankivsk",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Zoe",
@@ -158,7 +188,9 @@
       "place": "Khmelnytskyi",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Lucky",
@@ -168,7 +200,9 @@
       "place": "Zhytomyr",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Mia",
@@ -178,7 +212,9 @@
       "place": "Kropyvnytskyi",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Bruno",
@@ -188,7 +224,9 @@
       "place": "Mariupol",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Nala",
@@ -198,7 +236,9 @@
       "place": "Mykolaiv",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Harley",
@@ -208,7 +248,9 @@
       "place": "Brovary",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Cleo",
@@ -218,7 +260,9 @@
       "place": "Kremenchuk",
       "sex": "Female",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Toby",
@@ -228,7 +272,9 @@
       "place": "Chernivtsi",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "sell"
+      "status": "sell",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     },
     {
       "name": "Lola",
@@ -238,7 +284,9 @@
       "place": "Kyiv",
       "sex": "Male",
       "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Patron_with_Golden_Paw_award.jpg",
-      "status": "in good hands"
+      "status": "in good hands",
+      "email": "example@gmail.com",
+      "phone": "+380501234567"
     }
 ]
 }
