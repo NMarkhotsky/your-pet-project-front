@@ -45,7 +45,7 @@ export const NavigationBox = styled.nav`
     align-items: center;
     background-color: ${props => props.theme.colors.white};
     position: fixed;
-    transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
+    transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
     right: 0;
     gap: 60px;
