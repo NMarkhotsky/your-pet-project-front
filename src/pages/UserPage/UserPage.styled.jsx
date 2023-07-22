@@ -3,7 +3,7 @@ import { Form, Field } from 'formik';
 
 export const Container = styled.div`
   background-color: #fef9f9;
-  padding: 100px;
+  /* padding: 16px 62px; */
 `;
 
 export const ImageBox = styled.div`
@@ -45,6 +45,7 @@ export const Label = styled.label`
 
 export const Input = styled(Field)`
   /* float: right; */
+  min-width: 255px;
   outline: none;
   border-radius: 20px;
   border: 1px solid ${props => props.theme.colors.blue};

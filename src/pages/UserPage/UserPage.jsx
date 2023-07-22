@@ -30,18 +30,15 @@ const schema = Yup.object().shape({
       'Image too large, max 3mb',
       value => value.size <= FILE_SIZE
     ),
-  name: Yup.string(),
+  name: Yup.string().required(),
   email: Yup.string()
     .required("It's Required field")
     .matches(emailRegExp, 'Invalid email address'),
   birthday: Yup.date()
     .required('Enter a date of birth')
     .min(new Date(1900, 0, 1))
-    // .transform((value) => {
-    //   return value ? moment(value).toDate() : value;
-    // })
     .max(new Date(), "You can't be born in the future!"),
-  phone: Yup.string().matches(phoneRegExp, 'Invalid phone number'),
+  phone: Yup.string().required().matches(phoneRegExp, 'Invalid phone number'),
   city: Yup.string().required("It's Required field"),
 });
 
@@ -64,7 +61,6 @@ function UserPage() {
     console.log(actions);
   };
 
-  // const { name, email, birthday, phone, city } = initialValues;
 
   return (
     <Container>
@@ -90,8 +86,6 @@ function UserPage() {
           </EditIcon>
           <ImageInputBox>
             <ImageBox></ImageBox>
-
-            {/* <InputBox> */}
 
             <label
               htmlFor="avatar"
@@ -145,7 +139,7 @@ function UserPage() {
               component="div"
               style={{ color: 'red', fontSize: 14 }}
             />
-            {/* </InputBox> */}
+  
           </ImageInputBox>
           <InputBox>
             <Label htmlFor="name">Name:</Label>
@@ -163,11 +157,7 @@ function UserPage() {
           </InputBox>
           <InputBox>
             <Label htmlFor="birthday">Birthday:</Label>
-            <Input
-              // type="date"
-              id="birthday"
-              name="birthday"
-            />
+            <Input type="date" id="birthday" name="birthday" />
             <ErrorMessage
               name="birthday"
               component="div"
