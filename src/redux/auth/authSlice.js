@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { login, logout, register } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, password: null },
+  user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isNewUser: false,
@@ -10,7 +10,7 @@ const initialState = {
   error: null,
 };
 
-const handlePending = (state) => {
+const handlePending = state => {
   state.isRefreshing = true;
   state.error = null;
 };
@@ -29,7 +29,7 @@ const authSlice = createSlice({
       },
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.isRefreshing = false;
@@ -45,19 +45,17 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.user = action.payload.user;
         state.token = action.payload.token;
-        // state.isNewUser = false;
       })
-      .addCase(logout.fulfilled, (state) => {
+      .addCase(logout.fulfilled, state => {
         state.isRefreshing = false;
         state.error = null;
         state.isLoggedIn = false;
         state.user = { name: null, email: null, password: null };
         state.token = null;
-        // state.isNewUser = false;
       })
       .addMatcher(
         isAnyOf(register.pending, login.pending, logout.pending),
-        (state) => handlePending(state)
+        state => handlePending(state)
       )
       .addMatcher(
         isAnyOf(register.rejected, login.rejected, logout.rejected),
@@ -66,4 +64,5 @@ const authSlice = createSlice({
   },
 });
 
+export const { setIsNewUserFalse } = authSlice.actions;
 export const authReducer = authSlice.reducer;
