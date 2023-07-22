@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { ContainerItem, Image, DeleteIcon, Text } from './CardPetItem.styled';
+import { ContainerItem, Image, DeleteIcon, Text } from './PetsItem.styled';
 import { Icon } from '../Icon/Icon';
 
-export const CardPetItem = ({ item }) => {
+export const PetsItem = ({ item }) => {
   return (
     <ContainerItem>
       <DeleteIcon>
@@ -32,7 +32,7 @@ export const CardPetItem = ({ item }) => {
   );
 };
 
-CardPetItem.propTypes = {
+PetsItem.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string.isRequired,
     birthday: PropTypes.string.isRequired,

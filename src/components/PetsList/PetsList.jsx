@@ -5,7 +5,7 @@ import {
   PetsCardList,
   Button,
 } from './PetsList.styled';
-import { CardPetItem } from '../CardPetItem/CardPetItem';
+import { PetsItem } from '../PetsItem/PetsItem';
 import pets from '../../temp/pets.json';
 import { Icon } from '../Icon/Icon';
 
@@ -26,11 +26,17 @@ export const PetsList = () => {
           />
         </Button>
       </TopPart>
-      <PetsCardList>
-        {pets.pets.map(card => (
-          <CardPetItem key={card.name} item={card} />
-        ))}
-      </PetsCardList>
+      {pets ? (
+        <PetsCardList>
+          {pets.pets.map(card => (
+            <PetsItem key={card.name} item={card} />
+          ))}
+        </PetsCardList>
+      ) : (
+        <div>
+          <h1>You have not pets in your collection. Please, add your pet(s)</h1>
+        </div>
+      )}
     </ContainerList>
   );
 };
