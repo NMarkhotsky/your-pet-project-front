@@ -30,14 +30,15 @@ export const LoginForm = () => {
     onSubmit: values => {
       formik.validateForm().then(errors => {
         if (Object.keys(errors).length === 0) {
-          dispatch(login(JSON.stringify(values, null, 2)));
-          if (error) {
-            toast.error(error, {
-              position: toast.POSITION.TOP_CENTER,
-            });
-            return;
-          }
-          navigate('/user');
+          dispatch(login(JSON.stringify(values, null, 2))).then(() => {
+            if (error) {
+              toast.error(error, {
+                position: toast.POSITION.TOP_CENTER,
+              });
+            } else {
+              navigate('/user');
+            }
+          });
         } else {
           toast.error('Please enter valid values in all the fields', {
             position: toast.POSITION.TOP_CENTER,

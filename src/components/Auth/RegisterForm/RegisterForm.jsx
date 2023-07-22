@@ -34,14 +34,15 @@ export const RegisterForm = () => {
       // console.log(JSON.stringify(newUser, null, 2));
       formik.validateForm().then(errors => {
         if (Object.keys(errors).length === 0) {
-          dispatch(register(JSON.stringify(newUser, null, 2)));
-          if (error) {
-            toast.error(error, {
-              position: toast.POSITION.TOP_CENTER,
-            });
-            return;
-          }
-          navigate('/user');
+          dispatch(register(JSON.stringify(newUser, null, 2))).then(() => {
+            if (error) {
+              toast.error(error, {
+                position: toast.POSITION.TOP_CENTER,
+              });
+            } else {
+              navigate('/user');
+            }
+          });
         } else {
           toast.error('Please enter valid values in all the fields', {
             position: toast.POSITION.TOP_CENTER,
