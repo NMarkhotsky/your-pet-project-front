@@ -1,12 +1,12 @@
 import { Container } from '../UserPage/UserPage.styled';
-import { PetsList } from '../../components/PetsList/PetsList';
-import { UserForm } from '../../components/UserForm/UserForm';
+import { UserData } from '../../components/UserData/UserData';
+import { PetsData } from '../../components/PetsData/PetsData';
 
 function UserPage() {
   return (
     <Container>
-     <UserForm/>
-      <PetsList/>
+      <UserData />
+      <PetsData />
     </Container>
   );
 }
