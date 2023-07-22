@@ -52,6 +52,7 @@ export const NavigationBox = styled.nav`
     width: 100%;
     height: 100%;
     transition: transform 0.3s ease-in-out;
+    z-index: 10;
   }
 
   @media ${selectDesktop} {
