@@ -25,22 +25,24 @@ const FILE_SIZE = 3000000;
 
 const schema = Yup.object().shape({
   avatar: Yup.mixed()
-    .required('Please, add your avatar')
+    .required('Please, add your photo')
     .test(
       'fileSize',
       'Image too large, max 3mb',
       value => value.size <= FILE_SIZE
     ),
-  name: Yup.string().required(),
+  name: Yup.string().required('Name  is required field'),
   email: Yup.string()
-    .required("It's Required field")
+    .required('Email  is required field')
     .matches(emailRegExp, 'Invalid email address'),
   birthday: Yup.date()
     .required('Enter a date of birth')
     .min(new Date(1900, 0, 1))
     .max(new Date(), "You can't be born in the future!"),
-  phone: Yup.string().required().matches(phoneRegExp, 'Invalid phone number'),
-  city: Yup.string().required("It's Required field"),
+  phone: Yup.string()
+    .required('Phone is required field')
+    .matches(phoneRegExp, 'Invalid phone number'),
+  city: Yup.string().required('City is required field'),
 });
 
 export const UserForm = () => {
@@ -138,61 +140,66 @@ export const UserForm = () => {
             <ErrorMessage
               name="avatar"
               component="div"
-              style={{ color: 'red', fontSize: 14 }}
+              style={{ color: 'red', fontSize: 12 }}
             />
           </ImageInputBox>
-          <InputBox>
-            <Label htmlFor="name">Name:</Label>
-            <Input id="name" name="name" placeholder="Anna"/>
-            <ErrorMessage name="name" component="div" />
-          </InputBox>
-          <InputBox>
-            <Label htmlFor="email">Email:</Label>
-            <Input id="email" name="email" placeholder="anna00@gmail.com" />
-            <ErrorMessage
-              name="email"
-              component="div"
-              style={{ color: 'red', fontSize: 12 }}
-            />
-          </InputBox>
-          <InputBox>
-            <Label htmlFor="birthday">Birthday:</Label>
-            <Input type="date" id="birthday" name="birthday" />
-            <ErrorMessage
-              name="birthday"
-              component="div"
-              style={{ color: 'red', fontSize: 12 }}
-            />
-          </InputBox>
-          <InputBox>
-            <Label htmlFor="phone">Phone:</Label>
-            <Input id="phone" name="phone" placeholder="+38000000000" />
-            <ErrorMessage
-              name="phone"
-              component="div"
-              style={{ color: 'red', fontSize: 12 }}
-            />
-          </InputBox>
-          <InputBox>
-            <Label htmlFor="city">City:</Label>
-            <Input id="city" name="city" placeholder="Kyiv" />
-            <ErrorMessage
-              name="city"
-              component="div"
-              style={{ color: 'red', fontSize: 12 }}
-            />
-          </InputBox>
-          <ButtonForm type="submit">Save</ButtonForm>
-
-          <LogoutBox>
-            <Icon
-              iconName={'icon-logout'}
-              width={'24px'}
-              height={'24px'}
-              stroke={'#54ADFF'}
-            />
-            <p>Log Out</p>
-          </LogoutBox>
+          <div>
+            <InputBox>
+              <Label htmlFor="name">Name:</Label>
+              <Input id="name" name="name" placeholder="Anna" />
+              <ErrorMessage
+                name="name"
+                component="div"
+                style={{ color: 'red', fontSize: 12 }}
+              />
+            </InputBox>
+            <InputBox>
+              <Label htmlFor="email">Email:</Label>
+              <Input id="email" name="email" placeholder="anna00@gmail.com" />
+              <ErrorMessage
+                name="email"
+                component="div"
+                style={{ color: 'red', fontSize: 12 }}
+              />
+            </InputBox>
+            <InputBox>
+              <Label htmlFor="birthday">Birthday:</Label>
+              <Input type="date" id="birthday" name="birthday" />
+              <ErrorMessage
+                name="birthday"
+                component="div"
+                style={{ color: 'red', fontSize: 12 }}
+              />
+            </InputBox>
+            <InputBox>
+              <Label htmlFor="phone">Phone:</Label>
+              <Input id="phone" name="phone" placeholder="+38000000000" />
+              <ErrorMessage
+                name="phone"
+                component="div"
+                style={{ color: 'red', fontSize: 12 }}
+              />
+            </InputBox>
+            <InputBox>
+              <Label htmlFor="city">City:</Label>
+              <Input id="city" name="city" placeholder="Kyiv" />
+              <ErrorMessage
+                name="city"
+                component="div"
+                style={{ color: 'red', fontSize: 12 }}
+              />
+            </InputBox>
+            <ButtonForm type="submit">Save</ButtonForm>
+            <LogoutBox>
+              <Icon
+                iconName={'icon-logout'}
+                width={'24px'}
+                height={'24px'}
+                stroke={'#54ADFF'}
+              />
+              <p>Log Out</p>
+            </LogoutBox>
+          </div>
         </FormBox>
       </Formik>
     </ContainerForm>
