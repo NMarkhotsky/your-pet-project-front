@@ -1,11 +1,11 @@
 import { Container } from '../UserPage/UserPage.styled';
-import { UserPageForm } from '../../components/UserPageForm/UserPageForm';
 import { PetsList } from '../../components/PetsList/PetsList';
+import { UserForm } from '../../components/UserForm/UserForm';
 
 function UserPage() {
   return (
     <Container>
-      <UserPageForm />
+     <UserForm/>
       <PetsList/>
     </Container>
   );

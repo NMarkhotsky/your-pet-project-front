@@ -14,7 +14,7 @@ import {
   ImageInputBox,
   LogoutBox,
   EditIcon,
-} from './UserPageForm.styled';
+} from './UserForm.styled';
 
 const emailRegExp =
   /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
@@ -43,7 +43,7 @@ const schema = Yup.object().shape({
   city: Yup.string().required("It's Required field"),
 });
 
-export const UserPageForm = () => {
+export const UserForm = () => {
   const [avatar, setAvatar] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -143,7 +143,7 @@ export const UserPageForm = () => {
           </ImageInputBox>
           <InputBox>
             <Label htmlFor="name">Name:</Label>
-            <Input id="name" name="name" placeholder="Anna" />
+            <Input id="name" name="name" placeholder="Anna"/>
             <ErrorMessage name="name" component="div" />
           </InputBox>
           <InputBox>
