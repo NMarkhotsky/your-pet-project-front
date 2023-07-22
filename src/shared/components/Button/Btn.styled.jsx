@@ -5,7 +5,7 @@ export const BtnStyled = styled.button`
   border: 2px solid ${props => props.theme.colors.blue};
   display: flex;
   gap: 12px;
-  // width: 248px;
+  width: 248px;
   height: 40px;
   padding: 8px 28px 8px 28px;
   margin: auto;
@@ -22,7 +22,6 @@ export const BtnStyled = styled.button`
     background-color: transparent;
     color: ${props => props.theme.colors.white};
     background-color: ${props => props.theme.colors.blue};
-    // border: 2px solid ${props => props.theme.colors.blue};
     fill: ${props => props.theme.colors.blue};
   }
   &:hover svg use {
