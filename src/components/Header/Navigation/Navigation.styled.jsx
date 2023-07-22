@@ -1,8 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import {
-  selectDesktop,
-} from '../../../utils/selectMediaRequests';
+import { selectDesktop } from '../../../utils/selectMediaRequests';
 
 export const StyledLink = styled(NavLink)`
   @media (max-width: 767px) {
@@ -59,5 +57,6 @@ export const NavigationBox = styled.nav`
   @media ${selectDesktop} {
     display: flex;
     gap: 40px;
+    margin-left: 159px;
   }
 `;

@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
+import { Icon as IconLogo } from '../Icon/Icon';
 
 export const HeaderStyle = styled.header`
-  background-color: '#FEF9F9';
+  background-color: ${({ theme }) => theme.colors.bgdColor};
   padding-top: 24px;
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
 
   @media ${selectTablet} {
     padding-top: 32px;
+    justify-content: start;
   }
 
   @media ${selectDesktop} {
@@ -18,20 +20,21 @@ export const HeaderStyle = styled.header`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled(IconLogo)`
   display: block;
-  width: 116px;
-
-  @media ${selectTablet} {
-    width: 162px;
-  }
+  width: 100%;
+  height: 100%;
 `;
 
 export const Logo = styled(Link)`
-  @media (max-width: 767px) {
-    margin-right: 120px;
-  }
   display: block;
   z-index: 11;
-  margin-right: 159px;
+
+  width: 116px;
+  height: 20px;
+
+  @media ${selectTablet} {
+    width: 162px;
+    height: 28px;
+  }
 `;
