@@ -19,7 +19,7 @@ export const LinkLogStyled = styled(Link)`
   width: 165px;
   gap: 8px;
   align-items: center;
-  color: #fef9f9;
+  color: ${props => props.theme.colors.bgdColor};
   font-family: ${props => props.theme.fonts.main.bold};
   letter-spacing: 0.64px;
   font-size: ${props => props.theme.fontSizes.md};
@@ -59,6 +59,6 @@ export const LinkRegStyled = styled(Link)`
 
   &:hover {
     background: ${props => props.theme.colors.yellow};
-    color: #fef9f9;
+    color: ${props => props.theme.colors.bgdColor};
   }
 `;
