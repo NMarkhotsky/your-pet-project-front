@@ -11,8 +11,10 @@ export const StyledBurger = styled.div`
 `;
 
 export const IconBurgerBox = styled.div`
+
   @media (max-width: 1279px) {
     display: block;
+    margin-left: 24px;
   }
 
   @media ${selectDesktop} {
