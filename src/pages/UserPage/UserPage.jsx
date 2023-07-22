@@ -1,6 +1,6 @@
-import { Field, Formik, ErrorMessage } from "formik";
-import { useState } from "react";
-import * as Yup from "yup";
+import { Field, Formik, ErrorMessage } from 'formik';
+import { useState } from 'react';
+import * as Yup from 'yup';
 import {
   Container,
   InputBox,
@@ -10,39 +10,48 @@ import {
   Input,
   ButtonForm,
   ImageInputBox,
-} from "../UserPage/UserPage.styled";
+  LogoutBox,
+  EditIcon,
+} from '../UserPage/UserPage.styled';
+import { Icon } from '../../components/Icon/Icon';
 
 const emailRegExp =
   /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
 
 const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
 
+const FILE_SIZE = 3000000;
+
 const schema = Yup.object().shape({
   avatar: Yup.mixed()
-    .required("Please, add your avatar")
-    .test("fileSize", "File is too large", (value) => value.size <= 2000000),
+    .required('Please, add your avatar')
+    .test(
+      'fileSize',
+      'Image too large, max 3mb',
+      value => value.size <= FILE_SIZE
+    ),
   name: Yup.string(),
   email: Yup.string()
-    .required("Required")
-    .matches(emailRegExp, "Invalid email address"),
+    .required("It's Required field")
+    .matches(emailRegExp, 'Invalid email address'),
   birthday: Yup.date()
-    .required("Enter a date of birth")
+    .required('Enter a date of birth')
     .min(new Date(1900, 0, 1))
     // .transform((value) => {
     //   return value ? moment(value).toDate() : value;
     // })
     .max(new Date(), "You can't be born in the future!"),
-  phone: Yup.string().matches(phoneRegExp, "Invalid phone number"),
-  city: Yup.string().email("Invalid email address").required("Required"),
+  phone: Yup.string().matches(phoneRegExp, 'Invalid phone number'),
+  city: Yup.string().required("It's Required field"),
 });
 
 function UserPage() {
-  const [avatar, setAvatar] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [phone, setPhone] = useState("");
-  const [city, setCity] = useState("");
+  const [avatar, setAvatar] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthday, setBirthday] = useState('');
+  const [phone, setPhone] = useState('');
+  const [city, setCity] = useState('');
 
   const handleSubmit = (values, actions) => {
     setAvatar(values.avatar);
@@ -65,21 +74,76 @@ function UserPage() {
         validationSchema={schema}
       >
         <FormBox>
+          <EditIcon>
+            <Icon
+              iconName={'icon-edit'}
+              width={'24px'}
+              height={'24px'}
+              fill={'#54ADFF'}
+            />
+            <Icon
+              iconName={'icon-cross'}
+              width={'24px'}
+              height={'24px'}
+              stroke={'#54ADFF'}
+            />
+          </EditIcon>
           <ImageInputBox>
             <ImageBox></ImageBox>
 
             {/* <InputBox> */}
-            <label htmlFor="avatar">Edit photo</label>
+
+            <label
+              htmlFor="avatar"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+              }}
+            >
+              <Icon
+                iconName={'icon-check'}
+                width={'24px'}
+                height={'24px'}
+                stroke={'#54ADFF'}
+              />
+              Confirm
+              <Icon
+                iconName={'icon-cross'}
+                width={'24px'}
+                height={'24px'}
+                stroke={'#F43F5E'}
+              />
+            </label>
+            <label
+              htmlFor="avatar"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 8,
+              }}
+            >
+              <Icon
+                iconName={'icon-camera'}
+                width={'24px'}
+                height={'24px'}
+                stroke={'#54ADFF'}
+              />
+              Edit photo
+            </label>
             <Field
-              style={{ display: "none" }}
+              style={{ display: 'none' }}
               type="file"
               id="avatar"
               name="avatar"
+              accept="image/*"
             />
             <ErrorMessage
               name="avatar"
               component="div"
-              style={{ color: "red", fontSize: 14 }}
+              style={{ color: 'red', fontSize: 14 }}
             />
             {/* </InputBox> */}
           </ImageInputBox>
@@ -94,7 +158,7 @@ function UserPage() {
             <ErrorMessage
               name="email"
               component="div"
-              style={{ color: "red", fontSize: 12 }}
+              style={{ color: 'red', fontSize: 12 }}
             />
           </InputBox>
           <InputBox>
@@ -107,7 +171,7 @@ function UserPage() {
             <ErrorMessage
               name="birthday"
               component="div"
-              style={{ color: "red", fontSize: 12 }}
+              style={{ color: 'red', fontSize: 12 }}
             />
           </InputBox>
           <InputBox>
@@ -116,7 +180,7 @@ function UserPage() {
             <ErrorMessage
               name="phone"
               component="div"
-              style={{ color: "red", fontSize: 12 }}
+              style={{ color: 'red', fontSize: 12 }}
             />
           </InputBox>
           <InputBox>
@@ -125,12 +189,20 @@ function UserPage() {
             <ErrorMessage
               name="city"
               component="div"
-              style={{ color: "red", fontSize: 12 }}
+              style={{ color: 'red', fontSize: 12 }}
             />
           </InputBox>
           <ButtonForm type="submit">Save</ButtonForm>
 
-          <p>Log Out</p>
+          <LogoutBox>
+            <Icon
+              iconName={'icon-logout'}
+              width={'24px'}
+              height={'24px'}
+              stroke={'#54ADFF'}
+            />
+            <p>Log Out</p>
+          </LogoutBox>
         </FormBox>
       </Formik>
     </Container>

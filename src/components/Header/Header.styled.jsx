@@ -28,6 +28,9 @@ export const Image = styled.img`
 `;
 
 export const Logo = styled(Link)`
+  @media (max-width: 767px) {
+    margin-right: 120px;
+  }
   display: block;
   z-index: 11;
   margin-right: 159px;
