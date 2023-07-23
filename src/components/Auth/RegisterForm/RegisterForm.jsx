@@ -18,7 +18,7 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { error } = useAuth();
+  const { error, isRefreshing } = useAuth();
 
   const formik = useFormik({
     initialValues: {
@@ -39,12 +39,8 @@ export const RegisterForm = () => {
       }
       if (Object.keys(errors).length === 0) {
         const newUser = { name, email, password };
-        await dispatch(register(newUser));
-        if (error) {
-          toast.error(error, {
-            position: toast.POSITION.TOP_CENTER,
-          });
-        } else {
+        dispatch(register(newUser));
+        if (!error && isRefreshing === false) {
           navigate('/user');
         }
       }

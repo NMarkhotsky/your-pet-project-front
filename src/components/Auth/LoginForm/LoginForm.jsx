@@ -18,7 +18,7 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { error } = useAuth();
+  const { error, isRefreshing } = useAuth();
 
   const formik = useFormik({
     initialValues: {
@@ -36,12 +36,8 @@ export const LoginForm = () => {
         });
       }
       if (Object.keys(errors).length === 0) {
-        await dispatch(login(values));
-        if (error) {
-          toast.error(error, {
-            position: toast.POSITION.TOP_CENTER,
-          });
-        } else {
+        dispatch(login(values));
+        if (!error && isRefreshing === false) {
           navigate('/user');
         }
       }
