@@ -1,14 +1,17 @@
-import { ContainerMainPage, TextMainPage, ImageMainPage } from "./MainPage.styled";
+import {
+  ContainerMainPage,
+  TextMainPage,
+  ImageMainPage,
+} from './MainPage.styled';
 
-import mobile1x from "../../assets/images/imageMainPage/mobile/mp-mobile1x.png";
-import mobile2x from "../../assets/images/imageMainPage/mobile/mp-mobile2x.png";
-import tablet1x from "../../assets/images/imageMainPage/tablet/mp-tablet1x.png";
-import tablet2x from "../../assets/images/imageMainPage/tablet/mp-tablet2x.png";
-import desktop1x from "../../assets/images/imageMainPage/desktop/mp-desktop1x.png";
-import desktop2x from "../../assets/images/imageMainPage/desktop/mp-desktop2x.png";
+import mobile1x from '../../assets/images/imageMainPage/mobile/mp-mobile1x.png';
+import mobile2x from '../../assets/images/imageMainPage/mobile/mp-mobile2x.png';
+import tablet1x from '../../assets/images/imageMainPage/tablet/mp-tablet1x.png';
+import tablet2x from '../../assets/images/imageMainPage/tablet/mp-tablet2x.png';
+import desktop1x from '../../assets/images/imageMainPage/desktop/mp-desktop1x.png';
+import desktop2x from '../../assets/images/imageMainPage/desktop/mp-desktop2x.png';
 
 function MainPage() {
-
   return (
     <>
       <ContainerMainPage>
@@ -32,10 +35,7 @@ function MainPage() {
             type="image/png"
             alt="desktop image"
           />
-          <ImageMainPage
-            srcSet={desktop1x}
-            alt="puppy"
-          />
+          <ImageMainPage srcSet={desktop1x} alt="puppy" />
         </picture>
       </ContainerMainPage>
     </>
