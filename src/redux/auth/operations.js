@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
 
@@ -21,6 +22,9 @@ export const register = createAsyncThunk(
       authHeader.set(data.token);
       return data;
     } catch (e) {
+      toast.error(e.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -35,6 +39,9 @@ export const login = createAsyncThunk(
       authHeader.set(data.token);
       return data;
     } catch (e) {
+      toast.error(e.message, {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -47,6 +54,9 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     authHeader.unset();
     return data;
   } catch (e) {
+    toast.error(e.message, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
     return thunkAPI.rejectWithValue(e.message);
   }
 });
