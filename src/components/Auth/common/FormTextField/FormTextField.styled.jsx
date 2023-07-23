@@ -1,16 +1,22 @@
 import styled from 'styled-components';
+import { selectTablet } from '../../../../utils/selectMediaRequests';
 
-export const FormLabel = styled.label`
+export const FormInputContainer = styled.div`
+  margin-bottom: 14px;
   position: relative;
+
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+
+  @media ${selectTablet} {
+    margin-bottom: 32px;
+  }
 `;
 
 export const FormInput = styled.input`
-  margin-bottom: 32px;
   padding: 12px 16px;
   width: 100%;
-  position: relative;
-  align-items: center;
-  gap: 10px;
   border-radius: 40px;
   border-color: ${props =>
     props.$invalid
@@ -21,20 +27,26 @@ export const FormInput = styled.input`
   border-width: 1px;
   border-style: solid;
   outline: none;
-  color: ${props => props.theme.colors.gray};
+  color: ${props => props.theme.colors.grey};
   font-size: ${props => props.theme.fontSizes.md};
   line-height: 150%;
   letter-spacing: 0.64px;
 
-  &:last-of-type {
-    margin-bottom: 40px;
+  &::placeholder {
+    color: ${props => props.theme.colors.grey};
   }
 `;
 
 const FormMessage = styled.p`
   position: absolute;
-  bottom: -34px;
+  bottom: -9px;
   left: 16px;
+  font-size: 8px;
+
+  @media ${selectTablet} {
+    font-size: ${props => props.theme.fontSizes.xs};
+    bottom: -18px;
+  }
 `;
 
 export const ErrorMessage = styled(FormMessage)`
