@@ -2,32 +2,33 @@ import styled from 'styled-components';
 
 export const BtnStyled = styled.button`
   position: relative;
-  border: 2px solid ${props => props.theme.colors.blue};
   display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
   gap: 12px;
   width: 248px;
   height: 40px;
   padding: 8px 28px 8px 28px;
-  margin: auto;
-  align-items: center;
-  justify-content: center;
-  color: ${props => props.theme.colors.blue};
-  font-family: ${props => props.theme.fonts.main.bold};
   letter-spacing: 0.64px;
-  font-size: ${props => props.theme.fontSizes.md};
-  background-color: ${props => props.theme.colors.white};
   border-radius: 40px;
 
-  &:hover {
-    background-color: transparent;
+  color: ${props => props.theme.colors.blue};
+  font-family: ${props => props.theme.fonts.main.bold};
+  border: 2px solid ${props => props.theme.colors.blue};
+  font-size: ${props => props.theme.fontSizes.md};
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
     color: ${props => props.theme.colors.white};
-    background-color: ${props => props.theme.colors.blue};
-    fill: ${props => props.theme.colors.blue};
+    border: 2px solid transparent;
+    background: ${props => props.theme.colors.blueGradient};
+    transition: all ${props => props.theme.transitionHover};
   }
+
   &:hover svg use {
     fill: ${props => props.theme.colors.white};
+    transition: ${props => props.theme.transitionHover};
   }
-`;
-export const Svg = styled.svg`
-  fill: ${props => props.theme.colors.bold};
 `;

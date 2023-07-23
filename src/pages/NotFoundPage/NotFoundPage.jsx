@@ -1,16 +1,63 @@
 import { Btn } from '../../shared/components/Button/Btn';
 import { Icon } from '../../components/Icon/Icon';
+import {
+  Title,
+  TitleBr,
+  Digit,
+  DigitRight,
+  DigitLeft,
+  Catbcg,
+  CatImg,
+} from './NotFoundPage.styled';
+
+import catdesktop1x from '../../assets/images/NotFoundImages/catdesk@1x.png';
+import catdesktop2x from '../../assets/images/NotFoundImages/catdesk@2x.png';
+import cattablet1x from '../../assets/images/NotFoundImages/cattabl@1x.png';
+import cattablet2x from '../../assets/images/NotFoundImages/cattabl@2x.png';
+import catmobile1x from '../../assets/images/NotFoundImages/catmob@1x.png';
+import catmobile2x from '../../assets/images/NotFoundImages/catmob@3x.png';
+
 const NotFoundPage = () => {
   return (
-    <Btn>
-      To main page
-      <Icon
-        iconName={'icon-pawprint'}
-        width={'24px'}
-        height={'24px'}
-        fill={'#54ADFF'}
-      />
-    </Btn>
+    <div>
+      <Title>
+        <TitleBr>Ooops!</TitleBr> This page not found &#58;&#40;
+      </Title>
+
+      <Digit>
+        <DigitRight>4</DigitRight>
+        {/* <p className={styles.cat}>&#160;</p> */}
+        <Catbcg>
+          <picture>
+            <source
+              srcSet={(catdesktop1x, catdesktop2x)}
+              media="(min-width: 1280px)"
+            />
+            <source
+              srcSet={(cattablet1x, cattablet2x)}
+              media="(min-width: 768px) and (max-width: 1279px)"
+            />
+            <source
+              srcSet={(catmobile1x, catmobile2x)}
+              media="(max-width: 767px)"
+            />
+            <CatImg src={catdesktop1x} alt="Cat with tongue" />
+          </picture>
+        </Catbcg>
+
+        <DigitLeft>4</DigitLeft>
+      </Digit>
+
+      <Btn>
+        To main page
+        <Icon
+          iconName={'icon-pawprint'}
+          width={'24px'}
+          height={'24px'}
+          fill={'#54ADFF'}
+        />
+      </Btn>
+    </div>
   );
 };
 
