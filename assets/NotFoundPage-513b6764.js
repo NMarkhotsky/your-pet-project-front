@@ -1,4 +1,4 @@
-import{s as o,P as n,j as e,a as i,b as s,N as p,I as c}from"./index-3d1797a8.js";const x=o.button`
+import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-f3edfdb4.js";const x=o.button`
   position: relative;
   display: flex;
   margin: auto;
@@ -20,7 +20,7 @@ import{s as o,P as n,j as e,a as i,b as s,N as p,I as c}from"./index-3d1797a8.js
   &:hover,
   &:focus {
     color: ${t=>t.theme.colors.white};
-    border: 2px solid transparent;
+    border: transparent;
     background: ${t=>t.theme.colors.blueGradient};
     transition: all ${t=>t.theme.transitionHover};
   }
@@ -30,7 +30,7 @@ import{s as o,P as n,j as e,a as i,b as s,N as p,I as c}from"./index-3d1797a8.js
     fill: ${t=>t.theme.colors.white};
     transition: ${t=>t.theme.transitionHover};
   }
-`,a=({children:t,onClick:r})=>e.jsx(x,{type:"button",onClick:r,children:t});a.propTypes={children:n.any.isRequired,onClick:n.func};const m=o.h1`
+`,a=({children:t,onClick:r})=>e.jsx(x,{type:"button",onClick:r,children:t});a.propTypes={children:s.any.isRequired,onClick:s.func};const m=o.h1`
   color: ${t=>t.theme.colors.black};
   font-family: ${t=>t.theme.fonts.main.bold};
   font-size: ${t=>t.theme.fontSizes.xl};
@@ -47,7 +47,7 @@ import{s as o,P as n,j as e,a as i,b as s,N as p,I as c}from"./index-3d1797a8.js
     line-height: 41.6px;
   }
 
-  @media ${s} {
+  @media ${n} {
   }
 `,d=o.span`
   padding: 0 100px;
@@ -63,7 +63,7 @@ import{s as o,P as n,j as e,a as i,b as s,N as p,I as c}from"./index-3d1797a8.js
     margin-bottom: 70px;
   }
 
-  @media ${s} {
+  @media ${n} {
     margin: auto;
     margin-bottom: 18px;
   }
@@ -77,7 +77,7 @@ import{s as o,P as n,j as e,a as i,b as s,N as p,I as c}from"./index-3d1797a8.js
     height: 308px;
   }
 
-  @media ${s} {
+  @media ${n} {
     max-width: 822px;
     height: 360px;
   }
