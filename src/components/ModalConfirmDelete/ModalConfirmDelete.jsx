@@ -49,5 +49,6 @@ export const ModalConfirmDelete = ({
 ModalConfirmDelete.propTypes = {
   handleModal: PropTypes.func.isRequired,
   // handleDelete: PropTypes.func.isRequired,
-  // title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
