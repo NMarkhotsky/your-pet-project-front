@@ -3,11 +3,9 @@ import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
 
 export const Title = styled.h1`
   color: ${props => props.theme.colors.black};
-  font-family: 'Manrope';
-  font-style: normal;
+  font-family: ${props => props.theme.fonts.main.bold};
+  font-size: ${props => props.theme.fontSizes.xl};
   text-align: center;
-  font-weight: 700;
-  font-size: 24px;
   line-height: 33px;
   margin: 80px auto;
   width: 280px;
@@ -15,8 +13,8 @@ export const Title = styled.h1`
   @media ${selectTablet} {
     margin-top: 60px;
     width: 450px;
-    font-weight: 600;
-    font-size: 32px;
+    font-family: ${props => props.theme.fonts.main.semiBold};
+    font-size: ${props => props.theme.fontSizes.xxxl};
     line-height: 41.6px;
   }
 

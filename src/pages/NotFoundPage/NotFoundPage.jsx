@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { Btn } from '../../shared/components/Button/Btn';
 import { Icon } from '../../components/Icon/Icon';
 import { Title, TitleBr, CatImg, Img } from './NotFoundPage.styled';
@@ -15,7 +16,6 @@ const NotFoundPage = () => {
       <Title>
         <TitleBr>Ooops!</TitleBr> This page not found &#58;&#40;
       </Title>
-
       <CatImg>
         <picture>
           <source
@@ -33,16 +33,17 @@ const NotFoundPage = () => {
           <Img src={catdesktop1x} alt="Cat with tongue" />
         </picture>
       </CatImg>
-
-      <Btn>
-        To main page
-        <Icon
-          iconName={'icon-pawprint'}
-          width={'24px'}
-          height={'24px'}
-          fill={'#54ADFF'}
-        />
-      </Btn>
+      <NavLink to="/">
+        <Btn>
+          To main page
+          <Icon
+            iconName={'icon-pawprint'}
+            width={'24px'}
+            height={'24px'}
+            fill={'#54ADFF'}
+          />
+        </Btn>
+      </NavLink>
     </div>
   );
 };
