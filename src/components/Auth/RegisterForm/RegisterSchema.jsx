@@ -4,7 +4,7 @@ export const RegisterSchema = Yup.object().shape({
   name: Yup.string()
     .matches(/^[A-Za-z\s]+$/, 'Name must contain only letters')
     .min(2, 'Name must be min 2 characters long')
-    .max(16, 'Name must be min 2 characters long')
+    .max(16, 'Name must be max 16 characters long')
     .required('This field is required'),
   email: Yup.string()
     .email('Enter a valid email')

@@ -3,7 +3,7 @@ import { useField } from 'formik';
 import {
   ErrorMessage,
   FormInput,
-  FormLabel,
+  FormInputContainer,
   SuccessMessage,
 } from './FormTextField.styled';
 import PropTypes from 'prop-types';
@@ -15,7 +15,7 @@ export const FormTextField = ({ successMessage, ...props }) => {
 
   return (
     <>
-      <FormLabel>
+      <FormInputContainer>
         <FormInput
           {...field}
           {...props}
@@ -26,7 +26,7 @@ export const FormTextField = ({ successMessage, ...props }) => {
         {valid && successMessage ? (
           <SuccessMessage>{successMessage}</SuccessMessage>
         ) : null}
-      </FormLabel>
+      </FormInputContainer>
     </>
   );
 };
