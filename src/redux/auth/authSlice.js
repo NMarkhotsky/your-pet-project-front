@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { login, logout, register } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, avatarURL: null },
+  user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isNewUser: false,
@@ -37,7 +37,7 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isNewUser = action.payload.isNewUser;
+        state.isNewUser = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isRefreshing = false;
