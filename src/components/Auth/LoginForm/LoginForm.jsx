@@ -27,24 +27,23 @@ export const LoginForm = () => {
     validationSchema: LoginSchema,
     validateOnChange: true,
     validateOnBlur: true,
-    onSubmit: values => {
-      formik.validateForm().then(errors => {
-        if (Object.keys(errors).length === 0) {
-          dispatch(login(JSON.stringify(values, null, 2))).then(() => {
-            if (error) {
-              toast.error(error, {
-                position: toast.POSITION.TOP_CENTER,
-              });
-            } else {
-              navigate('/user');
-            }
-          });
-        } else {
-          toast.error('Please enter valid values in all the fields', {
+    onSubmit: async values => {
+      const errors = await formik.validateForm();
+      if (Object.keys(errors).length) {
+        toast.error('Please enter valid values in all the fields', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
+      if (Object.keys(errors).length === 0) {
+        await dispatch(login(values));
+        if (error) {
+          toast.error(error, {
             position: toast.POSITION.TOP_CENTER,
           });
+        } else {
+          navigate('/user');
         }
-      });
+      }
     },
   });
 

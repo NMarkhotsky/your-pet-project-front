@@ -29,26 +29,24 @@ export const RegisterForm = () => {
     validationSchema: RegisterSchema,
     validateOnChange: true,
     validateOnBlur: true,
-    onSubmit: ({ name, email, password }) => {
-      const newUser = { name, email, password };
-      // console.log(JSON.stringify(newUser, null, 2));
-      formik.validateForm().then(errors => {
-        if (Object.keys(errors).length === 0) {
-          dispatch(register(JSON.stringify(newUser, null, 2))).then(() => {
-            if (error) {
-              toast.error(error, {
-                position: toast.POSITION.TOP_CENTER,
-              });
-            } else {
-              navigate('/user');
-            }
-          });
-        } else {
-          toast.error('Please enter valid values in all the fields', {
+    onSubmit: async ({ name, email, password }) => {
+      const errors = await formik.validateForm();
+      if (Object.keys(errors).length) {
+        toast.error('Please enter valid values in all the fields', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
+      if (Object.keys(errors).length === 0) {
+        const newUser = { name, email, password };
+        await dispatch(register(newUser));
+        if (error) {
+          toast.error(error, {
             position: toast.POSITION.TOP_CENTER,
           });
+        } else {
+          navigate('/user');
         }
-      });
+      }
     },
   });
 
