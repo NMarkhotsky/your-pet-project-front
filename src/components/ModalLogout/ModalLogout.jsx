@@ -1,49 +1,43 @@
 // import PropTypes from 'prop-types';
-import { Icon } from '../Icon/Icon';
+
+import { Modal, Title } from './ModalLogout.styled';
 
 import {
-  Modal,
-  Title,
   BtnWrapper,
   CancelButton,
   YesButton,
-} from './ModalLogout.styled';
+  ButtonText,
+  IconWraper,
+  StyledIcon,
+} from '../../shared/sharedModalStyles/sharedModalStyles.styled';
 
-export const ModalLogout = ({}) => {
+export const ModalLogout = ({ handleModal }) => {
   return (
     <Modal>
       <Title>Already leaving?</Title>
       <BtnWrapper>
-        <CancelButton>
-          <span>Cancel</span>
+        <CancelButton onClick={handleModal}>
+          <ButtonText>Cancel</ButtonText>
         </CancelButton>
         <YesButton>
-          <span>Yes</span>
-          <Icon
-            iconName="icon-logout"
-            width="24px"
-            height="24px"
-            stroke={'#FDF7F2'}
-          />
+          <ButtonText>Yes</ButtonText>
+          <IconWraper>
+            <StyledIcon iconName="icon-logout" stroke={'#FDF7F2'} />
+          </IconWraper>
         </YesButton>
-        {/* <CancelButton onClick={handleModal}>
-          <span>Cancel</span>
-        </CancelButton>
-        <YesButton onClick={handleLogout}>
-          <span>Yes</span>
-          <Icon
-            iconName="icon-logout"
-            width="24px"
-            height="24px"
-            stroke={'#FDF7F2'}
-          />
+
+        {/* <YesButton onClick={handleLogout}>
+          <ButtonText>Yes</ButtonText>
+          <IconWraper>
+            <StyledIcon iconName="icon-logout" stroke={'#FDF7F2'} />
+          </IconWraper>
         </YesButton> */}
       </BtnWrapper>
     </Modal>
   );
 };
 
-ModalLogout.propTypes = {
-  // handleModal: PropTypes.func.isRequired,
-  // handleLogout: PropTypes.func.isRequired,
-};
+// ModalLogout.propTypes = {
+//   handleModal: PropTypes.func.isRequired,
+//   handleLogout: PropTypes.func.isRequired,
+// };

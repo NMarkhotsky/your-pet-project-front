@@ -1,16 +1,14 @@
 import PropTypes from 'prop-types';
 
+import { Modal, Title, Text, PetName } from './ModalConfirmDelete.styled';
 import {
-  Modal,
-  Title,
-  Text,
-  PetName,
   BtnWrapper,
   CancelButton,
   YesButton,
   ButtonText,
-  TrashIcon,
-} from './ModalConfirmDelete.styled';
+  IconWraper,
+  StyledIcon,
+} from '../../shared/sharedModalStyles/sharedModalStyles.styled';
 
 export const ModalConfirmDelete = ({
   handleModal,
@@ -30,24 +28,18 @@ export const ModalConfirmDelete = ({
         </CancelButton>
         <YesButton>
           <ButtonText>Yes</ButtonText>
-          <TrashIcon
-            iconName="icon-trash"
-            width="24px"
-            height="24px"
-            stroke={'#FDF7F2'}
-          />
+          <IconWraper>
+            <StyledIcon iconName="icon-trash" stroke={'#FDF7F2'} />
+          </IconWraper>
         </YesButton>
         {/* <CancelButton onClick={handleModal}>
           <span>Cancel</span>
         </CancelButton>
         <YesButton onClick={handleDelete}>
-          <span>Yes</span>
-          <Icon
-            iconName="icon-trash"
-            width="24px"
-            height="24px"
-            stroke={'#FDF7F2'}
-          />
+          <ButtonText>Yes</ButtonText>
+          <IconWraper>
+            <StyledIcon iconName="icon-trash" stroke={'#FDF7F2'} />
+          </IconWraper>
         </YesButton> */}
       </BtnWrapper>
     </Modal>
@@ -57,5 +49,5 @@ export const ModalConfirmDelete = ({
 ModalConfirmDelete.propTypes = {
   handleModal: PropTypes.func.isRequired,
   // handleDelete: PropTypes.func.isRequired,
-  //   title: PropTypes.string.isRequired,
+  // title: PropTypes.string.isRequired,
 };

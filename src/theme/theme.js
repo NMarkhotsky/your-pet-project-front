@@ -41,6 +41,7 @@ export const theme = {
     xl: '24px', // font-size: 24px
     xxl: '28px', // font-size: 28px
     xxxl: '32px', // font-size: 32px
+    big: '36px', // font-size: 36px
     huge: '48px', // font-size: 48px
     gigantic: '68px', // font-size: 68px
   },

@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { selectTablet } from '../../../utils/selectMediaRequests';
 
 export const Backdrop = styled.div`
   width: 100%;
@@ -24,7 +25,7 @@ export const Modal = styled.div`
   border-radius: 20px;
 
   position: absolute;
-  top: 10%;
+  top: 20%;
 
   background-color: ${({ theme }) => theme.colors.white};
 `;
@@ -43,7 +44,7 @@ export const CloseBtn = styled.button`
 
   background: transparent;
 
-  @media screen and (min-width: 768px) {
+  @media ${selectTablet} {
     right: 24px;
     top: 24px;
   }
