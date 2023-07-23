@@ -9,7 +9,12 @@ import { PetsItem } from '../PetsItem/PetsItem';
 import pets from '../../temp/pets.json';
 import { Icon } from '../Icon/Icon';
 
+
 export const PetsList = () => {
+
+
+
+
   return (
     <ContainerList>
       <TopPart>
