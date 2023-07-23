@@ -22,7 +22,7 @@ export const BtnStyled = styled.button`
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.white};
-    border: 2px solid transparent;
+    border: transparent;
     background: ${props => props.theme.colors.blueGradient};
     transition: all ${props => props.theme.transitionHover};
   }

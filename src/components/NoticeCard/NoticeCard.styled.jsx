@@ -185,32 +185,3 @@ export const TextPetName = styled.p`
   font-size: ${props => props.theme.fontSizes.xl};
   line-height: 33px;
 `;
-
-export const ButtonLearnMore = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-
-  width: 248px;
-  height: 38px;
-
-  margin: 0 auto;
-  padding: 6px 28px;
-
-  border: 2px solid #54adff;
-  border-radius: 40px;
-
-  font-size: ${props => props.theme.fontSizes.md};
-  font-family: ${props => props.theme.fonts.main.semiBold};
-  letter-spacing: 0.04em;
-  line-height: 22px;
-
-  background-color: transparent;
-  color: ${props => props.theme.colors.blue};
-
-  &:hover {
-    background-color: ${props => props.theme.colors.blue};
-    color: ${props => props.theme.colors.white};
-  }
-`;
