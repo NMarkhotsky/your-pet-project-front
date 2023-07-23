@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const FormBtn = styled.button`
   margin-bottom: 16px;
   padding: 10px 28px;
-  width: 458px;
+  width: 100%;
   height: 48px;
   border-radius: 40px;
   border: none;
@@ -12,4 +12,10 @@ export const FormBtn = styled.button`
   font-family: ${props => props.theme.fonts.main.semiBold};
   font-size: ${props => props.theme.fontSizes.lg};
   letter-spacing: 0.8px;
+  /* transition: background ${props => props.theme.transitionHover}; */
+
+  &:hover,
+  &:focus {
+    background: ${props => props.theme.colors.blueGradient};
+  }
 `;
