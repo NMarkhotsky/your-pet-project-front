@@ -14,10 +14,10 @@ import {
   ItemPetInfo,
   SpanPetText,
   TextPetName,
-  ButtonLearnMore,
 } from './NoticeCard.styled';
 import { convertToYears } from '../../utils/convertToYears';
 import { truncateText } from '../../utils/truncateText';
+import { Btn } from '../../shared/components/Button/Btn';
 
 export const NoticeCard = ({ items }) => {
   return (
@@ -60,16 +60,7 @@ export const NoticeCard = ({ items }) => {
 
           <TextPetName>{pet.name}</TextPetName>
 
-          <ButtonLearnMore>
-            <span>Learn more</span>
-            <Icon
-              iconName={'icon-pawprint'}
-              width={'24px'}
-              height={'24px'}
-              stroke={'#54ADFF'}
-              fill={'#54ADFF'}
-            />
-          </ButtonLearnMore>
+          <Btn>Learn more</Btn>
         </Item>
       ))}
     </List>
