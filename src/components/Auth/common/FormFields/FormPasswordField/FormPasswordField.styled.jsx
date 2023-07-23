@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { selectTablet } from '../../../../utils/selectMediaRequests';
+import { selectTablet } from '../../../../../utils/selectMediaRequests';
 
 export const FormInputContainer = styled.div`
   margin-bottom: 14px;
@@ -55,4 +55,10 @@ export const ErrorMessage = styled(FormMessage)`
 
 export const SuccessMessage = styled(FormMessage)`
   color: ${props => props.theme.colors.green};
+`;
+
+export const FormIconContainer = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 16px;
 `;

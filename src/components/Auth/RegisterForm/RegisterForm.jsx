@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
 import { useFormik, FormikContext } from 'formik';
 import { register } from '../../../redux/auth/operations';
-import { FormTextField } from '../common/FormTextField/FormTextField';
+import { FormTextField } from '../common/FormFields/FormTextField/FormTextField';
+import { FormPasswordField } from '../common/FormFields/FormPasswordField/FormPasswordField';
 import { AuthFormBtn } from '../common/AuthFormBtn/AuthFormBtn';
 import {
   FormLink,
@@ -67,19 +68,18 @@ export const RegisterForm = () => {
           placeholder="Email"
           {...formik.getFieldProps('email')}
         />
-        <FormTextField
+        <FormPasswordField
           name="password"
-          type="password"
           label="Password"
           placeholder="Password"
           successMessage="Password is secure"
           {...formik.getFieldProps('password')}
         />
-        <FormTextField
+        <FormPasswordField
           name="confirmPassword"
-          type="password"
           label="Confirm password"
           placeholder="Confirm password"
+          successMessage="Password confirmed"
           {...formik.getFieldProps('confirmPassword')}
         />
         <AuthFormBtn btnText="Registration" />
