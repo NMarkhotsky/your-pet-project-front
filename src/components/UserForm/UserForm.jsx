@@ -1,6 +1,7 @@
 import { Field, Formik, ErrorMessage } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 import { Icon } from '../Icon/Icon';
 import {
   ContainerForm,
@@ -14,7 +15,9 @@ import {
   ImageInputBox,
   LogoutBox,
   EditIcon,
+  ConfirmText,
 } from './UserForm.styled';
+import { useAuth } from '../../hooks/useAuth/useAuth';
 
 const emailRegExp =
   /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
@@ -24,13 +27,7 @@ const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
 const FILE_SIZE = 3000000;
 
 const schema = Yup.object().shape({
-  avatar: Yup.mixed()
-    .required('Please, add your photo')
-    .test(
-      'fileSize',
-      'Image too large, max 3mb',
-      value => value.size <= FILE_SIZE
-    ),
+  avatar: Yup.string().required('Avatar  is required field'),
   name: Yup.string().required('Name  is required field'),
   email: Yup.string()
     .required('Email  is required field')
@@ -46,107 +43,196 @@ const schema = Yup.object().shape({
 });
 
 export const UserForm = () => {
-  const [avatar, setAvatar] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [phone, setPhone] = useState('');
-  const [city, setCity] = useState('');
+  const { user } = useAuth();
+  console.log(user);
 
-  const handleSubmit = (values, actions) => {
-    setAvatar(values.avatar);
-    setName(values.name);
-    setEmail(values.email);
-    setBirthday(values.birthday);
-    setPhone(values.phone);
-    setCity(values.city);
-    console.log(values);
-    console.log(actions);
+  // Стани для роботи з полями форми
+  const [avatar, setAvatar] = useState(user.avatarURL || '');
+  const [previewURL, setPreviewURL] = useState(undefined);
+
+  // Стани для роботи з редагуванням форми
+  // const [isActiveEdit, setIsActiveEdit] = useState(false);
+  // const [isAbleAdd, setIsAbleAdd] = useState(true);
+
+  // Зміна режимів редагування config i edit
+  // const handleEditClick = () => {
+  //   setIsAbleAdd(false);
+  // };
+
+  // const handleConfirmClick = () => {
+  //   setIsAbleAdd(true);
+  // };
+
+  // const handleCancelClick = () => {
+  //   console.log('Click');
+  //   setAvatar('');
+  //   setPreviewURL('');
+  // };
+
+  const handleAvatarChange = e => {
+    const file = e.target.files[0];
+    if (file && file.size <= FILE_SIZE) {
+      setAvatar(file);
+      setPreviewURL(URL.createObjectURL(file));
+    } else {
+      toast.error('Your photo is large');
+      setAvatar(null);
+      setPreviewURL(null);
+    }
   };
+
+  useEffect(() => {
+    if (avatar === '') {
+      return;
+    }
+    console.log('avatar -->', avatar);
+  }, [avatar]);
+
+  const handleSubmit = async values => {
+ console.log('avatarInSubmit ===>', avatar);
+    try {
+
+      console.log("avatarInSubmit ===>", avatar)
+      toast.success('Changes saved successfully');
+
+      const formData = new FormData();
+      formData.append('name', values.name);
+      formData.append('email', values.email);
+      formData.append('birthday', values.birthday);
+      formData.append('phone', values.phone);
+      formData.append('city', values.city);
+      formData.append('avatar', avatar);
+
+      console.log(formData);
+
+      // const response = await axios.post("URL_TO_YOUR_API", formData);
+      // console.log("Дані успішно відправлені:", response.data);
+    } catch (error) {
+      console.error('Помилка при відправці даних:', error);
+    }
+  };
+
+  // Функція, на зміну форми із звичайного стану в стан редагування і навпаки
+  // const handleEditForm = () => {
+  //   setIsActiveEdit(!isActiveEdit);
+  // };
 
   return (
     <ContainerForm>
       <FormTitle>My information:</FormTitle>
       <Formik
-        initialValues={{ name, email, birthday, phone, city, avatar }}
+        initialValues={{
+          name: user.name || '',
+          email: user.email || '',
+          birthday: '',
+          phone: '',
+          city: '',
+        }}
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
         <FormBox>
+          {/* <EditIcon onClick={handleEditForm}> */}
           <EditIcon>
-            <Icon
-              iconName={'icon-edit'}
-              width={'24px'}
-              height={'24px'}
-              fill={'#54ADFF'}
-            />
-            <Icon
-              iconName={'icon-cross'}
-              width={'24px'}
-              height={'24px'}
-              stroke={'#54ADFF'}
-            />
-          </EditIcon>
-          <ImageInputBox>
-            <ImageBox></ImageBox>
-
-            <label
-              htmlFor="avatar"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 8,
-              }}
-            >
+            {/* {!isActiveEdit ? ( */}
               <Icon
-                iconName={'icon-check'}
+                iconName={'icon-edit'}
                 width={'24px'}
                 height={'24px'}
-                stroke={'#54ADFF'}
+                fill={'#54ADFF'}
               />
-              Confirm
+            {/* ) : ( */}
               <Icon
                 iconName={'icon-cross'}
                 width={'24px'}
                 height={'24px'}
-                stroke={'#F43F5E'}
-              />
-            </label>
-            <label
-              htmlFor="avatar"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 8,
-              }}
-            >
-              <Icon
-                iconName={'icon-camera'}
-                width={'24px'}
-                height={'24px'}
                 stroke={'#54ADFF'}
               />
-              Edit photo
-            </label>
+            {/* )} */}
+          </EditIcon>
+          <ImageInputBox>
+            <ImageBox>
+              {previewURL && (
+                <img
+                  src={previewURL}
+                  width="100%"
+                  height="100%"
+                  style={{ borderRadius: 40 }}
+                  alt="Попередній перегляд аватарки"
+                />
+              )}
+            </ImageBox>
+
+            {/* {isActiveEdit && ( */}
+              <label
+                htmlFor="avatar"
+                style={{
+                  // display: isAbleAdd ? 'flex' : 'none',
+                  display:'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 8,
+                  cursor: 'pointer',
+                }}
+                // onClick={handleEditClick}
+              >
+                <Icon
+                  iconName={'icon-camera'}
+                  width={'24px'}
+                  height={'24px'}
+                  stroke={'#54ADFF'}
+                />
+                Edit photo
+              </label>
+            {/* )} */}
+
             <Field
               style={{ display: 'none' }}
               type="file"
               id="avatar"
               name="avatar"
               accept="image/*"
+              onChange={handleAvatarChange}
             />
             <ErrorMessage
               name="avatar"
               component="div"
               style={{ color: 'red', fontSize: 12 }}
             />
+            {/* {isActiveEdit && !isAbleAdd && ( */}
+              <ConfirmText>
+                {/* <button type="button" onClick={handleConfirmClick}> */}
+                {/* <button type="button"> */}
+                  <Icon
+                    iconName={'icon-check'}
+                    width={'24px'}
+                    height={'24px'}
+                    stroke={'#54ADFF'}
+                  />
+                {/* </button> */}
+                Confirm
+                {/* <button type="button" onClick={handleCancelClick}> */}
+                {/* <button type="button"> */}
+                  <Icon
+                    iconName={'icon-cross'}
+                    width={'24px'}
+                    height={'24px'}
+                    stroke={'#F43F5E'}
+                  />
+                {/* </button> */}
+              </ConfirmText>
+            {/* )} */}
           </ImageInputBox>
+
           <div>
             <InputBox>
               <Label htmlFor="name">Name:</Label>
-              <Input id="name" name="name" placeholder="Anna" />
+              <Input
+                id="name"
+                name="name"
+                placeholder="Anna"
+                // disabled={!isActiveEdit}
+              />
               <ErrorMessage
                 name="name"
                 component="div"
@@ -155,7 +241,12 @@ export const UserForm = () => {
             </InputBox>
             <InputBox>
               <Label htmlFor="email">Email:</Label>
-              <Input id="email" name="email" placeholder="anna00@gmail.com" />
+              <Input
+                id="email"
+                name="email"
+                placeholder="anna00@gmail.com"
+                // disabled={!isActiveEdit}
+              />
               <ErrorMessage
                 name="email"
                 component="div"
@@ -164,7 +255,12 @@ export const UserForm = () => {
             </InputBox>
             <InputBox>
               <Label htmlFor="birthday">Birthday:</Label>
-              <Input type="date" id="birthday" name="birthday" />
+              <Input
+                type="date"
+                id="birthday"
+                name="birthday"
+                // disabled={!isActiveEdit}
+              />
               <ErrorMessage
                 name="birthday"
                 component="div"
@@ -173,7 +269,12 @@ export const UserForm = () => {
             </InputBox>
             <InputBox>
               <Label htmlFor="phone">Phone:</Label>
-              <Input id="phone" name="phone" placeholder="+38000000000" />
+              <Input
+                id="phone"
+                name="phone"
+                placeholder="+38000000000"
+                // disabled={!isActiveEdit}
+              />
               <ErrorMessage
                 name="phone"
                 component="div"
@@ -182,23 +283,36 @@ export const UserForm = () => {
             </InputBox>
             <InputBox>
               <Label htmlFor="city">City:</Label>
-              <Input id="city" name="city" placeholder="Kyiv" />
+              <Input
+                id="city"
+                name="city"
+                placeholder="Kyiv"
+                // disabled={!isActiveEdit}
+              />
               <ErrorMessage
                 name="city"
                 component="div"
                 style={{ color: 'red', fontSize: 12 }}
               />
             </InputBox>
-            <ButtonForm type="submit">Save</ButtonForm>
-            <LogoutBox>
-              <Icon
-                iconName={'icon-logout'}
-                width={'24px'}
-                height={'24px'}
-                stroke={'#54ADFF'}
-              />
-              <p>Log Out</p>
-            </LogoutBox>
+            {/* {isActiveEdit ? ( */}
+              <ButtonForm
+                type="submit"
+                onClick={() => console.log('Button hello')}
+              >
+                Save
+              </ButtonForm>
+            {/* ) : ( */}
+              <LogoutBox>
+                <Icon
+                  iconName={'icon-logout'}
+                  width={'24px'}
+                  height={'24px'}
+                  stroke={'#54ADFF'}
+                />
+                <p>Log Out</p>
+              </LogoutBox>
+            {/* )} */}
           </div>
         </FormBox>
       </Formik>

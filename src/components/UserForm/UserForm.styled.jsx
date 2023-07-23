@@ -30,6 +30,13 @@ export const ImageInputBox = styled.div`
   margin-bottom: 26px;
 `;
 
+export const ConfirmText = styled.p`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+`;
+
 export const FormBox = styled(Form)`
   background-color: #ffffff;
   border-radius: 40px;
@@ -49,6 +56,8 @@ export const FormBox = styled(Form)`
   @media ${selectDesktop} {
     box-shadow: ${props => props.theme.boxShadow.main};
     width: 395px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 `;
 
@@ -63,7 +72,6 @@ export const Label = styled.label`
   font-size: ${props => props.theme.fontSizes.sm};
   font-family: ${props => props.theme.fonts.main.semiBold};
   letter-spacing: 0.56px;
-  
 
   @media ${selectTablet} {
     font-size: 18px;
@@ -84,6 +92,14 @@ export const Input = styled(Field)`
     min-width: 255px;
     font-size: ${props => props.theme.fontSizes.md};
     letter-spacing: 0.64px;
+
+    &:first-child {
+      margin-bottom: 90px;
+    }
+  }
+
+  &:disabled {
+    background-color: #ffffff;
   }
 `;
 
@@ -124,4 +140,5 @@ export const EditIcon = styled.div`
   position: absolute;
   top: 3%;
   right: 3%;
+  cursor: pointer;
 `;
