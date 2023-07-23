@@ -27,7 +27,8 @@ export const BtnStyled = styled.button`
     transition: all ${props => props.theme.transitionHover};
   }
 
-  &:hover svg use {
+  &:hover svg use,
+  &:focus svg use {
     fill: ${props => props.theme.colors.white};
     transition: ${props => props.theme.transitionHover};
   }
