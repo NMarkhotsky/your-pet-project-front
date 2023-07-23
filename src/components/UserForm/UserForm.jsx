@@ -17,7 +17,6 @@ import {
   EditIcon,
   ConfirmText,
 } from './UserForm.styled';
-import { useAuth } from '../../hooks/useAuth/useAuth';
 
 const emailRegExp =
   /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
@@ -27,7 +26,6 @@ const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
 const FILE_SIZE = 3000000;
 
 const schema = Yup.object().shape({
-  avatar: Yup.string().required('Avatar  is required field'),
   name: Yup.string().required('Name  is required field'),
   email: Yup.string()
     .required('Email  is required field')
@@ -43,31 +41,27 @@ const schema = Yup.object().shape({
 });
 
 export const UserForm = () => {
-  const { user } = useAuth();
-  console.log(user);
-
   // Стани для роботи з полями форми
-  const [avatar, setAvatar] = useState(user.avatarURL || '');
+  const [avatar, setAvatar] = useState('');
   const [previewURL, setPreviewURL] = useState(undefined);
 
   // Стани для роботи з редагуванням форми
-  // const [isActiveEdit, setIsActiveEdit] = useState(false);
-  // const [isAbleAdd, setIsAbleAdd] = useState(true);
+  const [isActiveEdit, setIsActiveEdit] = useState(false);
+  const [isAbleAdd, setIsAbleAdd] = useState(true);
 
   // Зміна режимів редагування config i edit
-  // const handleEditClick = () => {
-  //   setIsAbleAdd(false);
-  // };
+  const handleEditClick = () => {
+    setIsAbleAdd(false);
+  };
 
-  // const handleConfirmClick = () => {
-  //   setIsAbleAdd(true);
-  // };
+  const handleConfirmClick = () => {
+    setIsAbleAdd(true);
+  };
 
-  // const handleCancelClick = () => {
-  //   console.log('Click');
-  //   setAvatar('');
-  //   setPreviewURL('');
-  // };
+  const handleCancelClick = () => {
+    setAvatar('');
+    setPreviewURL('');
+  };
 
   const handleAvatarChange = e => {
     const file = e.target.files[0];
@@ -85,14 +79,11 @@ export const UserForm = () => {
     if (avatar === '') {
       return;
     }
-    console.log('avatar -->', avatar);
+
   }, [avatar]);
 
   const handleSubmit = async values => {
- console.log('avatarInSubmit ===>', avatar);
     try {
-
-      console.log("avatarInSubmit ===>", avatar)
       toast.success('Changes saved successfully');
 
       const formData = new FormData();
@@ -103,8 +94,6 @@ export const UserForm = () => {
       formData.append('city', values.city);
       formData.append('avatar', avatar);
 
-      console.log(formData);
-
       // const response = await axios.post("URL_TO_YOUR_API", formData);
       // console.log("Дані успішно відправлені:", response.data);
     } catch (error) {
@@ -113,17 +102,19 @@ export const UserForm = () => {
   };
 
   // Функція, на зміну форми із звичайного стану в стан редагування і навпаки
-  // const handleEditForm = () => {
-  //   setIsActiveEdit(!isActiveEdit);
-  // };
+  const handleEditForm = () => {
+    setIsActiveEdit(!isActiveEdit);
+  };
 
   return (
     <ContainerForm>
       <FormTitle>My information:</FormTitle>
       <Formik
         initialValues={{
-          name: user.name || '',
-          email: user.email || '',
+          // name: user.name || '',
+          name: '',
+          // email: user.email || '',
+          email: '',
           birthday: '',
           phone: '',
           city: '',
@@ -132,23 +123,22 @@ export const UserForm = () => {
         validationSchema={schema}
       >
         <FormBox>
-          {/* <EditIcon onClick={handleEditForm}> */}
-          <EditIcon>
-            {/* {!isActiveEdit ? ( */}
+          <EditIcon onClick={handleEditForm}>
+            {!isActiveEdit ? (
               <Icon
                 iconName={'icon-edit'}
                 width={'24px'}
                 height={'24px'}
                 fill={'#54ADFF'}
               />
-            {/* ) : ( */}
+            ) : (
               <Icon
                 iconName={'icon-cross'}
                 width={'24px'}
                 height={'24px'}
                 stroke={'#54ADFF'}
               />
-            {/* )} */}
+            )}
           </EditIcon>
           <ImageInputBox>
             <ImageBox>
@@ -163,18 +153,18 @@ export const UserForm = () => {
               )}
             </ImageBox>
 
-            {/* {isActiveEdit && ( */}
+            {isActiveEdit && (
               <label
                 htmlFor="avatar"
                 style={{
-                  // display: isAbleAdd ? 'flex' : 'none',
-                  display:'flex',
+                  display: isAbleAdd ? 'flex' : 'none',
+
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: 8,
                   cursor: 'pointer',
                 }}
-                // onClick={handleEditClick}
+                onClick={handleEditClick}
               >
                 <Icon
                   iconName={'icon-camera'}
@@ -184,7 +174,7 @@ export const UserForm = () => {
                 />
                 Edit photo
               </label>
-            {/* )} */}
+            )}
 
             <Field
               style={{ display: 'none' }}
@@ -199,29 +189,27 @@ export const UserForm = () => {
               component="div"
               style={{ color: 'red', fontSize: 12 }}
             />
-            {/* {isActiveEdit && !isAbleAdd && ( */}
+            {isActiveEdit && !isAbleAdd && (
               <ConfirmText>
-                {/* <button type="button" onClick={handleConfirmClick}> */}
-                {/* <button type="button"> */}
+                <button type="button" onClick={handleConfirmClick}>
                   <Icon
                     iconName={'icon-check'}
                     width={'24px'}
                     height={'24px'}
                     stroke={'#54ADFF'}
                   />
-                {/* </button> */}
+                </button>
                 Confirm
-                {/* <button type="button" onClick={handleCancelClick}> */}
-                {/* <button type="button"> */}
+                <button type="button" onClick={handleCancelClick}>
                   <Icon
                     iconName={'icon-cross'}
                     width={'24px'}
                     height={'24px'}
                     stroke={'#F43F5E'}
                   />
-                {/* </button> */}
+                </button>
               </ConfirmText>
-            {/* )} */}
+            )}
           </ImageInputBox>
 
           <div>
@@ -231,7 +219,7 @@ export const UserForm = () => {
                 id="name"
                 name="name"
                 placeholder="Anna"
-                // disabled={!isActiveEdit}
+                disabled={!isActiveEdit}
               />
               <ErrorMessage
                 name="name"
@@ -245,7 +233,7 @@ export const UserForm = () => {
                 id="email"
                 name="email"
                 placeholder="anna00@gmail.com"
-                // disabled={!isActiveEdit}
+                disabled={!isActiveEdit}
               />
               <ErrorMessage
                 name="email"
@@ -259,7 +247,7 @@ export const UserForm = () => {
                 type="date"
                 id="birthday"
                 name="birthday"
-                // disabled={!isActiveEdit}
+                disabled={!isActiveEdit}
               />
               <ErrorMessage
                 name="birthday"
@@ -273,7 +261,7 @@ export const UserForm = () => {
                 id="phone"
                 name="phone"
                 placeholder="+38000000000"
-                // disabled={!isActiveEdit}
+                disabled={!isActiveEdit}
               />
               <ErrorMessage
                 name="phone"
@@ -287,7 +275,7 @@ export const UserForm = () => {
                 id="city"
                 name="city"
                 placeholder="Kyiv"
-                // disabled={!isActiveEdit}
+                disabled={!isActiveEdit}
               />
               <ErrorMessage
                 name="city"
@@ -295,14 +283,9 @@ export const UserForm = () => {
                 style={{ color: 'red', fontSize: 12 }}
               />
             </InputBox>
-            {/* {isActiveEdit ? ( */}
-              <ButtonForm
-                type="submit"
-                onClick={() => console.log('Button hello')}
-              >
-                Save
-              </ButtonForm>
-            {/* ) : ( */}
+            {isActiveEdit ? (
+              <ButtonForm type="submit">Save</ButtonForm>
+            ) : (
               <LogoutBox>
                 <Icon
                   iconName={'icon-logout'}
@@ -312,7 +295,7 @@ export const UserForm = () => {
                 />
                 <p>Log Out</p>
               </LogoutBox>
-            {/* )} */}
+            )}
           </div>
         </FormBox>
       </Formik>
