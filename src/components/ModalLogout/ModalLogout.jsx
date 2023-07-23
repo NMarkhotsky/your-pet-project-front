@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { Modal, Title } from './ModalLogout.styled';
 
@@ -37,7 +37,7 @@ export const ModalLogout = ({ handleModal }) => {
   );
 };
 
-// ModalLogout.propTypes = {
-//   handleModal: PropTypes.func.isRequired,
-//   handleLogout: PropTypes.func.isRequired,
-// };
+ModalLogout.propTypes = {
+  handleModal: PropTypes.func.isRequired,
+  // handleLogout: PropTypes.func.isRequired,
+};
