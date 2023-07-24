@@ -4,14 +4,18 @@ import { Navigation } from '../Navigation/Navigation';
 import { Icon } from '../../../components/Icon/Icon';
 import { IconBurgerBox } from './Burger.styled';
 import { NavRegAndLog } from '../NavRegAndLog/NavRegAndLog';
+import { UserMenu } from '../../UserMenu/UserMenu';
+import { useAuth } from '../../../hooks/useAuth/useAuth';
+
 
 export const Burger = () => {
   const [open, setOpen] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   return (
     <>
       <Navigation open={open} />
-      <NavRegAndLog />
+      {isLoggedIn ? <UserMenu /> : <NavRegAndLog />}
 
       <StyledBurger open={open} onClick={() => setOpen(!open)}>
         {!open ? (

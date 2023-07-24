@@ -7,7 +7,10 @@ export const ContainerItem = styled.div`
   border-radius: 40px;
   padding: 20px;
   position: relative;
-  margin-top: 24px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 24px;
+  }
 
   @media ${selectTablet} {
     display: flex;
