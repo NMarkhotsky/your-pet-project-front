@@ -1,4 +1,4 @@
-import LoaderImg from '../../../assets/images/loader/loadercat.gif';
+import LoaderImg from '../../../assets/images/loader/loader.gif';
 import { LoaderStyled, ImgLoader } from './Loader.styled';
 
 export const Loader = () => {
