@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { selectTablet } from '../../../../../utils/selectMediaRequests';
+import { selectTablet } from '../../../../utils/selectMediaRequests';
 
 export const FormInputContainer = styled.div`
   margin-bottom: 14px;
@@ -61,4 +61,10 @@ export const FormIconContainer = styled.div`
   position: absolute;
   top: 12px;
   right: 16px;
+`;
+
+export const FormIconEyeContainer = styled.div`
+  position: absolute;
+  top: 12px;
+  right: ${props => (props.$touched ? '52px' : '16px')};
 `;

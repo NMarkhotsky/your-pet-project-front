@@ -5,11 +5,11 @@ import {
   FormInput,
   FormInputContainer,
   SuccessMessage,
-} from './FormPasswordField.styled';
+} from './FormFields.styled';
 import PropTypes from 'prop-types';
-import { Icon } from '../../../../Icon/Icon';
+import { Icon } from '../../../Icon/Icon';
 
-export const FormPasswordField = ({ successMessage, ...props }) => {
+export const FormTextField = ({ successMessage, ...props }) => {
   const [field, meta] = useField(props);
   const invalid = meta.touched && meta.error;
   const valid = meta.touched && !meta.error;
@@ -22,7 +22,6 @@ export const FormPasswordField = ({ successMessage, ...props }) => {
           {...props}
           $invalid={meta.touched && meta.error}
           $valid={meta.touched && !meta.error}
-          type="password"
         />
         {invalid ? (
           <>
@@ -49,6 +48,6 @@ export const FormPasswordField = ({ successMessage, ...props }) => {
   );
 };
 
-FormPasswordField.propTypes = {
+FormTextField.propTypes = {
   successMessage: PropTypes.string,
 };

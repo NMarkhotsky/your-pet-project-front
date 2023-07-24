@@ -1,18 +1,25 @@
 import { useField } from 'formik';
+import { useState } from 'react';
 import {
   ErrorMessage,
   FormIconContainer,
+  FormIconEyeContainer,
   FormInput,
   FormInputContainer,
   SuccessMessage,
-} from './FormTextField.styled';
+} from './FormFields.styled';
 import PropTypes from 'prop-types';
-import { Icon } from '../../../../Icon/Icon';
+import { Icon } from '../../../Icon/Icon';
 
-export const FormTextField = ({ successMessage, ...props }) => {
+export const FormPasswordField = ({ successMessage, ...props }) => {
   const [field, meta] = useField(props);
   const invalid = meta.touched && meta.error;
   const valid = meta.touched && !meta.error;
+
+  const [showPassword, setShowPassword] = useState(false);
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <>
@@ -22,7 +29,27 @@ export const FormTextField = ({ successMessage, ...props }) => {
           {...props}
           $invalid={meta.touched && meta.error}
           $valid={meta.touched && !meta.error}
+          type={showPassword ? 'text' : 'password'}
         />
+        <FormIconEyeContainer
+          $touched={meta.touched}
+          onClick={toggleShowPassword}
+        >
+          {showPassword ? (
+            <Icon
+              iconName={'icon-eye-open'}
+              stroke={'#54ADFF'}
+              fill={'#54ADFF'}
+            />
+          ) : (
+            <Icon
+              iconName={'icon-eye-closed'}
+              stroke={'#54ADFF'}
+              fill={'#54ADFF'}
+            />
+          )}
+        </FormIconEyeContainer>
+        <ErrorMessage>{meta.error}</ErrorMessage>
         {invalid ? (
           <>
             <FormIconContainer>
@@ -48,6 +75,6 @@ export const FormTextField = ({ successMessage, ...props }) => {
   );
 };
 
-FormTextField.propTypes = {
+FormPasswordField.propTypes = {
   successMessage: PropTypes.string,
 };
