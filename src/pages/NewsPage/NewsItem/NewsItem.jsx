@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import { ItemNews, WrapperImage, ImageNews, Content, TitleNews, TextNews, ContainerInfo, Date, LinkReadMore } from './NewsItem.styled';
+import moment from 'moment';
 
 const NewsItem = ({article}) => {
     const { url = '', text, title, imgUrl, date } = article;
+    const formatedDate = moment(date).format('L');
 
     return (
         <ItemNews>
@@ -15,8 +17,8 @@ const NewsItem = ({article}) => {
                     <TextNews>{text}</TextNews>
                 </div>
                 <ContainerInfo>
-                    <Date>{date}</Date>
-                    <LinkReadMore href={url}>Read more</LinkReadMore>
+                    <Date>{formatedDate}</Date>
+                    <LinkReadMore href={url} target='_blank'>Read more</LinkReadMore>
                 </ContainerInfo>
             </Content>
         </ItemNews>

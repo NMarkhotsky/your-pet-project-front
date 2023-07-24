@@ -9,11 +9,11 @@ const NewsList = () => {
 
     return (
         <>
-                <List>
-                    {allArticles.map(article => (
-                        <NewsItem key={article._id} article={article} />
-                    ))}
-                </List>
+            <List>
+                {allArticles.map(article => (
+                    <NewsItem key={article.id} article={article} />
+                ))}
+            </List>
         </>
     );
 };

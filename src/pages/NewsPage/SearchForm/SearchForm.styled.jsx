@@ -79,7 +79,7 @@ export const BtnSearch = styled.button`
     }
 `;
 
-export const BtnCross = styled.button`
+export const BtnClose = styled.button`
     width: 24px;
     height: 24px;
     padding: 0;

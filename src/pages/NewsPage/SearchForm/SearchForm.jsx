@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { Icon } from '../../../components/Icon/Icon';
-import { SearchContainer, SearchInput, BtnSearch, BtnCross } from './SearchForm.styled';
+import { SearchContainer, SearchInput, BtnSearch, BtnClose } from './SearchForm.styled';
 
 const SearchForm = () => {
 
     return (
-        <SearchContainer onSubmit=''>
+        <SearchContainer>
             <SearchInput
                 type="text"
                 name="query"
@@ -14,7 +14,6 @@ const SearchForm = () => {
                 onChange=''
                 placeholder="Search"
             />
-
             <BtnSearch
                 type="submit"
                 aria-label="submit"
@@ -27,15 +26,15 @@ const SearchForm = () => {
                     fill={'#54ADFF'}
                 />
             </BtnSearch>
-                <BtnCross type="button" onClick='' aria-label="clear">
-                    <Icon
-                        iconName={'icon-cross'}
-                        width={'24px'}
-                        height={'24px'}
-                        stroke={'#54ADFF'}
-                        fill={'#54ADFF'}
-                    />
-                </BtnCross>
+            <BtnClose type="button" aria-label="clear">
+                <Icon
+                    iconName={'icon-cross'}
+                    width={'24px'}
+                    height={'24px'}
+                    stroke={'#54ADFF'}
+                    fill={'#54ADFF'}
+                />
+            </BtnClose>
         </SearchContainer>
     );
 };
