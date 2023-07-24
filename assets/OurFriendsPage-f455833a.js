@@ -1,4 +1,4 @@
-import{s as n,b as s,P as d,j as i,a as p,c as b,r as f}from"./index-6266adf5.js";const z=n.div`
+import{s as n,b as s,P as d,j as i,a as p,c as b,r as f}from"./index-bde021fe.js";const z=n.div`
   margin-top: 40px;
 
   @media ${s} {
@@ -110,7 +110,7 @@ import{s as n,b as s,P as d,j as i,a as p,c as b,r as f}from"./index-6266adf5.js
 `,C=n.ul`
   position: absolute;
   top: 107px;
-  right: 90px;
+  right: 97px;
   display: flex;
   flex-direction: column;
   gap: 4px;
