@@ -7,7 +7,6 @@ import { UserMenuBox, UserMenuButton, UserMenuName } from './UserMenu.styled';
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
-  console.log('user--->', user);
 
   return (
     <UserMenuBox>

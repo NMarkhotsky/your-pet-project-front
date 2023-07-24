@@ -126,6 +126,7 @@ export const LogoutBox = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+  cursor: pointer;
 `;
 
 export const LogoutText = styled.p`

@@ -1,10 +1,12 @@
 import { Field, Formik, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Icon } from '../Icon/Icon';
+import { logout } from '../../redux/auth/operations';
 import {
   ContainerForm,
   FormTitle,
@@ -29,25 +31,25 @@ const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
 
 const FILE_SIZE = 3000000;
 
-const schema = Yup.object().shape({
-  name: Yup.string(),
-  // .required('Name  is required field'),
-  email: Yup.string()
-    // .required('Email  is required field')
-    .matches(emailRegExp, 'Invalid email address'),
-  birthday: Yup.date()
-    // .required('Enter a date of birth')
-    .min(new Date(1900, 0, 1))
-    .max(new Date(), "You can't be born in the future!"),
-  phone: Yup.string()
-    // .required('Phone is required field')
-    .matches(phoneRegExp, 'Invalid phone number'),
-  city: Yup.string(),
-  // .required('City is required field'),
-});
+// const schema = Yup.object().shape({
+//   name: Yup.string()
+//   .required('Name  is required field'),
+//   email: Yup.string()
+//     .required('Email  is required field')
+//     .matches(emailRegExp, 'Invalid email address'),
+//   birthday: Yup.date()
+//     .required('Enter a date of birth')
+//     .min(new Date(1900, 0, 1))
+//     .max(new Date(), "You can't be born in the future!"),
+//   phone: Yup.string()
+//     .required('Phone is required field')
+//     .matches(phoneRegExp, 'Invalid phone number'),
+//   city: Yup.string()
+//   .required('City is required field'),
+// });
 
 export const UserForm = ({ user }) => {
-  console.log('userInForm ===>', user);
+  const dispatch = useDispatch();
 
   // Стани для роботи з полями форми
   const [avatar, setAvatar] = useState('');
@@ -95,13 +97,17 @@ export const UserForm = ({ user }) => {
     setValues({ ...values, [name]: value });
   };
 
+  const [isConfirmed, setIsConfirmed] = useState(false);
+
   const handleConfirmClick = () => {
-    setIsAbleAdd(true);
+    setIsConfirmed(true);
+    alert('Your photo has been successfully added');
   };
 
   const handleCancelClick = () => {
+    setIsAbleAdd(true);
     setAvatar('');
-    setPreviewURL('');
+    setPreviewURL(user && user.avatarURL);
   };
 
   const handleAvatarChange = e => {
@@ -116,17 +122,22 @@ export const UserForm = ({ user }) => {
     }
   };
 
-  const handleSubmit = async formValues => {
+  const handleSubmit = async () => {
     try {
       toast.success('Changes saved successfully');
 
       const formData = new FormData();
-      formData.append('name', formValues.name);
-      formData.append('email', formValues.email);
-      formData.append('birthday', formValues.birthday);
-      formData.append('phone', formValues.phone);
-      formData.append('city', formValues.city);
+      formData.append('name', values.name);
+      formData.append('email', values.email);
+      formData.append('birthday', values.birthday);
+      formData.append('phone', values.phone);
+      formData.append('city', values.city);
       formData.append('avatar', avatar);
+
+      const formDataObject = {};
+      formData.forEach((value, key) => {
+        formDataObject[key] = value;
+      });
 
       console.log('formData ==>', formData);
 
@@ -155,7 +166,7 @@ export const UserForm = ({ user }) => {
         // }}
         initialValues={values}
         onSubmit={handleSubmit}
-        validationSchema={schema}
+        // validationSchema={schema}
       >
         <FormBox>
           <EditIcon onClick={handleEditForm}>
@@ -235,14 +246,16 @@ export const UserForm = ({ user }) => {
                   />
                 </button>
                 Confirm
-                <button type="button" onClick={handleCancelClick}>
-                  <Icon
-                    iconName={'icon-cross'}
-                    width={'24px'}
-                    height={'24px'}
-                    stroke={'#F43F5E'}
-                  />
-                </button>
+                {isConfirmed && (
+                  <button type="button" onClick={handleCancelClick}>
+                    <Icon
+                      iconName={'icon-cross'}
+                      width={'24px'}
+                      height={'24px'}
+                      stroke={'#F43F5E'}
+                    />
+                  </button>
+                )}
               </ConfirmText>
             )}
           </ImageInputBox>
@@ -257,6 +270,7 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.name}
                 onChange={handleChange}
+                required
               />
               <ErrorMessage
                 name="name"
@@ -273,6 +287,9 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.email}
                 onChange={handleChange}
+                required
+                type="email"
+                // pattern={emailRegExp}
               />
               <ErrorMessage
                 name="email"
@@ -289,6 +306,9 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.birthday}
                 onChange={handleChange}
+                required
+                min={new Date(1900, 0, 1)}
+                max={new Date()}
               />
               <ErrorMessage
                 name="birthday"
@@ -305,6 +325,9 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.phone}
                 onChange={handleChange}
+                type="number"
+                required
+                pattern={phoneRegExp}
               />
               <ErrorMessage
                 name="phone"
@@ -321,6 +344,7 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.city}
                 onChange={handleChange}
+                required
               />
               <ErrorMessage
                 name="city"
@@ -331,7 +355,7 @@ export const UserForm = ({ user }) => {
             {isActiveEdit ? (
               <ButtonForm type="submit">Save</ButtonForm>
             ) : (
-              <LogoutBox>
+              <LogoutBox onClick={() => dispatch(logout())}>
                 <Icon
                   iconName={'icon-logout'}
                   width={'24px'}

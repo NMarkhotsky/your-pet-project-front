@@ -1,3 +1,4 @@
+// import PropTypes from 'prop-types';
 import {
   ContainerList,
   TopPart,
@@ -9,11 +10,8 @@ import { PetsItem } from '../PetsItem/PetsItem';
 import pets from '../../temp/pets.json';
 import { Icon } from '../Icon/Icon';
 
-
 export const PetsList = () => {
-
-
-
+  // console.log('petsList===>', petsList);
 
   return (
     <ContainerList>
@@ -45,3 +43,7 @@ export const PetsList = () => {
     </ContainerList>
   );
 };
+
+// PetsList.propTypes = {
+//   petsList: PropTypes.array(),
+// };
