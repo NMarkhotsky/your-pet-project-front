@@ -107,7 +107,7 @@ export const FriendInfoData = styled.p`
 export const WorkDaysList = styled.ul`
   position: absolute;
   top: 107px;
-  right: 90px;
+  right: 97px;
   display: flex;
   flex-direction: column;
   gap: 4px;
