@@ -1,5 +1,7 @@
 import { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage'));
@@ -24,17 +26,57 @@ const AppRoutes = () => {
         <Route path="/main" element={<MainPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/notices" element={<NoticesPage />}>
+          <Route index element={<Navigate to="sell" replace />} />
           <Route path="sell" element={<NoticesCategoriesList />} />
           <Route path="lost-found" element={<NoticesCategoriesList />} />
           <Route path="for-free" element={<NoticesCategoriesList />} />
+          <Route
+            path="favorite"
+            element={
+              <PrivateRoute
+                redirectTo="/login"
+                component={<NoticesCategoriesList />}
+              />
+            }
+          />
+          <Route
+            path="own"
+            element={
+              <PrivateRoute
+                redirectTo="/login"
+                component={<NoticesCategoriesList />}
+              />
+            }
+          />
         </Route>
+
         <Route path="/friends" element={<OurFriendsPage />} />
 
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/login"
+          element={<PublicRoute redirectTo="/user" component={<LoginPage />} />}
+        />
 
-        <Route path="/user" element={<UserPage />} />
-        <Route path="/add-pet" element={<AddPetPage />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute redirectTo="/user" component={<RegisterPage />} />
+          }
+        />
+
+        <Route
+          path="/user"
+          element={
+            <PrivateRoute redirectTo="/login" component={<UserPage />} />
+          }
+        />
+
+        <Route
+          path="/add-pet"
+          element={
+            <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
+          }
+        />
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
