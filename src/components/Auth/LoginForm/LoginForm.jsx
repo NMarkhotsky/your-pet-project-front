@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
+import { useEffect } from 'react';
 import { useFormik, FormikContext } from 'formik';
 import { login } from '../../../redux/auth/operations';
 import { FormTextField } from '../common/FormFields/FormTextField';
@@ -10,7 +11,7 @@ import {
   FormLink,
   FormText,
 } from '../common/AuthFormContainer/AuthFormContainer.styled';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoginSchema } from './LoginSchema';
 
@@ -18,7 +19,13 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { error, isRefreshing } = useAuth();
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/user');
+    }
+  }, [isLoggedIn, navigate]);
 
   const formik = useFormik({
     initialValues: {
@@ -30,16 +37,13 @@ export const LoginForm = () => {
     validateOnBlur: true,
     onSubmit: async values => {
       const errors = await formik.validateForm();
-      if (Object.keys(errors).length) {
-        toast.error('Please enter valid values in all the fields', {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      }
+      // if (Object.keys(errors).length) {
+      //   toast.error('Please enter valid values in all the fields', {
+      //     position: toast.POSITION.TOP_CENTER,
+      //   });
+      // }
       if (Object.keys(errors).length === 0) {
         dispatch(login(values));
-        if (!error && isRefreshing === false) {
-          navigate('/user');
-        }
       }
     },
   });
@@ -65,7 +69,6 @@ export const LoginForm = () => {
           Do not have an account? <FormLink to="/register">Register</FormLink>
         </FormText>
       </form>
-      <ToastContainer />
     </FormikContext.Provider>
   );
 };

@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
+import { useEffect } from 'react';
 import { useFormik, FormikContext } from 'formik';
 import { register } from '../../../redux/auth/operations';
 import { FormTextField } from '../common/FormFields/FormTextField';
@@ -10,7 +11,7 @@ import {
   FormLink,
   FormText,
 } from '../common/AuthFormContainer/AuthFormContainer.styled';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { RegisterSchema } from './RegisterSchema';
 
@@ -18,7 +19,13 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { error, isRefreshing } = useAuth();
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/user');
+    }
+  }, [isLoggedIn, navigate]);
 
   const formik = useFormik({
     initialValues: {
@@ -32,17 +39,14 @@ export const RegisterForm = () => {
     validateOnBlur: true,
     onSubmit: async ({ name, email, password }) => {
       const errors = await formik.validateForm();
-      if (Object.keys(errors).length) {
-        toast.error('Please enter valid values in all the fields', {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      }
+      // if (Object.keys(errors).length) {
+      //   toast.error('Please enter valid values in all the fields', {
+      //     position: toast.POSITION.TOP_CENTER,
+      //   });
+      // }
       if (Object.keys(errors).length === 0) {
         const newUser = { name, email, password };
         dispatch(register(newUser));
-        if (!error && isRefreshing === false) {
-          navigate('/user');
-        }
       }
     },
   });
@@ -83,7 +87,6 @@ export const RegisterForm = () => {
           Already have an account? <FormLink to="/login">Login</FormLink>
         </FormText>
       </form>
-      <ToastContainer />
     </FormikContext.Provider>
   );
 };
