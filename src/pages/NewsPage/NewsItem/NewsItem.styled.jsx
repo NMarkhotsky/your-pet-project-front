@@ -13,9 +13,26 @@ export const ItemNews = styled.li`
         transform: scale(1.05);
     }
 
+    &:before {
+        position: absolute;
+        content: '';
+        top: -20px;
+        display: block;
+        height: 8px;
+        width: 100%;
+        background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+        border-radius: 40px;
+        opacity: 1;
+    
+    }
+
     @media ${selectTablet} {
         height: 556px;
         flex-basis: calc((100% - 32px) / 2);
+
+        &:before {
+            top: -22px;
+        }
     }
 
     @media ${selectDesktop} {
@@ -41,7 +58,6 @@ export const ImageNews = styled.img`
     }
 
     @media ${selectDesktop} {
-        border-radius: 0px;
     }
 `;
 

@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
 
 export const Title = styled.h1`
-margin-bottom: 24px;
+margin-bottom: 40px;
+margin-top: 80px;
 
 font-family: ${props => props.theme.fonts.main.bold};
 font-size: ${props => props.theme.fontSizes.xl};

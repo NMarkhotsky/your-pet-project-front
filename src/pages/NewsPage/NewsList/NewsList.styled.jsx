@@ -3,7 +3,7 @@ import { selectTablet, selectDesktop } from '../../../utils/selectMediaRequests'
 
 export const List = styled.ul`
     width: 100%;
-    margin-bottom: 147px;
+    margin-bottom: 40px;
     margin-top: 44px;
     list-style: none;
     display: flex;
@@ -16,8 +16,8 @@ export const List = styled.ul`
         justify-content: center;
         flex-wrap: wrap;
         column-gap: 24px;
-        margin-bottom: 60px;
         margin-top: 62px;
+        margin-bottom: 60px;
     }
 
     @media ${selectDesktop} {
@@ -25,6 +25,6 @@ export const List = styled.ul`
         padding: 5px;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 82px;
+        margin-top: 68px;
     }
 `;
