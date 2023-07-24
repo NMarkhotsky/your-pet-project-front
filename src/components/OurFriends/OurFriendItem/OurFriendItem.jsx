@@ -22,7 +22,16 @@ export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
   return (
     <>
       {items.map(
-        ({ imageUrl, url, title, workDays, address, email, phone }) => (
+        ({
+          imageUrl,
+          url,
+          title,
+          workDays,
+          address,
+          email,
+          phone,
+          addressUrl,
+        }) => (
           <FriendItem key={imageUrl}>
             <FriendTitle href={`${url}`} target="_blank">
               {title}
@@ -47,19 +56,23 @@ export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
                 </FriendInfo>
                 <FriendInfo>
                   <FriendInfoTitle>Address:</FriendInfoTitle>
-                  <FriendInfoData>
+                  <FriendInfoData
+                    href={addressUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {address === null ? 'Website only' : address}
                   </FriendInfoData>
                 </FriendInfo>
                 <FriendInfo>
                   <FriendInfoTitle>Email:</FriendInfoTitle>
-                  <FriendInfoData>
+                  <FriendInfoData href={`mailto:${email}`}>
                     {email === null ? 'Telephone only' : email}
                   </FriendInfoData>
                 </FriendInfo>
                 <FriendInfo>
                   <FriendInfoTitle>Phone:</FriendInfoTitle>
-                  <FriendInfoData>
+                  <FriendInfoData href={`tel:${phone}`}>
                     {phone === null ? 'Email only' : phone}
                   </FriendInfoData>
                 </FriendInfo>
@@ -96,3 +109,6 @@ OurFriendItem.propTypes = {
   handleTimeHover: PropTypes.func.isRequired,
   hoveredTime: PropTypes.string.isRequired,
 };
+
+// href={'tel:' + friend.phone}
+// href={'mailto:' + friend.email}

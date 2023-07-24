@@ -92,6 +92,12 @@ export const FriendInfo = styled.div`
 
     cursor: pointer;
   }
+
+  &:hover > a {
+    color: ${({ theme }) => theme.colors.blue};
+
+    cursor: pointer;
+  }
 `;
 
 export const FriendInfoTime = styled.p`
@@ -100,8 +106,9 @@ export const FriendInfoTime = styled.p`
 
 export const FriendInfoTitle = styled.p``;
 
-export const FriendInfoData = styled.p`
+export const FriendInfoData = styled.a`
   font-family: ${({ theme }) => theme.fonts.main.regular};
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 export const WorkDaysList = styled.ul`
