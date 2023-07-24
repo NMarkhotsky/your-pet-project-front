@@ -1,20 +1,15 @@
 import { useField } from 'formik';
 import { useState } from 'react';
 import {
-  ErrorMessage,
-  FormIconContainer,
   FormIconEyeContainer,
-  FormInput,
-  FormInputContainer,
-  SuccessMessage,
-} from './FormFields.styled';
+  FormPasswordInputContainer,
+} from './FormPasswordField.styled';
 import PropTypes from 'prop-types';
 import { Icon } from '../../../Icon/Icon';
+import { FormTextField } from './FormTextField';
 
-export const FormPasswordField = ({ successMessage, ...props }) => {
+export const FormPasswordField = ({ ...props }) => {
   const [field, meta] = useField(props);
-  const invalid = meta.touched && meta.error;
-  const valid = meta.touched && !meta.error;
 
   const [showPassword, setShowPassword] = useState(false);
   const toggleShowPassword = () => {
@@ -23,12 +18,10 @@ export const FormPasswordField = ({ successMessage, ...props }) => {
 
   return (
     <>
-      <FormInputContainer>
-        <FormInput
+      <FormPasswordInputContainer>
+        <FormTextField
           {...field}
           {...props}
-          $invalid={meta.touched && meta.error}
-          $valid={meta.touched && !meta.error}
           type={showPassword ? 'text' : 'password'}
         />
         <FormIconEyeContainer
@@ -49,28 +42,7 @@ export const FormPasswordField = ({ successMessage, ...props }) => {
             />
           )}
         </FormIconEyeContainer>
-        <ErrorMessage>{meta.error}</ErrorMessage>
-        {invalid ? (
-          <>
-            <FormIconContainer>
-              <Icon
-                iconName={'icon-cross-small'}
-                stroke={'#F43F5E'}
-                fill={'#F43F5E'}
-              />
-            </FormIconContainer>
-            <ErrorMessage>{meta.error}</ErrorMessage>
-          </>
-        ) : null}
-        {valid ? (
-          <FormIconContainer>
-            <Icon iconName={'icon-check'} stroke={'#00C3AD'} fill={'#00C3AD'} />
-          </FormIconContainer>
-        ) : null}
-        {valid && successMessage ? (
-          <SuccessMessage>{successMessage}</SuccessMessage>
-        ) : null}
-      </FormInputContainer>
+      </FormPasswordInputContainer>
     </>
   );
 };

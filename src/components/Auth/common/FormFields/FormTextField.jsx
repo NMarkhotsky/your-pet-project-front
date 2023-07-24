@@ -5,7 +5,7 @@ import {
   FormInput,
   FormInputContainer,
   SuccessMessage,
-} from './FormFields.styled';
+} from './FormTextField.styled';
 import PropTypes from 'prop-types';
 import { Icon } from '../../../Icon/Icon';
 
