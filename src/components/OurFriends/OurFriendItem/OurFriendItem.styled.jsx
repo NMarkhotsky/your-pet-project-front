@@ -25,7 +25,11 @@ export const FriendItem = styled.li`
 
   @media ${selectDesktop} {
     min-width: 394px;
-    flex: 0;
+
+    &:last-child {
+      flex: 0;
+      margin-right: auto;
+    }
   }
 `;
 
