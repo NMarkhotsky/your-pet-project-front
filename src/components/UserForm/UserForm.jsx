@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
-// import axios from 'axios';
+import axios from 'axios';
 import { Icon } from '../Icon/Icon';
 import {
   ContainerForm,
@@ -20,6 +20,8 @@ import {
   ConfirmText,
 } from './UserForm.styled';
 
+axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
+
 const emailRegExp =
   /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
 
@@ -28,18 +30,20 @@ const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
 const FILE_SIZE = 3000000;
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('Name  is required field'),
+  name: Yup.string(),
+  // .required('Name  is required field'),
   email: Yup.string()
-    .required('Email  is required field')
+    // .required('Email  is required field')
     .matches(emailRegExp, 'Invalid email address'),
   birthday: Yup.date()
-    .required('Enter a date of birth')
+    // .required('Enter a date of birth')
     .min(new Date(1900, 0, 1))
     .max(new Date(), "You can't be born in the future!"),
   phone: Yup.string()
-    .required('Phone is required field')
+    // .required('Phone is required field')
     .matches(phoneRegExp, 'Invalid phone number'),
-  city: Yup.string().required('City is required field'),
+  city: Yup.string(),
+  // .required('City is required field'),
 });
 
 export const UserForm = ({ user }) => {
@@ -47,15 +51,48 @@ export const UserForm = ({ user }) => {
 
   // Стани для роботи з полями форми
   const [avatar, setAvatar] = useState('');
-  const [previewURL, setPreviewURL] = useState(user.avatarURL || undefined);
+  const [previewURL, setPreviewURL] = useState(undefined);
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    birthday: '',
+    phone: '',
+    city: '',
+  });
 
   // Стани для роботи з редагуванням форми
   const [isActiveEdit, setIsActiveEdit] = useState(false);
   const [isAbleAdd, setIsAbleAdd] = useState(true);
 
+  useEffect(() => {
+    if (avatar === '') {
+      return;
+    }
+  }, [avatar]);
+
+  useEffect(() => {
+    if (user === null) {
+      return;
+    }
+    setValues({
+      name: user && user.name,
+      email: user && user.email,
+      birthday: user ? user.birthday : '',
+      phone: user ? user.phone : '',
+      city: user ? user.city : '',
+    });
+    setPreviewURL(user && user.avatarURL);
+  }, [user]);
+
   // Зміна режимів редагування config i edit
   const handleEditClick = () => {
     setIsAbleAdd(false);
+  };
+
+  // Контрольована зміна значень полів форми
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setValues({ ...values, [name]: value });
   };
 
   const handleConfirmClick = () => {
@@ -79,26 +116,22 @@ export const UserForm = ({ user }) => {
     }
   };
 
-  useEffect(() => {
-    if (avatar === '') {
-      return;
-    }
-  }, [avatar]);
-
-  const handleSubmit = async values => {
+  const handleSubmit = async formValues => {
     try {
       toast.success('Changes saved successfully');
 
       const formData = new FormData();
-      formData.append('name', values.name);
-      formData.append('email', values.email);
-      formData.append('birthday', values.birthday);
-      formData.append('phone', values.phone);
-      formData.append('city', values.city);
+      formData.append('name', formValues.name);
+      formData.append('email', formValues.email);
+      formData.append('birthday', formValues.birthday);
+      formData.append('phone', formValues.phone);
+      formData.append('city', formValues.city);
       formData.append('avatar', avatar);
 
-      // const response = await axios.post("URL_TO_YOUR_API", formData);
-      // console.log("Дані успішно відправлені:", response.data);
+      console.log('formData ==>', formData);
+
+      const response = await axios.patch(`/users`, formData);
+      console.log('Дані успішно відправлені:', response);
     } catch (error) {
       console.error('Помилка при відправці даних:', error);
     }
@@ -113,15 +146,14 @@ export const UserForm = ({ user }) => {
     <ContainerForm>
       <FormTitle>My information:</FormTitle>
       <Formik
-        initialValues={{
-          // name: user.name || '',
-          name: user.name || '',
-          // email: user.email || '',
-          email: user.email || '',
-          birthday: '',
-          phone: '',
-          city: '',
-        }}
+        // initialValues={{
+        //   name: user  && user.name,
+        //   email: user && user.email,
+        //   birthday: user ? user.birthday : '',
+        //   phone: user ? user.phone : '',
+        //   city: user ? user.city : '',
+        // }}
+        initialValues={values}
         onSubmit={handleSubmit}
         validationSchema={schema}
       >
@@ -223,6 +255,8 @@ export const UserForm = ({ user }) => {
                 name="name"
                 placeholder="Anna"
                 disabled={!isActiveEdit}
+                value={values.name}
+                onChange={handleChange}
               />
               <ErrorMessage
                 name="name"
@@ -237,6 +271,8 @@ export const UserForm = ({ user }) => {
                 name="email"
                 placeholder="anna00@gmail.com"
                 disabled={!isActiveEdit}
+                value={values.email}
+                onChange={handleChange}
               />
               <ErrorMessage
                 name="email"
@@ -251,6 +287,8 @@ export const UserForm = ({ user }) => {
                 id="birthday"
                 name="birthday"
                 disabled={!isActiveEdit}
+                value={values.birthday}
+                onChange={handleChange}
               />
               <ErrorMessage
                 name="birthday"
@@ -265,6 +303,8 @@ export const UserForm = ({ user }) => {
                 name="phone"
                 placeholder="+38000000000"
                 disabled={!isActiveEdit}
+                value={values.phone}
+                onChange={handleChange}
               />
               <ErrorMessage
                 name="phone"
@@ -279,6 +319,8 @@ export const UserForm = ({ user }) => {
                 name="city"
                 placeholder="Kyiv"
                 disabled={!isActiveEdit}
+                value={values.city}
+                onChange={handleChange}
               />
               <ErrorMessage
                 name="city"
@@ -308,8 +350,12 @@ export const UserForm = ({ user }) => {
 
 UserForm.propTypes = {
   user: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    avatarURL: PropTypes.string.isRequired,
-  }).isRequired,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    avatarURL: PropTypes.string,
+    birthday: PropTypes.string,
+    phone: PropTypes.string,
+    city: PropTypes.string,
+    _id: PropTypes.string,
+  }),
 };

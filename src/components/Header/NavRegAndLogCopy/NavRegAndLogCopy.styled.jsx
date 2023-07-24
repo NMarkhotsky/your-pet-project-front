@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-// import { selectTablet } from '../../../utils/selectMediaRequests';
 
 export const MainNavLinkBoxCopy = styled.div`
   display: none;
