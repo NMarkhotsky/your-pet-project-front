@@ -1,7 +1,9 @@
 import { Field, Formik, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
+// import axios from 'axios';
 import { Icon } from '../Icon/Icon';
 import {
   ContainerForm,
@@ -40,10 +42,12 @@ const schema = Yup.object().shape({
   city: Yup.string().required('City is required field'),
 });
 
-export const UserForm = () => {
+export const UserForm = ({ user }) => {
+  console.log('userInForm ===>', user);
+
   // Стани для роботи з полями форми
   const [avatar, setAvatar] = useState('');
-  const [previewURL, setPreviewURL] = useState(undefined);
+  const [previewURL, setPreviewURL] = useState(user.avatarURL || undefined);
 
   // Стани для роботи з редагуванням форми
   const [isActiveEdit, setIsActiveEdit] = useState(false);
@@ -79,7 +83,6 @@ export const UserForm = () => {
     if (avatar === '') {
       return;
     }
-
   }, [avatar]);
 
   const handleSubmit = async values => {
@@ -112,9 +115,9 @@ export const UserForm = () => {
       <Formik
         initialValues={{
           // name: user.name || '',
-          name: '',
+          name: user.name || '',
           // email: user.email || '',
-          email: '',
+          email: user.email || '',
           birthday: '',
           phone: '',
           city: '',
@@ -145,9 +148,9 @@ export const UserForm = () => {
               {previewURL && (
                 <img
                   src={previewURL}
-                  width="100%"
-                  height="100%"
-                  style={{ borderRadius: 40 }}
+                  width="182"
+                  height="182"
+                  style={{ borderRadius: 40, objectFit: 'cover' }}
                   alt="Попередній перегляд аватарки"
                 />
               )}
@@ -301,4 +304,12 @@ export const UserForm = () => {
       </Formik>
     </ContainerForm>
   );
+};
+
+UserForm.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    avatarURL: PropTypes.string.isRequired,
+  }).isRequired,
 };
