@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
 import { useFormik, FormikContext } from 'formik';
 import { login } from '../../../redux/auth/operations';
-import { FormTextField } from '../common/FormFields/FormTextField/FormTextField';
-import { FormPasswordField } from '../common/FormFields/FormPasswordField/FormPasswordField';
+import { FormTextField } from '../common/FormFields/FormTextField';
+import { FormPasswordField } from '../common/FormFields/FormPasswordField';
 import { AuthFormBtn } from '../common/AuthFormBtn/AuthFormBtn';
 import {
   FormLink,
@@ -46,7 +46,7 @@ export const LoginForm = () => {
 
   return (
     <FormikContext.Provider value={formik}>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} noValidate>
         <FormTextField
           name="email"
           type="email"
