@@ -21,6 +21,7 @@ export const PaginationItem = styled.li`
 `;
 
 export const Option = styled.p`
+  white-space: nowrap;
   color: ${generateColor};
   font-size: 10px;
   font-weight: 500;

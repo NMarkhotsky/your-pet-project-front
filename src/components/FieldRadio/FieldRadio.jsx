@@ -1,10 +1,11 @@
 import { Input, Label, Text } from "./FieldRadio.styled";
 
 function FieldRadio({ value, text, onChange, checked }) {
+
   return (
     <>
       <Label htmlFor={value}>
-        <Text checked={checked === value}>{text}</Text>
+        <Text checked={checked}>{text}</Text>
       </Label>
       <Input
         id={value}
@@ -12,7 +13,7 @@ function FieldRadio({ value, text, onChange, checked }) {
         type="radio"
         onChange={onChange}
         value={value}
-        checked={checked === value}
+        checked={checked}
       />
     </>
   )

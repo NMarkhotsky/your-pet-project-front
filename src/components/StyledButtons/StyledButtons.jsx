@@ -27,3 +27,21 @@ export const ButtonNext = styled.button`
     flex-basis: 66%;
   }
 `;
+
+export const ButtonPrev = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  gap: 12px;
+  color: #54ADFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.64px;
+
+  @media ${selectTablet} {
+    flex-basis: 33%;
+  }
+`;

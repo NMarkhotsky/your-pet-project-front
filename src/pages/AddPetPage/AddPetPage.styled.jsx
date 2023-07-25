@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { selectDesktop, selectPhone, selectTablet } from "../../utils";
+import { selectDesktop, selectTablet } from "../../utils";
 
 export const Main = styled.main`
   width: 100vw;
@@ -18,19 +18,17 @@ export const FormBody = styled.div`
   border-radius: 40px;
   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   padding: 20px 8px 17px 8px;
-
-  @media ${selectPhone} {
-    
-  }
+  box-sizing: border-box;
 
   @media ${selectTablet} {
     width: 60%;
     padding: 20px 32px;
+    height: 90%;
   }
 
   @media ${selectDesktop} {
     width: 100%;
-    max-width: 458px;
+    max-width: 500px;
   }
 `;
 

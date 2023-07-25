@@ -8,15 +8,6 @@ import { ThemeProvider } from 'styled-components';
 import App from './App.jsx';
 import { theme } from './theme/theme.js';
 import './index.css';
-import { ThemeProvider } from 'styled-components';
-
-const theme = {
-  media: {
-    phone: "(min-width: 320px)",
-    tablet: "(min-width: 768px)",
-    desktop: "(min-width: 1280px)",
-  }
-}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

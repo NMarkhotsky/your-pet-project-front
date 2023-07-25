@@ -16,7 +16,6 @@ export const Text = styled.span`
 `;
 
 export const Input = styled.input`
-  max-width: 100%;
   width: 0px;
   height: 0px;
   opacity: 0;

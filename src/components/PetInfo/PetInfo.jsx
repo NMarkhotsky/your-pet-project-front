@@ -1,37 +1,25 @@
+import { useDispatch } from "react-redux";
 import { petValues } from "../../constants";
-import FieldInput from "../FieldInput/FieldInput";
+import PersonalDetails from "../PersonalDetails/PersonalDetails";
+import PersonalDetailsPlus from "../PersonalDetailsPlus/PersonalDetailsPlus";
+import { setPersonalDetails } from "../../redux/add-pet/personalDetailsSlice";
 
-function PetInfo({ formik }) {
-  const { option } = formik.values;
+function PetInfo({ option, handleDefinePage }) {
+
+  const dispatch = useDispatch();
+
+  const onSubmit = (values) => {
+    dispatch(setPersonalDetails(values));
+    handleDefinePage(1);
+  }
+
   return (
     <>
-      {/* <FieldInput
-        text="Title of add"
-        value={petValues.petName}
-        id={petValues.petName}
-        onChange={formik.handleChange}
-      /> */}
-      <FieldInput
-        text="Pet’s name"
-        name={petValues.petName}
-        value={formik.values.petName}
-        id={petValues.petName}
-        onChange={formik.handleChange}
-      />
-      <FieldInput
-        text="Date of birth"
-        name={petValues.dateOfBirth}
-        value={formik.values.dateOfBirth}
-        id={petValues.dateOfBirth}
-        onChange={formik.handleChange}
-      />
-      <FieldInput
-        text="Breed"
-        name={petValues.breed}
-        value={formik.values.breed}
-        id={petValues.breed}
-        onChange={formik.handleChange}
-      />
+      {
+        option === petValues.yourPet
+          ? <PersonalDetails onSubmit={onSubmit} handleDefinePage={handleDefinePage} />
+          : <PersonalDetailsPlus onSubmit={onSubmit} handleDefinePage={handleDefinePage} />
+      }
     </>
   )
 }

@@ -5,7 +5,7 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: ${(props) => props.theme.colors.black};
   font-size: ${(props) => props.theme.fontSizes.lg};
-  font-weight: ${(props) => props.theme.main.medium};
+  font-weight: ${(props) => props.theme.fonts.main.medium};
   letter-spacing: 0.8px;
 
   &.active {

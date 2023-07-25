@@ -1,55 +1,28 @@
-import { useFormik } from "formik";
+import { useAddPet } from "../../hooks";
 
-import ChooseOption from "../ChooseOption/ChooseOption";
-import ChoiseDoneNext from "../ChoiseDoneNext/ChoiseDoneNext";
-import ChoiseCancelPrev from "../ChoiseCancelPrev/ChoiseCancelPrev";
-
-import { ButtonsWrapper, ChooseOptionWrapper, MyForm } from "./FormAddPet.styled";
 import PetInfo from "../PetInfo/PetInfo";
-
-const initialValues = {
-  option: "",
-  petName: "",
-  dateOfBirth: "",
-  breed: "",
-  titleOfAdd: "",
-}
+import MoreInfo from "../MoreInfo/MoreInfo";
+import ChoiseOption from "../ChoiseOption/ChoiseOption";
 
 function FormAddPet({ currentPage, setCurrentPage }) {
+  const { option } = useAddPet();
 
-  const handleDefinePage = value => () => {
-    if (value === -1 && currentPage === 0) return;
+  const handleDefinePage = (value) => {
+    if (value === -1 && currentPage === 0) {
+      console.log("start");
+      return;
+    };
 
     setCurrentPage(prev => prev + value);
   }
 
-  const onSubmit = (values) => {
-    console.log(values);
-  }
+  const pages = [
+    <ChoiseOption currentPage={currentPage} handleDefinePage={handleDefinePage} />,
+    <PetInfo option={option} handleDefinePage={handleDefinePage} />,
+    <MoreInfo option={option} handleDefinePage={handleDefinePage} />,
+  ];
 
-  const formik = useFormik({ initialValues, onSubmit });
-
-  return (
-    <MyForm onSubmit={formik.handleSubmit}>
-      {/* <ChooseOptionWrapper>
-        <ChooseOption formik={formik} />
-      </ChooseOptionWrapper> */}
-
-      <PetInfo formik={formik} />
-
-      <ButtonsWrapper>
-        <ChoiseDoneNext
-          currentPage={currentPage}
-          handleDefinePage={handleDefinePage}
-          disabled={formik.values.option === ""}
-        />
-        <ChoiseCancelPrev
-          currentPage={currentPage}
-          handleDefinePage={handleDefinePage}
-        />
-      </ButtonsWrapper>
-     </MyForm>
-  )
+  return ( <> { pages[currentPage] } </> )
 }
 
 export default FormAddPet;

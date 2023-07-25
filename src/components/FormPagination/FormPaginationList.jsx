@@ -1,27 +1,5 @@
+import { createColor } from "../../utils";
 import { Bar, FormPagination, Option, PaginationItem } from "./FormPaginationList.styled";
-
-const createColor = ({ currentPage, type }) => {
-  switch (type) {
-    case "text":
-      if (currentPage === 1) {
-        return "current";
-      } else if (currentPage > 1) {
-        return "select";
-      } else if (currentPage < 1) {
-        return "ordinary"
-      }
-    break;
-    case "bar":
-      if (currentPage === 1) {
-        return "current";
-      } else if (currentPage > 1) {
-        return "select";
-      } else if (currentPage < 1) {
-        return "opacity-ordinary"
-      }
-    break;
-  }
-}
 
 function FormPaginationList({ currentPage }) {
   return (
@@ -32,12 +10,12 @@ function FormPaginationList({ currentPage }) {
           <Bar variant={currentPage === 0 ? "current" : "select"} />
         </PaginationItem>
         <PaginationItem>
-          <Option variant={createColor({ currentPage, type: "text" })}>Personal details</Option>
-          <Bar variant={createColor({ currentPage, type: "bar" })} />
+          <Option variant={createColor({ currentPage, type: "text", num: 1 })}>Personal details</Option>
+          <Bar variant={createColor({ currentPage, type: "bar", num: 1 })} />
         </PaginationItem>
         <PaginationItem>
-          <Option variant="ordinary">More info</Option>
-          <Bar variant="opacity-ordinary" />
+          <Option variant={createColor({ currentPage, type: "text", num: 2 })}>More info</Option>
+          <Bar variant={createColor({ currentPage, type: "bar", num: 2 })} />
         </PaginationItem>
       </FormPagination>
     </>

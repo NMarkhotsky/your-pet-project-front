@@ -1,18 +1,30 @@
-function FieldInput({ text, id, value, name, onChange }) {
+import ErrorTextAddPet from "../ErrorTextAddPet/ErrorTextAddPet";
+import { Input, Label } from "./FieldInput.styled";
+
+function FieldInput({ text, id, value, name, onChange, formik, date, placeholder }) {
+
+  const mistake = !!formik.errors[id] && formik.touched[id];
+
   return (
     <>
-      <label htmlFor={value}>
+      <Label htmlFor={id}>
         <span>{text}</span>
-         <input
+        <Input
+            mistake={`${mistake}`}
             name={name}
-            type="text"
+            type={date ? "date" : "text"}
             id={id}
             value={value}
             onChange={onChange}
-          />
-      </label>
+            onBlur={formik.handleBlur}
+            placeholder={placeholder ? placeholder : ""}
+        />
+        {formik.errors[id] && formik.touched[id] ? ( <ErrorTextAddPet text={formik.errors[id]} /> ) : null}
+      </Label>
     </>
   )
 }
 
+{/* <div>{formik.errors[id]}</div> */}
+{/* <ErrorTextAddPet text={formik.errors[id]} /> */}
 export default FieldInput;
