@@ -9,6 +9,7 @@ import {
 import { PetsItem } from '../PetsItem/PetsItem';
 import pets from '../../temp/pets.json';
 import { Icon } from '../Icon/Icon';
+import { NavLink } from 'react-router-dom';
 
 export const PetsList = () => {
   // console.log('petsList===>', petsList);
@@ -18,16 +19,18 @@ export const PetsList = () => {
       <TopPart>
         <ListTitle>My pets:</ListTitle>
 
-        <Button type="button">
-          Add Pet
-          <Icon
-            iconName={'icon-plus-small'}
-            width={'24px'}
-            height={'24px'}
-            stroke={'#FEF9F9'}
-            fill={'#FEF9F9'}
-          />
-        </Button>
+        <NavLink to="/add-pet">
+          <Button type="button">
+            Add Pet
+            <Icon
+              iconName={'icon-plus-small'}
+              width={'24px'}
+              height={'24px'}
+              stroke={'#FEF9F9'}
+              fill={'#FEF9F9'}
+            />
+          </Button>
+        </NavLink>
       </TopPart>
       {pets ? (
         <PetsCardList>
