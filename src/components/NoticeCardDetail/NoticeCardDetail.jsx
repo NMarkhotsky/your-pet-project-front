@@ -27,7 +27,7 @@ import {
   ButtonTextContact,
 } from './NoticeCardDetail.styled';
 
-export const NoticeCardDetail = ({ pet }) => {
+export const NoticeCardDetail = ({ item }) => {
   return (
     <>
       <Modal>
@@ -45,8 +45,8 @@ export const NoticeCardDetail = ({ pet }) => {
             <ModalCard>
               <ModalCardInfo>
                 <ModalCardImage>
-                  <Image src={pet.url} alt="pet" loading="lazy"></Image>
-                  <SpanStatus>{pet.status}</SpanStatus>
+                  <Image src={item.url} alt="pet" loading="lazy"></Image>
+                  <SpanStatus>{item.status}</SpanStatus>
                 </ModalCardImage>
                 <ModalCardText>
                   <Title>Cute dog looking for a home</Title>
@@ -54,34 +54,36 @@ export const NoticeCardDetail = ({ pet }) => {
                     <Tbody>
                       <Tr>
                         <TdName>Name: </TdName>
-                        <TdValue>{pet.name}</TdValue>
+                        <TdValue>{item.name}</TdValue>
                       </Tr>
                       <Tr>
                         <TdName>Birthday: </TdName>
-                        <TdValue>{pet.birthday}</TdValue>
+                        <TdValue>{item.birthday}</TdValue>
                       </Tr>
                       <Tr>
                         <TdName>Breed: </TdName>
-                        <TdValue>{pet.breed}</TdValue>
+                        <TdValue>{item.breed}</TdValue>
                       </Tr>
                       <Tr>
                         <TdName>Place: </TdName>
-                        <TdValue>{pet.place}</TdValue>
+                        <TdValue>{item.place}</TdValue>
                       </Tr>
                       <Tr>
                         <TdName>The sex: </TdName>
-                        <TdValue>{pet.sex}</TdValue>
+                        <TdValue>{item.sex}</TdValue>
                       </Tr>
                       <Tr>
                         <TdName>Email: </TdName>
                         <TdValue>
-                          <Link href={'mailto:' + pet.email}>{pet.email}</Link>
+                          <Link href={'mailto:' + item.email}>
+                            {item.email}
+                          </Link>
                         </TdValue>
                       </Tr>
                       <Tr>
                         <TdName>Phone: </TdName>
                         <TdValue>
-                          <Link href={'tel:' + pet.phone}>{pet.phone}</Link>
+                          <Link href={'tel:' + item.phone}>{item.phone}</Link>
                         </TdValue>
                       </Tr>
                     </Tbody>
@@ -89,7 +91,7 @@ export const NoticeCardDetail = ({ pet }) => {
                 </ModalCardText>
               </ModalCardInfo>
               <Text>
-                <Comments>Comments:</Comments> {pet.comments}
+                <Comments>Comments:</Comments> {item.comments}
               </Text>
               <ButtonsWrapper>
                 <Button>
