@@ -1,4 +1,4 @@
-import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-58b3084b.js";const S=n.div`
+import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-d4899787.js";const S=n.div`
   margin-top: 40px;
 
   @media ${o} {
@@ -27,7 +27,7 @@ import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-58b3084b.js
   @media ${p} {
     margin-bottom: 60px;
   }
-`;b.defaults.baseURL="https://mypets-backend.onrender.com/api/friends";const W=async()=>{try{const{data:{friends:e}}=await b.get();return e}catch(e){console.log(e)}},E=n.li`
+`;b.defaults.baseURL="https://mypets-backend.onrender.com/api";const W=async()=>{try{const{data:{friends:e}}=await b.get("/friends");return e}catch(e){console.log(e)}},E=n.li`
   position: relative;
 
   flex: 1;
