@@ -305,7 +305,7 @@ export const UserForm = ({ user }) => {
               />
             </InputBox>
             {isActiveEdit ? (
-              <ButtonForm type="submit" onClick={() => setIsActiveEdit(false)}>
+              <ButtonForm type="submit">
                 Save
               </ButtonForm>
             ) : (
