@@ -24,8 +24,8 @@ import {
 
 axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
 
-const emailRegExp =
-  /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+// const emailRegExp =
+//   /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
 
 const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
 
