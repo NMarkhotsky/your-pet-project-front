@@ -29,6 +29,7 @@ export const SearchInput = styled.input`
     padding-left: 20px;
     padding-right: 80px;
     border: none;
+    outline: none;
     border-radius: 24px;
 
     font-family: ${props => props.theme.fonts.secondary.medium};
@@ -92,9 +93,21 @@ export const BtnClose = styled.button`
 
     background-color: transparent;
 
+    &:hover > svg > use {
+        fill: ${props => props.theme.colors.yellow};
+        stroke: ${props => props.theme.colors.yellow};
+    }
+
     @media ${selectTablet} {
     }
 
     @media ${selectDesktop} {
+    }
+`;
+
+export const Icon = styled.svg`
+    &:hover,
+    &:focus {
+        border: 1px solid ${props => props.theme.colors.yellow};
     }
 `;
