@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import ErrorTextAddPet from "../ErrorTextAddPet/ErrorTextAddPet";
 import { Input, Label } from "./FieldInput.styled";
 

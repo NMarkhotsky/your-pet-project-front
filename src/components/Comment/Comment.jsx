@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import ErrorTextAddPet from "../ErrorTextAddPet/ErrorTextAddPet";
 import { Label, Textarea } from "./Comment.styled";
 

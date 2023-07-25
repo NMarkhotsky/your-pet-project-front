@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { petValues } from "../../constants";
 import { useAddPet } from "../../hooks";
 import FieldRadio from "../FieldRadio/FieldRadio";

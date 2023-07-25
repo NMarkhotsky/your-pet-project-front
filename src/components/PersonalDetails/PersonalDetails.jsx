@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useFormik } from "formik";
 import { initialStatePersonalDetails } from "../../constants";
 import FieldInput from "../FieldInput/FieldInput";

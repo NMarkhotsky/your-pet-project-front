@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Input, Label, Text } from "./FieldRadio.styled";
 
 function FieldRadio({ value, text, onChange, checked }) {

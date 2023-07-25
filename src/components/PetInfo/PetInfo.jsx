@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useDispatch } from "react-redux";
 import { petValues } from "../../constants";
 import PersonalDetails from "../PersonalDetails/PersonalDetails";

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { petValues } from "../../constants";
 import { BackIcon, FemaleIcon, MaleIcon, PawIcon } from "../../icons";
 import { getColorGender } from "../../utils";

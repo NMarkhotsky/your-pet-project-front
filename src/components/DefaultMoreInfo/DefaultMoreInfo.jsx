@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { petValues } from "../../constants";
 import Comments from "../Comment/Comment";
 import FieldInput from "../FieldInput/FieldInput";

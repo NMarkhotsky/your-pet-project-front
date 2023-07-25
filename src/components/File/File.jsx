@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import ErrorTextAddPet from "../ErrorTextAddPet/ErrorTextAddPet";
 import { AddPhoto, InputFile, LabelFile, TextFile } from "./File.styled";
 

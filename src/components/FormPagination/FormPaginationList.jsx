@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createColor } from "../../utils";
 import { Bar, FormPagination, Option, PaginationItem } from "./FormPaginationList.styled";
 
