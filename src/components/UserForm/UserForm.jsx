@@ -59,7 +59,7 @@ export const UserForm = ({ user }) => {
   const [isAbleAdd, setIsAbleAdd] = useState(true);
 
   useEffect(() => {
-    if (user === null) {
+    if (!user) {
       return;
     }
     setValues({

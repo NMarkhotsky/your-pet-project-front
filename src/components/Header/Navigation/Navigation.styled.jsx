@@ -40,6 +40,7 @@ export const StyledLink = styled(NavLink)`
 export const NavigationBox = styled.nav`
   @media (max-width: 1279px) {
     display: flex;
+    /* display: ${({ open }) => (open ? 'flex' : 'none')}; */
     flex-direction: column;
     justify-content: center;
     align-items: center;

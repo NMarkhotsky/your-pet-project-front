@@ -17,17 +17,15 @@ export const PetsData = () => {
   };
 
   const deletePet = async (id) => {
-    //   const response = await axios.delete(`/pets/:petid`);
-    const response = await axios.delete(`/pets/${id}`);
-    return response.data;
-  };
-
-   useEffect(() => {
-     deletePet();
-   }, []);
-
-  const onDeleteCardPet = ({id}) => {
-    setPets(prevState => prevState.filter(pet => pet.id !== id));
+    await axios
+      .delete(`/pets/${id}`)
+      .then(() => {
+        setPets(prevPets => prevPets.filter(pet => pet._id !== id));
+      })
+      .catch(error => {
+        console.error('Error deleting pet:', error);
+      });
+   
   };
 
   useEffect(() => {
@@ -44,7 +42,7 @@ export const PetsData = () => {
 
   return (
     <>
-      <PetsList pets={pets} onDeleteCardPet={onDeleteCardPet} />
+      <PetsList pets={pets} deletePet={deletePet} />
     </>
   );
 };

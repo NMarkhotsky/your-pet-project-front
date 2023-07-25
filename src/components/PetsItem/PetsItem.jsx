@@ -2,14 +2,10 @@ import PropTypes from 'prop-types';
 import { ContainerItem, Image, DeleteIcon, Text } from './PetsItem.styled';
 import { Icon } from '../Icon/Icon';
 
-export const PetsItem = ({ item, onDeleteCardPet }) => {
+export const PetsItem = ({ item, deletePet }) => {
   return (
     <ContainerItem>
-      <DeleteIcon
-        onClick={() =>
-          onDeleteCardPet(item._id)
-        }
-      >
+      <DeleteIcon onClick={() => deletePet(item._id)}>
         <Icon
           iconName={'icon-trash'}
           width={'24px'}
@@ -45,5 +41,5 @@ PetsItem.propTypes = {
     photoURL: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
   }).isRequired,
-  onDeleteCardPet: PropTypes.func.isRequired,
+  deletePet: PropTypes.func.isRequired,
 };

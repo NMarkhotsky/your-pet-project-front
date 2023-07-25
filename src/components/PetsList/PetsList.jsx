@@ -7,14 +7,11 @@ import {
   Button,
 } from './PetsList.styled';
 import { PetsItem } from '../PetsItem/PetsItem';
-// import pets from '../../temp/pets.json';
 import { Icon } from '../Icon/Icon';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 
-export const PetsList = ({ pets, onDeleteCardPet }) => {
-  // const [pets, setPets]
-  console.log(pets);
+export const PetsList = ({ pets, deletePet }) => {
 
   useEffect(() => {
     if (pets === [] && !pets) {
@@ -42,11 +39,7 @@ export const PetsList = ({ pets, onDeleteCardPet }) => {
       </TopPart>
       <PetsCardList>
         {pets.map(card => (
-          <PetsItem
-            key={card._id}
-            item={card}
-            onDeleteCardPet={onDeleteCardPet}
-          />
+          <PetsItem key={card._id} item={card} deletePet={deletePet} />
         ))}
       </PetsCardList>
     </ContainerList>
@@ -59,5 +52,5 @@ PetsList.propTypes = {
       _id: PropTypes.string.isRequired,
     })
   ).isRequired,
-  onDeleteCardPet: PropTypes.func.isRequired,
+  deletePet: PropTypes.func.isRequired,
 };
