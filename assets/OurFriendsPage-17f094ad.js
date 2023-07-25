@@ -1,4 +1,4 @@
-import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-a3396026.js";const S=n.div`
+import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-a224a882.js";const S=n.div`
   margin-top: 40px;
 
   @media ${o} {
@@ -15,7 +15,7 @@ import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-a3396026.js
   @media ${o} {
     font-size: ${({theme:e})=>e.fontSizes.huge};
   }
-`,y=({children:e})=>i.jsx(S,{children:i.jsx(w,{children:e})});y.propTypes={children:l.any.isRequired};const I=n.section`
+`,y=({children:e})=>i.jsx(S,{children:i.jsx(w,{children:e})});y.propTypes={children:a.any.isRequired};const I=n.section`
   padding-bottom: 75px;
 `,R=n.div`
   margin-bottom: 24px;
@@ -54,6 +54,16 @@ import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-a3396026.js
       margin-right: auto;
     }
   }
+
+  transition: transform ${({theme:e})=>e.transitionHover};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.02);
+    transition: transform ${({theme:e})=>e.transitionHover};
+  }
+
+  cursor: pointer;
 `,O=n.div`
   display: flex;
   gap: 16px;
@@ -68,7 +78,7 @@ import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-a3396026.js
   text-align: center;
 
   color: ${({theme:e})=>e.colors.blue};
-`,q=n.div``,L=n.img`
+`,H=n.div``,q=n.img`
   width: 100px;
   height: 68px;
 
@@ -81,7 +91,7 @@ import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-a3396026.js
     width: 146px;
     height: 104px;
   }
-`,P=n.div`
+`,L=n.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -109,12 +119,12 @@ import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-a3396026.js
 
     cursor: pointer;
   }
-`,C=n.p`
+`,P=n.p`
   position: relative;
 `,u=n.p``,x=n.a`
   font-family: ${({theme:e})=>e.fonts.main.regular};
   color: ${({theme:e})=>e.colors.black};
-`,H=n.ul`
+`,C=n.ul`
   position: absolute;
   top: 107px;
   right: 97px;
@@ -140,7 +150,7 @@ import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-a3396026.js
 
   font-family: ${({theme:e})=>e.fonts.main.medium};
   font-size: ${({theme:e})=>e.fontSizes.xs};
-`,N=n.p``,A=n.p``,D=["MN","TU","WE","TH","FR","SA","SU"],T=({items:e,handleTimeHover:s,hoveredTime:a})=>i.jsx(i.Fragment,{children:e.map(({imageUrl:t,url:h,title:v,workDays:r,address:$,email:m,phone:f,addressUrl:z})=>i.jsxs(E,{children:[i.jsx(k,{href:`${h}`,target:"_blank",children:v}),i.jsxs(O,{children:[i.jsx(q,{children:i.jsx(L,{src:t})}),i.jsxs(P,{children:[i.jsxs(c,{onMouseEnter:()=>s(t),onMouseLeave:()=>s(""),children:[i.jsx(C,{children:"Time:"}),i.jsx(x,{children:r?r[0].isOpen?`${r[0].from} - ${r[0].to}`:"Close":"Day and Night"})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Address:"}),i.jsx(x,{href:z,target:"_blank",rel:"noopener noreferrer",children:$===null?"Website only":$})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Email:"}),i.jsx(x,{href:`mailto:${m}`,children:m===null?"Telephone only":m})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Phone:"}),i.jsx(x,{href:`tel:${f}`,children:f===null?"Email only":f})]})]})]}),a===t&&i.jsx(H,{children:r?r.map((d,j)=>d&&i.jsxs(M,{children:[i.jsxs(N,{children:[D[j],": "]}),i.jsx(A,{children:d.isOpen?`${d.from} - ${d.to}`:"Closed"})]},j)):"Day and Night"})]},t))});T.propTypes={items:l.array.isRequired,handleTimeHover:l.func.isRequired,hoveredTime:l.string.isRequired};const _=n.div``,B=n.ul`
+`,N=n.p``,A=n.p``,D=["MN","TU","WE","TH","FR","SA","SU"],T=({items:e,handleTimeHover:s,hoveredTime:l})=>i.jsx(i.Fragment,{children:e.map(({imageUrl:t,url:m,title:F,workDays:r,address:$,email:f,phone:h,addressUrl:z})=>i.jsxs(E,{children:[i.jsx(k,{href:`${m}`,target:"_blank",children:F}),i.jsxs(O,{children:[i.jsx(H,{children:i.jsx(q,{src:t})}),i.jsxs(L,{children:[i.jsxs(c,{onMouseEnter:()=>s(t),onMouseLeave:()=>s(""),children:[i.jsx(P,{children:"Time:"}),i.jsx(x,{children:r?r[0].isOpen?`${r[0].from} - ${r[0].to}`:"Close":"Day and Night"})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Address:"}),i.jsx(x,{href:z,target:"_blank",rel:"noopener noreferrer",children:$===null?"Website only":$})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Email:"}),i.jsx(x,{href:`mailto:${f}`,children:f===null?"Telephone only":f})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Phone:"}),i.jsx(x,{href:`tel:${h}`,children:h===null?"Email only":h})]})]})]}),l===t&&i.jsx(C,{children:r?r.map((d,j)=>d&&i.jsxs(M,{children:[i.jsxs(N,{children:[D[j],": "]}),i.jsx(A,{children:d.isOpen?`${d.from} - ${d.to}`:"Closed"})]},j)):"Day and Night"})]},t))});T.propTypes={items:a.array.isRequired,handleTimeHover:a.func.isRequired,hoveredTime:a.string.isRequired};const _=n.div``,B=n.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,4 +161,4 @@ import{s as n,b as o,P as l,j as i,a as p,c as b,r as g}from"./index-a3396026.js
     flex-direction: row;
     flex-wrap: wrap;
   }
-`,F=({items:e})=>{const[s,a]=g.useState(""),t=h=>{a(h)};return i.jsx(_,{children:i.jsx(B,{children:i.jsx(T,{items:e,handleTimeHover:t,hoveredTime:s})})})};F.propTypes={items:l.array.isRequired};function J(){const[e,s]=g.useState([]);return g.useEffect(()=>{(async()=>{try{const t=await W();s(t)}catch(t){console.log(t)}})()},[]),i.jsxs(I,{children:[i.jsx(R,{children:i.jsx(y,{children:"Our friends"})}),i.jsx(F,{items:e})]})}export{J as default};
+`,v=({items:e})=>{const[s,l]=g.useState(""),t=m=>{l(m)};return i.jsx(_,{children:i.jsx(B,{children:i.jsx(T,{items:e,handleTimeHover:t,hoveredTime:s})})})};v.propTypes={items:a.array.isRequired};function J(){const[e,s]=g.useState([]);return g.useEffect(()=>{(async()=>{try{const t=await W();s(t)}catch(t){console.log(t)}})()},[]),i.jsxs(I,{children:[i.jsx(R,{children:i.jsx(y,{children:"Our friends"})}),i.jsx(v,{items:e})]})}export{J as default};
