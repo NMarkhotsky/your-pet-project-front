@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { selectTablet } from "../../utils";
 
 export const AddPhoto = styled.div`
   width: 112px;

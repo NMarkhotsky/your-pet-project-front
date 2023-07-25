@@ -39,6 +39,6 @@ function ChooseOption({ formik }) {
       />
     </>
   )
-};
+}
 
 export default ChooseOption;

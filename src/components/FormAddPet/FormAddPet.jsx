@@ -12,18 +12,24 @@ function FormAddPet({ currentPage, setCurrentPage }) {
     if (value === -1 && currentPage === 0) {
       console.log("start");
       return;
-    };
+    }
 
     setCurrentPage(prev => prev + value);
   }
 
-  const pages = [
-    <ChoiseOption currentPage={currentPage} handleDefinePage={handleDefinePage} />,
-    <PetInfo option={option} handleDefinePage={handleDefinePage} />,
-    <MoreInfo option={option} handleDefinePage={handleDefinePage} />,
-  ];
-
-  return ( <> { pages[currentPage] } </> )
+  return (
+    <>
+      {
+        currentPage === 0 && <ChoiseOption currentPage={currentPage} handleDefinePage={handleDefinePage} />
+      }
+      {
+        currentPage === 1 && <PetInfo option={option} handleDefinePage={handleDefinePage} />
+      }
+      {
+        currentPage === 2 && <MoreInfo option={option} handleDefinePage={handleDefinePage} />
+      }
+    </>
+  )
 }
 
 export default FormAddPet;
