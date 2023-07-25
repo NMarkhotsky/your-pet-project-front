@@ -191,8 +191,8 @@ export const UserForm = ({ user }) => {
               {previewURL && (
                 <img
                   src={previewURL}
-                  width="182"
-                  height="182"
+                  width="100%"
+                  height="100%"
                   style={{ borderRadius: 40, objectFit: 'cover' }}
                   alt="Попередній перегляд аватарки"
                 />
