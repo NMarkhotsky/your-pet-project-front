@@ -29,11 +29,12 @@ function MoreInfo({ option, handleDefinePage }) {
     console.log(data);
 
     if (option === petValues.yourPet) {
-      // dispatch(addPet(data))
+      dispatch(addPet(data))
       return;
     }
 
-    // dispatch(addNotice(data))
+    dispatch(addNotice(data))
+    resetForm();
   }
 
   const formikYourPet = useFormik({

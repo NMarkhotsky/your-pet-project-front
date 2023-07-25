@@ -18,6 +18,6 @@ function PawIcon() {
       </svg>
     </>
   )
-};
+}
 
 export default PawIcon;

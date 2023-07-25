@@ -21,6 +21,6 @@ function FormPaginationList({ currentPage }) {
       </FormPagination>
     </>
   )
-};
+}
 
 export default FormPaginationList;
