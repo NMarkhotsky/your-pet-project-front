@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import File from "../File/File";
 import Comments from "../Comment/Comment";
 import { ButtonsWrapper } from "../ChoiseOption/ChoiseOption.styled";

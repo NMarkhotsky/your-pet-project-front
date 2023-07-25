@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useFormik } from "formik";
 import { useDispatch } from "react-redux";
 import { setOption } from "../../redux/add-pet/optionSlice";

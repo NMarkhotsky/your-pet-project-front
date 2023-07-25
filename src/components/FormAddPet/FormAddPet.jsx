@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useAddPet } from "../../hooks";
 
 import PetInfo from "../PetInfo/PetInfo";
