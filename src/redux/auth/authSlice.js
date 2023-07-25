@@ -1,8 +1,8 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { login, logout, register } from './operations';
+import { fetchCurrentUser, login, logout, register } from './operations';
 
 const initialState = {
-  user: { name: 'Test Redux', email: null, password: null },
+  user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isNewUser: false,
@@ -10,7 +10,7 @@ const initialState = {
   error: null,
 };
 
-const handlePending = (state) => {
+const handlePending = state => {
   state.isRefreshing = true;
   state.error = null;
 };
@@ -22,7 +22,14 @@ const handleRejected = (state, action) => {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: (builder) => {
+  reducers: {
+    setIsNewUserFalse: {
+      reducer(state) {
+        state.isNewUser = false;
+      },
+    },
+  },
+  extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.isRefreshing = false;
@@ -30,7 +37,7 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isNewUser = action.payload.isNewUser;
+        state.isNewUser = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isRefreshing = false;
@@ -38,19 +45,33 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isNewUser = false;
       })
-      .addCase(logout.fulfilled, (state) => {
+      .addCase(logout.fulfilled, state => {
         state.isRefreshing = false;
         state.error = null;
         state.isLoggedIn = false;
-        state.user = { name: null, email: null, password: null };
+        state.user = initialState.user;
         state.token = null;
-        state.isNewUser = false;
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        state.isRefreshing = false;
+        state.error = null;
+        state.user = action.payload;
+        state.isLoggedIn = true;
+      })
+      .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+        state.isLoggedIn = false;
       })
       .addMatcher(
-        isAnyOf(register.pending, login.pending, logout.pending),
-        (state) => handlePending(state)
+        isAnyOf(
+          register.pending,
+          login.pending,
+          logout.pending,
+          fetchCurrentUser.pending
+        ),
+        state => handlePending(state)
       )
       .addMatcher(
         isAnyOf(register.rejected, login.rejected, logout.rejected),
@@ -59,4 +80,5 @@ const authSlice = createSlice({
   },
 });
 
+export const { setIsNewUserFalse } = authSlice.actions;
 export const authReducer = authSlice.reducer;
