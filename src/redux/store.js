@@ -1,5 +1,4 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import { authReducer } from './auth/authSlice';
 import {
   persistStore,
   persistReducer,
@@ -11,6 +10,9 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { authReducer } from './auth/authSlice';
+import { optionReducer } from './add-pet/optionSlice';
+import { personalDetailsReducer } from './add-pet/personalDetailsSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -20,6 +22,8 @@ const authPersistConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
+  option: optionReducer,
+  personalDetails: personalDetailsReducer,
 });
 
 export const store = configureStore({
