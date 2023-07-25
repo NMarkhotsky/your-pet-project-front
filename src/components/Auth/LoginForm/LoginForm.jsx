@@ -11,7 +11,7 @@ import {
   FormLink,
   FormText,
 } from '../common/AuthFormContainer/AuthFormContainer.styled';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoginSchema } from './LoginSchema';
 
