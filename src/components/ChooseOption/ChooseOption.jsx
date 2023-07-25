@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { petValues } from "../../constants";
-import { useAddPet } from "../../hooks";
+// import { useAddPet } from "../../hooks";
 import FieldRadio from "../FieldRadio/FieldRadio";
 
 function ChooseOption({ formik }) {
 
-  const { option } = useAddPet();
+  // const { option } = useAddPet();
 
   return (
     <>
