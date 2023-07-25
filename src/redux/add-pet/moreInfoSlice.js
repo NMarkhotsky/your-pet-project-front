@@ -38,4 +38,4 @@ const moreInfoSlice = createSlice({
   },
 });
 
-export const moreInfoReducer = moreInfoSlice.extraReducers;
+export const moreInfoReducer = moreInfoSlice.reducer;
