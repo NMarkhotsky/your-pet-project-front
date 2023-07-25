@@ -1,8 +1,8 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { login, logout, register } from './operations';
+import { fetchCurrentUser, login, logout, register } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, avatarURL: null },
+  user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isNewUser: false,
@@ -37,7 +37,7 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.isNewUser = action.payload.isNewUser;
+        state.isNewUser = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isRefreshing = false;
@@ -50,11 +50,27 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = null;
         state.isLoggedIn = false;
-        state.user = { name: null, email: null, password: null };
+        state.user = initialState.user;
         state.token = null;
       })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        state.isRefreshing = false;
+        state.error = null;
+        state.user = action.payload;
+        state.isLoggedIn = true;
+      })
+      .addCase(fetchCurrentUser.rejected, (state, action) => {
+        state.isRefreshing = false;
+        state.error = action.payload;
+        state.isLoggedIn = false;
+      })
       .addMatcher(
-        isAnyOf(register.pending, login.pending, logout.pending),
+        isAnyOf(
+          register.pending,
+          login.pending,
+          logout.pending,
+          fetchCurrentUser.pending
+        ),
         state => handlePending(state)
       )
       .addMatcher(

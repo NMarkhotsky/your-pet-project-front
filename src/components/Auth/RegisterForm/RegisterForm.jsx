@@ -1,15 +1,17 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
+import { useEffect } from 'react';
 import { useFormik, FormikContext } from 'formik';
 import { register } from '../../../redux/auth/operations';
-import { FormTextField } from '../common/FormTextField/FormTextField';
+import { FormTextField } from '../common/FormFields/FormTextField';
+import { FormPasswordField } from '../common/FormFields/FormPasswordField';
 import { AuthFormBtn } from '../common/AuthFormBtn/AuthFormBtn';
 import {
   FormLink,
   FormText,
 } from '../common/AuthFormContainer/AuthFormContainer.styled';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { RegisterSchema } from './RegisterSchema';
 
@@ -17,7 +19,13 @@ export const RegisterForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { error } = useAuth();
+  const { isLoggedIn } = useAuth();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/user');
+    }
+  }, [isLoggedIn, navigate]);
 
   const formik = useFormik({
     initialValues: {
@@ -31,28 +39,21 @@ export const RegisterForm = () => {
     validateOnBlur: true,
     onSubmit: async ({ name, email, password }) => {
       const errors = await formik.validateForm();
-      if (Object.keys(errors).length) {
-        toast.error('Please enter valid values in all the fields', {
-          position: toast.POSITION.TOP_CENTER,
-        });
-      }
+      // if (Object.keys(errors).length) {
+      //   toast.error('Please enter valid values in all the fields', {
+      //     position: toast.POSITION.TOP_CENTER,
+      //   });
+      // }
       if (Object.keys(errors).length === 0) {
         const newUser = { name, email, password };
-        await dispatch(register(newUser));
-        if (error) {
-          toast.error(error, {
-            position: toast.POSITION.TOP_CENTER,
-          });
-        } else {
-          navigate('/user');
-        }
+        dispatch(register(newUser));
       }
     },
   });
 
   return (
     <FormikContext.Provider value={formik}>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} noValidate>
         <FormTextField
           name="name"
           type="text"
@@ -67,19 +68,18 @@ export const RegisterForm = () => {
           placeholder="Email"
           {...formik.getFieldProps('email')}
         />
-        <FormTextField
+        <FormPasswordField
           name="password"
-          type="password"
           label="Password"
           placeholder="Password"
           successMessage="Password is secure"
           {...formik.getFieldProps('password')}
         />
-        <FormTextField
+        <FormPasswordField
           name="confirmPassword"
-          type="password"
           label="Confirm password"
           placeholder="Confirm password"
+          successMessage="Password confirmed"
           {...formik.getFieldProps('confirmPassword')}
         />
         <AuthFormBtn btnText="Registration" />
@@ -87,7 +87,6 @@ export const RegisterForm = () => {
           Already have an account? <FormLink to="/login">Login</FormLink>
         </FormText>
       </form>
-      <ToastContainer />
     </FormikContext.Provider>
   );
 };

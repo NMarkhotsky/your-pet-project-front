@@ -14,6 +14,19 @@ export const FormInputContainer = styled.div`
   }
 `;
 
+export const FormPasswordInputContainer = styled.div`
+  margin-bottom: 14px;
+  position: relative;
+
+  &:last-of-type {
+    margin-bottom: 40px;
+  }
+
+  @media ${selectTablet} {
+    margin-bottom: 32px;
+  }
+`;
+
 export const FormInput = styled.input`
   padding: 12px 16px;
   width: 100%;
@@ -55,4 +68,16 @@ export const ErrorMessage = styled(FormMessage)`
 
 export const SuccessMessage = styled(FormMessage)`
   color: ${props => props.theme.colors.green};
+`;
+
+export const FormIconContainer = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 16px;
+`;
+
+export const FormIconEyeContainer = styled.div`
+  position: absolute;
+  top: 12px;
+  right: ${props => (props.$touched ? '52px' : '16px')};
 `;
