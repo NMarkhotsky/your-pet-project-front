@@ -1,5 +1,12 @@
+import AuthFormContainer from '../../components/Auth/common/AuthFormContainer/AuthFormContainer';
+import { RegisterForm } from '../../components/Auth/RegisterForm/RegisterForm';
+
 function RegisterPage() {
-  return <h1>RegisterPage</h1>;
+  return (
+    <AuthFormContainer title="Registration">
+      <RegisterForm />
+    </AuthFormContainer>
+  );
 }
 
 export default RegisterPage;

@@ -18,6 +18,7 @@ export const theme = {
     },
   },
   colors: {
+    bgdColor: '#FEF9F9',
     yellow: '#FFC107',
     white: '#FDF7F2',
     black: '#111',
@@ -36,11 +37,14 @@ export const theme = {
     xs: '12px', // font-size: 12px
     sm: '14px', // font-size: 14px
     md: '16px', // font-size: 16px
+    ml: '18px', // font-size: 18px
     lg: '20px', // font-size: 20px
     xl: '24px', // font-size: 24px
     xxl: '28px', // font-size: 28px
     xxxl: '32px', // font-size: 32px
+    big: '36px', // font-size: 36px
     huge: '48px', // font-size: 48px
     gigantic: '68px', // font-size: 68px
   },
+  transitionHover: '250ms cubic-bezier(0.4, 0, 0.2, 1)',
 };
