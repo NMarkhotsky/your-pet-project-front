@@ -1,47 +1,50 @@
 import axios from 'axios';
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PetsList } from '../PetsList/PetsList';
 
 axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
 
 export const PetsData = () => {
-//   const [petsList, setPetsList] = useState([]);
+  const [pets, setPets] = useState([]);
 
-//   const getPetsList = async () => {
-//     try {
-//       const response = await axios(`/pets`);
-//       const pets = await response.data;
-//       console.log('pets ===>', pets);
-//       // setPetsList(pets);
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   };
+  const getPetsList = async () => {
+    try {
+      const { data } = await axios.get(`/pets`);
+      setPets(data.pets);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
-//   const deletePet = async petid => {
-//     //   const response = await axios.delete(`/pets/:petid`);
-//     const response = await axios.delete(`/pets/${petid}`);
-//     return response.data;
-//   };
+  const deletePet = async (id) => {
+    //   const response = await axios.delete(`/pets/:petid`);
+    const response = await axios.delete(`/pets/${id}`);
+    return response.data;
+  };
 
-//   useEffect(() => {
-//     if (petsList === []) {
-//       return;
-//     }
-//   }, [petsList]);
+   useEffect(() => {
+     deletePet();
+   }, []);
 
-//   useEffect(() => {
-//     getPetsList();
-//   }, []);
+  const onDeleteCardPet = ({id}) => {
+    setPets(prevState => prevState.filter(pet => pet.id !== id));
+  };
 
-//   useEffect(() => {
-//     deletePet();
-//   }, []);
+  useEffect(() => {
+    if (!pets) {
+      return;
+    }
+  }, [pets]);
+
+  useEffect(() => {
+    getPetsList();
+  }, []);
+
+ 
 
   return (
     <>
-      {/* <PetsList petsList={petsList} /> */}
-      <PetsList />
+      <PetsList pets={pets} onDeleteCardPet={onDeleteCardPet} />
     </>
   );
 };

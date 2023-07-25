@@ -44,7 +44,6 @@ export const UserForm = ({ user }) => {
   const dispatch = useDispatch();
 
   // Стани для роботи з полями форми
-  // const [avatar, setAvatar] = useState('');
   const [previewURL, setPreviewURL] = useState(undefined);
   const [email, setEmail] = useState('');
   const [values, setValues] = useState({
@@ -58,12 +57,6 @@ export const UserForm = ({ user }) => {
   // Стани для роботи з редагуванням форми
   const [isActiveEdit, setIsActiveEdit] = useState(false);
   const [isAbleAdd, setIsAbleAdd] = useState(true);
-
-  // useEffect(() => {
-  //   if (avatar === '') {
-  //     return;
-  //   }
-  // }, [avatar]);
 
   useEffect(() => {
     if (user === null) {
@@ -91,14 +84,13 @@ export const UserForm = ({ user }) => {
     setValues({ ...values, [name]: value });
   };
 
-  const [isConfirmed, setIsConfirmed] = useState(false);
-
   const handleConfirmClick = () => {
-    setIsConfirmed(true);
-    alert('Your photo has been successfully added');
+    setIsActiveEdit(true);
+    setIsAbleAdd(true);
   };
 
   const handleCancelClick = () => {
+    setIsActiveEdit(true);
     setIsAbleAdd(true);
     setValues({ ...values, avatar: user && user.avatarURL });
     setPreviewURL(user && user.avatarURL);
@@ -108,7 +100,6 @@ export const UserForm = ({ user }) => {
     const file = e.target.files[0];
     if (file && file.size <= FILE_SIZE) {
       setValues({ ...values, avatar: file });
-      // setAvatar(file);
       setPreviewURL(URL.createObjectURL(file));
     } else {
       toast.error('Your photo is large');
@@ -116,34 +107,6 @@ export const UserForm = ({ user }) => {
       setPreviewURL(user && user.avatarURL);
     }
   };
-
-  //   const handleSubmit = async (values) => {
-
-  //     // console.log('avatar ===>', values.avatar);
-  //  console.log('values===>', values);
-  //     const formData = new FormData();
-  //     formData.append('name', values.name);
-  //     formData.append('email', values.email);
-  //     formData.append('birthday', values.birthday);
-  //     formData.append('phone', values.phone);
-  //     formData.append('city', values.city);
-  //     // formData.append('avatar', avatar);
-
-  //     const formDataObject = {values};
-  //     formData.forEach((value, key) => {
-  //       formDataObject[key] = value;
-  //     });
-
-  //     console.log('formDataObject ==>', formDataObject);
-  //     try {
-
-  //       const response = await axios.patch(`/users`, {...formData});
-  //       toast.success('Changes saved successfully');
-  //       console.log('Дані успішно відправлені:', response);
-  //     } catch (error) {
-  //       console.error('Помилка при відправці даних:', error);
-  //     }
-  //   };
 
   const handleSubmit = async () => {
     console.log('name --->', values.name);
@@ -165,13 +128,6 @@ export const UserForm = ({ user }) => {
       });
       console.log('values ===>', values);
 
-      // formData.append('name', values.name);
-      // formData.append('email', values.email);
-      // formData.append('birthday', values.birthday);
-      // formData.append('phone', values.phone);
-      // formData.append('city', values.city);
-      // formData.append('avatar', values.avatar);
-
       const formDataObject = {};
       formData.forEach((value, key) => {
         formDataObject[key] = value;
@@ -181,16 +137,12 @@ export const UserForm = ({ user }) => {
 
       console.log('validationObject ===>', validationObject);
 
-      // const res = !formData.entries().next().done;
-      // console.log('res===>', res);
-
       await schema.validate(validationObject);
 
       const response = await axios.patch(`/users`, formData);
       toast.success('Changes saved successfully');
       console.log('Дані успішно відправлені:', response);
     } catch (error) {
-      // Show validation errors or error messages to the user
       console.error('Помилка при відправці даних:', error);
       toast.error(error.message);
     }
@@ -204,18 +156,7 @@ export const UserForm = ({ user }) => {
   return (
     <ContainerForm>
       <FormTitle>My information:</FormTitle>
-      <Formik
-        // initialValues={{
-        //   name: user  && user.name,
-        //   email: user && user.email,
-        //   birthday: user ? user.birthday : '',
-        //   phone: user ? user.phone : '',
-        //   city: user ? user.city : '',
-        // }}
-        initialValues={values}
-        onSubmit={handleSubmit}
-        // validationSchema={schema}
-      >
+      <Formik initialValues={values} onSubmit={handleSubmit}>
         <FormBox>
           <EditIcon onClick={handleEditForm}>
             {!isActiveEdit ? (
@@ -297,16 +238,14 @@ export const UserForm = ({ user }) => {
                   />
                 </button>
                 Confirm
-                {isConfirmed && (
-                  <button type="button" onClick={handleCancelClick}>
-                    <Icon
-                      iconName={'icon-cross'}
-                      width={'24px'}
-                      height={'24px'}
-                      stroke={'#F43F5E'}
-                    />
-                  </button>
-                )}
+                <button type="button" onClick={handleCancelClick}>
+                  <Icon
+                    iconName={'icon-cross'}
+                    width={'24px'}
+                    height={'24px'}
+                    stroke={'#F43F5E'}
+                  />
+                </button>
               </ConfirmText>
             )}
           </ImageInputBox>
@@ -367,7 +306,9 @@ export const UserForm = ({ user }) => {
               />
             </InputBox>
             {isActiveEdit ? (
-              <ButtonForm type="submit">Save</ButtonForm>
+              <ButtonForm type="submit" onClick={() => setIsActiveEdit(false)}>
+                Save
+              </ButtonForm>
             ) : (
               <LogoutBox onClick={() => dispatch(logout())}>
                 <Icon
@@ -394,6 +335,5 @@ UserForm.propTypes = {
     birthday: PropTypes.string,
     phone: PropTypes.string,
     city: PropTypes.string,
-    _id: PropTypes.string,
   }),
 };

@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import {
   ContainerList,
   TopPart,
@@ -7,12 +7,20 @@ import {
   Button,
 } from './PetsList.styled';
 import { PetsItem } from '../PetsItem/PetsItem';
-import pets from '../../temp/pets.json';
+// import pets from '../../temp/pets.json';
 import { Icon } from '../Icon/Icon';
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
 
-export const PetsList = () => {
-  // console.log('petsList===>', petsList);
+export const PetsList = ({ pets, onDeleteCardPet }) => {
+  // const [pets, setPets]
+  console.log(pets);
+
+  useEffect(() => {
+    if (pets === [] && !pets) {
+      return;
+    }
+  }, [pets]);
 
   return (
     <ContainerList>
@@ -32,21 +40,24 @@ export const PetsList = () => {
           </Button>
         </NavLink>
       </TopPart>
-      {pets ? (
-        <PetsCardList>
-          {pets.pets.map(card => (
-            <PetsItem key={card.name} item={card} />
-          ))}
-        </PetsCardList>
-      ) : (
-        <div>
-          <h1>You have not pets in your collection. Please, add your pet(s)</h1>
-        </div>
-      )}
+      <PetsCardList>
+        {pets.map(card => (
+          <PetsItem
+            key={card._id}
+            item={card}
+            onDeleteCardPet={onDeleteCardPet}
+          />
+        ))}
+      </PetsCardList>
     </ContainerList>
   );
 };
 
-// PetsList.propTypes = {
-//   petsList: PropTypes.array(),
-// };
+PetsList.propTypes = {
+  pets: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onDeleteCardPet: PropTypes.func.isRequired,
+};
