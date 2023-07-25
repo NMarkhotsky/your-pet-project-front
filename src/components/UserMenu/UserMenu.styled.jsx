@@ -1,3 +1,4 @@
+import { NavLink as StyledNavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
@@ -28,6 +29,17 @@ export const UserMenuButton = styled.button`
 `;
 
 export const UserMenuName = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: ${props => props.theme.colors.yellow};
+  font-family: ${props => props.theme.fonts.main.medium};
+  font-size: ${props => props.theme.fontSizes.md};
+  letter-spacing: 0.64px;
+`;
+
+export const NavLink = styled(StyledNavLink)`
   display: flex;
   justify-content: center;
   align-items: center;

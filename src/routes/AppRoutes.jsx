@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import { Loader } from '../shared/components/Loader/Loader';
 
 const MainPage = lazy(() => import('../pages/MainPage/MainPage'));
 const NoticesPage = lazy(() => import('../pages/NoticesPage/NoticesPage'));
@@ -20,7 +21,7 @@ const NoticesCategoriesList = lazy(() =>
 
 const AppRoutes = () => {
   return (
-    <Suspense fallback={<div>Loading ...</div>}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/main" element={<MainPage />} />
@@ -53,6 +54,13 @@ const AppRoutes = () => {
         <Route path="/friends" element={<OurFriendsPage />} />
 
         <Route
+          path="/add-pet"
+          element={
+            <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
+          }
+        />
+
+        <Route
           path="/login"
           element={<PublicRoute redirectTo="/user" component={<LoginPage />} />}
         />
@@ -68,13 +76,6 @@ const AppRoutes = () => {
           path="/user"
           element={
             <PrivateRoute redirectTo="/login" component={<UserPage />} />
-          }
-        />
-
-        <Route
-          path="/add-pet"
-          element={
-            <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
           }
         />
 

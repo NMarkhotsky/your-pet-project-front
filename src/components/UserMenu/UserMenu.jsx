@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/operations';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 import { Icon } from '../Icon/Icon';
-import { UserMenuBox, UserMenuButton, UserMenuName } from './UserMenu.styled';
+import { NavLink, UserMenuBox, UserMenuButton } from './UserMenu.styled';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const UserMenu = () => {
           stroke={'#FEF9F9'}
         />
       </UserMenuButton>
-      <UserMenuName>
+      <NavLink to="/user">
         <Icon
           iconName={'icon-user'}
           width={'24px'}
@@ -27,7 +27,7 @@ export const UserMenu = () => {
           fill={'#FFC107'}
         />
         {user.name}
-      </UserMenuName>
+      </NavLink>
     </UserMenuBox>
   );
 };
