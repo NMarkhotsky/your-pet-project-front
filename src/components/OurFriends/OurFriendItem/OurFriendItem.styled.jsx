@@ -31,6 +31,16 @@ export const FriendItem = styled.li`
       margin-right: auto;
     }
   }
+
+  transition: transform ${({ theme }) => theme.transitionHover};
+
+  &:hover,
+  &:focus {
+    transform: scale(1.02);
+    transition: transform ${({ theme }) => theme.transitionHover};
+  }
+
+  cursor: pointer;
 `;
 
 export const FriendWrapper = styled.div`

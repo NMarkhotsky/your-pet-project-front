@@ -61,6 +61,13 @@ export const ButtonClose = styled.button`
     right: 24px;
     top: 24px;
   }
+
+  transition: transform ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.2);
+    transition: transform ${({ theme }) => theme.transitionHover};
+  }
 `;
 
 export const ModalCard = styled.div`
