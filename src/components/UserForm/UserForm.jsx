@@ -124,7 +124,7 @@ export const UserForm = ({ user }) => {
 
   const handleSubmit = async () => {
     try {
-      toast.success('Changes saved successfully');
+
 
       const formData = new FormData();
       formData.append('name', values.name);
@@ -139,9 +139,10 @@ export const UserForm = ({ user }) => {
         formDataObject[key] = value;
       });
 
-      console.log('formData ==>', formData);
+      console.log('formDataObject ==>', formDataObject);
 
       const response = await axios.patch(`/users`, formData);
+            toast.success('Changes saved successfully');
       console.log('Дані успішно відправлені:', response);
     } catch (error) {
       console.error('Помилка при відправці даних:', error);
@@ -156,7 +157,7 @@ export const UserForm = ({ user }) => {
   return (
     <ContainerForm>
       <FormTitle>My information:</FormTitle>
-      <Formik
+      <Formik 
         // initialValues={{
         //   name: user  && user.name,
         //   email: user && user.email,
