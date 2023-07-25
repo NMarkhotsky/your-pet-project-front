@@ -1,7 +1,7 @@
-import { useLocation, Link } from 'react-router-dom';
+// import { useLocation, Link } from 'react-router-dom';
 
-import { useAuth } from '../../hooks/useAuth/useAuth';
-import { publicCategories, privateCategories } from './categories';
+// import { useAuth } from '../../hooks/useAuth/useAuth';
+// import { publicCategories, privateCategories } from './categories';
 
 import {
   Wrapper,
@@ -10,8 +10,8 @@ import {
 } from './NoticesCategoriesNav.styled';
 
 export const NoticesCategoriesNav = () => {
-  const { isLoggedIn } = useAuth();
-  const { pathname, search } = useLocation();
+  // const { isLoggedIn } = useAuth();
+  // const { pathname, search } = useLocation();
 
   return (
     <Wrapper>
