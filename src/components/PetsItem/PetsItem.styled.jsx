@@ -80,11 +80,12 @@ export const Text = styled.p`
   }
 `;
 
-export const DeleteIcon = styled.div`
+export const DeleteIcon = styled.button`
   display: block;
   position: absolute;
   top: 62%;
   right: 7%;
+  cursor: pointer;
 
   @media ${selectTablet} {
     top: 8%;

@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../redux/auth/operations';
 import { Icon } from '../../Icon/Icon';
-import { UserMenuBoxCopy } from './UserMenuCopy.styled';
+import { UserMenuBoxCopy, UserMenuButton } from './UserMenuCopy.styled';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
-import { UserMenuButton, UserMenuName } from '../../UserMenu/UserMenu.styled';
+import { UserMenuName } from '../../UserMenu/UserMenu.styled';
 
 export const UserMenuCopy = () => {
   const dispatch = useDispatch();

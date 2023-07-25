@@ -101,6 +101,10 @@ export const Input = styled(Field)`
   &:disabled {
     background-color: #ffffff;
   }
+
+  &::placeholder {
+    color: #dcdcdc;
+  }
 `;
 
 export const ButtonForm = styled.button`
