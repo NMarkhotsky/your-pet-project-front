@@ -35,9 +35,8 @@ const schema = Yup.object().shape({
     .min(new Date(1900, 0, 1))
     .max(new Date(), "You can't be born in the future!"),
   phone: Yup.string()
-    .required('Phone is required field')
     .matches(phoneRegExp, 'Invalid phone number'),
-  city: Yup.string().min(2).max(16).required('City is required field'),
+  city: Yup.string().min(2).max(16),
 });
 
 export const UserForm = ({ user }) => {
