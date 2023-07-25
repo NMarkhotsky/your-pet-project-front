@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { moreInfoReducer, optionReducer, personalDetailsReducer } from './add-pet';
 
 const authPersistConfig = {
   key: 'auth',
@@ -20,6 +21,9 @@ const authPersistConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
+  option: optionReducer,
+  personalDetails: personalDetailsReducer,
+  moreInfo: moreInfoReducer,
   // users:
   // pets:
   // notices:
