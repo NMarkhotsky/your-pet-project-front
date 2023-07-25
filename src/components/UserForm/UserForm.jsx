@@ -107,7 +107,7 @@ export const UserForm = ({ user }) => {
   };
 
   const handleSubmit = async () => {
-    console.log('name --->', values.name);
+    setIsActiveEdit(false);
     try {
       const formData = new FormData();
       const entries = Object.entries(values);
@@ -143,9 +143,8 @@ export const UserForm = ({ user }) => {
       toast.success('Changes saved successfully');
       console.log('Дані успішно відправлені:', response);
     } catch (error) {
-    
       if (error.name === 'ValidationError') {
-        console.log("ErrorErrors--->", error.errors[0])
+        console.log('ErrorErrors--->', error.errors[0]);
         toast.error(error.errors[0]);
       }
     }
