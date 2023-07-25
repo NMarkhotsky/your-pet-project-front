@@ -1,15 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const optionSlice = createSlice({
-  name: "option",
+  name: 'option',
   initialState: {
-    option: "",
+    option: '',
   },
   reducers: {
     setOption(state, action) {
       state.option = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const { setOption } = optionSlice.actions;

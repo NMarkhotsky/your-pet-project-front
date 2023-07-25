@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { addNotice, addPet } from "./operations";
+import { createSlice } from '@reduxjs/toolkit';
+import { addNotice, addPet } from './operations';
 
 const moreInfoSlice = createSlice({
-  name: "moreInfoSlice",
+  name: 'moreInfoSlice',
   initialState: {
     data: null,
     isLoad: false,
@@ -23,7 +23,7 @@ const moreInfoSlice = createSlice({
         state.isLoad = false;
         state.error = action.payload;
       })
-      .addCase(addNotice.pending, (state) => {
+      .addCase(addNotice.pending, state => {
         state.isLoad = true;
       })
       .addCase(addNotice.fulfilled, (state, action) => {
@@ -34,8 +34,8 @@ const moreInfoSlice = createSlice({
       .addCase(addNotice.rejected, (state, action) => {
         state.isLoad = false;
         state.error = action.payload;
-      })
-  }
+      });
+  },
 });
 
-export const moreInfoReducer = moreInfoSlice.reducer;
+export const moreInfoReducer = moreInfoSlice.extraReducers;
