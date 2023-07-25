@@ -86,7 +86,7 @@ export const BtnClose = styled.button`
     border: none;
 
     position: absolute;
-    right: 13px;
+    right: 43px;
     top: 10px;
     line-height: 0;
 
