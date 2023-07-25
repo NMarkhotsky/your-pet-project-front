@@ -2,7 +2,7 @@ import { Field, Formik, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-// import * as Yup from 'yup';
+import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Icon } from '../Icon/Icon';
@@ -24,39 +24,32 @@ import {
 
 axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
 
-// const emailRegExp =
-//   /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
-
 const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
 
 const FILE_SIZE = 3000000;
 
-// const schema = Yup.object().shape({
-//   name: Yup.string()
-//   .required('Name  is required field'),
-//   email: Yup.string()
-//     .required('Email  is required field')
-//     .matches(emailRegExp, 'Invalid email address'),
-//   birthday: Yup.date()
-//     .required('Enter a date of birth')
-//     .min(new Date(1900, 0, 1))
-//     .max(new Date(), "You can't be born in the future!"),
-//   phone: Yup.string()
-//     .required('Phone is required field')
-//     .matches(phoneRegExp, 'Invalid phone number'),
-//   city: Yup.string()
-//   .required('City is required field'),
-// });
+const schema = Yup.object().shape({
+  name: Yup.string().min(2).max(16).required('Name  is required field'),
+  birthday: Yup.string()
+    .required('Enter a date of birth')
+    .min(new Date(1900, 0, 1))
+    .max(new Date(), "You can't be born in the future!"),
+  phone: Yup.string()
+    .required('Phone is required field')
+    .matches(phoneRegExp, 'Invalid phone number'),
+  city: Yup.string().min(2).max(16).required('City is required field'),
+});
 
 export const UserForm = ({ user }) => {
   const dispatch = useDispatch();
 
   // Стани для роботи з полями форми
-  const [avatar, setAvatar] = useState('');
+  // const [avatar, setAvatar] = useState('');
   const [previewURL, setPreviewURL] = useState(undefined);
+  const [email, setEmail] = useState('');
   const [values, setValues] = useState({
     name: '',
-    email: '',
+    avatar: '',
     birthday: '',
     phone: '',
     city: '',
@@ -66,11 +59,11 @@ export const UserForm = ({ user }) => {
   const [isActiveEdit, setIsActiveEdit] = useState(false);
   const [isAbleAdd, setIsAbleAdd] = useState(true);
 
-  useEffect(() => {
-    if (avatar === '') {
-      return;
-    }
-  }, [avatar]);
+  // useEffect(() => {
+  //   if (avatar === '') {
+  //     return;
+  //   }
+  // }, [avatar]);
 
   useEffect(() => {
     if (user === null) {
@@ -78,11 +71,12 @@ export const UserForm = ({ user }) => {
     }
     setValues({
       name: user && user.name,
-      email: user && user.email,
       birthday: user ? user.birthday : '',
       phone: user ? user.phone : '',
       city: user ? user.city : '',
+      avatar: user && user.avatarURL,
     });
+    setEmail(user && user.email);
     setPreviewURL(user && user.avatarURL);
   }, [user]);
 
@@ -106,46 +100,99 @@ export const UserForm = ({ user }) => {
 
   const handleCancelClick = () => {
     setIsAbleAdd(true);
-    setAvatar('');
+    setValues({ ...values, avatar: user && user.avatarURL });
     setPreviewURL(user && user.avatarURL);
   };
 
   const handleAvatarChange = e => {
     const file = e.target.files[0];
     if (file && file.size <= FILE_SIZE) {
-      setAvatar(file);
+      setValues({ ...values, avatar: file });
+      // setAvatar(file);
       setPreviewURL(URL.createObjectURL(file));
     } else {
       toast.error('Your photo is large');
-      setAvatar(null);
-      setPreviewURL(null);
+      setValues({ ...values, avatar: user && user.avatarURL });
+      setPreviewURL(user && user.avatarURL);
     }
   };
 
+  //   const handleSubmit = async (values) => {
+
+  //     // console.log('avatar ===>', values.avatar);
+  //  console.log('values===>', values);
+  //     const formData = new FormData();
+  //     formData.append('name', values.name);
+  //     formData.append('email', values.email);
+  //     formData.append('birthday', values.birthday);
+  //     formData.append('phone', values.phone);
+  //     formData.append('city', values.city);
+  //     // formData.append('avatar', avatar);
+
+  //     const formDataObject = {values};
+  //     formData.forEach((value, key) => {
+  //       formDataObject[key] = value;
+  //     });
+
+  //     console.log('formDataObject ==>', formDataObject);
+  //     try {
+
+  //       const response = await axios.patch(`/users`, {...formData});
+  //       toast.success('Changes saved successfully');
+  //       console.log('Дані успішно відправлені:', response);
+  //     } catch (error) {
+  //       console.error('Помилка при відправці даних:', error);
+  //     }
+  //   };
+
   const handleSubmit = async () => {
+    console.log('name --->', values.name);
     try {
-
-
       const formData = new FormData();
-      formData.append('name', values.name);
-      formData.append('email', values.email);
-      formData.append('birthday', values.birthday);
-      formData.append('phone', values.phone);
-      formData.append('city', values.city);
-      formData.append('avatar', avatar);
+      const entries = Object.entries(values);
+      console.log('entries ===>', entries);
+
+      let validationObject = {};
+
+      entries.forEach(entry => {
+        if (entry[1]) {
+          formData.append(entry[0], entry[1]);
+          validationObject = {
+            ...validationObject,
+            [entry[0]]: entry[1],
+          };
+        }
+      });
+      console.log('values ===>', values);
+
+      // formData.append('name', values.name);
+      // formData.append('email', values.email);
+      // formData.append('birthday', values.birthday);
+      // formData.append('phone', values.phone);
+      // formData.append('city', values.city);
+      // formData.append('avatar', values.avatar);
 
       const formDataObject = {};
       formData.forEach((value, key) => {
         formDataObject[key] = value;
       });
 
-      console.log('formDataObject ==>', formDataObject);
+      console.log('formDataObject----->', formDataObject);
+
+      console.log('validationObject ===>', validationObject);
+
+      // const res = !formData.entries().next().done;
+      // console.log('res===>', res);
+
+      await schema.validate(validationObject);
 
       const response = await axios.patch(`/users`, formData);
-            toast.success('Changes saved successfully');
+      toast.success('Changes saved successfully');
       console.log('Дані успішно відправлені:', response);
     } catch (error) {
+      // Show validation errors or error messages to the user
       console.error('Помилка при відправці даних:', error);
+      toast.error(error.message);
     }
   };
 
@@ -157,7 +204,7 @@ export const UserForm = ({ user }) => {
   return (
     <ContainerForm>
       <FormTitle>My information:</FormTitle>
-      <Formik 
+      <Formik
         // initialValues={{
         //   name: user  && user.name,
         //   email: user && user.email,
@@ -192,9 +239,12 @@ export const UserForm = ({ user }) => {
               {previewURL && (
                 <img
                   src={previewURL}
-                  width="100%"
-                  height="100%"
-                  style={{ borderRadius: 40, objectFit: 'cover' }}
+                  style={{
+                    borderRadius: 40,
+                    objectFit: 'cover',
+                    width: '100%',
+                    height: '100%',
+                  }}
                   alt="Попередній перегляд аватарки"
                 />
               )}
@@ -271,12 +321,6 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.name}
                 onChange={handleChange}
-                required
-              />
-              <ErrorMessage
-                name="name"
-                component="div"
-                style={{ color: 'red', fontSize: 12 }}
               />
             </InputBox>
             <InputBox>
@@ -285,17 +329,8 @@ export const UserForm = ({ user }) => {
                 id="email"
                 name="email"
                 placeholder="anna00@gmail.com"
-                disabled={!isActiveEdit}
-                value={values.email}
-                onChange={handleChange}
-                required
-                type="email"
-                // pattern={emailRegExp}
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                style={{ color: 'red', fontSize: 12 }}
+                disabled
+                value={email}
               />
             </InputBox>
             <InputBox>
@@ -307,14 +342,6 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.birthday}
                 onChange={handleChange}
-                required
-                min={new Date(1900, 0, 1)}
-                max={new Date()}
-              />
-              <ErrorMessage
-                name="birthday"
-                component="div"
-                style={{ color: 'red', fontSize: 12 }}
               />
             </InputBox>
             <InputBox>
@@ -326,14 +353,6 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.phone}
                 onChange={handleChange}
-                type="number"
-                required
-                pattern={phoneRegExp}
-              />
-              <ErrorMessage
-                name="phone"
-                component="div"
-                style={{ color: 'red', fontSize: 12 }}
               />
             </InputBox>
             <InputBox>
@@ -345,12 +364,6 @@ export const UserForm = ({ user }) => {
                 disabled={!isActiveEdit}
                 value={values.city}
                 onChange={handleChange}
-                required
-              />
-              <ErrorMessage
-                name="city"
-                component="div"
-                style={{ color: 'red', fontSize: 12 }}
               />
             </InputBox>
             {isActiveEdit ? (

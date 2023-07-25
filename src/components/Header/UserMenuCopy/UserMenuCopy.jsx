@@ -27,7 +27,7 @@ export const UserMenuCopy = () => {
           height={'24px'}
           fill={'#FFC107'}
         />
-        {user.name}
+        {user.name || user.user.name}
       </UserMenuName>
     </UserMenuBoxCopy>
   );

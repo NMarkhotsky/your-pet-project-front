@@ -26,7 +26,7 @@ export const UserMenu = () => {
           height={'24px'}
           fill={'#FFC107'}
         />
-        {user.name}
+        {user.name || user.user.name}
       </NavLink>
     </UserMenuBox>
   );
