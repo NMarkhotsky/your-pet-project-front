@@ -30,7 +30,7 @@ export const Input = styled.input`
   font-size: ${({ theme }) => theme.fontSizes.sm};
 
   @media ${selectTablet} {
-    padding: 10px 20px;
+    padding: 10px 80px 10px 20px;
     font-size: ${({ theme }) => theme.fontSizes.lg};
   }
 `;
@@ -51,6 +51,13 @@ export const SearchButton = styled.button`
   @media ${selectTablet} {
     margin-right: ${({ value }) => (value ? '10px' : '20px')};
   }
+
+  transition: transform ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.2);
+    transition: transform ${({ theme }) => theme.transitionHover};
+  }
 `;
 
 export const DeleteSearchButton = styled.button`
@@ -61,6 +68,13 @@ export const DeleteSearchButton = styled.button`
 
   @media ${selectTablet} {
     margin-right: 20px;
+  }
+
+  transition: transform ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.2);
+    transition: transform ${({ theme }) => theme.transitionHover};
   }
 `;
 
