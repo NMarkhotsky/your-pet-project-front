@@ -5,14 +5,26 @@ import { UserMenuBoxCopy, UserMenuButton } from './UserMenuCopy.styled';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
 import { UserMenuName } from '../../UserMenu/UserMenu.styled';
 import { NavLink } from 'react-router-dom';
+import { ModalApproveAction } from '../../../shared/components/ModalApproveAction/ModalApproveAction';
+import { ModalLogout } from '../../ModalLogout/ModalLogout';
+import { useState } from 'react';
 
 export const UserMenuCopy = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
+ const [showModal, setShowModal] = useState(false);
 
+ const openModal = () => {
+   setShowModal(true);
+ };
+
+ const closeModal = () => {
+   setShowModal(false);
+  };
+  
   return (
     <UserMenuBoxCopy>
-      <UserMenuButton type="button" onClick={() => dispatch(logout())}>
+      <UserMenuButton type="button" onClick={openModal}>
         Log out
         <Icon
           iconName={'icon-logout'}
@@ -32,6 +44,16 @@ export const UserMenuCopy = () => {
         </NavLink>
         {user.name}
       </UserMenuName>
+      {showModal && (
+        <div>
+          <ModalApproveAction onClose={closeModal}>
+            <ModalLogout
+              handleModal={closeModal}
+              handleLogout={() => dispatch(logout())}
+            />
+          </ModalApproveAction>
+        </div>
+      )}
     </UserMenuBoxCopy>
   );
 };

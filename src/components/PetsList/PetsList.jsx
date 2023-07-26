@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   ContainerList,
   TopPart,
@@ -11,17 +12,31 @@ import {
 } from './PetsList.styled';
 import { PetsItem } from '../PetsItem/PetsItem';
 import { Icon } from '../Icon/Icon';
-import { NavLink } from 'react-router-dom';
-import { useEffect } from 'react';
 import image from '../../assets/images/imageUserPage/catImg.png';
 import ScrollToTopButton from '../ScrollToTopButton/ScrollToTopButton';
+import { getPets, deletePet } from '../../services/PetsApi';
 
-export const PetsList = ({ pets, deletePet }) => {
+export const PetsList = () => {
+  const [pets, setPets] = useState([]);
+
+  useEffect(() => {
+    getPets()
+      .then(({ data }) => {
+        setPets(data.pets);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
   useEffect(() => {
     if (pets == [] && !pets) {
       return;
     }
   }, [pets]);
+
+  const handleDeletePet = async id => {
+    await deletePet(id);
+    setPets(prevPets => prevPets.filter(pet => pet._id !== id));
+  };
 
   return (
     <ContainerList>
@@ -43,7 +58,7 @@ export const PetsList = ({ pets, deletePet }) => {
       </TopPart>
       <PetsCardList>
         {pets.map(card => (
-          <PetsItem key={card._id} item={card} deletePet={deletePet} />
+          <PetsItem key={card._id} item={card} deletePet={handleDeletePet} />
         ))}
       </PetsCardList>
       {pets.length === 0 && (
@@ -58,13 +73,4 @@ export const PetsList = ({ pets, deletePet }) => {
       <ScrollToTopButton />
     </ContainerList>
   );
-};
-
-PetsList.propTypes = {
-  pets: PropTypes.arrayOf(
-    PropTypes.shape({
-      _id: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  deletePet: PropTypes.func.isRequired,
 };

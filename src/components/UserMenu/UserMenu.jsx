@@ -40,7 +40,6 @@ export const UserMenu = ({ open }) => {
     <>
       {isDesktop ? (
         <UserMenuBox>
-          {/* <UserMenuButton type="button" onClick={() => dispatch(logout())}> */}
           <UserMenuButton type="button" onClick={openModal}>
             Log out
             <Icon
@@ -64,7 +63,7 @@ export const UserMenu = ({ open }) => {
       ) : (
         <UserMenuBox>
           {open ? (
-            <UserMenuButton type="button" onClick={() => dispatch(logout())}>
+            <UserMenuButton type="button" onClick={openModal}>
               Log out
               <Icon
                 iconName={'icon-logout'}
