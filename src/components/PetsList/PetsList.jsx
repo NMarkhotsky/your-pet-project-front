@@ -14,6 +14,7 @@ import { Icon } from '../Icon/Icon';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
 import image from '../../assets/images/imageUserPage/catImg.png';
+import ScrollToTopButton from '../ScrollToTopButton/ScrollToTopButton';
 
 export const PetsList = ({ pets, deletePet }) => {
   useEffect(() => {
@@ -54,6 +55,7 @@ export const PetsList = ({ pets, deletePet }) => {
           <Img src={image} alt="Cat with tongue" />
         </ContainerImage>
       )}
+      <ScrollToTopButton />
     </ContainerList>
   );
 };
