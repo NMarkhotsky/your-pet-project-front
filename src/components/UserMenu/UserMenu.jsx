@@ -5,11 +5,22 @@ import { logout } from '../../redux/auth/operations';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 import { Icon } from '../Icon/Icon';
 import { NavLink, UserMenuBox, UserMenuButton } from './UserMenu.styled';
+import { ModalLogout } from '../ModalLogout/ModalLogout';
+import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 
 export const UserMenu = ({ open }) => {
   const dispatch = useDispatch();
   const { user } = useAuth();
   const [isDesktop, setIsDesktop] = useState(false);
+   const [showModal, setShowModal] = useState(false);
+
+   const openModal = () => {
+     setShowModal(true);
+   };
+
+   const closeModal = () => {
+     setShowModal(false);
+   };
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -29,7 +40,8 @@ export const UserMenu = ({ open }) => {
     <>
       {isDesktop ? (
         <UserMenuBox>
-          <UserMenuButton type="button" onClick={() => dispatch(logout())}>
+          {/* <UserMenuButton type="button" onClick={() => dispatch(logout())}> */}
+          <UserMenuButton type="button" onClick={openModal}>
             Log out
             <Icon
               iconName={'icon-logout'}
@@ -73,6 +85,16 @@ export const UserMenu = ({ open }) => {
             </NavLink>
           )}
         </UserMenuBox>
+      )}
+      {showModal && (
+        <div>
+          <ModalApproveAction onClose={closeModal}>
+            <ModalLogout
+              handleModal={closeModal}
+              handleLogout={() => dispatch(logout())}
+            />
+          </ModalApproveAction>
+        </div>
       )}
     </>
   );

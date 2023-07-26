@@ -4,6 +4,7 @@ import { Icon } from '../../Icon/Icon';
 import { UserMenuBoxCopy, UserMenuButton } from './UserMenuCopy.styled';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
 import { UserMenuName } from '../../UserMenu/UserMenu.styled';
+import { NavLink } from 'react-router-dom';
 
 export const UserMenuCopy = () => {
   const dispatch = useDispatch();
@@ -21,12 +22,14 @@ export const UserMenuCopy = () => {
         />
       </UserMenuButton>
       <UserMenuName>
-        <Icon
-          iconName={'icon-user'}
-          width={'24px'}
-          height={'24px'}
-          fill={'#FFC107'}
-        />
+        <NavLink to="/user">
+          <Icon
+            iconName={'icon-user'}
+            width={'24px'}
+            height={'24px'}
+            fill={'#FFC107'}
+          />
+        </NavLink>
         {user.name}
       </UserMenuName>
     </UserMenuBoxCopy>

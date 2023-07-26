@@ -11,7 +11,7 @@ import {
   StyledIcon,
 } from '../../shared/sharedModalStyles/sharedModalStyles.styled';
 
-export const ModalLogout = ({ handleModal }) => {
+export const ModalLogout = ({ handleModal, handleLogout }) => {
   return (
     <Modal>
       <Title>Already leaving?</Title>
@@ -19,7 +19,7 @@ export const ModalLogout = ({ handleModal }) => {
         <CancelButton onClick={handleModal}>
           <ButtonText>Cancel</ButtonText>
         </CancelButton>
-        <YesButton>
+        <YesButton onClick={handleLogout}>
           <ButtonText>Yes</ButtonText>
           <IconWraper>
             <StyledIcon iconName="icon-logout" stroke={'#FDF7F2'} />
@@ -39,5 +39,5 @@ export const ModalLogout = ({ handleModal }) => {
 
 ModalLogout.propTypes = {
   handleModal: PropTypes.func.isRequired,
-  // handleLogout: PropTypes.func.isRequired,
+  handleLogout: PropTypes.func.isRequired,
 };
