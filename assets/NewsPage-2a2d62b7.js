@@ -1,4 +1,4 @@
-import{s as b,b as G,a as xe,P as O,j as S,I as Ws,c as Et,r as Ke}from"./index-401d5e12.js";//! moment.js
+import{s as b,b as G,a as xe,P as O,j as S,I as Ws,c as Et,r as Ke}from"./index-7667ef0e.js";//! moment.js
 //! version : 2.29.4
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
@@ -158,7 +158,7 @@ l.version="2.29.4";Fs(k);l.fn=o;l.min=vn;l.max=Dn;l.now=Mn;l.utc=z;l.unix=Xa;l.m
     margin-right: auto;
     margin-top: 68px;
   }
-`,Rt=({list:e})=>S.jsx(S.Fragment,{children:S.jsx(Vi,{children:e.map(t=>S.jsx(Rs,{article:t},t.id))})});Rt.defaultProps={list:[]};Rt.propTypes={list:O.arrayOf(O.shape({url:O.string,text:O.string.isRequired,title:O.string.isRequired,imgUrl:O.string.isRequired,date:O.string.isRequired}).isRequired)};const Gi=b.h1`
+`,Rt=({list:e})=>S.jsx(S.Fragment,{children:S.jsx(Vi,{children:e.map(t=>S.jsx(Rs,{article:t},t._id))})});Rt.defaultProps={list:[]};Rt.propTypes={list:O.arrayOf(O.shape({url:O.string,text:O.string.isRequired,title:O.string.isRequired,imgUrl:O.string.isRequired,date:O.string.isRequired}).isRequired)};const Gi=b.h1`
   margin-bottom: 40px;
   margin-top: 80px;
 
