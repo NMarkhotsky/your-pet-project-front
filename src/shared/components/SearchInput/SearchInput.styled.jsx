@@ -29,6 +29,10 @@ export const Input = styled.input`
   font-family: ${({ theme }) => theme.fonts.secondary.medium};
   font-size: ${({ theme }) => theme.fontSizes.sm};
 
+  &:focus {
+    outline: 1px solid ${({ theme }) => theme.colors.blue};
+  };
+
   @media ${selectTablet} {
     padding: 10px 80px 10px 20px;
     font-size: ${({ theme }) => theme.fontSizes.lg};
