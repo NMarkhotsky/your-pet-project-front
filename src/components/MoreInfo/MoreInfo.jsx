@@ -11,7 +11,6 @@ import { validationDefaultInfo } from "../DefaultMoreInfo/validationDefaultInfo"
 import { validationSellInfo } from "../SellMoreInfo/validationSellInfo";
 import { useDispatch } from "react-redux";
 import { addNotice, addPet } from "../../redux/add-pet/operations";
-import axios from "axios";
 
 function MoreInfo({ option, handleDefinePage }) {
   const { personalDetails } = useAddPet();
@@ -51,7 +50,7 @@ function MoreInfo({ option, handleDefinePage }) {
       return;
     }
 
-    dispatch(addNotice(data))
+    dispatch(addNotice(formDataObject))
     resetForm();
   }
 
