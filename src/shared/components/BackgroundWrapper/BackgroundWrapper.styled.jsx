@@ -15,15 +15,15 @@ export const BackgrdImg = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: -68px;
-  width: 320px;
-  height: 533px;
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+  height: 100% @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
     background-image: url(${bgmobile2x});
   }
 
   @media ${selectTablet} {
-    width: 768px;
-    height: 1125px;
+    // width: 768px;
+    // height: 1125px;
     background-image: url(${bgtablet});
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgtablet2x});
@@ -32,8 +32,8 @@ export const BackgrdImg = styled.div`
 
   @media ${selectDesktop} {
     background-image: url(${bgdesktop});
-    width: 1280px;
-    height: 702px;
+    // width: 1280px;
+    // height: 702px;
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgdesktop2x});
     }

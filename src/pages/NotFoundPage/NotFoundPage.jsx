@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { Btn } from '../../shared/components/Button/Btn';
 import { Icon } from '../../components/Icon/Icon';
 import { Title, TitleBr, CatImg, Img } from './NotFoundPage.styled';
-import { BackgrdImg } from '../../shared/components/BackgroundImage/BackgroundImage.styled';
+import { BackgrdImg } from '../../shared/components/BackgroundWrapper/BackgroundWrapper.styled';
 
 import catdesktop1x from '../../assets/images/NotFoundImages/catdesktop.png';
 import catdesktop2x from '../../assets/images/NotFoundImages/catdesktop@2x.png';
