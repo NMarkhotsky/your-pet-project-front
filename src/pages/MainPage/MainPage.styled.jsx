@@ -16,9 +16,6 @@ export const ContainerMainPage = styled.section`
 export const TextMainPage = styled.h1`
   z-index: 20;
   margin-top: 60px;
-  margin-bottom: 20px;
-  width: 280px;
-  height: 108px;
   font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.xxxl};
   line-height: 1.4;
