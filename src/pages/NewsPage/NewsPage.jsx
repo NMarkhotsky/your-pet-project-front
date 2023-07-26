@@ -16,7 +16,7 @@ function NewsPage() {
           search: '',
           page: 1,
           limit,
-        }
+        };
 
         const news = await getNews(params);
 
@@ -35,7 +35,7 @@ function NewsPage() {
         search: searchValue,
         page: 1,
         limit,
-      }
+      };
 
       const news = await getNews(params);
 

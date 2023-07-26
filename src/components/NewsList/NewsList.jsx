@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import NewsItem from '../NewsItem/NewsItem';
 import { List } from './NewsList.styled';
 
-export const NewsList = ({list}) => {
+export const NewsList = ({ list }) => {
   return (
     <>
       <List>
         {list.map(article => (
-          <NewsItem key={article.id} article={article} />
+          <NewsItem key={article._id} article={article} />
         ))}
       </List>
     </>
