@@ -4,11 +4,12 @@ import { BackgroundWrapper } from '../../shared/components/BackgroundWrapper/Bac
 
 function LoginPage() {
   return (
-    <BackgroundWrapper>
+    <>
+      <BackgroundWrapper />
       <AuthFormContainer title="Login">
         <LoginForm />
       </AuthFormContainer>
-    </BackgroundWrapper>
+    </>
   );
 }
 
