@@ -5,14 +5,17 @@ import {
   ListTitle,
   PetsCardList,
   Button,
+  Img,
+  Title,
+  ContainerImage,
 } from './PetsList.styled';
 import { PetsItem } from '../PetsItem/PetsItem';
 import { Icon } from '../Icon/Icon';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
+import image from '../../assets/images/imageUserPage/catImg.png';
 
 export const PetsList = ({ pets, deletePet }) => {
-
   useEffect(() => {
     if (pets === [] && !pets) {
       return;
@@ -42,6 +45,15 @@ export const PetsList = ({ pets, deletePet }) => {
           <PetsItem key={card._id} item={card} deletePet={deletePet} />
         ))}
       </PetsCardList>
+      {pets.length === 0 && (
+        <ContainerImage>
+          <Title>
+            <p>Sorry...</p> You do not have any pets &#58;&#40; <br />
+            <span style={{ color: '#FFC107' }}>But you can add them.</span>
+          </Title>
+          <Img src={image} alt="Cat with tongue" />
+        </ContainerImage>
+      )}
     </ContainerList>
   );
 };

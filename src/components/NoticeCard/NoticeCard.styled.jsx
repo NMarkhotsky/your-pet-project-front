@@ -43,6 +43,13 @@ export const Item = styled.li`
   @media ${selectDesktop} {
     width: 288px;
   }
+
+  transition: transform ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.02);
+    transition: transform ${({ theme }) => theme.transitionHover};
+  }
 `;
 
 export const ContainerPetInfo = styled.div`
@@ -57,6 +64,7 @@ export const Image = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 10px;
 `;
 
 export const ContainerPetStatus = styled.div`
@@ -109,6 +117,13 @@ export const Button = styled.button`
   line-height: 0;
 
   background-color: ${props => props.theme.colors.blueLight};
+
+  transition: transform ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.2);
+    transition: transform ${({ theme }) => theme.transitionHover};
+  }
 `;
 
 export const ListPetInfo = styled.ul`

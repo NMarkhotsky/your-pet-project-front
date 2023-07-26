@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import {
-  selectTablet,
-  selectDesktop,
-} from '../../../utils/selectMediaRequests';
+import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
 
 export const ItemNews = styled.li`
   position: relative;
@@ -15,7 +12,7 @@ export const ItemNews = styled.li`
 
   &:hover,
   &:focus {
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: transform ${({ theme }) => theme.transitionHover};
   }
 
