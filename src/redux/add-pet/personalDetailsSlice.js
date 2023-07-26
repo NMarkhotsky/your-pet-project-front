@@ -6,10 +6,15 @@ const personalDetailsSlice = createSlice({
   initialState: initialStatePersonalDetails,
   reducers: {
     setPersonalDetails(state, action) {
-      state.title = action.payload.title;
       state.name = action.payload.name;
       state.birthday = action.payload.birthday;
       state.type = action.payload.type;
+
+      if (action.payload.title !== undefined) {
+        state.title = action.payload.title;
+      }
+
+      console.log(action.payload);
     }
   }
 });
