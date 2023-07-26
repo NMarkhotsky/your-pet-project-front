@@ -11,7 +11,6 @@ function Comments({ formik }) {
     formik.handleBlur(event);
   };
 
-  console.log(formik.touched)
   return (
     <Label htmlFor="comments">
       Comments

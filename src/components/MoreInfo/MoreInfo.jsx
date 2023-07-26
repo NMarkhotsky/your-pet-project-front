@@ -17,23 +17,40 @@ function MoreInfo({ option, handleDefinePage }) {
 
   const dispatch = useDispatch();
 
-  const onSubmit = (values, { resetForm }) => {
-
-    const data = {
-      noticeType: option,
-      ...personalDetails,
+  const onSubmit = async (values, { resetForm }) => {
+    const formData = new FormData();
+    const entries = Object.entries({
       ...values,
-      sex: values.gender,
-    }
+      ...personalDetails,
+    });
 
-    console.log(data);
+    let validationObject = {}
+
+    entries.forEach(entry => {
+      if (entry[1]) {
+        formData.append(entry[0], entry[1]);
+        validationObject = {
+          ...validationObject,
+          [entry[0]]: entry[1],
+        };
+      }
+    });
+
+    const formDataObject = {};
+
+    formData.forEach((value, key) => {
+      formDataObject[key] = value;
+    });
+
+    console.log(formDataObject);
 
     if (option === petValues.yourPet) {
-      dispatch(addPet(data))
+      dispatch(addPet(formDataObject));
+      // resetForm();
       return;
     }
 
-    dispatch(addNotice(data))
+    dispatch(addNotice(formDataObject))
     resetForm();
   }
 
