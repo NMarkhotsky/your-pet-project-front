@@ -47,17 +47,14 @@ function NewsPage() {
 
   const handleChange = value => {
     setSearchValue(value);
-    console.log('Input Value:', value);
   };
 
   const handleSearch = () => {
-    console.log(searchValue);
     getDataByName();
   };
 
   const handleDelete = () => {
     setSearchValue('');
-    console.log(searchValue);
   };
 
   return (
