@@ -17,7 +17,7 @@ import image from '../../assets/images/imageUserPage/catImg.png';
 
 export const PetsList = ({ pets, deletePet }) => {
   useEffect(() => {
-    if (pets === [] && !pets) {
+    if (pets == [] && !pets) {
       return;
     }
   }, [pets]);
