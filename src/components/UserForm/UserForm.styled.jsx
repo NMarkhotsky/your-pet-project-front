@@ -81,7 +81,6 @@ export const Label = styled.label`
 
 export const Input = styled(Field)`
   width: 190px;
-  outline: none;
   border-radius: 20px;
   border: 1px solid ${props => props.theme.colors.blue};
   font-size: ${props => props.theme.fontSizes.xs};

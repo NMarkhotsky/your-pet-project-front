@@ -6,7 +6,6 @@ import {
   LinkRegStyled,
 } from './NavRegAndLog.styled';
 
-
 export const NavRegAndLog = () => {
   return (
     <>
@@ -25,3 +24,5 @@ export const NavRegAndLog = () => {
     </>
   );
 };
+
+

@@ -5,24 +5,15 @@ import {
   ListTitle,
   PetsCardList,
   Button,
+  Img,
+  Title,
+  ContainerImage,
 } from './PetsList.styled';
 import { PetsItem } from '../PetsItem/PetsItem';
 import { Icon } from '../Icon/Icon';
 import { NavLink } from 'react-router-dom';
 import { useEffect } from 'react';
-import {
-  Title,
-  TitleBr,
-  CatImg,
-  Img,
-} from '../../pages/NotFoundPage/NotFoundPage.styled';
-
-import catdesktop1x from '../../assets/images/NotFoundImages/catdesktop.png';
-import catdesktop2x from '../../assets/images/NotFoundImages/catdesktop@2x.png';
-import cattablet1x from '../../assets/images/NotFoundImages/cattablet.png';
-import cattablet2x from '../../assets/images/NotFoundImages/cattablet@2x.png';
-import catmobile1x from '../../assets/images/NotFoundImages/catmobile.png';
-import catmobile2x from '../../assets/images/NotFoundImages/catmobile@2x.png';
+import image from '../../assets/images/imageUserPage/catImg.png';
 
 export const PetsList = ({ pets, deletePet }) => {
   useEffect(() => {
@@ -55,28 +46,13 @@ export const PetsList = ({ pets, deletePet }) => {
         ))}
       </PetsCardList>
       {pets.length === 0 && (
-        <div>
+        <ContainerImage>
           <Title>
-            <TitleBr>Sorry!</TitleBr> You don't have any pets &#58;&#40;
+            <p>Sorry...</p> You don't have any pets &#58;&#40; <br />
+            <span style={{ color: '#FFC107' }}>But you can add them.</span>
           </Title>
-          <CatImg>
-            <picture>
-              <source
-                srcSet={(catdesktop1x, catdesktop2x)}
-                media="(min-width: 1280px)"
-              />
-              <source
-                srcSet={(cattablet1x, cattablet2x)}
-                media="(min-width: 768px) and (max-width: 1279px)"
-              />
-              <source
-                srcSet={(catmobile1x, catmobile2x)}
-                media="(max-width: 767px)"
-              />
-              <Img src={catdesktop1x} alt="Cat with tongue" />
-            </picture>
-          </CatImg>
-        </div>
+          <Img src={image} alt="Cat with tongue" />
+        </ContainerImage>
       )}
     </ContainerList>
   );
