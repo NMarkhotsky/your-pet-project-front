@@ -48,7 +48,7 @@ export const PetsList = ({ pets, deletePet }) => {
       {pets.length === 0 && (
         <ContainerImage>
           <Title>
-            <p>Sorry...</p> You don't have any pets &#58;&#40; <br />
+            <p>Sorry...</p> You do not have any pets &#58;&#40; <br />
             <span style={{ color: '#FFC107' }}>But you can add them.</span>
           </Title>
           <Img src={image} alt="Cat with tongue" />
