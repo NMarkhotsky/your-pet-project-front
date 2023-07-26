@@ -7,11 +7,12 @@ export const Title = styled.h1`
   font-size: ${props => props.theme.fontSizes.xl};
   text-align: center;
   line-height: 33px;
-  margin: 80px auto;
+  margin: auto;
+  padding: 80px 0;
   width: 280px;
 
   @media ${selectTablet} {
-    margin-top: 60px;
+    padding-top: 60px;
     width: 450px;
     font-family: ${props => props.theme.fonts.main.semiBold};
     font-size: ${props => props.theme.fontSizes.xxxl};
