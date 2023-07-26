@@ -1,17 +1,25 @@
 import styled from 'styled-components';
 import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
 
+export const Container = styled.div`
+  @media ${selectDesktop} {
+    width: 100%;
+    height: calc(100vh - 128px);
+  }
+`;
+
 export const Title = styled.h1`
   color: ${props => props.theme.colors.black};
   font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.xl};
   text-align: center;
   line-height: 33px;
-  margin: 80px auto;
+  margin: auto;
+  padding: 80px 0;
   width: 280px;
 
   @media ${selectTablet} {
-    margin-top: 60px;
+    padding-top: 60px;
     width: 450px;
     font-family: ${props => props.theme.fonts.main.semiBold};
     font-size: ${props => props.theme.fontSizes.xxxl};

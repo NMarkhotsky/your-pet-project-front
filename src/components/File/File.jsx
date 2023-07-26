@@ -13,8 +13,6 @@ function File({ formik, text, direction, items, justify, gap }) {
 
   const isMistake = formik.errors.photo && formik.touched.photo;
 
-  console.log(formik.touched);
-
   return (
     <>
     <LabelFile

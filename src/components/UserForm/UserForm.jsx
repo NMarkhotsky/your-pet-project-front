@@ -30,12 +30,11 @@ const FILE_SIZE = 3000000;
 
 const schema = Yup.object().shape({
   name: Yup.string().min(2).max(16).required('Name  is required field'),
-  birthday: Yup.string()
+  birthday: Yup.date()
     .required('Enter a date of birth')
     .min(new Date(1900, 0, 1))
     .max(new Date(), "You can't be born in the future!"),
-  phone: Yup.string()
-    .matches(phoneRegExp, 'Invalid phone number'),
+  phone: Yup.string().matches(phoneRegExp, 'Invalid phone number'),
   city: Yup.string().min(2).max(16),
 });
 
@@ -66,11 +65,13 @@ export const UserForm = ({ user }) => {
       birthday: user ? user.birthday : '',
       phone: user ? user.phone : '',
       city: user ? user.city : '',
-      avatar: user && user.avatarURL,
+      avatar: values.avatar || '',
     });
     setEmail(user && user.email);
-    setPreviewURL(user && user.avatarURL);
-  }, [user]);
+    setPreviewURL(
+      values.avatar ? URL.createObjectURL(values.avatar) : user.avatarURL
+    );
+  }, [user, values.avatar]);
 
   // Зміна режимів редагування config i edit
   const handleEditClick = () => {
@@ -91,8 +92,6 @@ export const UserForm = ({ user }) => {
   const handleCancelClick = () => {
     setIsActiveEdit(true);
     setIsAbleAdd(true);
-    setValues({ ...values, avatar: user && user.avatarURL });
-    setPreviewURL(user && user.avatarURL);
   };
 
   const handleAvatarChange = e => {
@@ -108,7 +107,7 @@ export const UserForm = ({ user }) => {
   };
 
   const handleSubmit = async () => {
-    console.log('name --->', values.name);
+    setIsActiveEdit(false);
     try {
       const formData = new FormData();
       const entries = Object.entries(values);
@@ -138,12 +137,16 @@ export const UserForm = ({ user }) => {
 
       await schema.validate(validationObject);
 
+      console.log(await schema.validate(validationObject));
+
       const response = await axios.patch(`/users`, formData);
       toast.success('Changes saved successfully');
       console.log('Дані успішно відправлені:', response);
     } catch (error) {
-      console.error('Помилка при відправці даних:', error);
-      toast.error(error.message);
+      if (error.name === 'ValidationError') {
+        console.log('ErrorErrors--->', error.errors[0]);
+        toast.error(error.errors[0]);
+      }
     }
   };
 
@@ -305,9 +308,7 @@ export const UserForm = ({ user }) => {
               />
             </InputBox>
             {isActiveEdit ? (
-              <ButtonForm type="submit">
-                Save
-              </ButtonForm>
+              <ButtonForm type="submit">Save</ButtonForm>
             ) : (
               <LogoutBox onClick={() => dispatch(logout())}>
                 <Icon

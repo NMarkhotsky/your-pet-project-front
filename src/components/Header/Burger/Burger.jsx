@@ -7,7 +7,6 @@ import { NavRegAndLog } from '../NavRegAndLog/NavRegAndLog';
 import { UserMenu } from '../../UserMenu/UserMenu';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
 
-
 export const Burger = () => {
   const [open, setOpen] = useState(false);
   const { isLoggedIn } = useAuth();
@@ -15,7 +14,7 @@ export const Burger = () => {
   return (
     <>
       <Navigation open={open} />
-      {isLoggedIn ? <UserMenu /> : <NavRegAndLog />}
+      {isLoggedIn ? <UserMenu open={open} /> : <NavRegAndLog />}
 
       <StyledBurger open={open} onClick={() => setOpen(!open)}>
         {!open ? (

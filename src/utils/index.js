@@ -9,5 +9,5 @@ export {
   selectTablet,
   selectDesktop,
   getColorGender,
-  createColor
+  createColor,
 }
