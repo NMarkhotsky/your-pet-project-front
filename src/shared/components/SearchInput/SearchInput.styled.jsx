@@ -44,7 +44,8 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const SearchButton = styled.button`
-  align-items: center;
+  display: flex;
+  align-content: center;
   justify-content: center;
   margin-right: ${({ value }) => (value ? '10px' : '12px')};
 
@@ -61,8 +62,9 @@ export const SearchButton = styled.button`
 `;
 
 export const DeleteSearchButton = styled.button`
+  display: flex;
+  align-content: center;
   justify-content: center;
-  align-items: center;
   flex-shrink: 0;
   margin-right: 12px;
 
