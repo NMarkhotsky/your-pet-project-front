@@ -3,8 +3,9 @@ import { selectDesktop, selectTablet } from "../../utils";
 
 export const Main = styled.div`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 80px);
   background-color: #FEF9F9;
+  margin-top: 20px;
   padding: 0 20px;
 `;
 
