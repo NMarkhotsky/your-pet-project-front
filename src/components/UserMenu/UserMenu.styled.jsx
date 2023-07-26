@@ -27,7 +27,7 @@ export const UserMenuButton = styled.button`
   background-color: ${props => props.theme.colors.blue};
   border-radius: 40px;
 
-  @media screen and (min-width: 768px) and (max-width: 1199px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     z-index: 101;
   }
 `;
