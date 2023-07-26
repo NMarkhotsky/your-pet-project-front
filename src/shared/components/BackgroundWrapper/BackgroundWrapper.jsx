@@ -1,10 +1,9 @@
 import { BackgrdImg } from './BackgroundWrapper.styled';
 import PropTypes from 'prop-types';
 
-export const BackgroundImage = ({ children }) => {
+export const BackgroundWrapper = ({ children }) => {
   return <BackgrdImg>{children}</BackgrdImg>;
 };
-
-BackgroundImage.propTypes = {
+BackgroundWrapper.propTypes = {
   children: PropTypes.any.isRequired,
 };
