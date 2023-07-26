@@ -17,13 +17,13 @@ export const BackgrdImageContainer = styled.div`
   background-size: cover;
   background-position-y: -68px;
 
-  height: 100% @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi) {
+  height: 100%;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     background-image: url(${bgmobile2x});
   }
 
   @media ${selectTablet} {
-    width: 768px;
+    width: 720px;
     height: 1125px;
     background-image: url(${bgtablet});
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {

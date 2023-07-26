@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { Btn } from '../../shared/components/Button/Btn';
 import { Icon } from '../../components/Icon/Icon';
-import { Title, TitleBr, CatImg, Img } from './NotFoundPage.styled';
+import { Container, Title, TitleBr, CatImg, Img } from './NotFoundPage.styled';
 import { BackgroundWrapper } from '../../shared/components/BackgroundWrapper/BackgroundWrapper';
 import catdesktop1x from '../../assets/images/NotFoundImages/catdesktop.png';
 import catdesktop2x from '../../assets/images/NotFoundImages/catdesktop@2x.png';
@@ -13,7 +13,7 @@ import catmobile2x from '../../assets/images/NotFoundImages/catmobile@2x.png';
 const NotFoundPage = () => {
   return (
     <BackgroundWrapper>
-      <div>
+      <Container>
         <Title>
           <TitleBr>Ooops!</TitleBr> This page not found &#58;&#40;
         </Title>
@@ -45,7 +45,7 @@ const NotFoundPage = () => {
             />
           </Btn>
         </NavLink>
-      </div>
+      </Container>
     </BackgroundWrapper>
   );
 };
