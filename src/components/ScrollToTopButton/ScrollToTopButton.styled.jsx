@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
-export const Span = styled.div`
+export const ContainerScroll = styled.div`
   background: ${props => props.theme.colors.blueGradient};
   border: none;
-  /* border-radius: 50px; */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
 `;
