@@ -17,14 +17,14 @@ export const BackgrdImageContainer = styled.div`
   background-size: cover;
   background-position-y: -68px;
 
-  height: 100% @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi) {
+  height: 100%;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     background-image: url(${bgmobile2x});
   }
 
   @media ${selectTablet} {
-    width: 768px;
-    height: 1125px;
+    width: 720px;
+    height: 100vh;
     background-image: url(${bgtablet});
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgtablet2x});
@@ -34,7 +34,7 @@ export const BackgrdImageContainer = styled.div`
   @media ${selectDesktop} {
     background-image: url(${bgdesktop});
     width: 1280px;
-    height: 702px;
+    height: 100vh;
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgdesktop2x});
     }

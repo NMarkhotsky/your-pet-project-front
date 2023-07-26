@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
 
+export const Container = styled.div`
+  @media ${selectDesktop} {
+    width: 100%;
+    height: calc(100vh - 128px);
+  }
+`;
+
 export const Title = styled.h1`
   color: ${props => props.theme.colors.black};
   font-family: ${props => props.theme.fonts.main.bold};
