@@ -24,7 +24,7 @@ export const BackgrdImageContainer = styled.div`
 
   @media ${selectTablet} {
     width: 720px;
-    height: 100vh;
+    height: 1125px;
     background-image: url(${bgtablet});
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgtablet2x});
@@ -34,7 +34,7 @@ export const BackgrdImageContainer = styled.div`
   @media ${selectDesktop} {
     background-image: url(${bgdesktop});
     width: 1280px;
-    height: 100vh;
+    height: 702px;
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgdesktop2x});
     }
