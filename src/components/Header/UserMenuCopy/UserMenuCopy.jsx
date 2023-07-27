@@ -34,17 +34,18 @@ export const UserMenuCopy = ({ handleToggleBurger }) => {
           stroke={'#FEF9F9'}
         />
       </UserMenuButton>
-      <UserMenuName>
-        <NavLink to="/user" onClick={handleToggleBurger}>
+      <NavLink to="/user" onClick={handleToggleBurger}>
+        <UserMenuName>
           <Icon
             iconName={'icon-user'}
             width={'24px'}
             height={'24px'}
             fill={'#FFC107'}
           />
-        </NavLink>
-        {user.name}
-      </UserMenuName>
+
+          {user.name}
+        </UserMenuName>
+      </NavLink>
       {showModal && (
         <div>
           <ModalApproveAction onClose={closeModal}>
