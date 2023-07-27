@@ -1,4 +1,4 @@
-import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-ffd4c605.js";import{B as d}from"./BackgroundWrapper-76646a56.js";const x=o.button`
+import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-fb60f49b.js";import{B as d}from"./BackgroundWrapper-d42ab7eb.js";const x=o.button`
   position: relative;
   display: flex;
   margin: auto;
@@ -87,4 +87,4 @@ import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-ffd4c605.js
     max-width: 822px;
     height: 360px;
   }
-`,f="/your-pet-project-front/assets/catdesktop-5f423fe7.png",b="/your-pet-project-front/assets/catdesktop@2x-63410937.png",j="/your-pet-project-front/assets/cattablet@2x-3747ec80.png",$="/your-pet-project-front/assets/catmobile@2x-01c6e8a2.png",k=()=>e.jsx(d,{children:e.jsxs(m,{children:[e.jsxs(h,{children:[e.jsx(l,{children:"Ooops!"})," This page not found :("]}),e.jsx(g,{children:e.jsxs("picture",{children:[e.jsx("source",{srcSet:b,media:"(min-width: 1280px)"}),e.jsx("source",{srcSet:j,media:"(min-width: 768px) and (max-width: 1279px)"}),e.jsx("source",{srcSet:$,media:"(max-width: 767px)"}),e.jsx(u,{src:f,alt:"Cat with tongue"})]})}),e.jsx(p,{to:"/",children:e.jsxs(a,{children:["To main page",e.jsx(c,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#54ADFF"})]})})]})});export{k as default};
+`,f="/your-pet-project-front/assets/catdesktop-5f423fe7.png",b="/your-pet-project-front/assets/catdesktop@2x-63410937.png",j="/your-pet-project-front/assets/cattablet@2x-3747ec80.png",$="/your-pet-project-front/assets/catmobile@2x-01c6e8a2.png",k=()=>e.jsxs(e.Fragment,{children:[e.jsx(d,{}),e.jsxs(m,{children:[e.jsxs(h,{children:[e.jsx(l,{children:"Ooops!"})," This page not found :("]}),e.jsx(g,{children:e.jsxs("picture",{children:[e.jsx("source",{srcSet:b,media:"(min-width: 1280px)"}),e.jsx("source",{srcSet:j,media:"(min-width: 768px) and (max-width: 1279px)"}),e.jsx("source",{srcSet:$,media:"(max-width: 767px)"}),e.jsx(u,{src:f,alt:"Cat with tongue"})]})}),e.jsx(p,{to:"/",children:e.jsxs(a,{children:["To main page",e.jsx(c,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#54ADFF"})]})})]})]});export{k as default};
