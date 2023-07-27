@@ -22,11 +22,12 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
 
   useEffect(() => {
     for (let key in personalDetails) {
-      if (personalDetails.hasOwnProperty(key)) {
+      if (key in personalDetails) {
         formik.setFieldValue(key, personalDetails[key]);
       }
     }
-  }, [formik.setFieldValue, personalDetails]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <FormPetInfo onSubmit={formik.handleSubmit}>
@@ -35,7 +36,6 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Title of add"
         text="Title of add"
         id="title"
-        // value={formik.values.title || personalDetails.title}
         name={"title"}
         onChange={formik.handleChange}
       />
@@ -44,7 +44,6 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Type name pet"
         text="Pet’s name"
         id="name"
-        // value={formik.values.name || personalDetails.name}
         name={"name"}
         onChange={formik.handleChange}
       />
@@ -54,7 +53,6 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         text="Date of birth"
         id="birthday"
         date
-        // value={formik.values.birthday || personalDetails.birthday}
         name={"birthday"}
         onChange={formik.handleChange}
       />
@@ -63,7 +61,6 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Type of pet"
         text="Type"
         id="type"
-        // value={formik.values.type || personalDetails.type}
         name={"type"}
         onChange={formik.handleChange}
       />

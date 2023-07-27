@@ -16,6 +16,7 @@ function Comments({ formik }) {
     if (moreInfo.data.comments !== "") {
       formik.setFieldValue("comments", moreInfo.data.comments);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formik.setFieldValue, moreInfo.data.comments]);
 
   const handleTextareaChange = (event) => {
