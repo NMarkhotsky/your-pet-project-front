@@ -147,13 +147,7 @@ export const UserForm = () => {
         formDataObject[key] = value;
       });
 
-      // console.log('formDataObject----->', formDataObject);
-
-      // console.log('validationObject ===>', validationObject);
-
       await schema.validate(validationObject);
-
-      console.log(await schema.validate(validationObject));
 
       updateUser(formData);
       successMessage('Changes saved successfully');

@@ -17,6 +17,7 @@ export const UserMenuCopy = ({ handleToggleBurger }) => {
 
   const openModal = () => {
     setShowModal(true);
+    handleToggleBurger();
   };
 
   const closeModal = () => {
