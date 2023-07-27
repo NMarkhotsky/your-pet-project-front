@@ -10,36 +10,19 @@ function NewsPage() {
   const limit = 6;
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const params = {
-          search: '',
-          page: 1,
-          limit,
-        };
-
-        const news = await getNews(params);
-
-        setNews(news.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     getData();
   }, []);
 
-  const getDataByName = async () => {
+  const getData = async (search = '') => {
     try {
       const params = {
-        search: searchValue,
+        search,
         page: 1,
         limit,
       };
 
-      const news = await getNews(params);
-
-      setNews(news.data.data);
+      const newsData = await getNews(params);
+      setNews(newsData.data.data);
     } catch (error) {
       console.log(error);
     }
@@ -50,11 +33,12 @@ function NewsPage() {
   };
 
   const handleSearch = () => {
-    getDataByName();
+    getData(searchValue);
   };
 
   const handleDelete = () => {
     setSearchValue('');
+    getData();
   };
 
   return (
