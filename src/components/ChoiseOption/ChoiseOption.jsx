@@ -28,11 +28,12 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
   }
 
   const formik = useFormik({ initialValues, onSubmit });
-
+  
   useEffect(() => {
     if (option !== "") {
       formik.setFieldValue("option", option);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formik.setFieldValue, option]);
 
   return (

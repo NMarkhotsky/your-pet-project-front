@@ -46,6 +46,11 @@ function MoreInfo({ option, handleDefinePage }) {
 
     const { price, ...noticeObjWithoutPrice } = noticeObj;
 
+    console.log(title)
+    console.log(type)
+    console.log(gender)
+    console.log(price)
+
     dispatch(addNotice({
       noticeType: option,
       sex: data.gender,

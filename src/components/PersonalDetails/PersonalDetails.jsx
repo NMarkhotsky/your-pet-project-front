@@ -19,13 +19,14 @@ function PersonalDetails({ onSubmit, handleDefinePage }) {
     onSubmit,
     validationSchema: validationPersonalDetails,
   });
-
+  
   useEffect(() => {
     for (let key in personalDetails) {
-      if (personalDetails.hasOwnProperty(key)) {
+      if (personalDetails[key] !== "") {
         formik.setFieldValue(key, personalDetails[key]);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formik.setFieldValue, personalDetails]);
 
   return (
