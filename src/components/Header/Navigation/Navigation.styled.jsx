@@ -62,5 +62,9 @@ export const NavigationBox = styled.nav`
     display: flex;
     gap: 40px;
     margin-left: 159px;
+
+    & > svg {
+      display: none;
+    }
   }
 `;

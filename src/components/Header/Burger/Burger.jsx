@@ -11,15 +11,15 @@ export const Burger = () => {
   const [open, setOpen] = useState(false);
   const { isLoggedIn } = useAuth();
 
- const handleToggleBurger = () => {
+  const handleToggleBurger = () => {
     setOpen(!open);
-  }
+  };
 
   return (
     <>
       <Navigation open={open} handleToggleBurger={handleToggleBurger} />
       {isLoggedIn ? (
-        <UserMenu open={open} handleToggleBurger={handleToggleBurger } />
+        <UserMenu open={open} handleToggleBurger={handleToggleBurger} />
       ) : (
         <NavRegAndLog />
       )}

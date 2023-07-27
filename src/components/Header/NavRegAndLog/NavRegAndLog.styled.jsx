@@ -7,6 +7,7 @@ export const MainNavLinkBox = styled.div`
 
   @media ${selectTablet} {
     display: flex;
+    align-items: center;
     gap: 20px;
     margin-left: auto;
   }
