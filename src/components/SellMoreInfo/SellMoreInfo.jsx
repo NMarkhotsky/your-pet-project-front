@@ -4,6 +4,7 @@ import { BackIcon, FemaleIcon, MaleIcon, PawIcon } from "../../icons";
 import { getColorGender } from "../../utils";
 import { ButtonsWrapper } from "../ChoiseOption/ChoiseOption.styled";
 import Comments from "../Comment/Comment";
+import ErrorTextAddPet from "../ErrorTextAddPet/ErrorTextAddPet";
 import FieldInput from "../FieldInput/FieldInput";
 import File from "../File/File";
 import GenderRadio from "../GenderRadio/GenderRadio";
@@ -33,6 +34,7 @@ function SellMoreInfo({ formik, handleDefinePage }) {
           checked={formik.values.gender}
           icon={<MaleIcon stroke={getColorGender({ value: petValues.male, formik })} />}
         />
+        {formik.errors.gender && formik.touched.gender ? ( <ErrorTextAddPet text={formik.errors.gender} /> ) : null}
       </RadioWrapper>
       <File
         text="Load the pet’s image:"

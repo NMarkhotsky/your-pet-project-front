@@ -4,7 +4,9 @@ import { addNotice, addPet } from './operations';
 const moreInfoSlice = createSlice({
   name: 'moreInfoSlice',
   initialState: {
-    data: null,
+    data: {
+      comments: "",
+    },
     isLoad: false,
     error: null,
   },
