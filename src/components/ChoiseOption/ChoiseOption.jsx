@@ -8,6 +8,8 @@ import ChooseOption from "../ChooseOption/ChooseOption";
 import { ChooseOptionWrapper, MyForm, ButtonsWrapper } from "./ChoiseOption.styled";
 import { ButtonNext, ButtonPrev } from "../StyledButtons/StyledButtons";
 import { BackIcon, PawIcon } from "../../icons";
+import { useEffect } from "react";
+import { useAddPet } from "../../hooks";
 
 const initialValues = {
   option: "",
@@ -16,6 +18,7 @@ const initialValues = {
 function ChoiseOption({ handleDefinePage, currentPage }) {
 
   const dispatch = useDispatch();
+  const { option } = useAddPet();
 
   const onSubmit = (values) => {
     if (currentPage === 0) {
@@ -25,6 +28,12 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
   }
 
   const formik = useFormik({ initialValues, onSubmit });
+
+  useEffect(() => {
+    if (option !== "") {
+      formik.setFieldValue("option", option);
+    }
+  }, [formik.setFieldValue, option]);
 
   return (
     <MyForm onSubmit={formik.handleSubmit}>

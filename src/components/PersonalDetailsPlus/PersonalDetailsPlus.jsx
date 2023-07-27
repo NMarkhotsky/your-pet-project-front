@@ -7,14 +7,26 @@ import { FormPetInfo } from "../FormPetInfo/FormPetInfo.styled";
 import { ButtonsWrapper } from "../ChoiseOption/ChoiseOption.styled";
 import { ButtonNext, ButtonPrev } from "../StyledButtons/StyledButtons";
 import { BackIcon, PawIcon } from "../../icons";
+import { useEffect } from "react";
+import { useAddPet } from "../../hooks";
 
 function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
+
+  const { personalDetails } = useAddPet();
 
   const formik = useFormik({
     initialValues: initialStatePersonalDetailsPlus,
     onSubmit,
     validationSchema: validationPersonalDetailsPlus,
   });
+
+  useEffect(() => {
+    for (let key in personalDetails) {
+      if (personalDetails.hasOwnProperty(key)) {
+        formik.setFieldValue(key, personalDetails[key]);
+      }
+    }
+  }, [formik.setFieldValue, personalDetails]);
 
   return (
     <FormPetInfo onSubmit={formik.handleSubmit}>
@@ -23,7 +35,7 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Title of add"
         text="Title of add"
         id="title"
-        value={formik.values.title}
+        // value={formik.values.title || personalDetails.title}
         name={"title"}
         onChange={formik.handleChange}
       />
@@ -32,7 +44,7 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Type name pet"
         text="Pet’s name"
         id="name"
-        value={formik.values.name}
+        // value={formik.values.name || personalDetails.name}
         name={"name"}
         onChange={formik.handleChange}
       />
@@ -42,7 +54,7 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         text="Date of birth"
         id="birthday"
         date
-        value={formik.values.birthday}
+        // value={formik.values.birthday || personalDetails.birthday}
         name={"birthday"}
         onChange={formik.handleChange}
       />
@@ -51,7 +63,7 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Type of pet"
         text="Type"
         id="type"
-        value={formik.values.type}
+        // value={formik.values.type || personalDetails.type}
         name={"type"}
         onChange={formik.handleChange}
       />
