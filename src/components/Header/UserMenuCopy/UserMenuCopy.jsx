@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../redux/auth/operations';
 import { Icon } from '../../Icon/Icon';
@@ -9,19 +10,19 @@ import { ModalApproveAction } from '../../../shared/components/ModalApproveActio
 import { ModalLogout } from '../../ModalLogout/ModalLogout';
 import { useState } from 'react';
 
-export const UserMenuCopy = () => {
+export const UserMenuCopy = ({ handleToggleBurger }) => {
   const dispatch = useDispatch();
   const { user } = useAuth();
- const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
- const openModal = () => {
-   setShowModal(true);
- };
-
- const closeModal = () => {
-   setShowModal(false);
+  const openModal = () => {
+    setShowModal(true);
   };
-  
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <UserMenuBoxCopy>
       <UserMenuButton type="button" onClick={openModal}>
@@ -34,7 +35,7 @@ export const UserMenuCopy = () => {
         />
       </UserMenuButton>
       <UserMenuName>
-        <NavLink to="/user">
+        <NavLink to="/user" onClick={handleToggleBurger}>
           <Icon
             iconName={'icon-user'}
             width={'24px'}
@@ -56,4 +57,8 @@ export const UserMenuCopy = () => {
       )}
     </UserMenuBoxCopy>
   );
+};
+
+UserMenuCopy.propTypes = {
+  handleToggleBurger: PropTypes.func.isRequired,
 };

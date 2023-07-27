@@ -97,6 +97,10 @@ export const Input = styled(Field)`
     }
   }
 
+  &:focus {
+    outline: 1px solid ${props => props.theme.colors.blue};
+  }
+
   &:disabled {
     background-color: #ffffff;
   }

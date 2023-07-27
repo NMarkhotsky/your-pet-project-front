@@ -1,7 +1,6 @@
 import { Field, Formik, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 import { schema } from '../../constants/globalConstants';
 import { Icon } from '../Icon/Icon';
 import { logout } from '../../redux/auth/operations';
@@ -24,8 +23,6 @@ import { ModalApproveAction } from '../../shared/components/ModalApproveAction/M
 import { ModalLogout } from '../ModalLogout/ModalLogout';
 import { getCurrentUser, updateUser } from '../../services/UserApi';
 
-axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
-
 const FILE_SIZE = 3000000;
 
 export const UserForm = () => {
@@ -42,6 +39,7 @@ export const UserForm = () => {
     phone: '',
     city: '',
   });
+  const [fileAvatar, setFileAvatar] = useState(null);
 
   // Стани для роботи з редагуванням форми
   const [isActiveEdit, setIsActiveEdit] = useState(false);
@@ -82,12 +80,11 @@ export const UserForm = () => {
       phone: user ? user.phone : '',
       city: user ? user.city : '',
       avatar: values.avatar || '',
+      avatarURL: user.avatarURL,
     });
     setEmail(user && user.email);
-    setPreviewURL(
-      values.avatar ? URL.createObjectURL(values.avatar) : user.avatarURL
-    );
-  }, [user, values.avatar]);
+    setPreviewURL(fileAvatar ? previewURL : user.avatarURL);
+  }, [fileAvatar, previewURL, user, values.avatar]);
 
   // Зміна режимів редагування config i edit
   const handleEditClick = () => {
@@ -101,11 +98,13 @@ export const UserForm = () => {
   };
 
   const handleConfirmClick = () => {
+    setValues({ ...values, avatar: fileAvatar });
     setIsActiveEdit(true);
     setIsAbleAdd(true);
   };
 
   const handleCancelClick = () => {
+    setFileAvatar(null);
     setIsActiveEdit(true);
     setIsAbleAdd(true);
   };
@@ -113,16 +112,20 @@ export const UserForm = () => {
   const handleAvatarChange = e => {
     const file = e.target.files[0];
     if (file && file.size <= FILE_SIZE) {
-      setValues({ ...values, avatar: file });
+      setFileAvatar(file);
       setPreviewURL(URL.createObjectURL(file));
     } else {
       errorMessage('Your photo is large');
-      setValues({ ...values, avatar: user && user.avatarURL });
+      setIsAbleAdd(true);
       setPreviewURL(user && user.avatarURL);
     }
   };
 
   const handleSubmit = async () => {
+    if (fileAvatar && !values.avatar) {
+      errorMessage('Press confirm or cancel your new photo');
+      return;
+    }
     setIsActiveEdit(false);
     try {
       const formData = new FormData();
@@ -145,9 +148,9 @@ export const UserForm = () => {
         formDataObject[key] = value;
       });
 
-      console.log('formDataObject----->', formDataObject);
+      // console.log('formDataObject----->', formDataObject);
 
-      console.log('validationObject ===>', validationObject);
+      // console.log('validationObject ===>', validationObject);
 
       await schema.validate(validationObject);
 
@@ -157,7 +160,6 @@ export const UserForm = () => {
       successMessage('Changes saved successfully');
     } catch (error) {
       if (error.name === 'ValidationError') {
-        console.log('ErrorErrors--->', error.errors[0]);
         errorMessage(error.errors[0]);
       }
     }

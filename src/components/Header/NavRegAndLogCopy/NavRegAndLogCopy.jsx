@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Icon } from '../../Icon/Icon';
 import {
   MainNavLinkBoxCopy,
@@ -6,11 +7,11 @@ import {
   LinkRegStyledCopy,
 } from './NavRegAndLogCopy.styled';
 
-export const NavRegAndLogCopy = () => {
+export const NavRegAndLogCopy = ({ handleToggleBurger }) => {
   return (
     <>
       <MainNavLinkBoxCopy>
-        <LinkLogStyledCopy to="/login">
+        <LinkLogStyledCopy to="/login" onClick={handleToggleBurger}>
           Log <SpanCopy>in</SpanCopy>
           <Icon
             iconName={'icon-pawprint'}
@@ -19,8 +20,14 @@ export const NavRegAndLogCopy = () => {
             fill={'#FEF9F9'}
           />
         </LinkLogStyledCopy>
-        <LinkRegStyledCopy to="/register">Registration</LinkRegStyledCopy>
+        <LinkRegStyledCopy to="/register" onClick={handleToggleBurger}>
+          Registration
+        </LinkRegStyledCopy>
       </MainNavLinkBoxCopy>
     </>
   );
+};
+
+NavRegAndLogCopy.propTypes = {
+  handleToggleBurger: PropTypes.func.isRequired,
 };

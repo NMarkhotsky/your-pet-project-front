@@ -1,13 +1,24 @@
 import PropTypes from 'prop-types';
 import { ContainerItem, Image, DeleteIcon, Text } from './PetsItem.styled';
 import { Icon } from '../Icon/Icon';
-
+import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
+import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
+import { useState } from 'react';
 
 export const PetsItem = ({ item, deletePet }) => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <ContainerItem>
-      <DeleteIcon onClick={() => deletePet(item._id)}>
+      <DeleteIcon onClick={openModal}>
         <Icon
           iconName={'icon-trash'}
           width={'24px'}
@@ -30,6 +41,18 @@ export const PetsItem = ({ item, deletePet }) => {
           <b>Comments:</b> {item.comments}
         </Text>
       </div>
+      {showModal && (
+        <div>
+          <ModalApproveAction onClose={closeModal}>
+            <ModalConfirmDelete
+              title="Are you really want to kill your lovely pet? ⚰️"
+              name={item.name}
+              handleModal={closeModal}
+              handleDelete={() => deletePet(item._id)}
+            />
+          </ModalApproveAction>
+        </div>
+      )}
     </ContainerItem>
   );
 };

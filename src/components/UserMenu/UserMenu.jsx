@@ -8,26 +8,27 @@ import { NavLink, UserMenuBox, UserMenuButton } from './UserMenu.styled';
 import { ModalLogout } from '../ModalLogout/ModalLogout';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 
-export const UserMenu = ({ open }) => {
+export const UserMenu = ({ open, handleToggleBurger }) => {
   const dispatch = useDispatch();
   const { user } = useAuth();
   const [isDesktop, setIsDesktop] = useState(false);
-   const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-   const openModal = () => {
-     setShowModal(true);
-   };
+  const openModal = () => {
+    setShowModal(true);
+    handleToggleBurger();
+  };
 
-   const closeModal = () => {
-     setShowModal(false);
-   };
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsDesktop(window.innerWidth >= 1280); 
+      setIsDesktop(window.innerWidth >= 1280);
     };
 
-    checkScreenSize(); 
+    checkScreenSize();
 
     window.addEventListener('resize', checkScreenSize);
 
@@ -101,28 +102,5 @@ export const UserMenu = ({ open }) => {
 
 UserMenu.propTypes = {
   open: PropTypes.bool.isRequired,
+  handleToggleBurger: PropTypes.func,
 };
-
-// <UserMenuBox>
-//   {open ? (
-//     <UserMenuButton type="button" onClick={() => dispatch(logout())}>
-//       Log out
-//       <Icon
-//         iconName={'icon-logout'}
-//         width={'24px'}
-//         height={'24px'}
-//         stroke={'#FEF9F9'}
-//       />
-//     </UserMenuButton>
-//   ) : (
-//     <NavLink to="/user">
-//       <Icon
-//         iconName={'icon-user'}
-//         width={'24px'}
-//         height={'24px'}
-//         fill={'#FFC107'}
-//       />
-//       {user.name}
-//     </NavLink>
-//   )}
-// </UserMenuBox>;
