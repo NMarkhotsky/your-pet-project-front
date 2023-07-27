@@ -19,7 +19,7 @@ export const UserMenuButton = styled.button`
   width: 135px;
   gap: 8px;
   align-items: center;
-  color: ${props => props.theme.colors.bgdColor};
+  color: ${props => props.theme.colors.textBtn};
   font-family: ${props => props.theme.fonts.main.bold};
   letter-spacing: 0.64px;
   font-size: ${props => props.theme.fontSizes.md};

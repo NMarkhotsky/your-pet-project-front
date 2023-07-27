@@ -31,7 +31,7 @@ export const ModalCardWrapper = styled.div`
   min-width: 200px;
 
   border-radius: 20px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.bgdColor};
 
   @media ${selectTablet} {
     left: 50%;
@@ -137,7 +137,7 @@ export const SpanStatus = styled.span`
   line-height: 19px;
 
   background-color: ${props => props.theme.colors.blueLight};
-  color: ${props => props.theme.colors.black};
+  color: #111;
 `;
 
 export const ModalCardText = styled.div`
@@ -158,7 +158,7 @@ export const Title = styled.h4`
   letter-spacing: -0.01em;
   line-height: 33px;
 
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
 
   @media ${selectTablet} {
     width: 321px;
@@ -207,7 +207,7 @@ export const TdName = styled.td`
   line-height: 19px;
   vertical-align: inherit;
 
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
 
   @media ${selectTablet} {
     width: 120px;
@@ -226,7 +226,7 @@ export const TdValue = styled.td`
   font-size: ${props => props.theme.fontSizes.xs};
   line-height: 16px;
 
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
 
   @media ${selectTablet} {
     font-size: ${props => props.theme.fontSizes.md};
@@ -290,7 +290,7 @@ export const Button = styled.button`
   border-radius: 40px;
 
   background-color: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.white};
+  color: ${props => props.theme.colors.textBtn};
 `;
 
 export const ButtonTextAdd = styled.span`

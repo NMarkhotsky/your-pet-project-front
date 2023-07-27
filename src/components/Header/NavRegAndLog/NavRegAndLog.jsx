@@ -17,12 +17,10 @@ export const NavRegAndLog = () => {
             iconName={'icon-pawprint'}
             width={'24px'}
             height={'24px'}
-            fill={'#FEF9F9'}
+            // fill={'#FEF9F9'}
           />
         </LinkLogStyled>
-        <LinkRegStyled to="/register">
-          Registration
-        </LinkRegStyled>
+        <LinkRegStyled to="/register">Registration</LinkRegStyled>
       </MainNavLinkBox>
     </>
   );

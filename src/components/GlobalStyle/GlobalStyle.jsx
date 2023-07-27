@@ -11,6 +11,9 @@ body {
   text-rendering: optimizeSpeed;
 
   background-color: ${({ theme }) => theme.colors.bgdColor};
+  color: ${({ theme }) => theme.colors.text};
+
+  transition: ${({ theme }) => theme.transitionHover};
 }
 
 code {

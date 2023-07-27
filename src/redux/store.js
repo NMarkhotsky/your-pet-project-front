@@ -14,6 +14,7 @@ import { authReducer } from './auth/authSlice';
 import { optionReducer } from './add-pet/optionSlice';
 import { personalDetailsReducer } from './add-pet/personalDetailsSlice';
 import { moreInfoReducer } from './add-pet';
+import { themeReducer } from './theme/themeSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -22,16 +23,17 @@ const authPersistConfig = {
 };
 
 const commentsPersistConfig = {
-  key: "comments",
+  key: 'comments',
   storage,
-  whitelist: ["data"],
-}
+  whitelist: ['data'],
+};
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   option: optionReducer,
   personalDetails: personalDetailsReducer,
   moreInfo: persistReducer(commentsPersistConfig, moreInfoReducer),
+  theme: themeReducer,
 });
 
 export const store = configureStore({
