@@ -1,3 +1,4 @@
+// import PropTypes from 'prop-types';
 import { Icon } from '../../../components/Icon/Icon';
 import {
   MainNavLinkBox,
@@ -19,10 +20,14 @@ export const NavRegAndLog = () => {
             fill={'#FEF9F9'}
           />
         </LinkLogStyled>
-        <LinkRegStyled to="/register">Registration</LinkRegStyled>
+        <LinkRegStyled to="/register">
+          Registration
+        </LinkRegStyled>
       </MainNavLinkBox>
     </>
   );
 };
 
-
+// NavRegAndLog.propTypes = {
+//   handleToggleBurger: PropTypes.func.isRequired,
+// };

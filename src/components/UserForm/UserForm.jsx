@@ -1,12 +1,10 @@
 import { Field, Formik, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
-import * as Yup from 'yup';
-import { toast } from 'react-toastify';
-import axios from 'axios';
+import { schema } from '../../constants/globalConstants';
 import { Icon } from '../Icon/Icon';
 import { logout } from '../../redux/auth/operations';
+import { errorMessage, successMessage } from '../../utils/messages';
 import {
   ContainerForm,
   FormTitle,
@@ -21,25 +19,14 @@ import {
   EditIcon,
   ConfirmText,
 } from './UserForm.styled';
+import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
+import { ModalLogout } from '../ModalLogout/ModalLogout';
+import { getCurrentUser, updateUser } from '../../services/UserApi';
+import { FILE_SIZE } from '../../constants/globalConstants';
 
-axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
-
-const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
-
-const FILE_SIZE = 3000000;
-
-const schema = Yup.object().shape({
-  name: Yup.string().min(2).max(16).required('Name  is required field'),
-  birthday: Yup.date()
-    .required('Enter a date of birth')
-    .min(new Date(1900, 0, 1))
-    .max(new Date(), "You can't be born in the future!"),
-  phone: Yup.string().matches(phoneRegExp, 'Invalid phone number'),
-  city: Yup.string().min(2).max(16),
-});
-
-export const UserForm = ({ user }) => {
+export const UserForm = () => {
   const dispatch = useDispatch();
+  const [user, setUser] = useState(null);
 
   // Стани для роботи з полями форми
   const [previewURL, setPreviewURL] = useState(undefined);
@@ -51,10 +38,36 @@ export const UserForm = ({ user }) => {
     phone: '',
     city: '',
   });
+  const [fileAvatar, setFileAvatar] = useState(null);
 
   // Стани для роботи з редагуванням форми
   const [isActiveEdit, setIsActiveEdit] = useState(false);
   const [isAbleAdd, setIsAbleAdd] = useState(true);
+
+  useEffect(() => {
+    getCurrentUser()
+      .then(user => {
+        setUser(user);
+      })
+      .catch(error => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    if (user === null) {
+      return;
+    }
+  }, [user]);
+
+  // Стан модалки виходу із додатку
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   useEffect(() => {
     if (!user) {
@@ -66,12 +79,11 @@ export const UserForm = ({ user }) => {
       phone: user ? user.phone : '',
       city: user ? user.city : '',
       avatar: values.avatar || '',
+      avatarURL: user.avatarURL,
     });
     setEmail(user && user.email);
-    setPreviewURL(
-      values.avatar ? URL.createObjectURL(values.avatar) : user.avatarURL
-    );
-  }, [user, values.avatar]);
+    setPreviewURL(fileAvatar ? previewURL : user.avatarURL);
+  }, [fileAvatar, previewURL, user, values.avatar]);
 
   // Зміна режимів редагування config i edit
   const handleEditClick = () => {
@@ -85,11 +97,13 @@ export const UserForm = ({ user }) => {
   };
 
   const handleConfirmClick = () => {
+    setValues({ ...values, avatar: fileAvatar });
     setIsActiveEdit(true);
     setIsAbleAdd(true);
   };
 
   const handleCancelClick = () => {
+    setFileAvatar(null);
     setIsActiveEdit(true);
     setIsAbleAdd(true);
   };
@@ -97,21 +111,24 @@ export const UserForm = ({ user }) => {
   const handleAvatarChange = e => {
     const file = e.target.files[0];
     if (file && file.size <= FILE_SIZE) {
-      setValues({ ...values, avatar: file });
+      setFileAvatar(file);
       setPreviewURL(URL.createObjectURL(file));
     } else {
-      toast.error('Your photo is large');
-      setValues({ ...values, avatar: user && user.avatarURL });
+      errorMessage('Your photo is large');
+      setIsAbleAdd(true);
       setPreviewURL(user && user.avatarURL);
     }
   };
 
   const handleSubmit = async () => {
+    if (fileAvatar && !values.avatar) {
+      errorMessage('Press confirm or cancel your new photo');
+      return;
+    }
     setIsActiveEdit(false);
     try {
       const formData = new FormData();
       const entries = Object.entries(values);
-      console.log('entries ===>', entries);
 
       let validationObject = {};
 
@@ -124,28 +141,19 @@ export const UserForm = ({ user }) => {
           };
         }
       });
-      console.log('values ===>', values);
 
       const formDataObject = {};
       formData.forEach((value, key) => {
         formDataObject[key] = value;
       });
 
-      console.log('formDataObject----->', formDataObject);
-
-      console.log('validationObject ===>', validationObject);
-
       await schema.validate(validationObject);
 
-      console.log(await schema.validate(validationObject));
-
-      const response = await axios.patch(`/users`, formData);
-      toast.success('Changes saved successfully');
-      console.log('Дані успішно відправлені:', response);
+      updateUser(formData);
+      successMessage('Changes saved successfully');
     } catch (error) {
       if (error.name === 'ValidationError') {
-        console.log('ErrorErrors--->', error.errors[0]);
-        toast.error(error.errors[0]);
+        errorMessage(error.errors[0]);
       }
     }
   };
@@ -310,7 +318,7 @@ export const UserForm = ({ user }) => {
             {isActiveEdit ? (
               <ButtonForm type="submit">Save</ButtonForm>
             ) : (
-              <LogoutBox onClick={() => dispatch(logout())}>
+              <LogoutBox onClick={openModal}>
                 <Icon
                   iconName={'icon-logout'}
                   width={'24px'}
@@ -323,17 +331,16 @@ export const UserForm = ({ user }) => {
           </div>
         </FormBox>
       </Formik>
+      {showModal && (
+        <div>
+          <ModalApproveAction onClose={closeModal}>
+            <ModalLogout
+              handleModal={closeModal}
+              handleLogout={() => dispatch(logout())}
+            />
+          </ModalApproveAction>
+        </div>
+      )}
     </ContainerForm>
   );
-};
-
-UserForm.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string,
-    email: PropTypes.string,
-    avatarURL: PropTypes.string,
-    birthday: PropTypes.string,
-    phone: PropTypes.string,
-    city: PropTypes.string,
-  }),
 };

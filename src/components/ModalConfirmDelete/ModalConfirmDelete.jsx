@@ -12,6 +12,7 @@ import {
 
 export const ModalConfirmDelete = ({
   handleModal,
+  handleDelete,
   title = 'Delete advertisement?',
   name,
 }) => {
@@ -26,7 +27,7 @@ export const ModalConfirmDelete = ({
         <CancelButton onClick={handleModal}>
           <ButtonText>Cancel</ButtonText>
         </CancelButton>
-        <YesButton>
+        <YesButton onClick={handleDelete}>
           <ButtonText>Yes</ButtonText>
           <IconWraper>
             <StyledIcon iconName="icon-trash" stroke={'#FDF7F2'} />
@@ -48,7 +49,7 @@ export const ModalConfirmDelete = ({
 
 ModalConfirmDelete.propTypes = {
   handleModal: PropTypes.func.isRequired,
-  // handleDelete: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
 };

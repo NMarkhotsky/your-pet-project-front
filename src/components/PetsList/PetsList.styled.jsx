@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { selectDesktop, selectTablet } from '../../utils/selectMediaRequests';
+import { selectDesktop, selectPhone, selectTablet } from '../../utils/selectMediaRequests';
 
 export const ContainerList = styled.div`
   @media ${selectDesktop} {
@@ -10,7 +10,14 @@ export const ContainerList = styled.div`
 export const TopPart = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+
+  @media ${selectPhone} {
+    align-items: baseline;
+  }
+
+  @media ${selectTablet} {
+    align-items: flex-start;
+  }
 `;
 
 export const ListTitle = styled.h2`
@@ -63,7 +70,11 @@ export const ContainerImage = styled.div`
   justify-content: center;
   text-align: center;
   align-items: center;
-  /* margin: 0 auto; */
+  border-radius: 40px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 24px;
+  }
 `;
 
 export const Title = styled.h1`

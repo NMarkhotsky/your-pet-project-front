@@ -4,18 +4,27 @@ import { NavRegAndLogCopy } from '../NavRegAndLogCopy/NavRegAndLogCopy';
 import { UserMenuCopy } from '../UserMenuCopy/UserMenuCopy';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
 
-
-export const Navigation = ({ open }) => {
+export const Navigation = ({ open, handleToggleBurger }) => {
   const { isLoggedIn } = useAuth();
 
   return (
     <>
       <NavigationBox open={open}>
-        {isLoggedIn ? <UserMenuCopy /> : <NavRegAndLogCopy />}
+        {isLoggedIn ? (
+          <UserMenuCopy handleToggleBurger={handleToggleBurger} />
+        ) : (
+          <NavRegAndLogCopy handleToggleBurger={handleToggleBurger} />
+        )}
 
-        <StyledLink to="/news">News</StyledLink>
-        <StyledLink to="/notices" >Find pet</StyledLink>
-        <StyledLink to="/friends">Our friends</StyledLink>
+        <StyledLink to="/news" onClick={handleToggleBurger}>
+          News
+        </StyledLink>
+        <StyledLink to="/notices" onClick={handleToggleBurger}>
+          Find pet
+        </StyledLink>
+        <StyledLink to="/friends" onClick={handleToggleBurger}>
+          Our friends
+        </StyledLink>
       </NavigationBox>
     </>
   );
@@ -23,4 +32,5 @@ export const Navigation = ({ open }) => {
 
 Navigation.propTypes = {
   open: PropTypes.bool.isRequired,
+  handleToggleBurger: PropTypes.func.isRequired,
 };
