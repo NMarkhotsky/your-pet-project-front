@@ -11,6 +11,7 @@ import { ButtonNext, ButtonPrev } from "../StyledButtons/StyledButtons";
 import { RadioWrapper } from "./SellMoreInfo.styled";
 
 function SellMoreInfo({ formik, handleDefinePage }) {
+
   return (
     <form onSubmit={formik.handleSubmit}>
       <RadioWrapper>

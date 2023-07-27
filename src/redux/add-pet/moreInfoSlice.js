@@ -8,7 +8,11 @@ const moreInfoSlice = createSlice({
     isLoad: false,
     error: null,
   },
-
+  reducers: {
+    saveComment(state, action) {
+      state.data.comments = action.payload;
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(addPet.pending, state => {
@@ -38,4 +42,5 @@ const moreInfoSlice = createSlice({
   },
 });
 
+export const { saveComment } = moreInfoSlice.actions;
 export const moreInfoReducer = moreInfoSlice.reducer;
