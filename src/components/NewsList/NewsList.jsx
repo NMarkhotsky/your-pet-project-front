@@ -1,16 +1,13 @@
 import PropTypes from 'prop-types';
 import NewsItem from '../NewsItem/NewsItem';
-import allArticles from '../../temp/allArticles.json';
 import { List } from './NewsList.styled';
 
-// const PER_PAGE = 6;
-
-export const NewsList = () => {
+export const NewsList = ({ list }) => {
   return (
     <>
       <List>
-        {allArticles.map(article => (
-          <NewsItem key={article.id} article={article} />
+        {list.map(article => (
+          <NewsItem key={article._id} article={article} />
         ))}
       </List>
     </>

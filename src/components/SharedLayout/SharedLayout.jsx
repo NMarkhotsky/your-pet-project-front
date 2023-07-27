@@ -1,16 +1,15 @@
-// import { Outlet } from 'react-router-dom';
 import { Header } from '../Header/Header';
 import AppRoutes from '../../routes/AppRoutes';
-import { Container } from './SharedLayout.styled';
+import { Main } from './SharedLayout.styled';
 
 function SharedLayout() {
   return (
-    <Container>
+    <>
       <Header />
-      <main>
+      <Main>
         <AppRoutes />
-      </main>
-    </Container>
+      </Main>
+    </>
   );
 }
 

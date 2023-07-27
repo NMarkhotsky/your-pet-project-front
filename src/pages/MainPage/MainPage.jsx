@@ -3,17 +3,19 @@ import {
   TextMainPage,
   ImageMainPage,
 } from './MainPage.styled';
+import { BackgroundWrapper } from '../../shared/components/BackgroundWrapper/BackgroundWrapper';
 
-import mobile1x from '../../assets/images/imageMainPage/mobile/mp-mobile1x.png';
-import mobile2x from '../../assets/images/imageMainPage/mobile/mp-mobile2x.png';
-import tablet1x from '../../assets/images/imageMainPage/tablet/mp-tablet1x.png';
-import tablet2x from '../../assets/images/imageMainPage/tablet/mp-tablet2x.png';
-import desktop1x from '../../assets/images/imageMainPage/desktop/mp-desktop1x.png';
-import desktop2x from '../../assets/images/imageMainPage/desktop/mp-desktop2x.png';
+import mobile1x from '../../assets/images/imageMainPage/mobile/mp-mobile1x.webp';
+import mobile2x from '../../assets/images/imageMainPage/mobile/mp-mobile2x.webp';
+import tablet1x from '../../assets/images/imageMainPage/tablet/mp-tablet1x.webp';
+import tablet2x from '../../assets/images/imageMainPage/tablet/mp-tablet2x.webp';
+import desktop1x from '../../assets/images/imageMainPage/desktop/mp-desktop1x.webp';
+import desktop2x from '../../assets/images/imageMainPage/desktop/mp-desktop2x.webp';
 
 function MainPage() {
   return (
     <>
+      <BackgroundWrapper />
       <ContainerMainPage>
         <TextMainPage>Take good care of your small pets</TextMainPage>
         <picture>

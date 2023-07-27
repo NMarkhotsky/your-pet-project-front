@@ -16,18 +16,16 @@ export const ContainerMainPage = styled.section`
 export const TextMainPage = styled.h1`
   z-index: 20;
   margin-top: 60px;
-  margin-bottom: 20px;
-  width: 280px;
-  height: 108px;
   font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.xxxl};
   line-height: 1.4;
   color: ${props => props.theme.colors.black};
+  text-align: left;
 
   @media ${selectTablet} {
     margin-top: 80px;
     margin-bottom: 27px;
-    margin-left: 32px;
+
     width: 588px;
     height: 200px;
     font-size: ${props => props.theme.fontSizes.gigantic};
@@ -36,7 +34,7 @@ export const TextMainPage = styled.h1`
   @media ${selectDesktop} {
     margin-top: 188px;
     margin-bottom: 248px;
-    margin-left: 16px;
+
     width: 501px;
     height: 264px;
     font-family: ${props => props.theme.fonts.main.extraBold};
