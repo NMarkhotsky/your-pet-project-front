@@ -21,7 +21,7 @@ export const Title = styled.h2`
   font-family: ${props => props.theme.fonts.main.medium};
   text-align: center;
   letter-spacing: 0.96px;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.text};
 
   @media ${selectTablet} {
     margin-bottom: 48px;

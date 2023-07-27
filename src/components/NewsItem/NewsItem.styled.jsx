@@ -4,7 +4,7 @@ import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
 export const ItemNews = styled.li`
   position: relative;
   height: 578px;
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.bgdColorAuth};
   box-shadow: ${props => props.theme.boxShadow.main};
   border-radius: 20px;
 
@@ -97,7 +97,7 @@ export const TitleNews = styled.h4`
   font-size: ${props => props.theme.fontSizes.xl};
   line-height: 33px;
   letter-spacing: -0.01em;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
 
   @media ${selectTablet} {
   }
@@ -113,7 +113,7 @@ export const TextNews = styled.p`
   font-style: normal;
   font-size: ${props => props.theme.fontSizes.md};
   line-height: 22px;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
 `;
 
 export const ContainerInfo = styled.div`

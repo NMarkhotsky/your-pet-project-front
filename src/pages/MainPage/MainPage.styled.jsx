@@ -19,7 +19,7 @@ export const TextMainPage = styled.h1`
   font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.xxxl};
   line-height: 1.4;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
   text-align: left;
 
   @media ${selectTablet} {

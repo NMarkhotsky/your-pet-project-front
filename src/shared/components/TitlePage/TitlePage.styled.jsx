@@ -15,7 +15,7 @@ export const Title = styled.h2`
   text-align: center;
   line-height: normal;
 
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.text};
 
   @media ${selectTablet} {
     font-size: ${({ theme }) => theme.fontSizes.huge};

@@ -7,6 +7,7 @@ import { Icon } from '../Icon/Icon';
 import { NavLink, UserMenuBox, UserMenuButton } from './UserMenu.styled';
 import { ModalLogout } from '../ModalLogout/ModalLogout';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
+import { ThemeSwitcher } from '../../shared/components/ThemeSwitcher/ThemeSwitcher';
 
 export const UserMenu = ({ open, handleToggleBurger }) => {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ export const UserMenu = ({ open, handleToggleBurger }) => {
     <>
       {isDesktop ? (
         <UserMenuBox>
+          <ThemeSwitcher />
           <UserMenuButton type="button" onClick={openModal}>
             Log out
             <Icon
@@ -63,6 +65,7 @@ export const UserMenu = ({ open, handleToggleBurger }) => {
         </UserMenuBox>
       ) : (
         <UserMenuBox>
+          <ThemeSwitcher />
           {open ? (
             <UserMenuButton type="button" onClick={openModal}>
               Log out

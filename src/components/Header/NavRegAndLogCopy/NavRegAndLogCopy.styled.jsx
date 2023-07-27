@@ -10,6 +10,10 @@ export const MainNavLinkBoxCopy = styled.div`
     align-items: center;
     gap: 12px;
   }
+
+  & svg use {
+    fill: ${props => props.theme.colors.logInIconColor};
+  }
 `;
 
 export const LinkLogStyledCopy = styled(Link)`
@@ -60,6 +64,6 @@ export const LinkRegStyledCopy = styled(Link)`
 
   &:hover {
     background: ${props => props.theme.colors.yellow};
-    color: #fef9f9;
+    color: ${props => props.theme.colors.bgdColor};
   }
 `;

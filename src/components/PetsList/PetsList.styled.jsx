@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import { selectDesktop, selectPhone, selectTablet } from '../../utils/selectMediaRequests';
+import {
+  selectDesktop,
+  selectPhone,
+  selectTablet,
+} from '../../utils/selectMediaRequests';
 
 export const ContainerList = styled.div`
   @media ${selectDesktop} {
@@ -23,7 +27,7 @@ export const TopPart = styled.div`
 export const ListTitle = styled.h2`
   font-family: ${props => props.theme.fonts.main.medium};
   font-size: ${props => props.theme.fontSizes.lg};
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
   margin-bottom: 24px;
 
   @media ${selectTablet} {
@@ -42,7 +46,7 @@ export const Button = styled.button`
   border: none;
   border-radius: 40px;
   padding: 8px 20px;
-  color: ${props => props.theme.colors.bgdColor};
+  color: ${props => props.theme.colors.textBtn};
   font-size: ${props => props.theme.fontSizes.md};
   font-family: ${props => props.theme.fonts.main.bold};
   letter-spacing: 0.64px;

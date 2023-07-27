@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { selectDesktop, selectTablet } from '../../utils/selectMediaRequests';
 
 export const Container = styled.section`
-  background-color: #fef9f9;
+  background-color: ${props => props.theme.colors.bgdColor};
   padding: 40px 0;
 
   @media ${selectTablet} {

@@ -14,10 +14,11 @@ export const StyledLink = styled(NavLink)`
   }
 
   text-decoration: none;
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
   font-size: ${props => props.theme.fontSizes.lg};
   font-family: ${props => props.theme.fonts.main.medium};
   letter-spacing: 0.8px;
+  transition: color ${({ theme }) => theme.transitionHover};
 
   &.active {
     color: ${props => props.theme.colors.yellow};
@@ -30,6 +31,7 @@ export const StyledLink = styled(NavLink)`
   &:hover,
   &:focus {
     color: ${props => props.theme.colors.yellow};
+    transition: color ${({ theme }) => theme.transitionHover};
   }
 
   @media ${selectDesktop} {
@@ -44,7 +46,7 @@ export const NavigationBox = styled.nav`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ${props => props.theme.colors.white};
+    background-color: ${props => props.theme.colors.bgdColorBurger};
     position: fixed;
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
@@ -60,5 +62,9 @@ export const NavigationBox = styled.nav`
     display: flex;
     gap: 40px;
     margin-left: 159px;
+
+    & > svg {
+      display: none;
+    }
   }
 `;
