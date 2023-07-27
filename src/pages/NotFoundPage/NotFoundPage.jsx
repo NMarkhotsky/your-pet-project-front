@@ -12,7 +12,8 @@ import catmobile2x from '../../assets/images/NotFoundImages/catmobile@2x.png';
 
 const NotFoundPage = () => {
   return (
-    <BackgroundWrapper>
+    <>
+      <BackgroundWrapper />
       <Container>
         <Title>
           <TitleBr>Ooops!</TitleBr> This page not found &#58;&#40;
@@ -46,7 +47,7 @@ const NotFoundPage = () => {
           </Btn>
         </NavLink>
       </Container>
-    </BackgroundWrapper>
+    </>
   );
 };
 export default NotFoundPage;
