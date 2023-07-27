@@ -1,7 +1,7 @@
-import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-90efb344.js";const S=n.div`
+import{s as n,b as t,P as l,j as i,a as p,c as b,r as g}from"./index-cf5f7678.js";const z=n.div`
   margin-top: 40px;
 
-  @media ${o} {
+  @media ${t} {
     margin-top: 80px;
   }
 `,w=n.h2`
@@ -10,17 +10,17 @@ import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-90efb344.js
   text-align: center;
   line-height: normal;
 
-  color: ${({theme:e})=>e.colors.black};
+  color: ${({theme:e})=>e.colors.text};
 
-  @media ${o} {
+  @media ${t} {
     font-size: ${({theme:e})=>e.fontSizes.huge};
   }
-`,y=({children:e})=>i.jsx(S,{children:i.jsx(w,{children:e})});y.propTypes={children:a.any.isRequired};const I=n.section`
+`,y=({children:e})=>i.jsx(z,{children:i.jsx(w,{children:e})});y.propTypes={children:l.any.isRequired};const I=n.section`
   padding-bottom: 75px;
 `,R=n.div`
   margin-bottom: 24px;
 
-  @media ${o} {
+  @media ${t} {
     margin-top: 40px;
   }
 
@@ -40,9 +40,9 @@ import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-90efb344.js
 
   box-shadow: ${({theme:e})=>e.boxShadow.main};
 
-  background-color: #fff;
+  background-color: ${({theme:e})=>e.colors.bgdColorAuth};
 
-  @media ${o} {
+  @media ${t} {
     min-width: 336px;
   }
 
@@ -68,7 +68,7 @@ import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-90efb344.js
   display: flex;
   gap: 16px;
   flex-grow: 1;
-`,k=n.a`
+`,C=n.a`
   display: block;
   margin-bottom: 16px;
 
@@ -82,7 +82,7 @@ import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-90efb344.js
   width: 100px;
   height: 68px;
 
-  @media ${o} {
+  @media ${t} {
     width: 124px;
     height: 88px;
   }
@@ -100,7 +100,7 @@ import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-90efb344.js
   font-size: ${({theme:e})=>e.fontSizes.xs};
   line-height: normal;
 
-  @media ${o} {
+  @media ${t} {
     font-size: ${({theme:e})=>e.fontSizes.sm};
   }
 
@@ -123,8 +123,8 @@ import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-90efb344.js
   position: relative;
 `,u=n.p``,x=n.a`
   font-family: ${({theme:e})=>e.fonts.main.regular};
-  color: ${({theme:e})=>e.colors.black};
-`,C=n.ul`
+  color: ${({theme:e})=>e.colors.text};
+`,k=n.ul`
   position: absolute;
   top: 107px;
   right: 97px;
@@ -140,25 +140,31 @@ import{s as n,b as o,P as a,j as i,a as p,c as b,r as g}from"./index-90efb344.js
 
   box-shadow: ${({theme:e})=>e.boxShadow.main};
 
-  background-color: #fff;
+  background-color: ${e=>e.theme.colors.bgdColorSecond};
 
   transition: all ${({theme:e})=>e.transitionHover};
-`,M=n.li`
+`,A=n.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   font-family: ${({theme:e})=>e.fonts.main.medium};
   font-size: ${({theme:e})=>e.fontSizes.xs};
-`,N=n.p``,A=n.p``,D=["MN","TU","WE","TH","FR","SA","SU"],T=({items:e,handleTimeHover:s,hoveredTime:l})=>i.jsx(i.Fragment,{children:e.map(({imageUrl:t,url:m,title:F,workDays:r,address:$,email:f,phone:h,addressUrl:z})=>i.jsxs(E,{children:[i.jsx(k,{href:`${m}`,target:"_blank",children:F}),i.jsxs(O,{children:[i.jsx(H,{children:i.jsx(q,{src:t})}),i.jsxs(L,{children:[i.jsxs(c,{onMouseEnter:()=>s(t),onMouseLeave:()=>s(""),children:[i.jsx(P,{children:"Time:"}),i.jsx(x,{children:r?r[0].isOpen?`${r[0].from} - ${r[0].to}`:"Close":"Day and Night"})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Address:"}),i.jsx(x,{href:z,target:"_blank",rel:"noopener noreferrer",children:$===null?"Website only":$})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Email:"}),i.jsx(x,{href:`mailto:${f}`,children:f===null?"Telephone only":f})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Phone:"}),i.jsx(x,{href:`tel:${h}`,children:h===null?"Email only":h})]})]})]}),l===t&&i.jsx(C,{children:r?r.map((d,j)=>d&&i.jsxs(M,{children:[i.jsxs(N,{children:[D[j],": "]}),i.jsx(A,{children:d.isOpen?`${d.from} - ${d.to}`:"Closed"})]},j)):"Day and Night"})]},t))});T.propTypes={items:a.array.isRequired,handleTimeHover:a.func.isRequired,hoveredTime:a.string.isRequired};const _=n.div``,B=n.ul`
+
+  /* color: #111; */
+`,M=n.p`
+  color: ${e=>e.theme.colors.text};
+`,N=n.p`
+  color: ${e=>e.theme.colors.text};
+`,D=["MN","TU","WE","TH","FR","SA","SU"],T=({items:e,handleTimeHover:s,hoveredTime:a})=>i.jsx(i.Fragment,{children:e.map(({imageUrl:o,url:h,title:F,workDays:r,address:$,email:m,phone:f,addressUrl:S})=>i.jsxs(E,{children:[i.jsx(C,{href:`${h}`,target:"_blank",children:F}),i.jsxs(O,{children:[i.jsx(H,{children:i.jsx(q,{src:o})}),i.jsxs(L,{children:[i.jsxs(c,{onMouseEnter:()=>s(o),onMouseLeave:()=>s(""),children:[i.jsx(P,{children:"Time:"}),i.jsx(x,{children:r?r[0].isOpen?`${r[0].from} - ${r[0].to}`:"Close":"Day and Night"})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Address:"}),i.jsx(x,{href:S,target:"_blank",rel:"noopener noreferrer",children:$===null?"Website only":$})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Email:"}),i.jsx(x,{href:`mailto:${m}`,children:m===null?"Telephone only":m})]}),i.jsxs(c,{children:[i.jsx(u,{children:"Phone:"}),i.jsx(x,{href:`tel:${f}`,children:f===null?"Email only":f})]})]})]}),a===o&&i.jsx(k,{children:r?r.map((d,j)=>d&&i.jsxs(A,{children:[i.jsxs(M,{children:[D[j],": "]}),i.jsx(N,{children:d.isOpen?`${d.from} - ${d.to}`:"Closed"})]},j)):"Day and Night"})]},o))});T.propTypes={items:l.array.isRequired,handleTimeHover:l.func.isRequired,hoveredTime:l.string.isRequired};const _=n.div``,B=n.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
 
-  @media ${o} {
+  @media ${t} {
     flex-direction: row;
     flex-wrap: wrap;
   }
-`,v=({items:e})=>{const[s,l]=g.useState(""),t=m=>{l(m)};return i.jsx(_,{children:i.jsx(B,{children:i.jsx(T,{items:e,handleTimeHover:t,hoveredTime:s})})})};v.propTypes={items:a.array.isRequired};function J(){const[e,s]=g.useState([]);return g.useEffect(()=>{(async()=>{try{const t=await W();s(t)}catch(t){console.log(t)}})()},[]),i.jsxs(I,{children:[i.jsx(R,{children:i.jsx(y,{children:"Our friends"})}),i.jsx(v,{items:e})]})}export{J as default};
+`,v=({items:e})=>{const[s,a]=g.useState(""),o=h=>{a(h)};return i.jsx(_,{children:i.jsx(B,{children:i.jsx(T,{items:e,handleTimeHover:o,hoveredTime:s})})})};v.propTypes={items:l.array.isRequired};function J(){const[e,s]=g.useState([]);return g.useEffect(()=>{(async()=>{try{const o=await W();s(o)}catch(o){console.log(o)}})()},[]),i.jsxs(I,{children:[i.jsx(R,{children:i.jsx(y,{children:"Our friends"})}),i.jsx(v,{items:e})]})}export{J as default};

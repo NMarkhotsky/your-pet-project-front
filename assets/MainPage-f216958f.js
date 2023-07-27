@@ -1,4 +1,4 @@
-import{s as a,a as i,b as o,j as t}from"./index-90efb344.js";import{B as s}from"./BackgroundWrapper-c8d69fec.js";const n=a.section`
+import{s as a,a as i,b as o,j as t}from"./index-cf5f7678.js";import{B as s}from"./BackgroundWrapper-1f6157a8.js";const n=a.section`
   width: 100%;
   height: calc(100vh - 128px);
 
@@ -14,7 +14,7 @@ import{s as a,a as i,b as o,j as t}from"./index-90efb344.js";import{B as s}from"
   font-family: ${e=>e.theme.fonts.main.bold};
   font-size: ${e=>e.theme.fontSizes.xxxl};
   line-height: 1.4;
-  color: ${e=>e.theme.colors.black};
+  color: ${e=>e.theme.colors.text};
   text-align: left;
 
   @media ${o} {
