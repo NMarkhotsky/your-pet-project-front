@@ -18,40 +18,46 @@ function MoreInfo({ option, handleDefinePage }) {
   const dispatch = useDispatch();
 
   const onSubmit = async (values, { resetForm }) => {
-    const formData = new FormData();
-    const entries = Object.entries({
+    const data = {
       ...values,
       ...personalDetails,
-    });
+    };
 
-    let validationObject = {}
-
-    entries.forEach(entry => {
-      if (entry[1]) {
-        formData.append(entry[0], entry[1]);
-        validationObject = {
-          ...validationObject,
-          [entry[0]]: entry[1],
-        };
-      }
-    });
-
-    const formDataObject = {};
-
-    formData.forEach((value, key) => {
-      formDataObject[key] = value;
-    });
-
-    console.log(formDataObject);
+    const { title, ...petObj } = data;
 
     if (option === petValues.yourPet) {
-      dispatch(addPet(formDataObject));
+      dispatch(addPet(petObj));
+      resetForm();
+      return;
+    }
+
+    const { type, gender, ...noticeObj } = data;
+
+    if (option === petValues.SELL) {
+      dispatch(addNotice({
+        noticeType: option,
+        sex: data.gender,
+        petType: data.type,
+        ...noticeObj
+      }))
       // resetForm();
       return;
     }
 
-    dispatch(addNotice(formDataObject))
-    resetForm();
+    const { price, ...noticeObjWithoutPrice } = noticeObj;
+
+    console.log(title)
+    console.log(type)
+    console.log(gender)
+    console.log(price)
+
+    dispatch(addNotice({
+      noticeType: option,
+      sex: data.gender,
+      petType: data.type,
+      ...noticeObjWithoutPrice
+    }))
+    // resetForm();
   }
 
   const formikYourPet = useFormik({
@@ -64,7 +70,6 @@ function MoreInfo({ option, handleDefinePage }) {
   });
 
   const formikSellPet = useFormik({
-    onSubmit,
     initialValues: {
       gender: "",
       photo: null,
@@ -72,17 +77,18 @@ function MoreInfo({ option, handleDefinePage }) {
       price: "",
       comments: "",
     },
+    onSubmit,
     validationSchema: validationSellInfo,
   });
 
   const formikDefault = useFormik({
-    onSubmit,
     initialValues: {
       gender: "",
       photo: null,
       location: "",
       comments: "",
     },
+    onSubmit,
     validationSchema: validationDefaultInfo,
   });
 

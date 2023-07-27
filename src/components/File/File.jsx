@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import ErrorTextAddPet from "../ErrorTextAddPet/ErrorTextAddPet";
+import PreviewImage from "../PreviewImage/PreviewImage";
 import { AddPhoto, InputFile, LabelFile, TextFile } from "./File.styled";
 
 function File({ formik, text, direction, items, justify, gap }) {
@@ -22,7 +23,11 @@ function File({ formik, text, direction, items, justify, gap }) {
       gap={gap}
       htmlFor="photo">
       <TextFile>{text}</TextFile>
-      <AddPhoto mistake={`${isMistake}`} />
+      <AddPhoto file={formik.values.photo} mistake={`${isMistake}`}>
+        {
+          formik.values.photo && <PreviewImage file={formik.values.photo} />
+        }
+      </AddPhoto>
       {isMistake ? ( <ErrorTextAddPet text={formik.errors.photo} /> ) : null}
     </LabelFile>
     <InputFile

@@ -7,6 +7,7 @@ import { BackIcon, PawIcon } from "../../icons";
 import { FormYourPetMoreInfo } from "./YourPetMoreInfo.styled";
 
 function YourPetMoreInfo({ formik, handleDefinePage }) {
+
   return (
     <>
       <FormYourPetMoreInfo onSubmit={formik.handleSubmit}>
