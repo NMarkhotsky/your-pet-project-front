@@ -28,7 +28,7 @@ export const PetsList = () => {
   }, []);
 
   useEffect(() => {
-    if (pets == [] && !pets) {
+    if (pets.length === 0 && !pets) {
       return;
     }
   }, [pets]);

@@ -16,7 +16,7 @@ export const AddPhoto = styled.div`
   &::before,
   &::after {
     content: "";
-    position: absolute;
+    position: ${props => props.file ? "" : "absolute"};
     top: 50%;
     left: 50%;
     border-radius: 100px;

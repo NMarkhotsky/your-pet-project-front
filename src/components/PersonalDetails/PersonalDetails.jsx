@@ -7,14 +7,27 @@ import { FormPetInfo } from "../FormPetInfo/FormPetInfo.styled";
 import { ButtonNext, ButtonPrev } from "../StyledButtons/StyledButtons";
 import { BackIcon, PawIcon } from "../../icons";
 import { ButtonsWrapper } from "../ChoiseOption/ChoiseOption.styled";
+import { useAddPet } from "../../hooks";
+import { useEffect } from "react";
 
 function PersonalDetails({ onSubmit, handleDefinePage }) {
+
+  const { personalDetails } = useAddPet();
 
   const formik = useFormik({
     initialValues: initialStatePersonalDetails,
     onSubmit,
     validationSchema: validationPersonalDetails,
   });
+  
+  useEffect(() => {
+    for (let key in personalDetails) {
+      if (personalDetails[key] !== "") {
+        formik.setFieldValue(key, personalDetails[key]);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formik.setFieldValue, personalDetails]);
 
   return (
     <FormPetInfo onSubmit={formik.handleSubmit}>
@@ -24,7 +37,6 @@ function PersonalDetails({ onSubmit, handleDefinePage }) {
         text="Pet’s name"
         id="name"
         name={"name"}
-        value={formik.values.name}
         onChange={formik.handleChange}
       />
       <FieldInput
@@ -33,7 +45,6 @@ function PersonalDetails({ onSubmit, handleDefinePage }) {
         text="Date of birth"
         id="birthday"
         date
-        value={formik.values.birthday}
         name={"birthday"}
         onChange={formik.handleChange}
       />
@@ -42,7 +53,6 @@ function PersonalDetails({ onSubmit, handleDefinePage }) {
         placeholder="Type of pet"
         text="Type"
         id="type"
-        value={formik.values.type}
         name={"type"}
         onChange={formik.handleChange}
       />

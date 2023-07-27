@@ -5,4 +5,5 @@ export const RadioWrapper = styled.div`
   align-items: center;
   gap: 16px;
   margin-bottom: 16px;
+  position: relative;
 `;

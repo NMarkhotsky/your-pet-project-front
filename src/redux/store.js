@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/authSlice';
 import { optionReducer } from './add-pet/optionSlice';
 import { personalDetailsReducer } from './add-pet/personalDetailsSlice';
+import { moreInfoReducer } from './add-pet';
 
 const authPersistConfig = {
   key: 'auth',
@@ -20,10 +21,17 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
+const commentsPersistConfig = {
+  key: "comments",
+  storage,
+  whitelist: ["data"],
+}
+
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   option: optionReducer,
   personalDetails: personalDetailsReducer,
+  moreInfo: persistReducer(commentsPersistConfig, moreInfoReducer),
 });
 
 export const store = configureStore({
