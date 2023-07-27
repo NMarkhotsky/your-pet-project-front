@@ -4,11 +4,12 @@ import { BackgroundWrapper } from '../../shared/components/BackgroundWrapper/Bac
 
 function RegisterPage() {
   return (
-    <BackgroundWrapper>
+    <>
+      <BackgroundWrapper />
       <AuthFormContainer title="Registration">
         <RegisterForm />
       </AuthFormContainer>
-    </BackgroundWrapper>
+    </>
   );
 }
 

@@ -12,20 +12,24 @@ import bgmobile from '../../../assets/images/background/mobile/bg_mobile.webp';
 import bgmobile2x from '../../../assets/images/background/mobile/bg_mobile@2x.webp';
 
 export const BackgrdImageContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url(${bgmobile});
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: scroll;
 
-  height: calc(100vh - 50px);
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     background-image: url(${bgmobile2x});
   }
 
   @media ${selectTablet} {
-    width: 720px;
-    height: calc(100vh - 72px);
+    width: 100vw;
+    height: 100vh;
     background-image: url(${bgtablet});
-
     background-position-y: -68px;
 
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -37,12 +41,13 @@ export const BackgrdImageContainer = styled.div`
   @media ${selectDesktop} {
     background-image: url(${bgdesktop});
     background-position-y: -68px;
+    height: 100vh;
 
-    width: 1280px;
-    height: calc(100vh - 70px);
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgdesktop2x});
       background-position-y: -68px;
     }
   }
+
+  z-index: -1;
 `;

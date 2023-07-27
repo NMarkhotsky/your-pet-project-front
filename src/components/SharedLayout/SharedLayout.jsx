@@ -5,12 +5,14 @@ import { Container } from './SharedLayout.styled';
 
 function SharedLayout() {
   return (
-    <Container>
-      <Header />
-      <main>
-        <AppRoutes />
-      </main>
-    </Container>
+    <>
+      <Container>
+        <Header />
+        <main>
+          <AppRoutes />
+        </main>
+      </Container>
+    </>
   );
 }
 

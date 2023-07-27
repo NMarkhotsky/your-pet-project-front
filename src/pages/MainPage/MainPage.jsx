@@ -14,7 +14,8 @@ import desktop2x from '../../assets/images/imageMainPage/desktop/mp-desktop2x.we
 
 function MainPage() {
   return (
-    <BackgroundWrapper>
+    <>
+      <BackgroundWrapper />
       <ContainerMainPage>
         <TextMainPage>Take good care of your small pets</TextMainPage>
         <picture>
@@ -39,7 +40,7 @@ function MainPage() {
           <ImageMainPage srcSet={desktop1x} alt="puppy" />
         </picture>
       </ContainerMainPage>
-    </BackgroundWrapper>
+    </>
   );
 }
 
