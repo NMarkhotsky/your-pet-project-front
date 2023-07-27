@@ -8,6 +8,9 @@ export const BASE_URL = 'https://mypets-backend.onrender.com/api';
 // REGEXP
 const phoneRegExp = /^\+\d{2}\d{3}\d{3}\d{2}\d{2}$/;
 
+// IMAGE SIZE
+export const FILE_SIZE = 3000000;
+
 // SCHEMA
 export const schema = Yup.object().shape({
   name: Yup.string().min(2).max(16).required('Name  is required field'),

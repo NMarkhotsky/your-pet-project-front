@@ -22,8 +22,7 @@ import {
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ModalLogout } from '../ModalLogout/ModalLogout';
 import { getCurrentUser, updateUser } from '../../services/UserApi';
-
-const FILE_SIZE = 3000000;
+import { FILE_SIZE } from '../../constants/globalConstants';
 
 export const UserForm = () => {
   const dispatch = useDispatch();
