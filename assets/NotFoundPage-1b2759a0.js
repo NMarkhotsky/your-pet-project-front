@@ -1,4 +1,4 @@
-import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-ede945e5.js";import{B as d}from"./BackgroundWrapper-7e039621.js";const x=o.button`
+import{s as o,a as i,b as n,j as e,N as s,I as a}from"./index-59f68b34.js";import{B as r}from"./BackgroundWrapper-272d748a.js";const c=o.button`
   position: relative;
   display: flex;
   margin: auto;
@@ -30,12 +30,12 @@ import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-ede945e5.js
     fill: ${t=>t.theme.colors.white};
     transition: ${t=>t.theme.transitionHover};
   }
-`,a=({children:t,onClick:r})=>e.jsx(x,{type:"button",onClick:r,children:t});a.propTypes={children:s.any.isRequired,onClick:s.func};const m=o.div`
+`,p=o.div`
   @media ${i} {
     width: 100%;
     height: calc(100vh - 128px);
   }
-`,h=o.h1`
+`,d=o.h1`
   color: ${t=>t.theme.colors.black};
   font-family: ${t=>t.theme.fonts.main.bold};
   font-size: ${t=>t.theme.fontSizes.xl};
@@ -55,12 +55,12 @@ import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-ede945e5.js
 
   @media ${i} {
   }
-`,l=o.span`
+`,m=o.span`
   padding: 0 100px;
   @media screen and (min-width: 767px) {
     padding: 0;
   }
-`,g=o.div`
+`,x=o.div`
   margin: auto;
   margin-bottom: 60px;
 
@@ -73,7 +73,7 @@ import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-ede945e5.js
     margin: auto;
     margin-bottom: 18px;
   }
-`,u=o.img`
+`,l=o.img`
   margin: auto;
   max-width: 280px;
   height: 123px;
@@ -87,4 +87,16 @@ import{s as o,P as s,j as e,a as i,b as n,N as p,I as c}from"./index-ede945e5.js
     max-width: 822px;
     height: 360px;
   }
-`,f="/your-pet-project-front/assets/catdesktop-5f423fe7.png",b="/your-pet-project-front/assets/catdesktop@2x-63410937.png",j="/your-pet-project-front/assets/cattablet@2x-3747ec80.png",$="/your-pet-project-front/assets/catmobile@2x-01c6e8a2.png",k=()=>e.jsxs(e.Fragment,{children:[e.jsx(d,{}),e.jsxs(m,{children:[e.jsxs(h,{children:[e.jsx(l,{children:"Ooops!"})," This page not found :("]}),e.jsx(g,{children:e.jsxs("picture",{children:[e.jsx("source",{srcSet:b,media:"(min-width: 1280px)"}),e.jsx("source",{srcSet:j,media:"(min-width: 768px) and (max-width: 1279px)"}),e.jsx("source",{srcSet:$,media:"(max-width: 767px)"}),e.jsx(u,{src:f,alt:"Cat with tongue"})]})}),e.jsx(p,{to:"/",children:e.jsxs(a,{children:["To main page",e.jsx(c,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#54ADFF"})]})})]})]});export{k as default};
+`,h=o(c)`
+  background: ${t=>t.theme.colors.blue};
+  color: ${t=>t.theme.colors.textBtn};
+
+  & > svg > use {
+    fill: ${t=>t.theme.colors.textBtn};
+  }
+
+  &:hover,
+  &:focus {
+    background: ${t=>t.theme.colors.blueGradient};
+  }
+`,g="/your-pet-project-front/assets/catdesktop-5f423fe7.png",u="/your-pet-project-front/assets/catdesktop@2x-63410937.png",f="/your-pet-project-front/assets/cattablet@2x-3747ec80.png",b="/your-pet-project-front/assets/catmobile@2x-01c6e8a2.png",w=()=>e.jsxs(e.Fragment,{children:[e.jsx(r,{}),e.jsxs(p,{children:[e.jsxs(d,{children:[e.jsx(m,{children:"Ooops!"})," This page not found :("]}),e.jsx(x,{children:e.jsxs("picture",{children:[e.jsx("source",{srcSet:u,media:"(min-width: 1280px)"}),e.jsx("source",{srcSet:f,media:"(min-width: 768px) and (max-width: 1279px)"}),e.jsx("source",{srcSet:b,media:"(max-width: 767px)"}),e.jsx(l,{src:g,alt:"Cat with tongue"})]})}),e.jsx(s,{to:"/",children:e.jsxs(h,{children:["To main page",e.jsx(a,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#54ADFF"})]})})]})]});export{w as default};
