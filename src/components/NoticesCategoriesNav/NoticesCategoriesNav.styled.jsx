@@ -1,17 +1,6 @@
 import styled from 'styled-components';
-import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
-
-export const Wrapper = styled.div`
-  margin-bottom: 24px;
-  margin-top: 40px;
-  @media ${selectTablet} {
-    margin-bottom: 40px;
-  }
-  @media ${selectDesktop} {
-    margin-bottom: 42px;
-    margin-top: 40px;
-  }
-`;
+import { Link } from 'react-router-dom';
+import { selectTablet } from '../../utils/selectMediaRequests';
 
 export const NoticeCategoriesNavList = styled.ul`
   list-style: none;
@@ -24,7 +13,7 @@ export const NoticeCategoriesNavList = styled.ul`
   }
 `;
 
-export const NoticeCategoryItem = styled.li`
+export const NoticeCategoryItem = styled(Link)`
   display: flex;
   border: none;
   text-decoration: none;
