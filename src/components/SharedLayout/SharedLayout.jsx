@@ -1,6 +1,7 @@
 import { Header } from '../Header/Header';
 import AppRoutes from '../../routes/AppRoutes';
 import { Main } from './SharedLayout.styled';
+import { Footer } from '../Footer/Footer';
 
 function SharedLayout() {
   return (
@@ -9,6 +10,7 @@ function SharedLayout() {
       <Main>
         <AppRoutes />
       </Main>
+      <Footer/>
     </>
   );
 }
