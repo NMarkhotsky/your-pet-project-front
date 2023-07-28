@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 100;
+  z-index: 1;
 
   background-color: transparent;
 
