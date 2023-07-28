@@ -8,22 +8,27 @@ import { GlobalStyle } from './components/GlobalStyle/GlobalStyle';
 import { fetchCurrentUser } from './redux/auth/operations';
 import { useTheme } from './hooks/useTheme/useTheme';
 import { darkTheme, lightTheme } from './theme/theme';
+import { useFont } from './hooks/useFonts';
+import { fonts } from './constants/fonts';
+import { Loader } from './shared/components/Loader/Loader';
 
 function App() {
+  const fontsLoaded = useFont(fonts);
   const currentTheme = useTheme();
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return (
+  return fontsLoaded ? (
     <ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>
       <SharedLayout />
       <GlobalStyle />
       <ToastContainer autoClose={2000} />
     </ThemeProvider>
+  ) : (
+    <Loader />
   );
 }
 

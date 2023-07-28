@@ -25,7 +25,7 @@ export const StyledContainer = styled.div`
 
 export const FormTitle = styled.h1`
   margin-bottom: 20px;
-  color: ${props => console.log(props)};
+  color: ${props => props.theme.colors.text};
   text-align: center;
   font-family: ${props => props.theme.fonts.main.medium};
   font-size: ${props => props.theme.fontSizes.xl};
