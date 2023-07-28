@@ -1,9 +1,8 @@
-import{s as t,k as u,b as i,N as b,P as s,j as e,I as a,r as $}from"./index-cf5f7678.js";import{a as p}from"./formik.esm-624a8df6.js";const f=t.div`
+import{s as t,k as u,b as i,N as b,P as s,j as e,I as a,r as $}from"./index-ede945e5.js";import{a as p}from"./formik.esm-473f5168.js";const f=t.div`
   margin: 80px auto 15px auto;
   padding: 40px 12px;
   width: 100%;
-  background-color: ${o=>o.theme.colors.bgColorAuth};
-  background-color: #ffffff7a;
+  background-color: ${o=>o.theme.colors.bgdColorAuth};
   border-radius: 40px;
   box-shadow: ${o=>o.theme.boxShadow.main};
 
@@ -17,7 +16,7 @@ import{s as t,k as u,b as i,N as b,P as s,j as e,I as a,r as $}from"./index-cf5f
   }
 `,F=t.h1`
   margin-bottom: 20px;
-  color: ${o=>o.theme.colors.text};
+  color: ${o=>console.log(o)};
   text-align: center;
   font-family: ${o=>o.theme.fonts.main.medium};
   font-size: ${o=>o.theme.fontSizes.xl};
