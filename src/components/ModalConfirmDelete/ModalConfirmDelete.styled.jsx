@@ -5,7 +5,7 @@ export const Modal = styled.div`
   width: 280px;
   padding: 60px 12px;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.bgdColor};
 
   @media ${selectTablet} {
     padding: 60px 108px;
@@ -21,7 +21,7 @@ export const Title = styled.h2`
   line-height: 33px;
   text-align: center;
   letter-spacing: 0.04em;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.text};
 
   @media ${selectTablet} {
     margin-bottom: 40px;
@@ -34,7 +34,7 @@ export const Text = styled.p`
   margin-bottom: 44px;
   font-size: ${props => props.theme.fontSizes.sm};
   font-family: ${props => props.theme.fonts.main.medium};
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.text};
   line-height: 19px;
   text-align: center;
   letter-spacing: -0.14px;

@@ -11,7 +11,7 @@ export const Title = styled.h1`
 
   text-align: center;
 
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
 
   @media ${selectTablet} {
     margin-bottom: 40px;

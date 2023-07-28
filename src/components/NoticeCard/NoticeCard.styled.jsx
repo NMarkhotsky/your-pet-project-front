@@ -34,7 +34,7 @@ export const Item = styled.li`
   border-radius: 0 0 40px 40px;
 
   box-shadow: ${props => props.theme.boxShadow.main};
-  background-color: ${props => props.theme.colors.white};
+  background-color: ${props => props.theme.colors.bgdColorAuth};
 
   @media ${selectTablet} {
     width: 336px;

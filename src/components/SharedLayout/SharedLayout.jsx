@@ -1,3 +1,4 @@
+// import { useState } from 'react';
 import { Header } from '../Header/Header';
 import AppRoutes from '../../routes/AppRoutes';
 import { Main } from './SharedLayout.styled';

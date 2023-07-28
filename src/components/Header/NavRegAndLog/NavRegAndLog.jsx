@@ -1,4 +1,5 @@
 import { Icon } from '../../../components/Icon/Icon';
+import { ThemeSwitcher } from '../../../shared/components/ThemeSwitcher/ThemeSwitcher';
 import {
   MainNavLinkBox,
   LinkLogStyled,
@@ -10,18 +11,12 @@ export const NavRegAndLog = () => {
   return (
     <>
       <MainNavLinkBox>
+        <ThemeSwitcher />
         <LinkLogStyled to="/login">
           Log <Span>in</Span>
-          <Icon
-            iconName={'icon-pawprint'}
-            width={'24px'}
-            height={'24px'}
-            fill={'#FEF9F9'}
-          />
+          <Icon iconName={'icon-pawprint'} width={'24px'} height={'24px'} />
         </LinkLogStyled>
-        <LinkRegStyled to="/register">
-          Registration
-        </LinkRegStyled>
+        <LinkRegStyled to="/register">Registration</LinkRegStyled>
       </MainNavLinkBox>
     </>
   );

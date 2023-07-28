@@ -109,6 +109,3 @@ OurFriendItem.propTypes = {
   handleTimeHover: PropTypes.func.isRequired,
   hoveredTime: PropTypes.string.isRequired,
 };
-
-// href={'tel:' + friend.phone}
-// href={'mailto:' + friend.email}

@@ -7,7 +7,6 @@ export const Header = () => {
       <Logo to="/">
         <Image iconName="icon-logo" width="100%" height="100%" />
       </Logo>
-
       <Burger />
     </HeaderStyle>
   );

@@ -19,6 +19,8 @@ export const HeaderStyle = styled.header`
 
   background-color: ${({ theme }) => theme.colors.bgdColor};
 
+  transition: ${({ theme }) => theme.transitionHover};
+
   @media ${selectPhone} {
     max-width: 480px;
   }
@@ -57,5 +59,9 @@ export const Logo = styled(Link)`
   @media ${selectTablet} {
     width: 162px;
     height: 28px;
+  }
+
+  & > svg {
+    fill: ${({ theme }) => theme.colors.logo};
   }
 `;

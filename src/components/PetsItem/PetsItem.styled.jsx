@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { selectDesktop, selectTablet } from '../../utils/selectMediaRequests';
 
 export const ContainerItem = styled.div`
-  background-color: #ffffff;
+  background-color: ${props => props.theme.colors.bgdColorAuth};
   box-shadow: ${props => props.theme.boxShadow.main};
   border-radius: 40px;
   padding: 20px;

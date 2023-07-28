@@ -7,7 +7,7 @@ export const ContainerForm = styled.div``;
 export const FormTitle = styled.h2`
   font-family: ${props => props.theme.fonts.main.medium};
   font-size: ${props => props.theme.fontSizes.lg};
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
   margin-bottom: 24px;
 
   @media ${selectTablet} {
@@ -38,7 +38,7 @@ export const ConfirmText = styled.p`
 `;
 
 export const FormBox = styled(Form)`
-  background-color: #ffffff;
+  background-color: ${props => props.theme.colors.bgdColorAuth};
   border-radius: 40px;
   position: relative;
   padding: 20px 8px 16px;
@@ -118,7 +118,7 @@ export const ButtonForm = styled.button`
   padding: 6px 0;
   border-radius: 40px;
   background: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.bgdColor};
+  color: ${props => props.theme.colors.textBtn};
   font-size: ${props => props.theme.fontSizes.md};
   font-family: ${props => props.theme.fonts.main.bold};
   letter-spacing: 0.56px;

@@ -17,7 +17,7 @@ export const FriendItem = styled.li`
 
   box-shadow: ${({ theme }) => theme.boxShadow.main};
 
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.bgdColorAuth};
 
   @media ${selectTablet} {
     min-width: 336px;
@@ -118,7 +118,7 @@ export const FriendInfoTitle = styled.p``;
 
 export const FriendInfoData = styled.a`
   font-family: ${({ theme }) => theme.fonts.main.regular};
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const WorkDaysList = styled.ul`
@@ -137,7 +137,7 @@ export const WorkDaysList = styled.ul`
 
   box-shadow: ${({ theme }) => theme.boxShadow.main};
 
-  background-color: #fff;
+  background-color: ${props => props.theme.colors.bgdColorSecond};
 
   transition: all ${({ theme }) => theme.transitionHover};
 `;
@@ -149,8 +149,14 @@ export const WorkDayItem = styled.li`
 
   font-family: ${({ theme }) => theme.fonts.main.medium};
   font-size: ${({ theme }) => theme.fontSizes.xs};
+
+  /* color: #111; */
 `;
 
-export const WorkDays = styled.p``;
+export const WorkDays = styled.p`
+  color: ${props => props.theme.colors.text};
+`;
 
-export const WorkTime = styled.p``;
+export const WorkTime = styled.p`
+  color: ${props => props.theme.colors.text};
+`;
