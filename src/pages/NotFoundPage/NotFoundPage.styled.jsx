@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
+import { BtnStyled } from '../../shared/components/Button/Btn.styled';
 
 export const Container = styled.div`
   @media ${selectDesktop} {
@@ -65,5 +66,19 @@ export const Img = styled.img`
   @media ${selectDesktop} {
     max-width: 822px;
     height: 360px;
+  }
+`;
+
+export const BtnToMain = styled(BtnStyled)`
+  background: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.textBtn};
+
+  & > svg > use {
+    fill: ${props => props.theme.colors.textBtn};
+  }
+
+  &:hover,
+  &:focus {
+    background: ${props => props.theme.colors.blueGradient};
   }
 `;
