@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const ImgLoader = styled.img`
   position: absolute;
-  top: calc(50% - 100px);
-  left: calc(50% - 100px);
+  top: calc(50% - 90px);
+  left: calc(50% - 160px);
 `;
 
 export const LoaderOverlay = styled.div`
