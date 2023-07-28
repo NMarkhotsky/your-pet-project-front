@@ -56,11 +56,9 @@ export const Img = styled.img`
   margin: auto;
   max-width: 100px;
   border-radius: 30%;
-  /* height: 131px; */
 
   @media ${selectTablet} {
     max-width: 250px;
-    /* height: 330px; */
   }
 
   @media ${selectDesktop} {
@@ -82,7 +80,7 @@ export const ContainerImage = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
   font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.xl};
   text-align: center;
