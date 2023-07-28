@@ -6,14 +6,18 @@ import {
 } from '../../utils/selectMediaRequests';
 
 export const FooterStyle = styled.footer`
-  width: 100%;
+  /* width: 100vw; */
+  position: absolute;
+  top: 20%;
+z-index: 40;
+  left: 5%;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
   /* padding-top: 50px; */
   padding-bottom: 30px;
-  /* background-color: #fff; */
-  /* display: none; */
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
 
   @media ${selectPhone} {
     max-width: 480px;
@@ -32,6 +36,11 @@ export const FooterStyle = styled.footer`
   }
 `;
 
+export const MainTitle = styled.h2`
+  padding-top: 20px;
+  font-size: ${props => props.theme.fontSizes.xxl};
+`;
+
 export const SpanIcon = styled.span`
   display: flex;
   align-items: center;
@@ -42,7 +51,7 @@ export const Title = styled.h3`
   align-items: center;
   justify-content: center;
   gap: 4px;
-  /* margin-top: 20px; */
+  margin-top: 30px;
 `;
 
 export const Wrapper = styled.div`
@@ -92,18 +101,21 @@ export const Pulsingheart = styled.div`
 
 export const MainContainer = styled.div`
   display: flex;
-  width: calc(100% / 2);
-  justify-content: space-between;
+  justify-content: center;
+  gap: 40px;
+  /* width: calc(100% / 2); */
+  /* justify-content: space-between; */
   flex-wrap: wrap;
 `;
 
 export const Person = styled.div`
+  position: relative;
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 100px;
+  width: 160px;
 
-  /* transform: scale(0.5); */
+  transform: scale(0.7);
 `;
 
 export const ImgGeneral = styled.img`
@@ -138,7 +150,7 @@ export const ContainerInner = styled.div`
   );
   position: relative;
   transform-origin: 50%;
-  top: -200px;
+  /* top: -200px; */
 `;
 
 export const Circle = styled.img`
@@ -160,22 +172,26 @@ export const ImageOne = styled(ImgGeneral)`
   width: 340px;
 `;
 
-export const ImageTwo = styled(ImgGeneral)`
-  left: -46px;
-  top: 174px;
-  width: 444px;
-`;
-
-export const ImageThree = styled(ImgGeneral)`
-  left: -16px;
-  top: 144px;
-  width: 466px;
-`;
-
 export const Divider = styled.div`
-  background-color: ${props => props.theme.colors.yellow};
-  height: 1px;
-  width: 80px;
+  position: absolute;
+  top: 42%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 153px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(225, 225, 225, 0.6);
+  border: 1px solid ${props => props.theme.colors.yellow};
+  box-shadow: ${({ theme }) => theme.boxShadow.main};
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  /* transition: all ${({ theme }) => theme.transitionHover}; */
+
+  ${Person}:hover & {
+    opacity: 1;
+  }
 `;
 
 export const Name = styled.div`

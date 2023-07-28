@@ -9,9 +9,10 @@ function SharedLayout() {
     <>
       <Header />
       <Main>
+        
         <AppRoutes />
+        <Footer />
       </Main>
-      <Footer/>
     </>
   );
 }

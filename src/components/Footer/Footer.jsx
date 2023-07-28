@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   FooterStyle,
   Title,
@@ -11,20 +12,100 @@ import {
   Name,
   TitlePosition,
   ImageOne,
-  ImageTwo,
-  ImageThree,
   MainContainer,
+  MainTitle,
 } from './Footer.styled';
+import { Icon } from '../Icon/Icon';
 import bgImg1 from '../../assets/images/photoTeam/1.jpg';
+import bgImg2 from '../../assets/images/photoTeam/2.jpg';
+import bgImg3 from '../../assets/images/photoTeam/3.jpg';
+import bgImg4 from '../../assets/images/photoTeam/4.jpg';
+import bgImg5 from '../../assets/images/photoTeam/5.jpg';
+import bgImg6 from '../../assets/images/photoTeam/6.jpg';
+import bgImg7 from '../../assets/images/photoTeam/7.jpg';
+import bgImg8 from '../../assets/images/photoTeam/8.jpg';
+import bgImg9 from '../../assets/images/photoTeam/9.jpg';
+import bgImg11 from '../../assets/images/photoTeam/11.jpg';
+import bgImg12 from '../../assets/images/photoTeam/12.jpg';
 import photoAlb from '../../assets/images/photoTeam/Albina.png';
-import { Link } from 'react-router-dom';
-// import photoNata from '../../assets/images/photoTeam/Natalia.png';
+import phoroMyk from '../../assets/images/photoTeam/Kolya.png';
+import photoArtT from '../../assets/images/photoTeam/Artem.png';
+import photoNata from '../../assets/images/photoTeam/Natalia.png';
+import photoAnton from '../../assets/images/photoTeam/Anton.png';
+import photoMar from '../../assets/images/photoTeam/Maria.png';
 
 export const Footer = () => {
   return (
-      <FooterStyle>
-          <h2>Our team</h2>
+    <FooterStyle>
+      <MainTitle>Our team</MainTitle>
       <MainContainer>
+        <Person>
+          <Container>
+            <ContainerInner>
+              <Circle src={bgImg6} />
+              <ImageOne src={phoroMyk} />
+            </ContainerInner>
+          </Container>
+          <Divider>
+            <Name>Mykola Markhotskyi</Name>
+            <TitlePosition>Team lead</TitlePosition>
+            <TitlePosition>Frontend developer</TitlePosition>
+            <Link
+              style={{ marginTop: 5 }}
+              target="_blank"
+              to="https://github.com/NMarkhotsky"
+            >
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
+        </Person>
+        <Person>
+          <Container>
+            <ContainerInner>
+              <Circle src={bgImg9} />
+              <ImageOne src="" />
+            </ContainerInner>
+          </Container>
+          <Divider>
+            <Name>Anton Larin</Name>
+            <TitlePosition>Team lead</TitlePosition>
+            <TitlePosition>Backend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/yogurtfirst">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
+        </Person>
+        <Person>
+          <Container>
+            <ContainerInner>
+              <Circle src={bgImg2} />
+              <ImageOne src="" />
+            </ContainerInner>
+          </Container>
+          <Divider>
+            <Name>Alla Basanko</Name>
+            <TitlePosition>Scrum master</TitlePosition>
+            <TitlePosition>Backend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/AllaGrey">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
+        </Person>
         <Person>
           <Container>
             <ContainerInner>
@@ -32,122 +113,158 @@ export const Footer = () => {
               <ImageOne src={photoAlb} />
             </ContainerInner>
           </Container>
-          {/* <Divider></Divider>
-          <Name>Albina</Name>
-          <TitlePosition>Frontend developer</TitlePosition>
-          <Link target="_blank" to="https://github.com/albuska">
-            GitHub
-          </Link> */}
+          <Divider>
+            <Name>Albina Anistratenko</Name>
+            <TitlePosition>Frontend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/albuska">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
         </Person>
         <Person>
           <Container>
             <ContainerInner>
-              <Circle src="" />
-              <ImageTwo src="" />
+              <Circle src={bgImg8} />
+              <ImageOne src={photoArtT} />
             </ContainerInner>
           </Container>
-          <Divider></Divider>
-          <Name>Irma</Name>
-          <TitlePosition>Senior Developer</TitlePosition>
+          <Divider>
+            <Name>Artem Terzi</Name>
+            <TitlePosition>Frontend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/ArtemTerzi">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
         </Person>
         <Person>
           <Container>
             <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
+              <Circle src={bgImg5} />
+              <ImageOne src="" />
             </ContainerInner>
           </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
+          <Divider>
+            <Name>Kateryna Panchenko</Name>
+            <TitlePosition>Frontend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/Kate-Panchenko">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
         </Person>
         <Person>
           <Container>
             <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
+              <Circle src={bgImg3} />
+              <ImageOne src={photoNata} />
             </ContainerInner>
           </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
+          <Divider>
+            <Name>Nataliia Kalynovska</Name>
+            <TitlePosition>Frontend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/TaleQ">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
         </Person>
         <Person>
           <Container>
             <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
+              <Circle src={bgImg12} />
+              <ImageOne src="" />
             </ContainerInner>
           </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
+          <Divider>
+            <Name>Dmytro Kobets</Name>
+            <TitlePosition>Backend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/Dmytro-Kobets">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
         </Person>
         <Person>
           <Container>
             <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
+              <Circle src={bgImg11} />
+              <ImageOne src={photoAnton} />
             </ContainerInner>
           </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
+          <Divider>
+            <Name>Anton Shadura</Name>
+            <TitlePosition>Frontend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/AntonAnatoliyovich">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
         </Person>
         <Person>
           <Container>
             <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
+              <Circle src={bgImg7} />
+              <ImageOne src="" />
             </ContainerInner>
           </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
+          <Divider>
+            <Name>Bohdan Ryzhko</Name>
+            <TitlePosition>Frontend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/bohdan-ryzhko">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
         </Person>
         <Person>
           <Container>
             <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
+              <Circle src={bgImg4} />
+              <ImageOne src={photoMar} />
             </ContainerInner>
           </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
-        </Person>
-        <Person>
-          <Container>
-            <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
-            </ContainerInner>
-          </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
-        </Person>
-        <Person>
-          <Container>
-            <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
-            </ContainerInner>
-          </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
-        </Person>
-        <Person>
-          <Container>
-            <ContainerInner>
-              <Circle src="" />
-              <ImageThree src="" />
-            </ContainerInner>
-          </Container>
-          <Divider></Divider>
-          <Name>Anton</Name>
-          <TitlePosition>Senior UX</TitlePosition>
+          <Divider>
+            <Name>Maria Popova</Name>
+            <TitlePosition>Frontend developer</TitlePosition>
+            <Link target="_blank" to="https://github.com/mashapopov">
+              <Icon
+                iconName={'icon-icon-github'}
+                width={'18px'}
+                height={'18px'}
+                fill={'#404245'}
+              />
+            </Link>
+          </Divider>
         </Person>
       </MainContainer>
       <Title>

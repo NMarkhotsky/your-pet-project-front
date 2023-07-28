@@ -24,3 +24,16 @@ export const Main = styled.main`
     padding: 0 16px;
   }
 `;
+
+export const IconTeamLookBox = styled.div`
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  cursor: pointer;
+
+  & > svg {
+    width: 80px;
+    height: 80px;
+    transform: rotate(65deg);
+  }
+`;
