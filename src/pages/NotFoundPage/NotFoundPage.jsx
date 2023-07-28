@@ -1,7 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { Btn } from '../../shared/components/Button/Btn';
 import { Icon } from '../../components/Icon/Icon';
-import { Container, Title, TitleBr, CatImg, Img } from './NotFoundPage.styled';
+import {
+  Container,
+  Title,
+  TitleBr,
+  CatImg,
+  Img,
+  BtnToMain,
+} from './NotFoundPage.styled';
 import { BackgroundWrapper } from '../../shared/components/BackgroundWrapper/BackgroundWrapper';
 import catdesktop1x from '../../assets/images/NotFoundImages/catdesktop.png';
 import catdesktop2x from '../../assets/images/NotFoundImages/catdesktop@2x.png';
@@ -36,7 +42,7 @@ const NotFoundPage = () => {
           </picture>
         </CatImg>
         <NavLink to="/">
-          <Btn>
+          <BtnToMain>
             To main page
             <Icon
               iconName={'icon-pawprint'}
@@ -44,7 +50,7 @@ const NotFoundPage = () => {
               height={'24px'}
               fill={'#54ADFF'}
             />
-          </Btn>
+          </BtnToMain>
         </NavLink>
       </Container>
     </>

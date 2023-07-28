@@ -43,7 +43,7 @@ export const lightTheme = {
   colors: {
     bgdColor: '#FEF9F9',
     bgdColorSecond: '#FEF9F9',
-    bgdColorAuth: '#ffffff7a',
+    bgdColorAuth: '#FEF9F97b',
     bgdColorBurger: '#FEF9F9',
     yellow: '#FFC107',
     white: '#FDF7F2',
