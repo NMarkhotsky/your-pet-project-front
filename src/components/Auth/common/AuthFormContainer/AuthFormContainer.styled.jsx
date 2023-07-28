@@ -9,8 +9,7 @@ export const StyledContainer = styled.div`
   margin: 80px auto 15px auto;
   padding: 40px 12px;
   width: 100%;
-  background-color: ${props => props.theme.colors.bgColorAuth};
-  background-color: #ffffff7a;
+  background-color: ${props => props.theme.colors.bgdColorAuth};
   border-radius: 40px;
   box-shadow: ${props => props.theme.boxShadow.main};
 
@@ -26,7 +25,7 @@ export const StyledContainer = styled.div`
 
 export const FormTitle = styled.h1`
   margin-bottom: 20px;
-  color: ${props => props.theme.colors.text};
+  color: ${props => console.log(props)};
   text-align: center;
   font-family: ${props => props.theme.fonts.main.medium};
   font-size: ${props => props.theme.fontSizes.xl};
