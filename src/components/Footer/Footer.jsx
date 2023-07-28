@@ -14,6 +14,8 @@ import {
   ImageOne,
   MainContainer,
   MainTitle,
+  ImageTwo,
+  ImageThree,
 } from './Footer.styled';
 import { Icon } from '../Icon/Icon';
 import bgImg1 from '../../assets/images/photoTeam/1.jpg';
@@ -33,6 +35,11 @@ import photoArtT from '../../assets/images/photoTeam/Artem.png';
 import photoNata from '../../assets/images/photoTeam/Natalia.png';
 import photoAnton from '../../assets/images/photoTeam/Anton.png';
 import photoMar from '../../assets/images/photoTeam/Maria.png';
+import photoAlla from '../../assets/images/photoTeam/Alla.png';
+import photoLarinA from '../../assets/images/photoTeam/Larin.png';
+import photoKate from '../../assets/images/photoTeam/Kate.png';
+import photoBodya from '../../assets/images/photoTeam/Bodya.png';
+import photoDima from '../../assets/images/photoTeam/Dima.png';
 
 export const Footer = () => {
   return (
@@ -57,8 +64,8 @@ export const Footer = () => {
             >
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -68,7 +75,7 @@ export const Footer = () => {
           <Container>
             <ContainerInner>
               <Circle src={bgImg9} />
-              <ImageOne src="" />
+              <ImageOne src={photoLarinA} />
             </ContainerInner>
           </Container>
           <Divider>
@@ -78,8 +85,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/yogurtfirst">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -89,7 +96,7 @@ export const Footer = () => {
           <Container>
             <ContainerInner>
               <Circle src={bgImg2} />
-              <ImageOne src="" />
+              <ImageTwo src={photoAlla} />
             </ContainerInner>
           </Container>
           <Divider>
@@ -99,8 +106,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/AllaGrey">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -119,8 +126,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/albuska">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -135,12 +142,12 @@ export const Footer = () => {
           </Container>
           <Divider>
             <Name>Artem Terzi</Name>
-            <TitlePosition>Frontend developer</TitlePosition>
+            <TitlePosition>Backend developer</TitlePosition>
             <Link target="_blank" to="https://github.com/ArtemTerzi">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -150,7 +157,7 @@ export const Footer = () => {
           <Container>
             <ContainerInner>
               <Circle src={bgImg5} />
-              <ImageOne src="" />
+              <ImageOne src={photoKate} />
             </ContainerInner>
           </Container>
           <Divider>
@@ -159,8 +166,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/Kate-Panchenko">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -179,8 +186,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/TaleQ">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -190,7 +197,7 @@ export const Footer = () => {
           <Container>
             <ContainerInner>
               <Circle src={bgImg12} />
-              <ImageOne src="" />
+              <ImageOne src={photoDima} />
             </ContainerInner>
           </Container>
           <Divider>
@@ -199,8 +206,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/Dmytro-Kobets">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -210,7 +217,7 @@ export const Footer = () => {
           <Container>
             <ContainerInner>
               <Circle src={bgImg11} />
-              <ImageOne src={photoAnton} />
+              <ImageThree src={photoAnton} />
             </ContainerInner>
           </Container>
           <Divider>
@@ -219,8 +226,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/AntonAnatoliyovich">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -230,7 +237,7 @@ export const Footer = () => {
           <Container>
             <ContainerInner>
               <Circle src={bgImg7} />
-              <ImageOne src="" />
+              <ImageOne src={photoBodya} />
             </ContainerInner>
           </Container>
           <Divider>
@@ -239,8 +246,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/bohdan-ryzhko">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -259,8 +266,8 @@ export const Footer = () => {
             <Link target="_blank" to="https://github.com/mashapopov">
               <Icon
                 iconName={'icon-icon-github'}
-                width={'18px'}
-                height={'18px'}
+                width={'20px'}
+                height={'20px'}
                 fill={'#404245'}
               />
             </Link>
@@ -269,6 +276,9 @@ export const Footer = () => {
       </MainContainer>
       <Title>
         &#xa9; 2023 | Developed with
+        <Wrapper>
+          <Pulsingheart></Pulsingheart>
+        </Wrapper>
         <Wrapper>
           <Pulsingheart></Pulsingheart>
         </Wrapper>

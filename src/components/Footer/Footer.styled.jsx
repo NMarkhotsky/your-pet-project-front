@@ -6,39 +6,44 @@ import {
 } from '../../utils/selectMediaRequests';
 
 export const FooterStyle = styled.footer`
-  /* width: 100vw; */
   position: absolute;
-  top: 20%;
-z-index: 40;
-  left: 5%;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  /* width: 120%; */
+  /* top: 20%; */
+  z-index: 20;
+  left: 1.5%;
+  right: 1%; 
+  bottom: 0;
+  /* margin: 0 auto; */
+  /* padding-left: 20px;
+  padding-right: 20px; */
   /* padding-top: 50px; */
-  padding-bottom: 30px;
-  background-color: rgba(255, 255, 255, 0.5);
-  display: none;
+  /* padding-bottom: 30px; */
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: left 0.3s ease;
 
   @media ${selectPhone} {
-    max-width: 480px;
+    /* max-width: 480px; */
   }
 
   @media ${selectTablet} {
-    max-width: 768px;
-    padding-left: 32px;
-    padding-right: 32px;
+    /* max-width: 768px; */
+    /* padding-left: 32px;
+    padding-right: 32px; */
   }
 
   @media ${selectDesktop} {
-    max-width: 1280px;
-    padding-left: 16px;
-    padding-right: 16px;
+    max-width: 1500px;
+    /* padding-left: 16px;
+    padding-right: 16px; */
   }
 `;
 
 export const MainTitle = styled.h2`
+  position: absolute;
+  left: 45%;
   padding-top: 20px;
-  font-size: ${props => props.theme.fontSizes.xxl};
+  text-align: center;
+  font-size: ${props => props.theme.fontSizes.xxxl};
 `;
 
 export const SpanIcon = styled.span`
@@ -52,6 +57,7 @@ export const Title = styled.h3`
   justify-content: center;
   gap: 4px;
   margin-top: 30px;
+  padding-bottom: 20px;
 `;
 
 export const Wrapper = styled.div`
@@ -94,7 +100,7 @@ export const Pulsingheart = styled.div`
 
   @keyframes pulsecolor {
     10% {
-      background: ${props => props.theme.colors.yellow};
+      background: ${props => props.theme.colors.blue};
     }
   }
 `;
@@ -103,9 +109,6 @@ export const MainContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 40px;
-  /* width: calc(100% / 2); */
-  /* justify-content: space-between; */
-  flex-wrap: wrap;
 `;
 
 export const Person = styled.div`
@@ -113,9 +116,9 @@ export const Person = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 160px;
+  width: 74px;
 
-  transform: scale(0.7);
+  transform: scale(0.55);
 `;
 
 export const ImgGeneral = styled.img`
@@ -129,7 +132,7 @@ export const ImgGeneral = styled.img`
 export const Container = styled.div`
   border-radius: 50%;
   height: 312px;
-  /* -webkit-tap-highlight-color: transparent; */
+  -webkit-tap-highlight-color: transparent;
   transform: scale(0.48);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 400px;
@@ -150,7 +153,6 @@ export const ContainerInner = styled.div`
   );
   position: relative;
   transform-origin: 50%;
-  /* top: -200px; */
 `;
 
 export const Circle = styled.img`
@@ -172,13 +174,28 @@ export const ImageOne = styled(ImgGeneral)`
   width: 340px;
 `;
 
+export const ImageTwo = styled(ImgGeneral)`
+  left: 22px;
+  top: 180px;
+  overflow: hidden;
+  width: 340px;
+`;
+
+export const ImageThree = styled(ImgGeneral)`
+  left: 22px;
+  top: 200px;
+  overflow: hidden;
+  width: 340px;
+`;
+
 export const Divider = styled.div`
   position: absolute;
-  top: 42%;
-  left: 0;
+  top: 6%;
+  left: 24%;
   display: flex;
+  padding-bottom: 5px;
   flex-direction: column;
-  width: 153px;
+  width: 170px;
   justify-content: center;
   align-items: center;
   background-color: rgba(225, 225, 225, 0.6);
@@ -196,7 +213,7 @@ export const Divider = styled.div`
 
 export const Name = styled.div`
   color: #404245;
-  font-size: ${props => props.theme.fontSizes.sm};
+  font-size: ${props => props.theme.fontSizes.md};
   margin-top: 10px;
   text-align: center;
   font-family: ${props => props.theme.fonts.main.bold};
@@ -205,7 +222,7 @@ export const Name = styled.div`
 export const TitlePosition = styled.div`
   color: #6e6e6e;
   font-family: arial;
-  font-size: ${props => props.theme.fontSizes.xs};
+  font-size: ${props => props.theme.fontSizes.md};
   font-style: italic;
   margin-top: 4px;
 `;

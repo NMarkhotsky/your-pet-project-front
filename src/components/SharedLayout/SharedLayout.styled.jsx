@@ -26,14 +26,16 @@ export const Main = styled.main`
 `;
 
 export const IconTeamLookBox = styled.div`
-  position: fixed;
-  top: 20%;
-  left: 20%;
+  position: absolute;
+  left: 0;
+  bottom: 2%;
+  z-index: 25;
   cursor: pointer;
 
   & > svg {
-    width: 80px;
-    height: 80px;
-    transform: rotate(65deg);
+    width: 60px;
+    height: 60px;
+    transform: rotate(45deg);
+    stroke: rgba(0, 0, 255, 1);
   }
 `;
