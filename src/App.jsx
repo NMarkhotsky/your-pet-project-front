@@ -22,7 +22,7 @@ function App() {
     <ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>
       <SharedLayout />
       <GlobalStyle />
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={2000} />
     </ThemeProvider>
   );
 }
