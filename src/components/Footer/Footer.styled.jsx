@@ -11,7 +11,7 @@ export const FooterStyle = styled.footer`
   /* top: 20%; */
   z-index: 20;
   left: 1.5%;
-  right: 1%; 
+  right: 1%;
   bottom: 0;
   /* margin: 0 auto; */
   /* padding-left: 20px;

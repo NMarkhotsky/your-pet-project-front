@@ -29,7 +29,7 @@ export const IconTeamLookBox = styled.div`
   position: absolute;
   left: 0;
   bottom: 2%;
-  z-index: 25;
+  z-index: 50;
   cursor: pointer;
 
   & > svg {

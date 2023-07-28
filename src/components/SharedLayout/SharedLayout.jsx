@@ -9,11 +9,11 @@ function SharedLayout() {
   const [isTeamVisible, setIsTeamVisible] = useState(false);
 
   const handleIconHover = () => {
-    setIsTeamVisible(true);
+    setIsTeamVisible(!isTeamVisible);
   };
 
   const handleIconLeave = () => {
-    setIsTeamVisible(false);
+    // setIsTeamVisible(false);
   };
 
   return (
@@ -24,13 +24,11 @@ function SharedLayout() {
       </Main>
       <IconTeamLookBox
         onMouseOver={handleIconHover}
-        onMouseOut={handleIconLeave}
+        // onMouseOut={handleIconLeave}
       >
         <Icon iconName={'icon-paw-team'} />
       </IconTeamLookBox>
-
       {isTeamVisible && <Footer />}
-      <Footer />
     </>
   );
 }
