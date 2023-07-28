@@ -27,7 +27,7 @@ export const Modal = styled.div`
   position: absolute;
   top: 20%;
 
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.bgdColor};
 `;
 
 export const CloseBtn = styled.button`

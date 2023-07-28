@@ -9,6 +9,7 @@ import { NavLink } from 'react-router-dom';
 import { ModalApproveAction } from '../../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ModalLogout } from '../../ModalLogout/ModalLogout';
 import { useState } from 'react';
+import { ThemeSwitcher } from '../../../shared/components/ThemeSwitcher/ThemeSwitcher';
 
 export const UserMenuCopy = ({ handleToggleBurger }) => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export const UserMenuCopy = ({ handleToggleBurger }) => {
 
   return (
     <UserMenuBoxCopy>
+      <ThemeSwitcher />
       <UserMenuButton type="button" onClick={openModal}>
         Log out
         <Icon

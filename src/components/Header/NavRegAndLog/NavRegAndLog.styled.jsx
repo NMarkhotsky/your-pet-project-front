@@ -7,8 +7,13 @@ export const MainNavLinkBox = styled.div`
 
   @media ${selectTablet} {
     display: flex;
+    align-items: center;
     gap: 20px;
     margin-left: auto;
+  }
+
+  & svg use {
+    fill: ${props => props.theme.colors.logInIconColor};
   }
 `;
 
@@ -27,15 +32,24 @@ export const LinkLogStyled = styled(Link)`
   background-color: ${props => props.theme.colors.yellow};
   border-radius: 40px;
   border: 2px solid transparent;
+  transition: fill ${({ theme }) => theme.transitionHover};
+  transition: all ${({ theme }) => theme.transitionHover};
 
   &:hover {
     background-color: transparent;
     color: ${props => props.theme.colors.yellow};
     border: 2px solid ${props => props.theme.colors.yellow};
+    transition: ${({ theme }) => theme.transitionHover};
+  }
+
+  & svg use {
+    fill: ${props => props.theme.colors.bgdColor};
+    transition: fill ${({ theme }) => theme.transitionHover};
   }
 
   &:hover svg use {
     fill: ${props => props.theme.colors.yellow};
+    transition: fill ${({ theme }) => theme.transitionHover};
   }
 `;
 
@@ -56,9 +70,11 @@ export const LinkRegStyled = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: ${({ theme }) => theme.transitionHover};
 
   &:hover {
     background: ${props => props.theme.colors.yellow};
     color: ${props => props.theme.colors.bgdColor};
+    transition: ${({ theme }) => theme.transitionHover};
   }
 `;
