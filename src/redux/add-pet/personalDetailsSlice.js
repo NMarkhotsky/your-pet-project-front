@@ -13,9 +13,15 @@ const personalDetailsSlice = createSlice({
       if (action.payload.title !== undefined) {
         state.title = action.payload.title;
       }
+    },
+    clearPersonalDetails(state) {
+      state.name = "";
+      state.birthday = "2020-07-31";
+      state.type = "";
+      state.title = "";
     }
   }
 });
 
-export const { setPersonalDetails } = personalDetailsSlice.actions;
+export const { setPersonalDetails, clearPersonalDetails } = personalDetailsSlice.actions;
 export const personalDetailsReducer = personalDetailsSlice.reducer;

@@ -8,15 +8,36 @@ import { BackIcon, FemaleIcon, MaleIcon, PawIcon } from "../../icons";
 import { getColorGender } from "../../utils";
 import { ButtonsWrapper } from "../ChoiseOption/ChoiseOption.styled";
 import { ButtonNext, ButtonPrev } from "../StyledButtons/StyledButtons";
+import { useDispatch } from "react-redux";
+import { useAddPet } from "../../hooks";
+import { useEffect } from "react";
+import { saveSex } from "../../redux/add-pet/moreInfoSlice";
 
 function DefaultMoreInfo({ formik, handleDefinePage }) {
+
+  const dispatch = useDispatch();
+
+  const { moreInfo } = useAddPet();
+
+  useEffect(() => {
+    if (moreInfo.data.sex !== "") {
+      formik.setFieldValue("gender", moreInfo.data.sex);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formik.setFieldValue, moreInfo.data.sex]);
+
+  const handleChangeSex = (event) => {
+    formik.handleChange(event);
+    dispatch(saveSex(event.target.id));
+  }
+
   return (
     <form onSubmit={formik.handleSubmit}>
       <GenderRadio
         formik={formik}
         text="Female"
         id="female"
-        onChange={formik.handleChange}
+        onChange={handleChangeSex}
         value={petValues.female}
         checked={formik.values.gender}
         icon={<FemaleIcon stroke={getColorGender({ value: petValues.female, formik })} />}
@@ -25,7 +46,7 @@ function DefaultMoreInfo({ formik, handleDefinePage }) {
         formik={formik}
         text="Male"
         id="male"
-        onChange={formik.handleChange}
+        onChange={handleChangeSex}
         value={petValues.male}
         checked={formik.values.gender}
         icon={<MaleIcon stroke={getColorGender({ value: petValues.male, formik })} />}

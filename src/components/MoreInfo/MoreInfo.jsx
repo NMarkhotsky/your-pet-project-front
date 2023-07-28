@@ -11,6 +11,9 @@ import { validationDefaultInfo } from "../DefaultMoreInfo/validationDefaultInfo"
 import { validationSellInfo } from "../SellMoreInfo/validationSellInfo";
 import { useDispatch } from "react-redux";
 import { addNotice, addPet } from "../../redux/add-pet/operations";
+import { clearMoreInfo } from "../../redux/add-pet/moreInfoSlice";
+import { clearOption } from "../../redux/add-pet/optionSlice";
+import { clearPersonalDetails } from "../../redux/add-pet/personalDetailsSlice";
 
 function MoreInfo({ option, handleDefinePage }) {
   const { personalDetails } = useAddPet();
@@ -28,6 +31,9 @@ function MoreInfo({ option, handleDefinePage }) {
     if (option === petValues.yourPet) {
       dispatch(addPet(petObj));
       resetForm();
+      dispatch(clearPersonalDetails());
+      dispatch(clearMoreInfo());
+      dispatch(clearOption());
       return;
     }
 
@@ -40,7 +46,10 @@ function MoreInfo({ option, handleDefinePage }) {
         petType: data.type,
         ...noticeObj
       }))
-      // resetForm();
+      resetForm();
+      dispatch(clearPersonalDetails());
+      dispatch(clearMoreInfo());
+      dispatch(clearOption());
       return;
     }
 
@@ -57,7 +66,10 @@ function MoreInfo({ option, handleDefinePage }) {
       petType: data.type,
       ...noticeObjWithoutPrice
     }))
-    // resetForm();
+    dispatch(clearPersonalDetails());
+    dispatch(clearMoreInfo());
+    dispatch(clearOption());
+    resetForm();
   }
 
   const formikYourPet = useFormik({
