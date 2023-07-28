@@ -8,13 +8,18 @@ import { Icon } from '../Icon/Icon';
 function SharedLayout() {
   const [isTeamVisible, setIsTeamVisible] = useState(false);
 
-  const handleIconHover = () => {
-    setIsTeamVisible(!isTeamVisible);
-  };
 
-  const handleIconLeave = () => {
-    // setIsTeamVisible(false);
+    const handleIconClick = () => {
+      setIsTeamVisible(!isTeamVisible);
   };
+  
+  // const handleIconHover = () => {
+  //   setIsTeamVisible(!isTeamVisible);
+  // };
+
+  // const handleIconLeave = () => {
+  //   // setIsTeamVisible(false);
+  // };
 
   return (
     <>
@@ -23,7 +28,8 @@ function SharedLayout() {
         <AppRoutes />
       </Main>
       <IconTeamLookBox
-        onMouseOver={handleIconHover}
+        onClick={handleIconClick}
+        // onMouseOver={handleIconHover}
         // onMouseOut={handleIconLeave}
       >
         <Icon iconName={'icon-paw-team'} />
