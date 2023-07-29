@@ -1,4 +1,4 @@
-import{s as a,a as i,b as o,j as t}from"./index-f7592796.js";import{B as s}from"./BackgroundWrapper-7ccf1eb2.js";const n=a.section`
+import{s as a,a as i,b as o,j as t}from"./index-f0536287.js";import{B as s}from"./BackgroundWrapper-d7854b97.js";const n=a.section`
   width: 100%;
   height: calc(100vh - 128px);
 
