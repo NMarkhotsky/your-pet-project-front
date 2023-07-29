@@ -1,15 +1,40 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import { Header } from '../Header/Header';
 import AppRoutes from '../../routes/AppRoutes';
-import { Main } from './SharedLayout.styled';
+import { Main, IconTeamLookBox } from './SharedLayout.styled';
+import { Footer } from '../Footer/Footer';
+import { Icon } from '../Icon/Icon';
 
 function SharedLayout() {
+  const [isTeamVisible, setIsTeamVisible] = useState(false);
+
+
+    const handleIconClick = () => {
+      setIsTeamVisible(!isTeamVisible);
+  };
+  
+  // const handleIconHover = () => {
+  //   setIsTeamVisible(!isTeamVisible);
+  // };
+
+  // const handleIconLeave = () => {
+  //   // setIsTeamVisible(false);
+  // };
+
   return (
     <>
       <Header />
       <Main>
         <AppRoutes />
       </Main>
+      <IconTeamLookBox
+        onClick={handleIconClick}
+        // onMouseOver={handleIconHover}
+        // onMouseOut={handleIconLeave}
+      >
+        <Icon iconName={'icon-paw-team'} />
+      </IconTeamLookBox>
+      {isTeamVisible && <Footer />}
     </>
   );
 }

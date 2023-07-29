@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 import { Icon } from '../../../components/Icon/Icon';
 import { ThemeSwitcher } from '../../../shared/components/ThemeSwitcher/ThemeSwitcher';
 import {
@@ -22,7 +21,3 @@ export const NavRegAndLog = () => {
     </>
   );
 };
-
-// NavRegAndLog.propTypes = {
-//   handleToggleBurger: PropTypes.func.isRequired,
-// };
