@@ -1,4 +1,4 @@
-import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f0536287.js";import{a as p}from"./formik.esm-8b6c534f.js";const f=t.div`
+import{s as t,k as u,b as n,N as g,P as i,j as o,I as l}from"./index-cf68e1bf.js";import{a as b}from"./formik.esm-a445f1f4.js";const $=t.div`
   margin: 80px auto 15px auto;
   padding: 40px 12px;
   width: 100%;
@@ -10,11 +10,11 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
     width: 280px;
   }
 
-  @media ${i} {
+  @media ${n} {
     width: 608px;
     padding: 60px 75px;
   }
-`,F=t.h1`
+`,f=t.h1`
   margin-bottom: 20px;
   color: ${e=>e.theme.colors.text};
   text-align: center;
@@ -23,19 +23,19 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
   line-height: normal;
   letter-spacing: 1.44px;
 
-  @media ${i} {
+  @media ${n} {
     font-size: 36px;
     margin-bottom: 40px;
   }
-`,D=t.p`
+`,q=t.p`
   text-align: center;
   font-size: ${e=>e.theme.fontSizes.xs};
   letter-spacing: 0.48px;
-`,E=t(b)`
+`,D=t(g)`
   color: ${e=>e.theme.colors.blue};
   text-decoration: underline;
   text-decoration-skip-ink: none;
-`;function v({title:e,children:n}){return o.jsxs(f,{children:[o.jsx(F,{children:e}),n]})}v.propTypes={title:s.string.isRequired,children:s.element.isRequired};const y=t.div`
+`;function F({title:e,children:r}){return o.jsxs($,{children:[o.jsx(f,{children:e}),r]})}F.propTypes={title:i.string.isRequired,children:i.element.isRequired};const v=t.div`
   margin-bottom: 14px;
   position: relative;
 
@@ -43,21 +43,10 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
     margin-bottom: 40px;
   }
 
-  @media ${i} {
+  @media ${n} {
     margin-bottom: 32px;
   }
-`;t.div`
-  margin-bottom: 14px;
-  position: relative;
-
-  &:last-of-type {
-    margin-bottom: 40px;
-  }
-
-  @media ${i} {
-    margin-bottom: 32px;
-  }
-`;const j=t.input`
+`,j=t.input`
   padding: 12px 16px;
   width: 100%;
   border-radius: 40px;
@@ -79,15 +68,15 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
   left: 16px;
   font-size: 8px;
 
-  @media ${i} {
+  @media ${n} {
     font-size: ${e=>e.theme.fontSizes.xs};
     bottom: -18px;
   }
-`,w=t(x)`
+`,y=t(x)`
   color: ${e=>e.theme.colors.red};
 `,z=t(x)`
   color: ${e=>e.theme.colors.green};
-`,m=t.div`
+`,p=t.div`
   position: absolute;
   top: 12px;
   right: 16px;
@@ -95,7 +84,7 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
   position: absolute;
   top: 12px;
   right: ${e=>e.$touched?"52px":"16px"};
-`;const h=({successMessage:e,...n})=>{const[c,r]=p(n),d=r.touched&&r.error,l=r.touched&&!r.error;return o.jsx(o.Fragment,{children:o.jsxs(y,{children:[o.jsx(j,{...c,...n,$invalid:r.touched&&r.error,$valid:r.touched&&!r.error}),d?o.jsxs(o.Fragment,{children:[o.jsx(m,{children:o.jsx(a,{iconName:"icon-cross-small",stroke:"#F43F5E",fill:"#F43F5E"})}),o.jsx(w,{children:r.error})]}):null,l?o.jsx(m,{children:o.jsx(a,{iconName:"icon-check",stroke:"#00C3AD",fill:"#00C3AD"})}):null,l&&e?o.jsx(z,{children:e}):null]})})};h.propTypes={successMessage:s.string};t.div`
+`;const k=({successMessage:e,isFormSubmitted:r,...s})=>{const[a,d]=b(s),m=r&&d.error,c=r&&!d.error;return o.jsx(o.Fragment,{children:o.jsxs(v,{children:[o.jsx(j,{...a,...s,$invalid:m,$valid:c}),m?o.jsxs(o.Fragment,{children:[o.jsx(p,{children:o.jsx(l,{iconName:"icon-cross",stroke:"#F43F5E",fill:"#F43F5E"})}),o.jsx(y,{children:d.error})]}):null,c?o.jsx(p,{children:o.jsx(l,{iconName:"icon-check",stroke:"#00C3AD",fill:"#00C3AD"})}):null,c&&e?o.jsx(z,{children:e}):null]})})};k.propTypes={successMessage:i.string,isFormSubmitted:i.bool.isRequired};const w=t.div`
   margin-bottom: 14px;
   position: relative;
 
@@ -103,18 +92,7 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
     margin-bottom: 40px;
   }
 
-  @media ${i} {
-    margin-bottom: 32px;
-  }
-`;const k=t.div`
-  margin-bottom: 14px;
-  position: relative;
-
-  &:last-of-type {
-    margin-bottom: 40px;
-  }
-
-  @media ${i} {
+  @media ${n} {
     margin-bottom: 32px;
   }
 `;t.input`
@@ -133,19 +111,19 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
   &::placeholder {
     color: ${e=>e.theme.colors.grey};
   }
-`;const g=t.p`
+`;const h=t.p`
   position: absolute;
   bottom: -9px;
   left: 16px;
   font-size: 8px;
 
-  @media ${i} {
+  @media ${n} {
     font-size: ${e=>e.theme.fontSizes.xs};
     bottom: -18px;
   }
-`;t(g)`
+`;t(h)`
   color: ${e=>e.theme.colors.red};
-`;t(g)`
+`;t(h)`
   color: ${e=>e.theme.colors.green};
 `;t.div`
   position: absolute;
@@ -154,8 +132,8 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
 `;const S=t.div`
   position: absolute;
   top: 12px;
-  right: ${e=>e.$touched?"52px":"16px"};
-`,A=({...e})=>{const[n,c]=p(e),[r,d]=$.useState(!1),l=()=>{d(!r)};return o.jsx(o.Fragment,{children:o.jsxs(k,{children:[o.jsx(h,{...n,...e,type:r?"text":"password"}),o.jsx(S,{$touched:c.touched,onClick:l,children:r?o.jsx(a,{iconName:"icon-eye-open",stroke:"#54ADFF",fill:"#54ADFF"}):o.jsx(a,{iconName:"icon-eye-closed",stroke:"#54ADFF",fill:"#54ADFF"})})]})})};A.propTypes={successMessage:s.string};const C=t.button`
+  right: ${e=>e.$validated?"52px":"16px"};
+`,C=({isPasswordShown:e,isFormSubmitted:r,onClick:s,children:a})=>o.jsx(o.Fragment,{children:o.jsxs(w,{children:[a,o.jsx(S,{$validated:r,onClick:s,children:e?o.jsx(l,{iconName:"icon-eye-open",stroke:"#54ADFF",fill:"#54ADFF"}):o.jsx(l,{iconName:"icon-eye-closed",stroke:"#54ADFF",fill:"#54ADFF"})})]})});C.propTypes={isPasswordShown:i.bool,isFormSubmitted:i.bool,onClick:i.func.isRequired,children:i.node.isRequired};const A=t.button`
   margin-bottom: 16px;
   padding: 10px 28px;
   width: 100%;
@@ -173,4 +151,4 @@ import{s as t,k as u,b as i,N as b,P as s,j as o,I as a,r as $}from"./index-f053
   &:focus {
     background: ${e=>e.theme.colors.blueGradient};
   }
-`,T=({btnText:e})=>o.jsx(C,{type:"submit",children:e});T.propTypes={btnText:s.string.isRequired};export{T as A,h as F,A as a,D as b,E as c,v as d};
+`,T=({btnText:e})=>o.jsx(A,{type:"submit",children:e});T.propTypes={btnText:i.string.isRequired};export{T as A,k as F,C as a,q as b,D as c,F as d};
