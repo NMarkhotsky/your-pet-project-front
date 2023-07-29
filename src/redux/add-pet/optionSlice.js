@@ -9,8 +9,11 @@ const optionSlice = createSlice({
     setOption(state, action) {
       state.option = action.payload;
     },
+    clearOption(state) {
+      state.option = "";
+    }
   },
 });
 
-export const { setOption } = optionSlice.actions;
+export const { setOption, clearOption } = optionSlice.actions;
 export const optionReducer = optionSlice.reducer;

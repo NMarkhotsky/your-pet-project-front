@@ -22,17 +22,18 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const commentsPersistConfig = {
-  key: 'comments',
-  storage,
-  whitelist: ['data'],
-};
+// const commentsPersistConfig = {
+//   key: 'comments',
+//   storage,
+//   whitelist: ['data'],
+// };
 
 const rootReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   option: optionReducer,
   personalDetails: personalDetailsReducer,
-  moreInfo: persistReducer(commentsPersistConfig, moreInfoReducer),
+  // moreInfo: persistReducer(commentsPersistConfig, moreInfoReducer),
+  moreInfo: moreInfoReducer,
   theme: themeReducer,
 });
 
