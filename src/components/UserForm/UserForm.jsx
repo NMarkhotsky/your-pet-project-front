@@ -23,10 +23,12 @@ import { ModalApproveAction } from '../../shared/components/ModalApproveAction/M
 import { ModalLogout } from '../ModalLogout/ModalLogout';
 import { getCurrentUser, updateUser } from '../../services/UserApi';
 import { FILE_SIZE } from '../../constants/globalConstants';
+import { Loader } from '../../shared/components/Loader/Loader';
 
 export const UserForm = () => {
   const dispatch = useDispatch();
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Стани для роботи з полями форми
   const [previewURL, setPreviewURL] = useState(undefined);
@@ -45,11 +47,13 @@ export const UserForm = () => {
   const [isAbleAdd, setIsAbleAdd] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     getCurrentUser()
       .then(user => {
         setUser(user);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
+      .finally(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
@@ -149,12 +153,15 @@ export const UserForm = () => {
 
       await schema.validate(validationObject);
 
+      setIsLoading(true);
       updateUser(formData);
       successMessage('Changes saved successfully');
     } catch (error) {
       if (error.name === 'ValidationError') {
         errorMessage(error.errors[0]);
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -341,6 +348,7 @@ export const UserForm = () => {
           </ModalApproveAction>
         </div>
       )}
+      {isLoading ? <Loader /> : null}
     </ContainerForm>
   );
 };
