@@ -1,21 +1,33 @@
+import { useState } from 'react';
 import { Header } from '../Header/Header';
 import AppRoutes from '../../routes/AppRoutes';
-import { Main } from './SharedLayout.styled';
+import { Main, IconTeamLookBox } from './SharedLayout.styled';
+import { Footer } from '../Footer/Footer';
+import { Icon } from '../Icon/Icon';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 import { useAddPet } from '../../hooks';
 import { Loader } from '../../shared/components/Loader/Loader';
 
 function SharedLayout() {
+  const [isTeamVisible, setIsTeamVisible] = useState(false);
   const { isRefreshing } = useAuth();
   const { moreInfo } = useAddPet();
+  
+  const handleIconClick = () => {
+      setIsTeamVisible(!isTeamVisible);
+  };
 
   return (
-    <>
-      {isRefreshing || moreInfo.isLoad ? <Loader /> : null}
+    <>     
+    {isRefreshing || moreInfo.isLoad ? <Loader /> : null}
       <Header />
       <Main>
         <AppRoutes />
       </Main>
+      <IconTeamLookBox onClick={handleIconClick}>
+        <Icon iconName={'icon-paw-team'} />
+      </IconTeamLookBox>
+      {isTeamVisible && <Footer />}
     </>
   );
 }
