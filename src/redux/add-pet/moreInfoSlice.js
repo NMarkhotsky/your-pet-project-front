@@ -28,7 +28,7 @@ const moreInfoSlice = createSlice({
     },
     clearMoreInfo(state) {
       state.comments = "";
-      state.sex = "";
+      state.gender = "";
       state.location = "";
       state.price = "";
     }
