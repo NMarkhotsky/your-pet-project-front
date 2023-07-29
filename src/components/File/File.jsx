@@ -11,7 +11,7 @@ function File({ formik, text, direction, items, justify, gap }) {
       formik.setFieldValue("photo", file);
     }
   }
-
+  // console.log(formik.values);
   const isMistake = formik.errors.photo && formik.touched.photo;
 
   return (

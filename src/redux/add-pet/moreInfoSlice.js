@@ -6,6 +6,9 @@ const moreInfoSlice = createSlice({
   initialState: {
     data: {
       comments: "",
+      sex: "",
+      location: "",
+      price: "",
     },
     isLoad: false,
     error: null,
@@ -13,6 +16,21 @@ const moreInfoSlice = createSlice({
   reducers: {
     saveComment(state, action) {
       state.data.comments = action.payload;
+    },
+    saveSex(state, action) {
+      state.data.sex = action.payload;
+    },
+    saveLocation(state, action) {
+      state.data.location = action.payload;
+    },
+    savePrice(state, action) {
+      state.data.price = action.payload;
+    },
+    clearMoreInfo(state) {
+      state.comments = "";
+      state.gender = "";
+      state.location = "";
+      state.price = "";
     }
   },
   extraReducers: builder => {
@@ -44,5 +62,5 @@ const moreInfoSlice = createSlice({
   },
 });
 
-export const { saveComment } = moreInfoSlice.actions;
+export const { saveComment, saveSex, saveLocation, savePrice, clearMoreInfo } = moreInfoSlice.actions;
 export const moreInfoReducer = moreInfoSlice.reducer;
