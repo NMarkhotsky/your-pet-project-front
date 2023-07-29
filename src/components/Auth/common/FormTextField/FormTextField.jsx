@@ -9,25 +9,25 @@ import {
 import PropTypes from 'prop-types';
 import { Icon } from '../../../Icon/Icon';
 
-export const FormTextField = ({ successMessage, ...props }) => {
+export const FormTextField = ({
+  successMessage,
+  isFormSubmitted,
+  ...props
+}) => {
   const [field, meta] = useField(props);
-  const invalid = meta.touched && meta.error;
-  const valid = meta.touched && !meta.error;
+
+  const invalid = isFormSubmitted && meta.error;
+  const valid = isFormSubmitted && !meta.error;
 
   return (
     <>
       <FormInputContainer>
-        <FormInput
-          {...field}
-          {...props}
-          $invalid={meta.touched && meta.error}
-          $valid={meta.touched && !meta.error}
-        />
+        <FormInput {...field} {...props} $invalid={invalid} $valid={valid} />
         {invalid ? (
           <>
             <FormIconContainer>
               <Icon
-                iconName={'icon-cross-small'}
+                iconName={'icon-cross'}
                 stroke={'#F43F5E'}
                 fill={'#F43F5E'}
               />
@@ -50,4 +50,5 @@ export const FormTextField = ({ successMessage, ...props }) => {
 
 FormTextField.propTypes = {
   successMessage: PropTypes.string,
+  isFormSubmitted: PropTypes.bool.isRequired,
 };

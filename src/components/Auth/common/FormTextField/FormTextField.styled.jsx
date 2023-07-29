@@ -14,19 +14,6 @@ export const FormInputContainer = styled.div`
   }
 `;
 
-export const FormPasswordInputContainer = styled.div`
-  margin-bottom: 14px;
-  position: relative;
-
-  &:last-of-type {
-    margin-bottom: 40px;
-  }
-
-  @media ${selectTablet} {
-    margin-bottom: 32px;
-  }
-`;
-
 export const FormInput = styled.input`
   padding: 12px 16px;
   width: 100%;

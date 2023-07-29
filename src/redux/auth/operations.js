@@ -1,67 +1,45 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import { errorMessage } from '../../utils/messages';
+import {
+  fetchUserByToken,
+  loginUser,
+  logoutUser,
+  registerUser,
+} from '../../services/AuthApi';
 
-axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
-
-const authHeader = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = '';
-  },
-};
-
-// Register
 export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/auth/register', credentials);
-      authHeader.set(data.token);
-      return data;
+      return await registerUser(credentials);
     } catch (e) {
-      toast.error(e.message, {
-        position: toast.POSITION.TOP_RIGHT,
-      });
+      errorMessage(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
 
-// Login
 export const login = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const { data } = await axios.post('/auth/login', credentials);
-      authHeader.set(data.token);
-      return data;
+      return await loginUser(credentials);
     } catch (e) {
-      toast.error(e.message, {
-        position: toast.POSITION.TOP_RIGHT,
-      });
+      errorMessage(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
 
-// Logout
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    const { data } = await axios.post('/auth/logout');
-    authHeader.unset();
-    return data;
+    return logoutUser();
   } catch (e) {
-    toast.error(e.message, {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    errorMessage(e.message);
     return thunkAPI.rejectWithValue(e.message);
   }
 });
 
-//Fetch current user
 export const fetchCurrentUser = createAsyncThunk(
   'auth/fetchCurrentUser',
   async (_, thunkAPI) => {
@@ -72,13 +50,9 @@ export const fetchCurrentUser = createAsyncThunk(
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
-      authHeader.set(persistedToken);
-      const {
-        data: { user },
-      } = await axios.get('/users');
-
-      return user;
+      return fetchUserByToken(persistedToken);
     } catch (e) {
+      errorMessage(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
