@@ -3,9 +3,25 @@ import { BASE_URL } from '../constants/globalConstants';
 
 axios.defaults.baseURL = BASE_URL;
 
-export const getAllNotices = async ({search, page, limit, category}) => {
+//   const initialParams = {
+//     search: null,
+//     page: 1,
+//     limit: 6,
+//     category: CATEGORIES.IN_GOOD_HANDS,
+//     sex: SEX.FEMALE,
+//     young: true,
+//     middle: false,
+//     older: false
+// }
+
+export const getAllNotices = async (params) => {
     try {
-        const response = await axios.get(`/notices?page=${page}&limit=${limit}&category=${category}&search=${search}`);
+
+        let reqURL = ''
+        for (let key in params) {
+            reqURL += `&${key}=${params[key]}`
+        }
+        const response = await axios.get(`/notices?${reqURL}`);
         return response;
     } catch (error) {
         console.log(error);
@@ -14,7 +30,7 @@ export const getAllNotices = async ({search, page, limit, category}) => {
 
 export const getNoticeById = async (id) => {
     try {
-        const response = await axios.get(`/notices${id}`);
+        const response = await axios.get(`/notices/${id}`);
         return response;
     } catch (error) {
         console.log(error);
@@ -50,9 +66,27 @@ export const updateNotice = async (id) => {
     }
 };
 
-export const getSelfNotice = async () => {
+export const getSelfNotices = async (params) => {
     try {
-        const response = await axios.get('/notices/self');
+        let reqURL = ''
+        for (let key in params) {
+            reqURL += `&${key}=${params[key]}`
+        }
+        const response = await axios.get(`/notices/self?${reqURL}`);
+
+        return response;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getFavoriteNotices = async (params) => {
+    try {
+        let reqURL = ''
+        for (let key in params) {
+            reqURL += `&${key}=${params[key]}`
+        }
+        const response = await axios.get(`/notices/self?${reqURL}`);
 
         return response;
     } catch (error) {

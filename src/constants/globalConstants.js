@@ -3,6 +3,24 @@ import * as Yup from 'yup';
 //AXIOS
 export const BASE_URL = 'https://mypets-backend.onrender.com/api';
 
+export const CATEGORIES = {
+  SELL: "sell",
+  LOST_FOUND: "lost-or-found",
+  IN_GOOD_HANDS: "in-good-hands",
+}
+
+export const AGE_FILTER = {
+  YOUNG: 'young',
+  MIDDLE: 'middle',
+  OLDER: 'older'
+}
+
+export const SEX = {
+  MALE: "male",
+  FEMALE: "female",
+}
+
+
 // MESSAGES
 
 // REGEXP
