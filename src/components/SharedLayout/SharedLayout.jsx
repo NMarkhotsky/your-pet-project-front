@@ -4,34 +4,27 @@ import AppRoutes from '../../routes/AppRoutes';
 import { Main, IconTeamLookBox } from './SharedLayout.styled';
 import { Footer } from '../Footer/Footer';
 import { Icon } from '../Icon/Icon';
+import { useAuth } from '../../hooks/useAuth/useAuth';
+import { useAddPet } from '../../hooks';
+import { Loader } from '../../shared/components/Loader/Loader';
 
 function SharedLayout() {
   const [isTeamVisible, setIsTeamVisible] = useState(false);
-
-
-    const handleIconClick = () => {
+  const { isRefreshing } = useAuth();
+  const { moreInfo } = useAddPet();
+  
+  const handleIconClick = () => {
       setIsTeamVisible(!isTeamVisible);
   };
-  
-  // const handleIconHover = () => {
-  //   setIsTeamVisible(!isTeamVisible);
-  // };
-
-  // const handleIconLeave = () => {
-  //   // setIsTeamVisible(false);
-  // };
 
   return (
-    <>
+    <>     
+    {isRefreshing || moreInfo.isLoad ? <Loader /> : null}
       <Header />
       <Main>
         <AppRoutes />
       </Main>
-      <IconTeamLookBox
-        onClick={handleIconClick}
-        // onMouseOver={handleIconHover}
-        // onMouseOut={handleIconLeave}
-      >
+      <IconTeamLookBox onClick={handleIconClick}>
         <Icon iconName={'icon-paw-team'} />
       </IconTeamLookBox>
       {isTeamVisible && <Footer />}

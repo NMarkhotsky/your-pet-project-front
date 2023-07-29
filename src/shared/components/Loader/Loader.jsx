@@ -1,10 +1,10 @@
 import LoaderImg from '../../../assets/images/loader/loader.gif';
-import { LoaderStyled, ImgLoader } from './Loader.styled';
+import { LoaderOverlay, ImgLoader } from './Loader.styled';
 
 export const Loader = () => {
   return (
-    <LoaderStyled>
+    <LoaderOverlay>
       <ImgLoader src={LoaderImg} alt="Loading....." />
-    </LoaderStyled>
+    </LoaderOverlay>
   );
 };
