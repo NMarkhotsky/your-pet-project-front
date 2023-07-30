@@ -283,14 +283,8 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-
   padding: 8px 20px;
-
-  /* border: transparent; */
   border-radius: 40px;
-
-  /* background-color: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.textBtn}; */
 
 `;
 
