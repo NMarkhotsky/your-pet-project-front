@@ -23,7 +23,6 @@ const initialValues = {
 function ChoiseOption({ handleDefinePage, currentPage }) {
   const dispatch = useDispatch();
   const location = useLocation();
-
   const { option } = useAddPet();
 
   const onSubmit = values => {
@@ -52,7 +51,14 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
           Next
           <PawIcon />
         </ButtonNext>
-        <Link to={location.state.from.pathname}>
+        <Link
+          to={
+            (location.state &&
+              location.state.from &&
+              location.state.from.pathname) ||
+            '/notices'
+          }
+        >
           <ButtonPrev type="button">
             <BackIcon />
             Cancel

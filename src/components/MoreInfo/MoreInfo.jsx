@@ -117,7 +117,16 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
   });
 
   if (isFormSubmitted) {
-    return <Navigate to={location.state.from.pathname} />;
+    return (
+      <Navigate
+        to={
+          (location.state &&
+            location.state.from &&
+            location.state.from.pathname) ||
+          '/notices'
+        }
+      />
+    );
   }
 
   switch (option) {
