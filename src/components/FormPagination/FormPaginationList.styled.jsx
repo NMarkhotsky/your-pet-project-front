@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import { generateColor, selectTablet } from "../../utils";
+import styled from 'styled-components';
+import { generateColor, selectTablet } from '../../utils';
 
 export const FormPagination = styled.ul`
-  min-width: 100%;
+  max-width: 392px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  // margin: auto;
 
   @media ${selectTablet} {
-    margin-bottom: 40px;
+    margin: auto;
   }
 `;
 
@@ -25,11 +25,11 @@ export const Option = styled.p`
   color: ${generateColor};
   font-size: 10px;
   font-weight: 500;
-  line-height: calc(14/10);
+  line-height: 1.4;
 
   @media ${selectTablet} {
-    font-size: 16px;
-    line-height: calc(26.5 / 16);
+    font-size: ${props => props.theme.fontSizes.md};
+    line-height: 1.65;
   }
 `;
 

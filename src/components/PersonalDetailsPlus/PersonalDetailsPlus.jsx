@@ -71,7 +71,7 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
           <BackIcon />
-          Cancel
+          Back
         </ButtonPrev>
       </ButtonsWrapper>
     </FormPetInfo>

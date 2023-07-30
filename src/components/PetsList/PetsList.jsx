@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   ContainerList,
   TopPart,
@@ -18,6 +18,8 @@ import { getPets, deletePet } from '../../services/PetsApi';
 
 export const PetsList = () => {
   const [pets, setPets] = useState([]);
+
+  const location = useLocation();
 
   useEffect(() => {
     getPets()
@@ -43,7 +45,7 @@ export const PetsList = () => {
       <TopPart>
         <ListTitle>My pets:</ListTitle>
 
-        <NavLink to="/add-pet">
+        <Link to="/add-pet" state={{ from: location }}>
           <Button type="button">
             Add Pet
             <Icon
@@ -54,7 +56,7 @@ export const PetsList = () => {
               fill={'#FEF9F9'}
             />
           </Button>
-        </NavLink>
+        </Link>
       </TopPart>
       <PetsCardList>
         {pets.map(card => (

@@ -28,9 +28,7 @@ const AppRoutes = () => {
         <Route path="/news" element={<NewsPage />} />
         <Route path="/notices" element={<NoticesPage />}>
           <Route index element={<Navigate to="sell" replace />} />
-          <Route path="sell" element={<NoticesCategoriesList />} />
-          <Route path="lost-found" element={<NoticesCategoriesList />} />
-          <Route path="for-free" element={<NoticesCategoriesList />} />
+          <Route path=":categoryName" element={<NoticesPage />} />
           <Route
             path="favorite"
             element={

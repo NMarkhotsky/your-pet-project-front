@@ -1,37 +1,42 @@
 /* eslint-disable react/prop-types */
-import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import { setOption } from "../../redux/add-pet/optionSlice";
+import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+import { setOption } from '../../redux/add-pet/optionSlice';
 
-import ChooseOption from "../ChooseOption/ChooseOption";
+import ChooseOption from '../ChooseOption/ChooseOption';
 
-import { ChooseOptionWrapper, MyForm, ButtonsWrapper } from "./ChoiseOption.styled";
-import { ButtonNext, ButtonPrev } from "../StyledButtons/StyledButtons";
-import { BackIcon, PawIcon } from "../../icons";
-import { useEffect } from "react";
-import { useAddPet } from "../../hooks";
+import {
+  ChooseOptionWrapper,
+  MyForm,
+  ButtonsWrapper,
+} from './ChoiseOption.styled';
+import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
+import { BackIcon, PawIcon } from '../../icons';
+import { useEffect } from 'react';
+import { useAddPet } from '../../hooks';
 
 const initialValues = {
-  option: "",
-}
+  option: '',
+};
 
 function ChoiseOption({ handleDefinePage, currentPage }) {
-
   const dispatch = useDispatch();
+  const location = useLocation();
   const { option } = useAddPet();
 
-  const onSubmit = (values) => {
+  const onSubmit = values => {
     if (currentPage === 0) {
       dispatch(setOption(values.option));
     }
     handleDefinePage(1);
-  }
+  };
 
   const formik = useFormik({ initialValues, onSubmit });
-  
+
   useEffect(() => {
-    if (option !== "") {
-      formik.setFieldValue("option", option);
+    if (option !== '') {
+      formik.setFieldValue('option', option);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formik.setFieldValue, option]);
@@ -42,17 +47,26 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
         <ChooseOption formik={formik} />
       </ChooseOptionWrapper>
       <ButtonsWrapper>
-        <ButtonNext disabled={formik.values.option === ""} type="submit">
+        <ButtonNext disabled={formik.values.option === ''} type="submit">
           Next
           <PawIcon />
         </ButtonNext>
-        <ButtonPrev type="button">
-          <BackIcon />
-          Cancel
-        </ButtonPrev>
+        <Link
+          to={
+            (location.state &&
+              location.state.from &&
+              location.state.from.pathname) ||
+            '/notices'
+          }
+        >
+          <ButtonPrev type="button">
+            <BackIcon />
+            Cancel
+          </ButtonPrev>
+        </Link>
       </ButtonsWrapper>
     </MyForm>
-  )
+  );
 }
 
 export default ChoiseOption;
