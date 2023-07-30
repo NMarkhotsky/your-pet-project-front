@@ -15,9 +15,9 @@ function GenderRadio({
 
   return (
     <>
-      <LabelGenderInput htmlFor={id}>
+      <LabelGenderInput htmlFor={id} checked={checked === value}>
         {Icon}
-        <Span>{text}</Span>
+        <Span checked={checked === value}>{text}</Span>
         {isMistake ? <ErrorTextAddPet text={formik.errors.gender} /> : null}
       </LabelGenderInput>
       <GenderInput

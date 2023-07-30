@@ -21,7 +21,6 @@ export const FormDefaultMoreInfo = styled.form`
 export const RadioWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 12px;
   position: relative;
 `;

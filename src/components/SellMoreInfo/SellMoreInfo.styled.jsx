@@ -6,7 +6,6 @@ export const FormSellMoreInfo = styled.form`
   flex-direction: column;
   gap: 24px;
   margin-top: 16px;
-  max-width: 458px;
   @media ${selectTablet} {
     height: calc(100% - 160px);
     max-width: 702px;
@@ -21,7 +20,6 @@ export const FormSellMoreInfo = styled.form`
 export const RadioWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 16px;
+  gap: 12px;
   position: relative;
 `;
