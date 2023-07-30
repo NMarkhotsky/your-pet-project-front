@@ -12,7 +12,7 @@ import GenderRadio from '../GenderRadio/GenderRadio';
 import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
 import { RadioWrapper, FormSellMoreInfo } from './SellMoreInfo.styled';
 import { useDispatch } from 'react-redux';
-import { saveSex } from '../../redux/add-pet/moreInfoSlice';
+import { saveLocationOrPrice, saveSex } from '../../redux/add-pet/moreInfoSlice';
 import { useAddPet } from '../../hooks';
 
 function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
@@ -27,10 +27,27 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formik.setFieldValue, moreInfo.data.sex]);
 
+  useEffect(() => {
+    for (let key in moreInfo.data) {
+      if (moreInfo.data[key] !== "") {
+        console.log(moreInfo.data[key]);
+        formik.setFieldValue(key, moreInfo.data[key]);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formik.setFieldValue, moreInfo.data]);
+
   const handleChangeSex = event => {
     formik.handleChange(event);
     dispatch(saveSex(event.target.id));
   };
+
+  const handleChangeInput = (event) => {
+    formik.handleChange(event);
+
+    const { name, value } = event.target;
+    dispatch(saveLocationOrPrice({ name, value }));
+  }
 
   return (
     <FormSellMoreInfo onSubmit={formik.handleSubmit}>
@@ -81,7 +98,7 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
         name="location"
         placeholder="Type of location"
         value={formik.values.location}
-        onChange={formik.handleChange}
+        onChange={handleChangeInput}
       />
       <FieldInput
         formik={formik}
@@ -90,7 +107,7 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
         name="price"
         placeholder="Type of price"
         value={formik.values.price}
-        onChange={formik.handleChange}
+        onChange={handleChangeInput}
       />
       <Comments formik={formik} />
       <ButtonsWrapper>
