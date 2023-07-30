@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import {
   selectPhone,
   selectTablet,
@@ -25,6 +25,19 @@ export const Main = styled.main`
   }
 `;
 
+const blueColor = 'rgb(0, 0, 255)'; // Більш насичений синій колір
+const yellowColor = 'rgb(255, 255, 0)'; // Більш насичений жовтий колір
+const boxShadowRadius = '10px';
+
+const boxShadowAnimation = keyframes`
+  0%, 100% {
+    filter: drop-shadow(0 0 ${boxShadowRadius} ${blueColor});
+  }
+  50% {
+    filter: drop-shadow(0 0 ${boxShadowRadius} ${yellowColor});
+  }
+`;
+
 export const IconTeamLookBox = styled.div`
   display: none;
   position: fixed;
@@ -32,6 +45,8 @@ export const IconTeamLookBox = styled.div`
   bottom: 1%;
   z-index: 50;
   cursor: pointer;
+  filter: drop-shadow(0 0 ${boxShadowRadius} ${blueColor}); /* Синя тінь */
+  animation: ${boxShadowAnimation} 1s infinite;
 
   & > svg {
     width: 60px;
