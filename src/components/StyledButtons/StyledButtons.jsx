@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { selectTablet } from '../../utils';
+import { Link } from 'react-router-dom';
 
 export const ButtonNext = styled.button`
   display: flex;
@@ -44,4 +45,10 @@ export const ButtonPrev = styled.button`
   @media ${selectTablet} {
     flex-basis: 33%;
   }
+`;
+
+export const ButtonPrevLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

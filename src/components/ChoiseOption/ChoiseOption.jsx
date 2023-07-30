@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { setOption } from '../../redux/add-pet/optionSlice';
 
 import ChooseOption from '../ChooseOption/ChooseOption';
@@ -11,7 +11,11 @@ import {
   MyForm,
   ButtonsWrapper,
 } from './ChoiseOption.styled';
-import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
+import {
+  ButtonNext,
+  ButtonPrev,
+  ButtonPrevLink,
+} from '../StyledButtons/StyledButtons';
 import { BackIcon, PawIcon } from '../../icons';
 import { useEffect } from 'react';
 import { useAddPet } from '../../hooks';
@@ -51,7 +55,7 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
           Next
           <PawIcon />
         </ButtonNext>
-        <Link
+        <ButtonPrevLink
           to={
             (location.state &&
               location.state.from &&
@@ -63,7 +67,7 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
             <BackIcon />
             Cancel
           </ButtonPrev>
-        </Link>
+        </ButtonPrevLink>
       </ButtonsWrapper>
     </MyForm>
   );
