@@ -7,6 +7,7 @@ import { login } from '../../../redux/auth/operations';
 import { FormTextField } from '../common/FormTextField/FormTextField';
 import { FormPasswordContainer } from '../common/FormPasswordContainer/FormPasswordContainer';
 import { AuthFormBtn } from '../common/AuthFormBtn/AuthFormBtn';
+import AuthGoogleBtn from '../common/AuthGoogleBtn';
 import {
   FormLink,
   FormText,
@@ -79,6 +80,7 @@ export const LoginForm = () => {
           />
         </FormPasswordContainer>
         <AuthFormBtn btnText="Login" />
+        <AuthGoogleBtn btnText="Log in with Google" />
         <FormText>
           Do not have an account? <FormLink to="/register">Register</FormLink>
         </FormText>
