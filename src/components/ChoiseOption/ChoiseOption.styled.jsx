@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { selectTablet } from "../../utils";
+import styled from 'styled-components';
+import { selectTablet, selectDesktop } from '../../utils';
 
 export const MyForm = styled.form`
   height: calc(100% - 120px);
@@ -8,6 +8,9 @@ export const MyForm = styled.form`
   justify-content: space-between;
 
   @media ${selectTablet} {
+    height: calc(100% - 160px);
+  }
+  @media ${selectDesktop} {
     height: calc(100% - 140px);
   }
 `;
@@ -15,14 +18,14 @@ export const MyForm = styled.form`
 export const ChooseOptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 140px;
+  max-width: 131px;
   gap: 12px;
 `;
 
 export const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
   margin-top: auto;
 
   @media ${selectTablet} {
