@@ -32,6 +32,9 @@ export const logoutUser = async () => {
 
 export const fetchUserByToken = async persistedToken => {
   authHeader.set(persistedToken);
-  const { data } = await axios.get('/users');
-  return data;
+  const {
+    data: { user },
+  } = await axios.get('/users');
+  console.log('data: ', user);
+  return user;
 };
