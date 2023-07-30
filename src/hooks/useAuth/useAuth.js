@@ -25,11 +25,3 @@ export const useAuth = () => {
     error,
   };
 };
-
-// Використання:
-// const { user,
-//     token,
-//     isLoggedIn,
-//     isRefreshing,
-//     isNewUser,
-//     error } = useAuth();
