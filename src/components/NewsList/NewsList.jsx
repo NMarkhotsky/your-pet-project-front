@@ -1,15 +1,22 @@
 import PropTypes from 'prop-types';
+
 import NewsItem from '../NewsItem/NewsItem';
+import { Pagination } from '../Pagination/Pagination';
 import { List } from './NewsList.styled';
 
-export const NewsList = ({ list }) => {
+export const NewsList = ({ list, pageCount, handlePageChange }) => {
   return (
     <>
-      <List>
-        {list.map(article => (
-          <NewsItem key={article._id} article={article} />
-        ))}
-      </List>
+      {list.length > 0 && (
+        <List>
+          {list.map(article => (
+            <NewsItem key={article._id} article={article} />
+          ))}
+        </List>
+      )}
+      {pageCount > 1 && (
+        <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
+      )}
     </>
   );
 };
@@ -28,4 +35,6 @@ NewsList.propTypes = {
       date: PropTypes.string.isRequired,
     }).isRequired
   ),
+  pageCount: PropTypes.number.isRequired,
+  handlePageChange: PropTypes.func.isRequired,
 };
