@@ -13,7 +13,7 @@ import { useAddPet } from "../../hooks";
 import { useEffect } from "react";
 import { saveSex } from "../../redux/add-pet/moreInfoSlice";
 
-function DefaultMoreInfo({ formik, handleDefinePage }) {
+function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
 
   const dispatch = useDispatch();
 
@@ -51,12 +51,18 @@ function DefaultMoreInfo({ formik, handleDefinePage }) {
         checked={formik.values.gender}
         icon={<MaleIcon stroke={getColorGender({ value: petValues.male, formik })} />}
       />
-      <File formik={formik} />
+      <File
+        text="Load the pet’s image:"
+        setFile={setFile}
+        file={file}
+        formik={formik}
+      />
       <FieldInput
         formik={formik}
         text="Location"
         id="location"
         name="location"
+        placeholder="Type of location"
         value={formik.values.location}
         onChange={formik.handleChange}
       />
@@ -68,7 +74,7 @@ function DefaultMoreInfo({ formik, handleDefinePage }) {
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
           <BackIcon />
-          Cancel
+          Back
         </ButtonPrev>
       </ButtonsWrapper>
     </form>

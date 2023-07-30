@@ -15,7 +15,7 @@ import { useDispatch } from "react-redux";
 import { saveSex } from "../../redux/add-pet/moreInfoSlice";
 import { useAddPet } from "../../hooks";
 
-function SellMoreInfo({ formik, handleDefinePage }) {
+function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
 
   const dispatch = useDispatch();
 
@@ -57,6 +57,8 @@ function SellMoreInfo({ formik, handleDefinePage }) {
         {formik.errors.gender && formik.touched.gender ? ( <ErrorTextAddPet text={formik.errors.gender} /> ) : null}
       </RadioWrapper>
       <File
+        setFile={setFile}
+        file={file}
         text="Load the pet’s image:"
         formik={formik}
         items="center"
@@ -67,6 +69,7 @@ function SellMoreInfo({ formik, handleDefinePage }) {
         text="Location"
         id="location"
         name="location"
+        placeholder="Type of location"
         value={formik.values.location}
         onChange={formik.handleChange}
       />
@@ -75,6 +78,7 @@ function SellMoreInfo({ formik, handleDefinePage }) {
         text="Price"
         id="price"
         name="price"
+        placeholder="Type of price"
         value={formik.values.price}
         onChange={formik.handleChange}
       />
@@ -86,7 +90,7 @@ function SellMoreInfo({ formik, handleDefinePage }) {
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
           <BackIcon />
-          Cancel
+          Back
         </ButtonPrev>
       </ButtonsWrapper>
     </form>
