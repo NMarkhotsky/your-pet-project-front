@@ -286,11 +286,12 @@ export const Button = styled.button`
 
   padding: 8px 20px;
 
-  border: transparent;
+  /* border: transparent; */
   border-radius: 40px;
 
-  background-color: ${props => props.theme.colors.blue};
-  color: ${props => props.theme.colors.textBtn};
+  /* background-color: ${props => props.theme.colors.blue};
+  color: ${props => props.theme.colors.textBtn}; */
+
 `;
 
 export const ButtonTextAdd = styled.span`
@@ -344,7 +345,7 @@ export const ButtonLinkContact = styled.a`
   }
 `;
 
-export const ButtonTextContact = styled.span`
+export const ButtonTextContact = styled.a`
   font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.md};
   letter-spacing: 0.04em;

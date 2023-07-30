@@ -13,8 +13,8 @@ export const register = createAsyncThunk(
     try {
       return await registerUser(credentials);
     } catch (e) {
-      errorMessage(e.message);
-      return thunkAPI.rejectWithValue(e.message);
+      errorMessage(e.response.data.message);
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
@@ -25,8 +25,8 @@ export const login = createAsyncThunk(
     try {
       return await loginUser(credentials);
     } catch (e) {
-      errorMessage(e.message);
-      return thunkAPI.rejectWithValue(e.message);
+      errorMessage(e.response.data.message);
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );
@@ -35,8 +35,8 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     return logoutUser();
   } catch (e) {
-    errorMessage(e.message);
-    return thunkAPI.rejectWithValue(e.message);
+    errorMessage(e.response.data.message);
+    return thunkAPI.rejectWithValue(e.response.data.message);
   }
 });
 
@@ -52,8 +52,8 @@ export const fetchCurrentUser = createAsyncThunk(
     try {
       return fetchUserByToken(persistedToken);
     } catch (e) {
-      errorMessage(e.message);
-      return thunkAPI.rejectWithValue(e.message);
+      errorMessage(e.response.data.message);
+      return thunkAPI.rejectWithValue(e.response.data.message);
     }
   }
 );

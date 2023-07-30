@@ -3,8 +3,10 @@ import { NewsList } from '../../components/NewsList/NewsList';
 import { Title } from './NewsPage.styled';
 import { SearchInput } from '../../shared/components/SearchInput/SearchInput';
 import { getNews } from '../../services/NewsApi';
+import { Loader } from '../../shared/components/Loader/Loader';
 
 function NewsPage() {
+  const [isLoading, setIsLoading] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const [news, setNews] = useState([]);
   const limit = 6;
@@ -21,10 +23,13 @@ function NewsPage() {
         limit,
       };
 
+      setIsLoading(true);
       const newsData = await getNews(params);
       setNews(newsData.data.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,6 +56,7 @@ function NewsPage() {
         onDelete={handleDelete}
       />
       <NewsList list={news} />
+      {isLoading ? <Loader /> : null}
     </>
   );
 }
