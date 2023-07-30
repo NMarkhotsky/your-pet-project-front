@@ -80,7 +80,7 @@ export const LoginForm = () => {
           />
         </FormPasswordContainer>
         <AuthFormBtn btnText="Login" />
-        <AuthGoogleBtn btnText="Log in with Google" />
+        <AuthGoogleBtn />
         <FormText>
           Do not have an account? <FormLink to="/register">Register</FormLink>
         </FormText>

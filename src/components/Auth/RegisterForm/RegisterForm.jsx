@@ -106,7 +106,7 @@ export const RegisterForm = () => {
           />
         </FormPasswordContainer>
         <AuthFormBtn btnText="Registration" />
-        <AuthGoogleBtn btnText="Register with Google" />
+        <AuthGoogleBtn />
         <FormText>
           Already have an account? <FormLink to="/login">Login</FormLink>
         </FormText>
