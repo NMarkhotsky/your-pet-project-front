@@ -69,6 +69,7 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
         text="Location"
         id="location"
         name="location"
+        placeholder="Type of location"
         value={formik.values.location}
         onChange={formik.handleChange}
       />
@@ -77,6 +78,7 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
         text="Price"
         id="price"
         name="price"
+        placeholder="Type of price"
         value={formik.values.price}
         onChange={formik.handleChange}
       />

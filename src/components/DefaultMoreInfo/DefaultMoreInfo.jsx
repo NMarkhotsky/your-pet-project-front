@@ -51,12 +51,18 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
         checked={formik.values.gender}
         icon={<MaleIcon stroke={getColorGender({ value: petValues.male, formik })} />}
       />
-      <File setFile={setFile} file={file} formik={formik} />
+      <File
+        text="Load the pet’s image:"
+        setFile={setFile}
+        file={file}
+        formik={formik}
+      />
       <FieldInput
         formik={formik}
         text="Location"
         id="location"
         name="location"
+        placeholder="Type of location"
         value={formik.values.location}
         onChange={formik.handleChange}
       />
