@@ -5,10 +5,10 @@ export const FormPagination = styled.ul`
   min-width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 24px;
+  // margin-bottom: 24px;
 
   @media ${selectTablet} {
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
   }
 `;
 

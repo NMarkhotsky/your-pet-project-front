@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import { selectTablet } from "../../utils";
+import styled from 'styled-components';
+import { selectTablet } from '../../utils';
 
-const generateBorderColor = ({ mistake }) => mistake === "true" ? "#F43F5E" : "#54ADFF";
+const generateBorderColor = ({ mistake }) =>
+  mistake === 'true' ? '#F43F5E' : '#54ADFF';
 
 export const Label = styled.label`
   display: flex;

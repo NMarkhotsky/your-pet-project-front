@@ -3,7 +3,7 @@ import { selectDesktop, selectTablet } from '../../utils';
 
 export const Main = styled.div`
   width: 100%;
-  height: calc(100vh - 128px);
+  min-height: calc(100vh - 128px);
   margin-top: 20px;
   padding: 0 20px;
 
