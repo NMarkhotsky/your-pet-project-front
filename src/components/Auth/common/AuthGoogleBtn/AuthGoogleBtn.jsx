@@ -4,7 +4,7 @@ import { Icon } from '../../../Icon/Icon';
 
 export const AuthGoogleBtn = ({ btnText }) => {
   return (
-    <GoogleBtn href="/">
+    <GoogleBtn href="https://mypets-backend.onrender.com/api/auth/google">
       <GoogleIcon>
         <Icon iconName={'icon-google'} />
       </GoogleIcon>
