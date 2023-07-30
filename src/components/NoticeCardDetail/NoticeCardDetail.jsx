@@ -30,14 +30,12 @@ import { updateNotice, getNoticeById } from '../../services/NoticesApi';
 import { useEffect, useState } from 'react';
 
 export const NoticeCardDetail = ({ item }) => {
-
   const [card, setCard] = useState({});
 
   let formattedBirthday;
 
   const handleCardById = async id => {
     const response = await getNoticeById(id);
-    console.log(response.data.notice);
     setCard(response.data.notice);
   };
 
@@ -51,22 +49,18 @@ export const NoticeCardDetail = ({ item }) => {
     }
   });
 
-  const handleAddInFavorite = () => {
-    console.log('Click');
-    setCard(prevState => ({ ...prevState, isFavorite: !card.isFavorite }));
-
-    updateNotice(item.id);
+  const handleAddInFavorite = async () => {
+    const response = await updateNotice(item.id);
+    setCard(response);
   };
 
-  console.log('card ===>', card);
+  console.log("card ===>", card)
 
   if (card.birthday) {
     const birthday = card.birthday;
 
     formattedBirthday = birthday.split('-').reverse().join('.');
   }
-
-  console.log('isFavorite ==>', card.isFavorite);
 
   return (
     <>
@@ -140,7 +134,7 @@ export const NoticeCardDetail = ({ item }) => {
                   style={{
                     color: !card.isFavorite ? '#FEF9F9' : '#54ADFF',
                     backgroundColor: card.isFavorite ? '#FEF9F9' : '#54ADFF',
-                    borderColor: !card.isFavorite ? 'transparent' : '#54ADFF'
+                    borderColor: !card.isFavorite ? 'transparent' : '#54ADFF',
                   }}
                 >
                   <ButtonTextAdd onClick={handleAddInFavorite}>
