@@ -12,14 +12,13 @@ function SharedLayout() {
   const [isTeamVisible, setIsTeamVisible] = useState(false);
   const { isRefreshing } = useAuth();
   const { moreInfo } = useAddPet();
-  
+
   const handleIconClick = () => {
-      setIsTeamVisible(!isTeamVisible);
+    setIsTeamVisible(!isTeamVisible);
   };
 
   return (
-    <>     
-    {isRefreshing || moreInfo.isLoad ? <Loader /> : null}
+    <>
       <Header />
       <Main>
         <AppRoutes />
@@ -27,6 +26,7 @@ function SharedLayout() {
       <IconTeamLookBox onClick={handleIconClick}>
         <Icon iconName={'icon-paw-team'} />
       </IconTeamLookBox>
+      {isRefreshing || moreInfo.isLoad ? <Loader /> : null}
       {isTeamVisible && <Footer />}
     </>
   );

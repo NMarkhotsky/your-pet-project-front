@@ -1,32 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { NewsList } from '../../components/NewsList/NewsList';
 import { Title } from './NewsPage.styled';
 import { SearchInput } from '../../shared/components/SearchInput/SearchInput';
 import { getNews } from '../../services/NewsApi';
 
+const PER_PAGE = 6;
+
 function NewsPage() {
   const [searchValue, setSearchValue] = useState('');
+  const [pageCount, setPageCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [news, setNews] = useState([]);
-  const limit = 6;
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = async (search = '') => {
+  const getData = async (page, search = '') => {
     try {
       const params = {
         search,
-        page: 1,
-        limit,
+        page,
       };
 
       const newsData = await getNews(params);
       setNews(newsData.data.data);
+      setPageCount(Math.ceil(newsData.data.total / PER_PAGE));
     } catch (error) {
       console.log(error);
     }
   };
+
+  const handlePageChange = useCallback(event => {
+    setCurrentPage(event.selected + 1);
+  }, []);
 
   const handleChange = value => {
     setSearchValue(value);
@@ -41,6 +44,10 @@ function NewsPage() {
     getData();
   };
 
+  useEffect(() => {
+    getData(currentPage);
+  }, [currentPage]);
+
   return (
     <>
       <Title>News</Title>
@@ -50,7 +57,11 @@ function NewsPage() {
         onSubmit={handleSearch}
         onDelete={handleDelete}
       />
-      <NewsList list={news} />
+      <NewsList
+        list={news}
+        pageCount={pageCount}
+        handlePageChange={handlePageChange}
+      />
     </>
   );
 }

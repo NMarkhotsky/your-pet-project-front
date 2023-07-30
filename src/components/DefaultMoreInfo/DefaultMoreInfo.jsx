@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import { saveSex } from '../../redux/add-pet/moreInfoSlice';
 import { FormDefaultMoreInfo, RadioWrapper } from './DefaultMoreInfo.styled';
 
-function DefaultMoreInfo({ formik, handleDefinePage }) {
+function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
   const dispatch = useDispatch();
 
   const { moreInfo } = useAddPet();
@@ -61,12 +61,18 @@ function DefaultMoreInfo({ formik, handleDefinePage }) {
           }
         />
       </RadioWrapper>
-      <File formik={formik} />
+      <File
+        text="Load the pet’s image:"
+        setFile={setFile}
+        file={file}
+        formik={formik}
+      />
       <FieldInput
         formik={formik}
         text="Location"
         id="location"
         name="location"
+        placeholder="Type of location"
         value={formik.values.location}
         onChange={formik.handleChange}
       />
@@ -78,7 +84,7 @@ function DefaultMoreInfo({ formik, handleDefinePage }) {
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
           <BackIcon />
-          Cancel
+          Back
         </ButtonPrev>
       </ButtonsWrapper>
     </FormDefaultMoreInfo>

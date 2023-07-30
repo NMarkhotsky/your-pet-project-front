@@ -2,16 +2,25 @@
 import ErrorTextAddPet from "../ErrorTextAddPet/ErrorTextAddPet";
 import PreviewImage from "../PreviewImage/PreviewImage";
 import { AddPhoto, InputFile, LabelFile, TextFile } from "./File.styled";
+import { useEffect } from "react";
 
-function File({ formik, text, direction, items, justify, gap }) {
+function File({ formik, text, direction, items, justify, gap, setFile, file }) {
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
+  useEffect(() => {
     if (file) {
       formik.setFieldValue("photo", file);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formik.setFieldValue, file]);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    formik.setFieldValue("photo", file);
+    setFile(file);
   }
-  // console.log(formik.values);
+
   const isMistake = formik.errors.photo && formik.touched.photo;
 
   return (
