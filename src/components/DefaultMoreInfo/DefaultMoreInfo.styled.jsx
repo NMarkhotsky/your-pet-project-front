@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { selectDesktop, selectTablet } from '../../utils';
 
-export const FormYourPetMoreInfo = styled.form`
+export const FormDefaultMoreInfo = styled.form`
   height: calc(100% - 120px);
   display: flex;
   flex-direction: column;
@@ -17,4 +17,11 @@ export const FormYourPetMoreInfo = styled.form`
     height: calc(100% - 140px);
     max-width: 822px;
   }
+`;
+export const RadioWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  position: relative;
 `;

@@ -30,7 +30,6 @@ export const FormBody = styled.div`
     max-width: 458px;
     padding: 20px 32px;
   }
-
   @media ${selectDesktop} {
     // max-width: 500px;
   }

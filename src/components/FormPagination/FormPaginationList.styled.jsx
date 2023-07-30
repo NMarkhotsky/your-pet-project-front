@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { generateColor, selectTablet } from '../../utils';
 
 export const FormPagination = styled.ul`
-  min-width: 100%;
+  max-width: 392px;
   display: flex;
   justify-content: space-between;
-  // margin-bottom: 24px;
+  // margin: auto;
 
   @media ${selectTablet} {
-    // margin-bottom: 40px;
+    margin: auto;
   }
 `;
 

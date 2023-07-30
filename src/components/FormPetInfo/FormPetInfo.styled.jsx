@@ -9,6 +9,7 @@ export const FormPetInfo = styled.form`
   box-sizing: border-box;
   margin-top: 16px;
   margin-bouttom @media ${selectTablet} {
+    max-width: 458px;
     margin-top: 20px;
     gap: 24px;
     height: calc(100% - 160px);

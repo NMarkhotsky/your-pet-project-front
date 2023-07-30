@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { selectTablet, selectDesktop } from '../../utils';
 
 export const MyForm = styled.form`
+  width: 100%;
   height: calc(100% - 120px);
   display: flex;
   flex-direction: column;
@@ -9,6 +10,7 @@ export const MyForm = styled.form`
   margin-top: 24px;
 
   @media ${selectTablet} {
+    max-width: 458px;
     height: calc(100% - 160px);
     margin-top: 40px;
   }
