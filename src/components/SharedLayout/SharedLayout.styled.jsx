@@ -26,9 +26,10 @@ export const Main = styled.main`
 `;
 
 export const IconTeamLookBox = styled.div`
-  position: absolute;
+  display: none;
+  position: fixed;
   left: 0;
-  bottom: 2%;
+  bottom: 1%;
   z-index: 50;
   cursor: pointer;
 
@@ -37,5 +38,9 @@ export const IconTeamLookBox = styled.div`
     height: 60px;
     transform: rotate(45deg);
     stroke: rgba(0, 0, 255, 1);
+  }
+
+  @media ${selectDesktop} {
+    display: block;
   }
 `;

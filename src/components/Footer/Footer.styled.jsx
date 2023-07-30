@@ -1,41 +1,16 @@
 import styled from 'styled-components';
-import {
-  selectDesktop,
-  selectPhone,
-  selectTablet,
-} from '../../utils/selectMediaRequests';
 
 export const FooterStyle = styled.footer`
-  position: absolute;
-  /* width: 120%; */
-  /* top: 20%; */
-  z-index: 20;
-  left: 1.5%;
-  right: 1%;
+  width: 100%;
+
+  position: fixed;
+  left: 0;
   bottom: 0;
-  /* margin: 0 auto; */
-  /* padding-left: 20px;
-  padding-right: 20px; */
-  /* padding-top: 50px; */
-  /* padding-bottom: 30px; */
+
+  z-index: 20;
+
   background-color: rgba(255, 255, 255, 0.8);
   transition: left 0.3s ease;
-
-  @media ${selectPhone} {
-    /* max-width: 480px; */
-  }
-
-  @media ${selectTablet} {
-    /* max-width: 768px; */
-    /* padding-left: 32px;
-    padding-right: 32px; */
-  }
-
-  @media ${selectDesktop} {
-    max-width: 1500px;
-    /* padding-left: 16px;
-    padding-right: 16px; */
-  }
 `;
 
 export const MainTitle = styled.h2`
@@ -44,6 +19,8 @@ export const MainTitle = styled.h2`
   padding-top: 20px;
   text-align: center;
   font-size: ${props => props.theme.fontSizes.xxxl};
+
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 export const SpanIcon = styled.span`
@@ -58,6 +35,8 @@ export const Title = styled.h3`
   gap: 4px;
   margin-top: 30px;
   padding-bottom: 20px;
+
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 export const Wrapper = styled.div`
