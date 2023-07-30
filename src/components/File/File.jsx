@@ -22,13 +22,20 @@ function File({ formik, text, direction, items, justify, gap }) {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
+
     if (file) {
       formik.setFieldValue("photo", file);
-    }
 
-    dispatch(savePhoto(file));
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        const photoUrl = reader.result;
+        dispatch(savePhoto(photoUrl));
+      }
+    }
   }
-  // console.log(formik.values);
+
   const isMistake = formik.errors.photo && formik.touched.photo;
 
   return (
