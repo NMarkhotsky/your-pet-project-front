@@ -21,11 +21,8 @@ const moreInfoSlice = createSlice({
     saveSex(state, action) {
       state.data.sex = action.payload;
     },
-    saveLocation(state, action) {
-      state.data.location = action.payload;
-    },
-    savePrice(state, action) {
-      state.data.price = action.payload;
+    saveLocationOrPrice(state, { payload }) {
+      state.data[payload.name] = payload.value;
     },
     savePhoto(state, action) {
       state.data.photo = action.payload;
@@ -66,5 +63,5 @@ const moreInfoSlice = createSlice({
   },
 });
 
-export const { saveComment, saveSex, saveLocation, savePrice, clearMoreInfo, savePhoto } = moreInfoSlice.actions;
+export const { saveComment, saveSex, saveLocationOrPrice, clearMoreInfo, savePhoto } = moreInfoSlice.actions;
 export const moreInfoReducer = moreInfoSlice.reducer;

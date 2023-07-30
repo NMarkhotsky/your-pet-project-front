@@ -11,7 +11,7 @@ import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
 import { useDispatch } from 'react-redux';
 import { useAddPet } from '../../hooks';
 import { useEffect } from 'react';
-import { saveSex } from '../../redux/add-pet/moreInfoSlice';
+import { saveLocationOrPrice, saveSex } from '../../redux/add-pet/moreInfoSlice';
 import { FormDefaultMoreInfo, RadioWrapper } from './DefaultMoreInfo.styled';
 
 function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
@@ -26,10 +26,27 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formik.setFieldValue, moreInfo.data.sex]);
 
+  useEffect(() => {
+    for (let key in moreInfo.data) {
+      if (moreInfo.data[key] !== "") {
+        console.log(moreInfo.data[key]);
+        formik.setFieldValue(key, moreInfo.data[key]);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formik.setFieldValue, moreInfo.data]);
+
   const handleChangeSex = event => {
     formik.handleChange(event);
     dispatch(saveSex(event.target.id));
   };
+
+  const handleChangeInput = (event) => {
+    formik.handleChange(event);
+
+    const { name, value } = event.target;
+    dispatch(saveLocationOrPrice({ name, value }));
+  }
 
   return (
     <FormDefaultMoreInfo onSubmit={formik.handleSubmit}>
@@ -74,7 +91,7 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
         name="location"
         placeholder="Type of location"
         value={formik.values.location}
-        onChange={formik.handleChange}
+        onChange={handleChangeInput}
       />
       <Comments formik={formik} />
       <ButtonsWrapper>
