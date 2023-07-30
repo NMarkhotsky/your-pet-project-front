@@ -53,50 +53,54 @@ export const StyledPaginateContainer = styled.div`
   .prevLink {
     @extend .link;
 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    margin-left: 2px;
+
+    fill: ${({ theme }) => theme.colors.blue};
+
     &[aria-disabled='true'] {
       opacity: 0.2;
       cursor: default;
     }
 
-    &::after {
-      content: '<';
-      position: absolute;
-      top: 100%;
-      left: 100%;
-      transform: translate(-75%, -55%);
-      scale: 250%;
-      cursor: pointer;
-      color: ${({ theme }) => theme.colors.blue};
-
-      @media ${selectTablet} {
-        transform: translate(-70%, -49%);
-        scale: 350%;
-      }
+    @media ${selectTablet} {
+      margin-top: 3px;
+      margin-left: 3px;
+      width: 24px;
+      height: 24px;
     }
   }
 
   .nextLink {
     @extend .link;
 
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    margin-left: 2px;
+
+    fill: ${({ theme }) => theme.colors.blue};
+
     &[aria-disabled='true'] {
       opacity: 0.2;
       cursor: default;
     }
 
-    &::after {
-      content: '>';
-      position: absolute;
-      top: 100%;
-      left: 100%;
-      transform: translate(-75%, -55%);
-      scale: 250%;
-      cursor: pointer;
-      color: ${({ theme }) => theme.colors.blue};
-
-      @media ${selectTablet} {
-        transform: translate(-70%, -49%);
-        scale: 350%;
-      }
+    @media ${selectTablet} {
+      margin-top: 3px;
+      margin-left: 3px;
+      width: 24px;
+      height: 24px;
     }
   }
 

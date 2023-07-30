@@ -1,5 +1,6 @@
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
+import { Icon } from '../Icon/Icon';
 
 import { StyledPaginateContainer } from './Pagination.styled';
 
@@ -11,12 +12,12 @@ export const Pagination = ({
   return (
     <StyledPaginateContainer>
       <ReactPaginate
-        nextLabel=""
+        nextLabel={<Icon iconName={'icon-pagination-arrow-right'} />}
         onPageChange={handlePageChange}
         pageRangeDisplayed={3}
         marginPagesDisplayed={1}
         pageCount={pageCount}
-        previousLabel=""
+        previousLabel={<Icon iconName={'icon-pagination-arrow-left'} />}
         pageClassName="item"
         pageLinkClassName="link"
         previousClassName="item"
