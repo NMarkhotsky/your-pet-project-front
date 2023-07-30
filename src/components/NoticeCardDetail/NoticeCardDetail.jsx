@@ -26,8 +26,48 @@ import {
   ButtonLinkContact,
   ButtonTextContact,
 } from './NoticeCardDetail.styled';
+import { updateNotice, getNoticeById } from '../../services/NoticesApi';
+import { useEffect, useState } from 'react';
 
 export const NoticeCardDetail = ({ item }) => {
+
+  const [card, setCard] = useState({});
+
+  let formattedBirthday;
+
+  const handleCardById = async id => {
+    const response = await getNoticeById(id);
+    console.log(response.data.notice);
+    setCard(response.data.notice);
+  };
+
+  useEffect(() => {
+    handleCardById(item.id);
+  }, [item.id]);
+
+  useEffect(() => {
+    if (Object.keys(card).length === 0) {
+      return;
+    }
+  });
+
+  const handleAddInFavorite = () => {
+    console.log('Click');
+    setCard(prevState => ({ ...prevState, isFavorite: !card.isFavorite }));
+
+    updateNotice(item.id);
+  };
+
+  console.log('card ===>', card);
+
+  if (card.birthday) {
+    const birthday = card.birthday;
+
+    formattedBirthday = birthday.split('-').reverse().join('.');
+  }
+
+  console.log('isFavorite ==>', card.isFavorite);
+
   return (
     <>
       <Modal>
@@ -45,8 +85,8 @@ export const NoticeCardDetail = ({ item }) => {
             <ModalCard>
               <ModalCardInfo>
                 <ModalCardImage>
-                  <Image src={item.url} alt="pet" loading="lazy"></Image>
-                  <SpanStatus>{item.status}</SpanStatus>
+                  <Image src={card.photoURL} alt="pet" loading="lazy"></Image>
+                  <SpanStatus>{card.noticeType}</SpanStatus>
                 </ModalCardImage>
                 <ModalCardText>
                   <Title>Cute dog looking for a home</Title>
@@ -54,19 +94,19 @@ export const NoticeCardDetail = ({ item }) => {
                     <Tbody>
                       <Tr>
                         <TdName>Name: </TdName>
-                        <TdValue>{item.name}</TdValue>
+                        <TdValue>{card.name}</TdValue>
                       </Tr>
                       <Tr>
                         <TdName>Birthday: </TdName>
-                        <TdValue>{item.birthday}</TdValue>
+                        <TdValue>{formattedBirthday}</TdValue>
                       </Tr>
                       <Tr>
-                        <TdName>Breed: </TdName>
-                        <TdValue>{item.breed}</TdValue>
+                        <TdName>Type: </TdName>
+                        <TdValue>{card.petType}</TdValue>
                       </Tr>
                       <Tr>
                         <TdName>Place: </TdName>
-                        <TdValue>{item.place}</TdValue>
+                        <TdValue>{card.location}</TdValue>
                       </Tr>
                       <Tr>
                         <TdName>The sex: </TdName>
@@ -75,15 +115,17 @@ export const NoticeCardDetail = ({ item }) => {
                       <Tr>
                         <TdName>Email: </TdName>
                         <TdValue>
-                          <Link href={'mailto:' + item.email}>
-                            {item.email}
+                          <Link href={`mailto:${card.ownerEmail}`}>
+                            {card.ownerEmail}
                           </Link>
                         </TdValue>
                       </Tr>
                       <Tr>
                         <TdName>Phone: </TdName>
                         <TdValue>
-                          <Link href={'tel:' + item.phone}>{item.phone}</Link>
+                          <Link href={`tel:${card.ownerPhone}`}>
+                            {card.ownerPhone}
+                          </Link>
                         </TdValue>
                       </Tr>
                     </Tbody>
@@ -91,20 +133,39 @@ export const NoticeCardDetail = ({ item }) => {
                 </ModalCardText>
               </ModalCardInfo>
               <Text>
-                <Comments>Comments:</Comments> {item.comments}
+                <Comments>Comments:</Comments> {card.comments}
               </Text>
               <ButtonsWrapper>
-                <Button>
-                  <ButtonTextAdd>Add to</ButtonTextAdd>
-                  <Icon
-                    iconName={'icon-heart'}
-                    width={'24px'}
-                    height={'24px'}
-                    stroke={'#fff'}
-                  />
+                <Button
+                  style={{
+                    color: !card.isFavorite ? '#FEF9F9' : '#54ADFF',
+                    backgroundColor: card.isFavorite ? '#FEF9F9' : '#54ADFF',
+                    borderColor: !card.isFavorite ? 'transparent' : '#54ADFF'
+                  }}
+                >
+                  <ButtonTextAdd onClick={handleAddInFavorite}>
+                    Add to
+                  </ButtonTextAdd>
+                  {!card.isFavorite ? (
+                    <Icon
+                      iconName={'icon-heart'}
+                      width={'24px'}
+                      height={'24px'}
+                      stroke={'#fff'}
+                    />
+                  ) : (
+                    <Icon
+                      iconName={'icon-heart-full'}
+                      width={'24px'}
+                      height={'24px'}
+                      fill={'#54ADFF'}
+                    />
+                  )}
                 </Button>
                 <ButtonLinkContact>
-                  <ButtonTextContact>Contact</ButtonTextContact>
+                  <ButtonTextContact href={`tel:${card.ownerPhone}`}>
+                    Contact
+                  </ButtonTextContact>
                 </ButtonLinkContact>
               </ButtonsWrapper>
             </ModalCard>
