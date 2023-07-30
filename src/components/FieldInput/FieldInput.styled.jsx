@@ -21,6 +21,8 @@ export const Label = styled.label`
     gap: 8px;
     line-height: calc(26.5 / 20);
   }
+
+  color: ${props => props.theme.colors.text};
 `;
 
 export const Input = styled.input`
