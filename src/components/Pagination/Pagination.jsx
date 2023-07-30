@@ -4,11 +4,7 @@ import { Icon } from '../Icon/Icon';
 
 import { StyledPaginateContainer } from './Pagination.styled';
 
-export const Pagination = ({
-  handlePageChange,
-  pageCount = 1,
-  //   currentPage = 1,
-}) => {
+export const Pagination = ({ handlePageChange, pageCount = 1 }) => {
   return (
     <StyledPaginateContainer>
       <ReactPaginate
@@ -30,7 +26,6 @@ export const Pagination = ({
         activeClassName="active"
         renderOnZeroPageCount={null}
         className="pagination"
-        // forcePage={currentPage - 1}
       />
     </StyledPaginateContainer>
   );
