@@ -15,18 +15,21 @@ const authHeader = {
 export const registerUser = async credentials => {
   const { data } = await axios.post('/auth/register', credentials);
   authHeader.set(data.token);
+
   return data;
 };
 
 export const loginUser = async credentials => {
   const { data } = await axios.post('/auth/login', credentials);
   authHeader.set(data.token);
+
   return data;
 };
 
 export const logoutUser = async () => {
   const { data } = await axios.post('/auth/logout');
   authHeader.unset();
+
   return data;
 };
 
@@ -35,6 +38,6 @@ export const fetchUserByToken = async persistedToken => {
   const {
     data: { user },
   } = await axios.get('/users');
-  console.log('data: ', user);
+
   return user;
 };
