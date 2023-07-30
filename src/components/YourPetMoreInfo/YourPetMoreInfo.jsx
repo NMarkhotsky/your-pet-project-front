@@ -6,12 +6,14 @@ import { ButtonNext, ButtonPrev } from "../StyledButtons/StyledButtons";
 import { BackIcon, PawIcon } from "../../icons";
 import { FormYourPetMoreInfo } from "./YourPetMoreInfo.styled";
 
-function YourPetMoreInfo({ formik, handleDefinePage }) {
+function YourPetMoreInfo({ formik, handleDefinePage, setFile, file }) {
 
   return (
     <>
       <FormYourPetMoreInfo onSubmit={formik.handleSubmit}>
         <File
+          setFile={setFile}
+          file={file}
           formik={formik}
           text="Load the pet’s image:"
           direction="row"
@@ -26,7 +28,7 @@ function YourPetMoreInfo({ formik, handleDefinePage }) {
             </ButtonNext>
             <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
               <BackIcon />
-              Cancel
+              Back
             </ButtonPrev>
           </ButtonsWrapper>
       </FormYourPetMoreInfo>

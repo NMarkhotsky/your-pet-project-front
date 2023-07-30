@@ -15,7 +15,7 @@ import { clearMoreInfo } from "../../redux/add-pet/moreInfoSlice";
 import { clearOption } from "../../redux/add-pet/optionSlice";
 import { clearPersonalDetails } from "../../redux/add-pet/personalDetailsSlice";
 
-function MoreInfo({ option, handleDefinePage }) {
+function MoreInfo({ option, handleDefinePage, setFile, file }) {
   const { personalDetails } = useAddPet();
 
   const dispatch = useDispatch();
@@ -106,11 +106,11 @@ function MoreInfo({ option, handleDefinePage }) {
 
   switch (option) {
     case petValues.yourPet:
-      return <YourPetMoreInfo formik={formikYourPet} handleDefinePage={handleDefinePage} />
+      return <YourPetMoreInfo setFile={setFile} file={file} formik={formikYourPet} handleDefinePage={handleDefinePage} />
     case petValues.SELL:
-      return <SellMoreInfo formik={formikSellPet} handleDefinePage={handleDefinePage} />
+      return <SellMoreInfo setFile={setFile} file={file} formik={formikSellPet} handleDefinePage={handleDefinePage} />
     default:
-      return <DefaultMoreInfo formik={formikDefault} handleDefinePage={handleDefinePage} />
+      return <DefaultMoreInfo setFile={setFile} file={file} formik={formikDefault} handleDefinePage={handleDefinePage} />
   }
 
 }
