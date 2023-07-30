@@ -48,7 +48,7 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
         </ButtonNext>
         <ButtonPrev type="button">
           <BackIcon />
-          Cancel
+          Back
         </ButtonPrev>
       </ButtonsWrapper>
     </MyForm>

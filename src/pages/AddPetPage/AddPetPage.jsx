@@ -7,6 +7,7 @@ import { FormBody, Main, Title } from "./AddPetPage.styled";
 
 function AddPetPage() {
   const [currentPage, setCurrentPage] = useState(0);
+  const [file, setFile] = useState(null);
 
   return (
     <>
@@ -14,7 +15,12 @@ function AddPetPage() {
         <FormBody>
           <Title>Add pet</Title>
           <FormPaginationList currentPage={currentPage} />
-          <FormAddPet currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <FormAddPet
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            setFile={setFile}
+            file={file}
+          />
         </FormBody>
       </Main>
     </>
