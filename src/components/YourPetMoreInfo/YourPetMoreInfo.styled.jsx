@@ -6,6 +6,7 @@ export const FormYourPetMoreInfo = styled.form`
   display: flex;
   flex-direction: column;
   gap: 24px;
+  margin-top: 16px;
   @media ${selectTablet} {
     height: calc(100% - 160px);
   }

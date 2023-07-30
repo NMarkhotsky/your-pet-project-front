@@ -8,7 +8,7 @@ export const FormPetInfo = styled.form`
   height: calc(100% - 140px);
   box-sizing: border-box;
   margin-top: 16px;
-  @media ${selectTablet} {
+  margin-bouttom @media ${selectTablet} {
     margin-top: 20px;
     gap: 24px;
     height: calc(100% - 160px);
