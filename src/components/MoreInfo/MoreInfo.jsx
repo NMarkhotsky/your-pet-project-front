@@ -2,23 +2,38 @@
 import { useFormik } from "formik";
 import { petValues } from "../../constants";
 
-import DefaultMoreInfo from "../DefaultMoreInfo/DefaultMoreInfo";
-import SellMoreInfo from "../SellMoreInfo/SellMoreInfo";
-import YourPetMoreInfo from "../YourPetMoreInfo/YourPetMoreInfo";
-import { validationYourPet } from "../YourPetMoreInfo/validationYourPet";
-import { useAddPet } from "../../hooks";
-import { validationDefaultInfo } from "../DefaultMoreInfo/validationDefaultInfo";
-import { validationSellInfo } from "../SellMoreInfo/validationSellInfo";
-import { useDispatch } from "react-redux";
-import { addNotice, addPet } from "../../redux/add-pet/operations";
-import { clearMoreInfo } from "../../redux/add-pet/moreInfoSlice";
-import { clearOption } from "../../redux/add-pet/optionSlice";
-import { clearPersonalDetails } from "../../redux/add-pet/personalDetailsSlice";
+import DefaultMoreInfo from '../DefaultMoreInfo/DefaultMoreInfo';
+import SellMoreInfo from '../SellMoreInfo/SellMoreInfo';
+import YourPetMoreInfo from '../YourPetMoreInfo/YourPetMoreInfo';
+import { validationYourPet } from '../YourPetMoreInfo/validationYourPet';
+import { useAddPet } from '../../hooks';
+import { validationDefaultInfo } from '../DefaultMoreInfo/validationDefaultInfo';
+import { validationSellInfo } from '../SellMoreInfo/validationSellInfo';
+import { useDispatch } from 'react-redux';
+import { addNotice, addPet } from '../../redux/add-pet/operations';
+import {
+  clearMoreInfo,
+  clearRedirect,
+} from '../../redux/add-pet/moreInfoSlice';
+import { clearOption } from '../../redux/add-pet/optionSlice';
+import { clearPersonalDetails } from '../../redux/add-pet/personalDetailsSlice';
+import { Navigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function MoreInfo({ option, handleDefinePage, setFile, file }) {
-  const { personalDetails } = useAddPet();
+  const {
+    personalDetails,
+    moreInfo: { redirect },
+  } = useAddPet();
+  const location = useLocation();
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (redirect) {
+      dispatch(clearRedirect());
+    }
+  }, [redirect, dispatch]);
 
   const onSubmit = async (values, { resetForm }) => {
     const data = {
@@ -101,6 +116,19 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     onSubmit,
     validationSchema: validationDefaultInfo,
   });
+
+  if (redirect) {
+    return (
+      <Navigate
+        to={
+          (location.state &&
+            location.state.from &&
+            location.state.from.pathname) ||
+          '/notices'
+        }
+      />
+    );
+  }
 
   switch (option) {
     case petValues.yourPet:

@@ -17,6 +17,8 @@ export const Label = styled.label`
     font-size: ${props => props.theme.fontSizes.lg};
     line-height: 1.4;
   }
+
+  color: ${props => props.theme.colors.text};
 `;
 
 export const Textarea = styled.textarea`

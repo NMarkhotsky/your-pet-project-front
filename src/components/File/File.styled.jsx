@@ -71,4 +71,6 @@ export const TextFile = styled.span`
     max-width: 114px;
     line-height: 1.4;
   }
+
+  color: ${props => props.theme.colors.text};
 `;
