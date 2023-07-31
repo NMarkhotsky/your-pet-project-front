@@ -45,10 +45,9 @@ const moreInfoSlice = createSlice({
         state.isLoad = true;
         state.redirect = false;
       })
-      .addCase(addPet.fulfilled, (state, action) => {
+      .addCase(addPet.fulfilled, state => {
         state.isLoad = false;
         state.error = null;
-        state.data = action.payload;
         state.redirect = true;
       })
       .addCase(addPet.rejected, (state, action) => {
