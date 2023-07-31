@@ -21,8 +21,8 @@ export const getAllNotices = async (params) => {
         for (let key in params) {
             reqURL += `&${key}=${params[key]}`
         }
-        const response = await axios.get(`/notices?${reqURL}`);
-        return response;
+        const {data} = await axios.get(`/notices?${reqURL}`);
+        return data;
     } catch (error) {
         console.log(error);
     }
@@ -72,9 +72,9 @@ export const getSelfNotices = async (params) => {
         for (let key in params) {
             reqURL += `&${key}=${params[key]}`
         }
-        const response = await axios.get(`/notices/self?${reqURL}`);
+        const {data} = await axios.get(`/notices/self?${reqURL}`);
 
-        return response;
+        return data;
     } catch (error) {
         console.log(error);
     }
@@ -86,9 +86,9 @@ export const getFavoriteNotices = async (params) => {
         for (let key in params) {
             reqURL += `&${key}=${params[key]}`
         }
-        const response = await axios.get(`/notices/self?${reqURL}`);
+        const {data} = await axios.get(`/notices/self?${reqURL}`);
 
-        return response;
+        return data;
     } catch (error) {
         console.log(error);
     }

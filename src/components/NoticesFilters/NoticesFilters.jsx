@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -18,10 +18,57 @@ import {
 
 import { Icon } from '../Icon/Icon';
 
-export const NoticesFilters = ({ onFilter, filters }) => {
+export const NoticesFilters = ({ getFilterParams }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
   const [genderOpen, setGenderOpen] = useState(false);
+  const [filters, setFilters] = useState([])
+
+  useEffect(() => {
+    const updatedFilterParams = {
+      younger: false,
+      middle: false,
+      older: false,
+      sex: null,
+    }
+
+  if (filters.includes('0-12 m')) {
+    updatedFilterParams.young = true
+  } else {
+    updatedFilterParams.young = false
+  }
+
+  if (filters.includes('1 year')) {
+    updatedFilterParams.middle = true
+  } else {
+    updatedFilterParams.middle = false
+  }
+
+  if (filters.includes('2 years +')) {
+    updatedFilterParams.older = true
+  } else {
+    updatedFilterParams.older = false
+  }
+
+  if (filters.includes('male')) {
+    updatedFilterParams.sex = 'male'
+  } else if (filters.includes('female')) {
+    updatedFilterParams.sex = 'female'
+  } else if (filters.includes('male','female')) {
+    updatedFilterParams.sex = null
+  } else {
+    updatedFilterParams.sex = null
+  }
+
+      Object.keys(updatedFilterParams).forEach((key) => {
+        if (updatedFilterParams[key] === false || updatedFilterParams[key] === null) {
+          delete updatedFilterParams[key];
+        }
+      });
+
+    getFilterParams(updatedFilterParams)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters])
 
   const handleBtnClick = () => {
     setIsOpen(prevState => !prevState);
@@ -36,7 +83,12 @@ export const NoticesFilters = ({ onFilter, filters }) => {
   };
 
   const handleCheckboxChange = e => {
-    onFilter(e.target);
+    if (filters.includes(e.target.value)) {
+      setFilters(prev => (prev.filter(item => item !== e.target.value)));
+    } else {
+      setFilters(prev => [...prev, e.target.value])
+    }
+    
   };
 
   return (
@@ -149,6 +201,5 @@ export const NoticesFilters = ({ onFilter, filters }) => {
 };
 
 NoticesFilters.propTypes = {
-  onFilter: PropTypes.func.isRequired,
-  filters: PropTypes.arrayOf(PropTypes.string),
+  getFilterParams: PropTypes.func.isRequired,
 };
