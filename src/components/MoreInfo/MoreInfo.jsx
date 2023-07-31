@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useFormik } from "formik";
-import { petValues } from "../../constants";
+import { useFormik } from 'formik';
+import { petValues } from '../../constants';
 
 import DefaultMoreInfo from '../DefaultMoreInfo/DefaultMoreInfo';
 import SellMoreInfo from '../SellMoreInfo/SellMoreInfo';
@@ -57,12 +57,14 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     const { type, gender, ...noticeObj } = data;
 
     if (option === petValues.SELL) {
-      dispatch(addNotice({
-        noticeType: option,
-        sex: data.gender,
-        petType: data.type,
-        ...noticeObj
-      }))
+      dispatch(
+        addNotice({
+          noticeType: option,
+          sex: data.gender,
+          petType: data.type,
+          ...noticeObj,
+        })
+      );
       resetForm();
       dispatch(clearPersonalDetails());
       dispatch(clearMoreInfo());
@@ -73,22 +75,24 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     // eslint-disable-next-line
     const { price, ...noticeObjWithoutPrice } = noticeObj;
 
-    dispatch(addNotice({
-      noticeType: option,
-      sex: data.gender,
-      petType: data.type,
-      ...noticeObjWithoutPrice
-    }))
+    dispatch(
+      addNotice({
+        noticeType: option,
+        sex: data.gender,
+        petType: data.type,
+        ...noticeObjWithoutPrice,
+      })
+    );
     dispatch(clearPersonalDetails());
     dispatch(clearMoreInfo());
     dispatch(clearOption());
     resetForm();
-  }
+  };
 
   const formikYourPet = useFormik({
     initialValues: {
       photo: null,
-      comments: "",
+      comments: '',
     },
     onSubmit,
     validationSchema: validationYourPet,
@@ -96,11 +100,11 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
 
   const formikSellPet = useFormik({
     initialValues: {
-      gender: "",
+      gender: '',
       photo: null,
-      location: "",
-      price: "",
-      comments: "",
+      location: '',
+      price: '',
+      comments: '',
     },
     onSubmit,
     validationSchema: validationSellInfo,
@@ -108,10 +112,10 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
 
   const formikDefault = useFormik({
     initialValues: {
-      gender: "",
+      gender: '',
       photo: null,
-      location: "",
-      comments: "",
+      location: '',
+      comments: '',
     },
     onSubmit,
     validationSchema: validationDefaultInfo,
@@ -132,13 +136,33 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
 
   switch (option) {
     case petValues.yourPet:
-      return <YourPetMoreInfo setFile={setFile} file={file} formik={formikYourPet} handleDefinePage={handleDefinePage} />
+      return (
+        <YourPetMoreInfo
+          setFile={setFile}
+          file={file}
+          formik={formikYourPet}
+          handleDefinePage={handleDefinePage}
+        />
+      );
     case petValues.SELL:
-      return <SellMoreInfo setFile={setFile} file={file} formik={formikSellPet} handleDefinePage={handleDefinePage} />
+      return (
+        <SellMoreInfo
+          setFile={setFile}
+          file={file}
+          formik={formikSellPet}
+          handleDefinePage={handleDefinePage}
+        />
+      );
     default:
-      return <DefaultMoreInfo setFile={setFile} file={file} formik={formikDefault} handleDefinePage={handleDefinePage} />
+      return (
+        <DefaultMoreInfo
+          setFile={setFile}
+          file={file}
+          formik={formikDefault}
+          handleDefinePage={handleDefinePage}
+        />
+      );
   }
-
 }
 
 export default MoreInfo;

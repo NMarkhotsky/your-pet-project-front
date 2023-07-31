@@ -33,10 +33,12 @@ export const ChooseOptionWrapper = styled.div`
 export const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-top: auto;
+  gap: 20px;
+  margin-top: ${props => (props.page === 'yourPet' ? '44px' : 'auto')};
 
   @media ${selectTablet} {
     flex-direction: row-reverse;
+    justify-content: center;
+    gap: 32px;
   }
 `;
