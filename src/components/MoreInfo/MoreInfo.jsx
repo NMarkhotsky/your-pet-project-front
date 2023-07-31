@@ -11,19 +11,29 @@ import { validationDefaultInfo } from '../DefaultMoreInfo/validationDefaultInfo'
 import { validationSellInfo } from '../SellMoreInfo/validationSellInfo';
 import { useDispatch } from 'react-redux';
 import { addNotice, addPet } from '../../redux/add-pet/operations';
-import { clearMoreInfo } from '../../redux/add-pet/moreInfoSlice';
+import {
+  clearMoreInfo,
+  clearRedirect,
+} from '../../redux/add-pet/moreInfoSlice';
 import { clearOption } from '../../redux/add-pet/optionSlice';
 import { clearPersonalDetails } from '../../redux/add-pet/personalDetailsSlice';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 function MoreInfo({ option, handleDefinePage, setFile, file }) {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-
-  const { personalDetails } = useAddPet();
+  const {
+    personalDetails,
+    moreInfo: { redirect },
+  } = useAddPet();
   const location = useLocation();
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (redirect) {
+      dispatch(clearRedirect());
+    }
+  }, [redirect, dispatch]);
 
   const onSubmit = async (values, { resetForm }) => {
     const data = {
@@ -39,7 +49,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
       dispatch(clearPersonalDetails());
       dispatch(clearMoreInfo());
       dispatch(clearOption());
-      setIsFormSubmitted(true);
+
       return;
     }
 
@@ -58,7 +68,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
       dispatch(clearPersonalDetails());
       dispatch(clearMoreInfo());
       dispatch(clearOption());
-      setIsFormSubmitted(true);
+
       return;
     }
 
@@ -80,7 +90,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     dispatch(clearPersonalDetails());
     dispatch(clearMoreInfo());
     dispatch(clearOption());
-    setIsFormSubmitted(true);
+
     resetForm();
   };
 
@@ -116,7 +126,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     validationSchema: validationDefaultInfo,
   });
 
-  if (isFormSubmitted) {
+  if (redirect) {
     return (
       <Navigate
         to={
