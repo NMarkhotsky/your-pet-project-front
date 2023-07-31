@@ -11,7 +11,10 @@ import { petValues } from '../../constants';
 function AddPetPage() {
   const [currentPage, setCurrentPage] = useState(0);
   const [file, setFile] = useState(null);
-  const { option } = useAddPet();
+  const {
+    option,
+    moreInfo: { isLoad },
+  } = useAddPet();
 
   const titleText =
     option === petValues.SELL
@@ -29,12 +32,14 @@ function AddPetPage() {
         <FormBody>
           <Title>{titleText}</Title>
           <FormPaginationList currentPage={currentPage} />
-          <FormAddPet
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            setFile={setFile}
-            file={file}
-          />
+          {!isLoad && (
+            <FormAddPet
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              setFile={setFile}
+              file={file}
+            />
+          )}
         </FormBody>
       </Main>
     </>
