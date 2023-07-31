@@ -5,13 +5,13 @@ import FieldInput from '../FieldInput/FieldInput';
 import { validationPersonalDetails } from './validationPersonalDetails';
 import { FormPetInfo } from '../FormPetInfo/FormPetInfo.styled';
 import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
-import { BackIcon, PawIcon } from '../../icons';
 import { ButtonsWrapper } from '../ChoiseOption/ChoiseOption.styled';
 import { useAddPet } from '../../hooks';
 import { useEffect } from 'react';
+import { Icon } from '../Icon/Icon';
 
 function PersonalDetails({ onSubmit, handleDefinePage }) {
-  const { personalDetails } = useAddPet();
+  const { personalDetails, option } = useAddPet();
 
   const formik = useFormik({
     initialValues: initialStatePersonalDetails,
@@ -55,13 +55,13 @@ function PersonalDetails({ onSubmit, handleDefinePage }) {
         name={'type'}
         onChange={formik.handleChange}
       />
-      <ButtonsWrapper>
+      <ButtonsWrapper page={option}>
         <ButtonNext type="submit">
           Next
-          <PawIcon />
+          <Icon iconName="icon-pawprint" fill="#FFFFFF" />
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
-          <BackIcon />
+          <Icon iconName="icon-arrow-left" stroke="#54adff" />
           Back
         </ButtonPrev>
       </ButtonsWrapper>

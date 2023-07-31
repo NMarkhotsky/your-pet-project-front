@@ -11,6 +11,11 @@ export const AddPhoto = styled.div`
   position: relative;
   transition: all 300ms ease;
 
+  @media ${selectTablet} {
+    width: 182px;
+    height: 182px;
+  }
+
   &:hover {
     background-color: ${props =>
       props.mistake === 'true' ? '#ff9898' : '#98ccff'};
@@ -45,9 +50,17 @@ export const LabelFile = styled.label`
   display: flex;
   position: relative;
   flex-direction: ${props => props.direction};
-  align-items: ${props => props.items};
+  align-items: center;
   justify-content: ${props => props.justify};
-  gap: ${props => props.gap};
+  gap: 16px;
+
+  @media ${selectTablet} {
+    flex-direction: ${props => (props.value === 'yourPet' ? 'row' : 'column')};
+    justify-content: ${props =>
+      props.value === 'yourPet' ? 'flex-start' : 'center'};
+    align-items: ${props => (props.value === 'yourPet' ? 'center' : 'center')};
+    gap: ${props => (props.value === 'yourPet' ? '16px' : '0')};
+  }
 `;
 
 export const InputFile = styled.input`
@@ -68,8 +81,9 @@ export const TextFile = styled.span`
 
   @media ${selectTablet} {
     font-size: ${props => props.theme.fontSizes.lg};
-    max-width: 114px;
+    max-width: ${props => (props.value === 'yourPet' ? '114px' : '100%')};
     line-height: 1.4;
+    margin-bottom: 8px;
   }
 
   color: ${props => props.theme.colors.text};
