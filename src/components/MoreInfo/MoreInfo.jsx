@@ -16,8 +16,6 @@ import { clearOption } from "../../redux/add-pet/optionSlice";
 import { clearPersonalDetails } from "../../redux/add-pet/personalDetailsSlice";
 
 function MoreInfo({ option, handleDefinePage, setFile, file }) {
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
-
   const { personalDetails } = useAddPet();
 
   const dispatch = useDispatch();
