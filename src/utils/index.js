@@ -1,6 +1,5 @@
 import { createColor } from './createColor';
 import { generateColor } from './generateColor';
-import { getColorGender } from './getColorGender';
 import {
   selectPhone,
   selectTablet,
@@ -14,7 +13,6 @@ export {
   selectPhone,
   selectTablet,
   selectDesktop,
-  getColorGender,
   createColor,
   applySearchParams,
   getFilterValues,

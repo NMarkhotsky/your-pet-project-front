@@ -2,10 +2,8 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { petValues } from '../../constants';
-import { getColorGender } from '../../utils';
 import { ButtonsWrapper } from '../ChoiseOption/ChoiseOption.styled';
 import Comments from '../Comment/Comment';
-import ErrorTextAddPet from '../ErrorTextAddPet/ErrorTextAddPet';
 import FieldInput from '../FieldInput/FieldInput';
 import File from '../File/File';
 import GenderRadio from '../GenderRadio/GenderRadio';
@@ -76,7 +74,13 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
                 icon={
                   <Icon
                     iconName="icon-female"
-                    stroke={getColorGender({ value: petValues.female, formik })}
+                    stroke={
+                      formik.values.gender === petValues.female
+                        ? '#fff'
+                        : formik.values.gender === petValues.male
+                        ? '#888888'
+                        : '#F43F5E'
+                    }
                   />
                 }
               />
@@ -90,15 +94,18 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
                 icon={
                   <Icon
                     iconName="icon-male"
-                    stroke={getColorGender({ value: petValues.male, formik })}
+                    stroke={
+                      formik.values.gender === petValues.male
+                        ? '#fff'
+                        : formik.values.gender === petValues.female
+                        ? '#888888'
+                        : '#54ADFF'
+                    }
                   />
                 }
               />
             </RadioWrapper>
           </SexContainer>
-          {formik.errors.gender && formik.touched.gender ? (
-            <ErrorTextAddPet text={formik.errors.gender} />
-          ) : null}
 
           <File
             setFile={setFile}

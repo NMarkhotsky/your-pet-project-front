@@ -6,7 +6,6 @@ import Comments from '../Comment/Comment';
 import FieldInput from '../FieldInput/FieldInput';
 import File from '../File/File';
 import GenderRadio from '../GenderRadio/GenderRadio';
-import { getColorGender } from '../../utils';
 import { ButtonsWrapper } from '../ChoiseOption/ChoiseOption.styled';
 import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
 import { useAddPet } from '../../hooks';
@@ -75,7 +74,13 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
                 icon={
                   <Icon
                     iconName="icon-female"
-                    stroke={getColorGender({ value: petValues.female, formik })}
+                    stroke={
+                      formik.values.gender === petValues.female
+                        ? '#fff'
+                        : formik.values.gender === petValues.male
+                        ? '#888888'
+                        : '#F43F5E'
+                    }
                   />
                 }
               />
@@ -89,7 +94,13 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
                 icon={
                   <Icon
                     iconName="icon-male"
-                    stroke={getColorGender({ value: petValues.male, formik })}
+                    stroke={
+                      formik.values.gender === petValues.male
+                        ? '#fff'
+                        : formik.values.gender === petValues.female
+                        ? '#888888'
+                        : '#54ADFF'
+                    }
                   />
                 }
               />
