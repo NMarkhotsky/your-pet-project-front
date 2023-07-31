@@ -12,6 +12,7 @@ import {
   FormText,
 } from '../common/AuthFormContainer/AuthFormContainer.styled';
 import { RegisterSchema } from './RegisterSchema';
+import AuthGoogleBtn from '../common/AuthGoogleBtn';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -105,6 +106,7 @@ export const RegisterForm = () => {
           />
         </FormPasswordContainer>
         <AuthFormBtn btnText="Registration" />
+        <AuthGoogleBtn />
         <FormText>
           Already have an account? <FormLink to="/login">Login</FormLink>
         </FormText>

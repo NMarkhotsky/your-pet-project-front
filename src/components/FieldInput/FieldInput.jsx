@@ -3,10 +3,7 @@ import ErrorTextAddPet from "../ErrorTextAddPet/ErrorTextAddPet";
 import { Input, Label } from "./FieldInput.styled";
 
 function FieldInput({ text, id, name, onChange, formik, date, placeholder }) {
-
   const mistake = !!formik.errors[id] && formik.touched[id];
-
-  // console.log(formik.values)
 
   return (
     <>

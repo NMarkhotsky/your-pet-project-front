@@ -1,26 +1,30 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { selectTablet } from '../../utils';
 
 export const AddPhoto = styled.div`
   width: 112px;
   height: 112px;
-  background-color: ${props => props.mistake === "true" ? "#FBCCCC" : "#CCE4FB"};
+  background-color: ${props =>
+    props.mistake === 'true' ? '#FBCCCC' : '#CCE4FB'};
   border-radius: 25px;
   cursor: pointer;
   position: relative;
   transition: all 300ms ease;
 
   &:hover {
-    background-color: ${props => props.mistake === "true" ? "#ff9898" : "#98ccff"};
+    background-color: ${props =>
+      props.mistake === 'true' ? '#ff9898' : '#98ccff'};
   }
 
   &::before,
   &::after {
-    content: "";
-    position: ${props => props.file ? "" : "absolute"};
+    content: '';
+    position: ${props => (props.file ? '' : 'absolute')};
     top: 50%;
     left: 50%;
     border-radius: 100px;
-    background-color: ${props => props.mistake === "true" ? "#ff5454" : "#54ADFF"};
+    background-color: ${props =>
+      props.mistake === 'true' ? '#ff5454' : '#54ADFF'};
     transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     transition: all 300ms ease;
@@ -56,5 +60,17 @@ export const InputFile = styled.input`
 `;
 
 export const TextFile = styled.span`
+  color: ${props => props.theme.colors.black};
+  font-family: ${props => props.theme.fonts.main.medium};
+  font-size: ${props => props.theme.fontSizes.sm};
   max-width: 80px;
+  line-height: 1.35;
+
+  @media ${selectTablet} {
+    font-size: ${props => props.theme.fontSizes.lg};
+    max-width: 114px;
+    line-height: 1.4;
+  }
+
+  color: ${props => props.theme.colors.text};
 `;

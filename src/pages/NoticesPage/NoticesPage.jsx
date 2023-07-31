@@ -1,18 +1,18 @@
-import { Outlet } from 'react-router-dom';
+ import { Outlet } from 'react-router-dom';
 
-function NoticesPage() {
+ function NoticesPage() {
   return (
     <>
-      <h1>NoticesPage</h1>
+       <h1>NoticesPage</h1>
       <Outlet />
     </>
-  );
+   );
 }
 
 export default NoticesPage;
+
 // import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
 // import { useEffect, useState, useCallback, useRef, useMemo } from 'react';
-// // import { useDispatch } from 'react-redux';
 // import { toast } from 'react-toastify';
 
 // import { NoticesCategoriesNav } from '../../components/NoticesCategoriesNav/NoticesCategoriesNav';
@@ -33,10 +33,6 @@ export default NoticesPage;
 
 //   const [searchParams, setSearchParams] = useSearchParams();
 //   const { isLoggedIn, user } = useAuth();
-//   // const dispatch = useDispatch();
-
-//   const { pathname } = useLocation();
-//   const prevPathname = useRef(pathname);
 
 //   const search = searchParams.get('search');
 //   const gender = searchParams.get('gender');
@@ -80,54 +76,6 @@ export default NoticesPage;
 //     setSearchParams(searchParams);
 //     resetPage();
 //   };
-
-//   const getApiNotices = useCallback(async () => {
-//     const path = pathname.split('/');
-//     const category = path[path.length - 1];
-
-//     try {
-//       const { pets, total } = await getNotices({
-//         category,
-//         search,
-//         gender,
-//         page,
-//         limit: PER_PAGE,
-//         age,
-//       });
-
-//       if (pets.length === 0 && total) {
-//         // for cases when there is no more cards for current page
-//         // return and trigger next render
-//         searchParams.set('page', page - 1);
-//         setSearchParams(searchParams);
-//         return;
-//       }
-
-//       if (total === 0) {
-//         setItems([]);
-//         resetPage();
-//         setSearchParams(searchParams);
-//         // setIsLoading(false);
-//         return;
-//       }
-
-//       setPageCount(Math.ceil(total / PER_PAGE));
-//       setItems(pets);
-//     } catch (error) {
-//       toast.error(error.message);
-//     } finally {
-//       // setIsLoading(false);
-//     }
-//   }, [
-//     age,
-//     gender,
-//     page,
-//     pathname,
-//     search,
-//     resetPage,
-//     searchParams,
-//     setSearchParams,
-//   ]);
 
 //   const filters = useMemo(() => getFilterValues(searchParams), [searchParams]);
 

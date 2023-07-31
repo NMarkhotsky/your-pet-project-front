@@ -28,6 +28,11 @@ const authSlice = createSlice({
         state.isNewUser = false;
       },
     },
+    googleAuth: {
+      reducer(state, action) {
+        state.token = action.payload;
+      },
+    },
   },
   extraReducers: builder => {
     builder
@@ -80,5 +85,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { setIsNewUserFalse } = authSlice.actions;
+export const { setIsNewUserFalse, googleAuth } = authSlice.actions;
 export const authReducer = authSlice.reducer;
