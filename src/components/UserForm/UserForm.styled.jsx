@@ -28,6 +28,16 @@ export const ImageBox = styled.div`
 export const ImageInputBox = styled.div`
   text-align: center;
   margin-bottom: 26px;
+
+  & svg {
+    transform: scale(1);
+    transition: ${({ theme }) => theme.transitionHover};
+  }
+
+  & svg:hover {
+    transform: scale(1.1);
+    transition: ${({ theme }) => theme.transitionHover};
+  }
 `;
 
 export const ConfirmText = styled.p`
@@ -134,6 +144,16 @@ export const LogoutBox = styled.div`
   align-items: center;
   gap: 12px;
   cursor: pointer;
+
+  & > svg {
+    transform: scale(1);
+    transition: ${({ theme }) => theme.transitionHover};
+  }
+
+  & > svg:hover {
+    transform: scale(1.1);
+    transition: ${({ theme }) => theme.transitionHover};
+  }
 `;
 
 export const LogoutText = styled.p`
@@ -149,4 +169,14 @@ export const EditIcon = styled.div`
   top: 3%;
   right: 3%;
   cursor: pointer;
+
+  & > svg {
+    transform: scale(1);
+    transition: ${({ theme }) => theme.transitionHover};
+  }
+
+  & > svg:hover {
+    transform: scale(1.1);
+    transition: ${({ theme }) => theme.transitionHover};
+  }
 `;

@@ -1,17 +1,16 @@
 /* eslint-disable react/prop-types */
-import { useFormik } from "formik";
-import FieldInput from "../FieldInput/FieldInput";
-import { initialStatePersonalDetailsPlus } from "../../constants";
-import { validationPersonalDetailsPlus } from "./validationPersonalDetailsPlus";
-import { FormPetInfo } from "../FormPetInfo/FormPetInfo.styled";
-import { ButtonsWrapper } from "../ChoiseOption/ChoiseOption.styled";
-import { ButtonNext, ButtonPrev } from "../StyledButtons/StyledButtons";
-import { BackIcon, PawIcon } from "../../icons";
-import { useEffect } from "react";
-import { useAddPet } from "../../hooks";
+import { useFormik } from 'formik';
+import FieldInput from '../FieldInput/FieldInput';
+import { initialStatePersonalDetailsPlus } from '../../constants';
+import { validationPersonalDetailsPlus } from './validationPersonalDetailsPlus';
+import { FormPetInfo } from '../FormPetInfo/FormPetInfo.styled';
+import { ButtonsWrapper } from '../ChoiseOption/ChoiseOption.styled';
+import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
+import { useEffect } from 'react';
+import { useAddPet } from '../../hooks';
+import { Icon } from '../Icon/Icon';
 
 function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
-
   const { personalDetails } = useAddPet();
 
   const formik = useFormik({
@@ -36,7 +35,7 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Title of add"
         text="Title of add"
         id="title"
-        name={"title"}
+        name={'title'}
         onChange={formik.handleChange}
       />
       <FieldInput
@@ -44,7 +43,7 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Type name pet"
         text="Pet’s name"
         id="name"
-        name={"name"}
+        name={'name'}
         onChange={formik.handleChange}
       />
       <FieldInput
@@ -53,7 +52,7 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         text="Date of birth"
         id="birthday"
         date
-        name={"birthday"}
+        name={'birthday'}
         onChange={formik.handleChange}
       />
       <FieldInput
@@ -61,21 +60,20 @@ function PersonalDetailsPlus({ onSubmit, handleDefinePage }) {
         placeholder="Type of pet"
         text="Type"
         id="type"
-        name={"type"}
+        name={'type'}
         onChange={formik.handleChange}
       />
       <ButtonsWrapper>
-        <ButtonNext disabled={formik.values.option === ""} type="submit">
+        <ButtonNext disabled={formik.values.option === ''} type="submit">
           Next
-          <PawIcon />
+          <Icon iconName="icon-pawprint" fill="#FFFFFF" />
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
-          <BackIcon />
-          Back
+          <Icon iconName="icon-arrow-left" stroke="#54adff" /> Back
         </ButtonPrev>
       </ButtonsWrapper>
     </FormPetInfo>
-  )
+  );
 }
 
 export default PersonalDetailsPlus;

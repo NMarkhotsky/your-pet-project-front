@@ -50,6 +50,14 @@ export const Button = styled.button`
   font-size: ${props => props.theme.fontSizes.md};
   font-family: ${props => props.theme.fonts.main.bold};
   letter-spacing: 0.64px;
+
+  transition: ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    background-color: ${props => props.theme.colors.blueDark};
+
+    transition: ${({ theme }) => theme.transitionHover};
+  }
 `;
 
 export const Img = styled.img`

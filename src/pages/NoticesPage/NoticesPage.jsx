@@ -1,94 +1,94 @@
- import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
+import { NoticesCategoriesNav } from '../../components/NoticesCategoriesNav/NoticesCategoriesNav';
+import { NoticesFilters } from '../../components/NoticesFilters/NoticesFilters';
+import NoticesCategoriesList from '../../components/NoticesCategoriesList/NoticesCategoriesList';
+import { SearchInput } from '../../shared/components/SearchInput/SearchInput';
+import { useEffect, useState, useCallback } from 'react';
+import {getAllNotices, getSelfNotices, getFavoriteNotices} from '../../services/NoticesApi'
+import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
 
- function NoticesPage() {
+
+
+function NoticesPage() {
+  const [notices, setNotices] = useState([])
+  const [searchValue, setSearchValue] = useState('')
+  const [params, setParams] = useState({ category: 'sell', page: 1, search: '' })
+  const [pageCount, setPageCount] = useState(0);
+
+  const limit = 12
+
+  useEffect(() => {
+    (async () => {
+
+      if (!params.category || params.category === 'sell' || params.category === 'in-good-hands' || params.category === 'lost-or-found') {
+        const  data  = await getAllNotices(params);
+        setPageCount(Math.ceil(data.total/limit))
+        return setNotices(data.data)
+      }
+
+      if (params.category === 'my-ads') {
+        const  data  = await getSelfNotices(params);
+        setPageCount(Math.ceil(data.total/limit))
+        return setNotices(data.data)
+      }
+
+      if (params.category === 'favorite') {
+        const data = await getFavoriteNotices(params);
+        setPageCount(Math.ceil(data.total/limit))
+        return setNotices(data.data)
+      }
+
+    })()
+  },[params])
+
+  const onSubmit = () => {
+    setParams(prev => ({...prev, search: searchValue, page: 1}))
+  }
+
+  const onDelete = () => {
+    setSearchValue('')
+    setParams(prev => ({...prev, search: '', page: 1}))
+  }
+
+  const onChange = (value) => {
+    setSearchValue(value)
+  }
+
+  const getCategoryParams = (categoryParams) => {
+    setParams(prev => ({...prev, category: categoryParams}))
+  }
+
+
+  const getFilterParams = (filterParams) => {
+    setParams((prev) => {
+
+      const {category, page, search} = prev
+
+      const updatedParams = {}
+
+      Object.keys(filterParams).forEach((key) => {
+      updatedParams[key] = filterParams[key];
+    });
+
+    return {category, page, search,...updatedParams};
+    });
+  };
+
+
+  const handlePageChange = useCallback(event => {
+    setParams(prev => ({...prev, page: event.selected + 1}));
+  }, []);
+
   return (
     <>
-       <h1>NoticesPage</h1>
-      <Outlet />
+        <TitlePage>Find your favorite pet</TitlePage>
+        <SearchInput onSubmit={onSubmit} onChange={onChange} onDelete={onDelete} value={searchValue}/>
+        <NoticesCategoriesNav getCategoryParams={getCategoryParams} />
+        <NoticesFilters getFilterParams={getFilterParams} />
+        <NoticesCategoriesList notices={notices} pageCount={pageCount} handlePageChange={handlePageChange}/>
     </>
-   );
+  );
 }
 
 export default NoticesPage;
 
-// import { Outlet, useSearchParams, useLocation } from 'react-router-dom';
-// import { useEffect, useState, useCallback, useRef, useMemo } from 'react';
-// import { toast } from 'react-toastify';
-
-// import { NoticesCategoriesNav } from '../../components/NoticesCategoriesNav/NoticesCategoriesNav';
-// import { NoticesFilters } from '../../components/NoticesFilters/NoticesFilters';
-
-// import { useAuth } from '../../hooks/useAuth/useAuth';
-// import { applySearchParams, getFilterValues } from '../../utils';
-
-// import { FilterWrapper } from './NoticesPage.styled';
-// import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
-
-// const PER_PAGE = 12;
-
-// function NoticesPage() {
-//   const [items, setItems] = useState([]);
-//   const [pageCount, setPageCount] = useState(0);
-//   // const [isLoading, setIsLoading] = useState(true);
-
-//   const [searchParams, setSearchParams] = useSearchParams();
-//   const { isLoggedIn, user } = useAuth();
-
-//   const search = searchParams.get('search');
-//   const gender = searchParams.get('gender');
-//   const age = searchParams.get('age');
-//   const page = searchParams.get('page');
-
-//   const resetPage = useCallback(() => {
-//     searchParams.set('page', 1);
-//     setSearchParams(searchParams);
-//   }, [searchParams, setSearchParams]);
-
-//   const handleFilterChange = target => {
-//     applySearchParams(target, searchParams, setSearchParams);
-//     resetPage();
-//   };
-
-//   const handleFilterReset = value => {
-//     if (value === 'male' || value === 'female') {
-//       searchParams.delete('gender');
-//     } else {
-//       searchParams.delete('age');
-//     }
-
-//     setSearchParams(searchParams);
-//     resetPage();
-//   };
-
-//   const handleSubmit = ({ search }) => {
-//     searchParams.set('search', search);
-//     setSearchParams(searchParams);
-//     resetPage();
-//   };
-
-//   // const handlePageClick = e => {
-//   //   searchParams.set('page', e.selected + 1);
-//   //   setSearchParams(searchParams);
-//   // };
-
-//   const handleClear = () => {
-//     searchParams.delete('search', search);
-//     setSearchParams(searchParams);
-//     resetPage();
-//   };
-
-//   const filters = useMemo(() => getFilterValues(searchParams), [searchParams]);
-
-//   return (
-//     <>
-//       <TitlePage>Find your favorite pet</TitlePage>
-//       <FilterWrapper>
-//         <NoticesCategoriesNav searchParams={searchParams} />
-//         <NoticesFilters filters={filters} onFilter={handleFilterChange} />
-//       </FilterWrapper>
-//       <Outlet />
-//     </>
-//   );
-// }
-
-// export default NoticesPage;

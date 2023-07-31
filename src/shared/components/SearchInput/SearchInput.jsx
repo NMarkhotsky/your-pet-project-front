@@ -33,7 +33,7 @@ export const SearchInput = ({ value, onChange, onSubmit, onDelete }) => {
 };
 
 SearchInput.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,

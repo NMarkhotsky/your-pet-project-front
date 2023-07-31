@@ -8,16 +8,18 @@ import {
   NoticeCategoryItem,
 } from './NoticesCategoriesNav.styled';
 
-export const NoticesCategoriesNav = () => {
+import PropTypes from 'prop-types';
+
+export const NoticesCategoriesNav = ({ getCategoryParams }) => {
   const { isLoggedIn } = useAuth();
   const { search } = useLocation();
 
   return (
     <>
       <NoticeCategoriesNavList>
-        {publicCategories.map(({ to, text, id }) => (
+        {publicCategories.map(({ to, text, id, name }) => (
           <li key={id}>
-            <NoticeCategoryItem to={{ pathname: to, search }}>
+            <NoticeCategoryItem to={{ pathname: to, search }} onClick={()=>getCategoryParams(name)}>
               {text}
             </NoticeCategoryItem>
           </li>
@@ -25,9 +27,9 @@ export const NoticesCategoriesNav = () => {
       </NoticeCategoriesNavList>
       {isLoggedIn && (
         <NoticeCategoriesNavList>
-          {privateCategories.map(({ to, text, id }) => (
+          {privateCategories.map(({ to, text, id, name }) => (
             <li key={id}>
-              <NoticeCategoryItem to={{ pathname: to, search }}>
+              <NoticeCategoryItem to={{ pathname: to, search }} onClick={()=>getCategoryParams(name)}>
                 {text}
               </NoticeCategoryItem>
             </li>
@@ -37,3 +39,7 @@ export const NoticesCategoriesNav = () => {
     </>
   );
 };
+NoticesCategoriesNav.propTypes = {
+  getCategoryParams: PropTypes.func.isRequired,
+};
+

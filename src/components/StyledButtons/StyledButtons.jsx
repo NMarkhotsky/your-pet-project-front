@@ -8,7 +8,8 @@ export const ButtonNext = styled.button`
   align-items: center;
   gap: 12px;
   padding: 8px 28px;
-  max-width: 248px;
+  margin: 0 auto;
+  width: 248px;
   color: #fff;
   font-size: 16px;
   font-weight: 700;
@@ -25,7 +26,8 @@ export const ButtonNext = styled.button`
   }
 
   @media ${selectTablet} {
-    flex-basis: 66%;
+    /* flex-basis: 66%; */
+    margin: 0;
   }
 `;
 
@@ -43,7 +45,7 @@ export const ButtonPrev = styled.button`
   letter-spacing: 0.64px;
 
   @media ${selectTablet} {
-    flex-basis: 33%;
+    /* flex-basis: 33%; */
   }
 `;
 

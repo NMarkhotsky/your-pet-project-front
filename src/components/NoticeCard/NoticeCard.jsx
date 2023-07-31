@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types';
 import { Icon } from '../Icon/Icon';
 import {
-  List,
   Item,
   ContainerPetInfo,
   Image,
@@ -15,19 +14,26 @@ import {
   SpanPetText,
   TextPetName,
 } from './NoticeCard.styled';
-import { convertToYears } from '../../utils/convertToYears';
+// import { convertToYears } from '../../utils/convertToYears';
 import { truncateText } from '../../utils/truncateText';
 import { Btn } from '../../shared/components/Button/Btn';
+import { NoticeCardDetail } from '../NoticeCardDetail/NoticeCardDetail';
+import { useState } from 'react';
 
-export const NoticeCard = ({ items }) => {
+export const NoticeCard = ({ item }) => {
+  const [isLearnMore, setIsLearnMore] = useState(false)
+
+
+  const handleLearnMore = () => {
+    setIsLearnMore(true)
+  }
   return (
-    <List>
-      {items.pets.map(pet => (
-        <Item key={pet.name}>
+    <>
+      <Item key={item.id}>
           <ContainerPetInfo>
-            <Image src={pet.url} alt="pet" loading="lazy"></Image>
+            <Image src={item.photoURL} alt="pet" loading="lazy"></Image>
             <ContainerPetStatus>
-              <TextStatus>{pet.status}</TextStatus>
+              <TextStatus>{item.noticeType}</TextStatus>
               <ContainerButton>
                 <Button aria-label="add to favorites">
                   <Icon
@@ -43,27 +49,28 @@ export const NoticeCard = ({ items }) => {
             <ListPetInfo>
               <ItemPetInfo>
                 <Icon iconName={'icon-location'} />
-                <SpanPetText>{truncateText(pet.place)}</SpanPetText>
+                <SpanPetText>{truncateText(item.location)}</SpanPetText>
               </ItemPetInfo>
               <ItemPetInfo>
                 <Icon iconName={'icon-clock'} />
-                <SpanPetText>{convertToYears(pet.birthday)}</SpanPetText>
+                <SpanPetText>{item.age}</SpanPetText>
               </ItemPetInfo>
               <ItemPetInfo>
                 <Icon
-                  iconName={pet.sex === 'Female' ? 'icon-female' : 'icon-male'}
+                  iconName={item.sex === 'Female' ? 'icon-female' : 'icon-male'}
                 />
-                <SpanPetText>{pet.sex}</SpanPetText>
+                <SpanPetText>{item.sex}</SpanPetText>
               </ItemPetInfo>
             </ListPetInfo>
           </ContainerPetInfo>
 
-          <TextPetName>{pet.name}</TextPetName>
+          <TextPetName>{item.title}</TextPetName>
 
-          <Btn>Learn more</Btn>
-        </Item>
-      ))}
-    </List>
+      <Btn onClick={handleLearnMore}>Learn more</Btn>
+      
+    </Item>
+    {isLearnMore && <NoticeCardDetail item={item}/>}
+        </>
   );
 };
 

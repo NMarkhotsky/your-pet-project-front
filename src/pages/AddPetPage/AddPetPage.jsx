@@ -29,7 +29,7 @@ function AddPetPage() {
     <>
       <BackgroundWrapper />
       <Main>
-        <FormBody>
+        <FormBody value={currentPage} namepage={option}>
           <Title>{titleText}</Title>
           <FormPaginationList currentPage={currentPage} />
           {!isLoad && (

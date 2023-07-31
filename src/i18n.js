@@ -14,3 +14,4 @@ i18next
       loadPath: '/your-pet-project-front/locales/{{lng}}/{{ns}}.json',
     },
   });
+

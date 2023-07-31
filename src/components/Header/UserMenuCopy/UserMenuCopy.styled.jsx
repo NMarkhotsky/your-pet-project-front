@@ -28,4 +28,12 @@ export const UserMenuButton = styled.button`
   position: absolute;
   bottom: 5%;
   left: 5%;
+
+  transition: ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    background-color: ${props => props.theme.colors.blueDark};
+
+    transition: ${({ theme }) => theme.transitionHover};
+  }
 `;
