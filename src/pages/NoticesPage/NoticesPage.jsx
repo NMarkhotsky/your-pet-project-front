@@ -82,7 +82,7 @@ function NoticesPage() {
   return (
     <>
         <TitlePage>Find your favorite pet</TitlePage>
-        <SearchInput onSubmit={onSubmit} onChange={onChange} onDelete={onDelete} />
+        <SearchInput onSubmit={onSubmit} onChange={onChange} onDelete={onDelete} value={searchValue}/>
         <NoticesCategoriesNav getCategoryParams={getCategoryParams} />
         <NoticesFilters getFilterParams={getFilterParams} />
         <NoticesCategoriesList notices={notices} pageCount={pageCount} handlePageChange={handlePageChange}/>
