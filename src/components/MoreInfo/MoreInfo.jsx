@@ -26,6 +26,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
       ...personalDetails,
     };
 
+    // eslint-disable-next-line
     const { title, ...petObj } = data;
 
     if (option === petValues.yourPet) {
@@ -37,6 +38,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
       return;
     }
 
+    // eslint-disable-next-line
     const { type, gender, ...noticeObj } = data;
 
     if (option === petValues.SELL) {
@@ -53,12 +55,8 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
       return;
     }
 
+    // eslint-disable-next-line
     const { price, ...noticeObjWithoutPrice } = noticeObj;
-
-    console.log(title);
-    console.log(type);
-    console.log(gender);
-    console.log(price);
 
     dispatch(addNotice({
       noticeType: option,
