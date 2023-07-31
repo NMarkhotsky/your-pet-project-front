@@ -8,6 +8,7 @@ import { NavLink, UserMenuBox, UserMenuButton } from './UserMenu.styled';
 import { ModalLogout } from '../ModalLogout/ModalLogout';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ThemeSwitcher } from '../../shared/components/ThemeSwitcher/ThemeSwitcher';
+import { t } from 'i18next';
 
 export const UserMenu = ({ open, handleToggleBurger }) => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ export const UserMenu = ({ open, handleToggleBurger }) => {
         <UserMenuBox>
           <ThemeSwitcher />
           <UserMenuButton type="button" onClick={openModal}>
-            Log out
+            {t('auth_logoutBtn')}
             <Icon
               iconName={'icon-logout'}
               width={'24px'}
@@ -68,7 +69,7 @@ export const UserMenu = ({ open, handleToggleBurger }) => {
           <ThemeSwitcher />
           {open ? (
             <UserMenuButton type="button" onClick={openModal}>
-              Log out
+              {t('auth_logoutBtn')}
               <Icon
                 iconName={'icon-logout'}
                 width={'24px'}

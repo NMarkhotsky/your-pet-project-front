@@ -4,6 +4,7 @@ import { Icon } from '../Icon/Icon';
 import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { useState } from 'react';
+import { t } from 'i18next';
 
 export const PetsItem = ({ item, deletePet }) => {
   const [showModal, setShowModal] = useState(false);
@@ -29,23 +30,23 @@ export const PetsItem = ({ item, deletePet }) => {
       <Image src={item.photoURL} />
       <div>
         <Text>
-          <b>Name:</b> {item.name}
+          <b>{t('other_name')}:</b> {item.name}
         </Text>
         <Text>
-          <b>Date of birth:</b> {item.birthday}
+          <b>{t('user_mypets_petInfo_dateOfBirth')}:</b> {item.birthday}
         </Text>
         <Text>
-          <b>Type:</b> {item.type}
+          <b>{t('other_type')}:</b> {item.type}
         </Text>
         <Text>
-          <b>Comments:</b> {item.comments}
+          <b>{t('other_comments')}:</b> {item.comments}
         </Text>
       </div>
       {showModal && (
         <div>
           <ModalApproveAction onClose={closeModal}>
             <ModalConfirmDelete
-              title="Are you really want to kill your lovely pet? ⚰️"
+              title={t('modal_deletePet_title')}
               name={item.name}
               handleModal={closeModal}
               handleDelete={() => deletePet(item._id)}

@@ -4,6 +4,7 @@ import { Section, TitleWrapper } from './OurFriendsPage.styled';
 import { getOurFriends } from '../../services/OurFriendsApi';
 import { OurFriendsList } from '../../components/OurFriends/OurFriendsList/OurFriendsList';
 import { Loader } from '../../shared/components/Loader/Loader';
+import { t } from 'i18next';
 
 function OurFriendsPage() {
   const [friends, setFriends] = useState([]);
@@ -29,7 +30,7 @@ function OurFriendsPage() {
   return (
     <Section>
       <TitleWrapper>
-        <TitlePage>Our friends</TitlePage>
+        <TitlePage>{t('friends_title')}</TitlePage>
       </TitleWrapper>
       <OurFriendsList items={friends} />
       {isLoading ? <Loader /> : null}
