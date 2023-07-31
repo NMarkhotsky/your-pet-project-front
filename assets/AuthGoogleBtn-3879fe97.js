@@ -1,4 +1,4 @@
-import{s as t,k as g,b as r,N as u,P as i,j as o,I as s}from"./index-209f992f.js";import{a as b}from"./formik.esm-1dd8eb07.js";const $=t.div`
+import{s as t,k as x,b as r,N as u,P as i,j as o,I as s}from"./index-2b4d26cb.js";import{a as b}from"./formik.esm-d1d529b4.js";const $=t.div`
   margin: 80px auto 15px auto;
   padding: 40px 12px;
   width: 100%;
@@ -6,7 +6,7 @@ import{s as t,k as g,b as r,N as u,P as i,j as o,I as s}from"./index-209f992f.js
   border-radius: 40px;
   box-shadow: ${e=>e.theme.boxShadow.main};
 
-  @media ${g} {
+  @media ${x} {
     width: 280px;
   }
 
@@ -62,7 +62,7 @@ import{s as t,k as g,b as r,N as u,P as i,j as o,I as s}from"./index-209f992f.js
   &::placeholder {
     color: ${e=>e.theme.colors.grey};
   }
-`,x=t.p`
+`,h=t.p`
   position: absolute;
   bottom: -9px;
   left: 16px;
@@ -72,9 +72,9 @@ import{s as t,k as g,b as r,N as u,P as i,j as o,I as s}from"./index-209f992f.js
     font-size: ${e=>e.theme.fontSizes.xs};
     bottom: -18px;
   }
-`,y=t(x)`
+`,y=t(h)`
   color: ${e=>e.theme.colors.red};
-`,w=t(x)`
+`,z=t(h)`
   color: ${e=>e.theme.colors.green};
 `,p=t.div`
   position: absolute;
@@ -84,7 +84,7 @@ import{s as t,k as g,b as r,N as u,P as i,j as o,I as s}from"./index-209f992f.js
   position: absolute;
   top: 12px;
   right: ${e=>e.$touched?"52px":"16px"};
-`;const z=({successMessage:e,isFormSubmitted:n,...l})=>{const[a,d]=b(l),m=n&&d.error,c=n&&!d.error;return o.jsx(o.Fragment,{children:o.jsxs(v,{children:[o.jsx(j,{...a,...l,$invalid:m,$valid:c}),m?o.jsxs(o.Fragment,{children:[o.jsx(p,{children:o.jsx(s,{iconName:"icon-cross",stroke:"#F43F5E",fill:"#F43F5E"})}),o.jsx(y,{children:d.error})]}):null,c?o.jsx(p,{children:o.jsx(s,{iconName:"icon-check",stroke:"#00C3AD",fill:"#00C3AD"})}):null,c&&e?o.jsx(w,{children:e}):null]})})};z.propTypes={successMessage:i.string,isFormSubmitted:i.bool.isRequired};const k=t.div`
+`;const w=({successMessage:e,isFormSubmitted:n,...l})=>{const[a,d]=b(l),m=n&&d.error,c=n&&!d.error;return o.jsx(o.Fragment,{children:o.jsxs(v,{children:[o.jsx(j,{...a,...l,$invalid:m,$valid:c}),m?o.jsxs(o.Fragment,{children:[o.jsx(p,{children:o.jsx(s,{iconName:"icon-cross",stroke:"#F43F5E",fill:"#F43F5E"})}),o.jsx(y,{children:d.error})]}):null,c?o.jsx(p,{children:o.jsx(s,{iconName:"icon-check",stroke:"#00C3AD",fill:"#00C3AD"})}):null,c&&e?o.jsx(z,{children:e}):null]})})};w.propTypes={successMessage:i.string,isFormSubmitted:i.bool.isRequired};const k=t.div`
   margin-bottom: 14px;
   position: relative;
 
@@ -111,7 +111,7 @@ import{s as t,k as g,b as r,N as u,P as i,j as o,I as s}from"./index-209f992f.js
   &::placeholder {
     color: ${e=>e.theme.colors.grey};
   }
-`;const h=t.p`
+`;const g=t.p`
   position: absolute;
   bottom: -9px;
   left: 16px;
@@ -121,9 +121,9 @@ import{s as t,k as g,b as r,N as u,P as i,j as o,I as s}from"./index-209f992f.js
     font-size: ${e=>e.theme.fontSizes.xs};
     bottom: -18px;
   }
-`;t(h)`
+`;t(g)`
   color: ${e=>e.theme.colors.red};
-`;t(h)`
+`;t(g)`
   color: ${e=>e.theme.colors.green};
 `;t.div`
   position: absolute;
@@ -177,7 +177,14 @@ import{s as t,k as g,b as r,N as u,P as i,j as o,I as s}from"./index-209f992f.js
     fill: white;
     color: white;
   }
+
+  @media ${x} {
+    text-align: center;
+    align-items: center;
+    height: 50px;
+    font-size: 18px;
+  }
 `,N=t.div`
   position: absolute;
   left: 16px;
-`,G=()=>o.jsxs(I,{href:"https://mypets-backend.onrender.com/api/auth/google",children:[o.jsx(N,{children:o.jsx(s,{iconName:"icon-google"})}),"Continue with Google"]});export{T as A,z as F,C as a,G as b,B as c,D as d,F as e};
+`,G=()=>o.jsxs(I,{href:"https://mypets-backend.onrender.com/api/auth/google",children:[o.jsx(N,{children:o.jsx(s,{iconName:"icon-google"})}),"Continue with Google"]});export{T as A,w as F,C as a,G as b,B as c,D as d,F as e};
