@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
 import { useEffect, useState } from 'react';
 import { useFormik, FormikContext } from 'formik';
@@ -63,7 +65,7 @@ export const RegisterForm = () => {
           name="name"
           type="text"
           label="Name"
-          placeholder="Name"
+          placeholder={t('other_name')}
           isFormSubmitted={isFormSubmitted}
           {...formik.getFieldProps('name')}
         />
@@ -71,7 +73,7 @@ export const RegisterForm = () => {
           name="email"
           type="email"
           label="Email"
-          placeholder="Email"
+          placeholder={t('other_email')}
           isFormSubmitted={isFormSubmitted}
           {...formik.getFieldProps('email')}
         />
@@ -84,7 +86,7 @@ export const RegisterForm = () => {
             name="password"
             type={isPasswordShown ? 'text' : 'password'}
             label="Password"
-            placeholder="Password"
+            placeholder={t('other_password')}
             successMessage="Password is secure"
             isFormSubmitted={isFormSubmitted}
             {...formik.getFieldProps('password')}
@@ -99,16 +101,18 @@ export const RegisterForm = () => {
             name="confirmPassword"
             type={isPasswordShown ? 'text' : 'password'}
             label="Confirm password"
-            placeholder="Confirm password"
+            placeholder={t('other_confirmPassword')}
             successMessage="Password confirmed"
             isFormSubmitted={isFormSubmitted}
             {...formik.getFieldProps('confirmPassword')}
           />
         </FormPasswordContainer>
-        <AuthFormBtn btnText="Registration" />
+        <AuthFormBtn btnText={t('header_nav_signupBtn')} />
         <AuthGoogleBtn />
         <FormText>
-          Already have an account? <FormLink to="/login">Login</FormLink>
+          <Trans i18nKey="auth_linkToLogin">
+            Already have an account? <FormLink to="/login">Login</FormLink>
+          </Trans>
         </FormText>
       </form>
     </FormikContext.Provider>

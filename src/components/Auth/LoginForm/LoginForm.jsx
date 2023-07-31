@@ -14,6 +14,8 @@ import {
 } from '../common/AuthFormContainer/AuthFormContainer.styled';
 import 'react-toastify/dist/ReactToastify.css';
 import { LoginSchema } from './LoginSchema';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -61,7 +63,7 @@ export const LoginForm = () => {
           name="email"
           type="email"
           label="Email"
-          placeholder="Email"
+          placeholder={t('other_email')}
           isFormSubmitted={isFormSubmitted}
           {...formik.getFieldProps('email')}
         />
@@ -74,15 +76,17 @@ export const LoginForm = () => {
             name="password"
             type={isPasswordShown ? 'text' : 'password'}
             label="Password"
-            placeholder="Password"
+            placeholder={t('other_password')}
             isFormSubmitted={isFormSubmitted}
             {...formik.getFieldProps('password')}
           />
         </FormPasswordContainer>
-        <AuthFormBtn btnText="Login" />
+        <AuthFormBtn btnText={t('other_login')} />
         <AuthGoogleBtn />
         <FormText>
-          Do not have an account? <FormLink to="/register">Register</FormLink>
+          <Trans i18nKey="auth_linkToRegister">
+            Do not have an account? <FormLink to="/register">Register</FormLink>
+          </Trans>
         </FormText>
       </form>
     </FormikContext.Provider>

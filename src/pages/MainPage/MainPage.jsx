@@ -11,13 +11,14 @@ import tablet1x from '../../assets/images/imageMainPage/tablet/mp-tablet1x.webp'
 import tablet2x from '../../assets/images/imageMainPage/tablet/mp-tablet2x.webp';
 import desktop1x from '../../assets/images/imageMainPage/desktop/mp-desktop1x.webp';
 import desktop2x from '../../assets/images/imageMainPage/desktop/mp-desktop2x.webp';
+import { t } from 'i18next';
 
 function MainPage() {
   return (
     <>
       <BackgroundWrapper />
       <ContainerMainPage>
-        <TextMainPage>Take good care of your small pets</TextMainPage>
+        <TextMainPage>{t('main_hero_title')}</TextMainPage>
         <picture>
           <source
             srcSet={(mobile1x, mobile2x)}

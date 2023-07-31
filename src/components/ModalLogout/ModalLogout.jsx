@@ -10,17 +10,18 @@ import {
   IconWraper,
   StyledIcon,
 } from '../../shared/sharedModalStyles/sharedModalStyles.styled';
+import { t } from 'i18next';
 
 export const ModalLogout = ({ handleModal, handleLogout }) => {
   return (
     <Modal>
-      <Title>Already leaving?</Title>
+      <Title>{t('modal_logout_title')}</Title>
       <BtnWrapper>
         <CancelButton onClick={handleModal}>
-          <ButtonText>Cancel</ButtonText>
+          <ButtonText>{t('other_cancel')}</ButtonText>
         </CancelButton>
         <YesButton onClick={handleLogout}>
-          <ButtonText>Yes</ButtonText>
+          <ButtonText>{t('other_yes')}</ButtonText>
           <IconWraper>
             <StyledIcon iconName="icon-logout" stroke={'#FDF7F2'} />
           </IconWraper>

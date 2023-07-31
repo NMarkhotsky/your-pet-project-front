@@ -77,6 +77,7 @@ import { NewsList } from '../../components/NewsList/NewsList';
 import { Title } from './NewsPage.styled';
 import { SearchInput } from '../../shared/components/SearchInput/SearchInput';
 import { getNews } from '../../services/NewsApi';
+import { t } from 'i18next';
 
 const PER_PAGE = 6;
 
@@ -126,7 +127,7 @@ function NewsPage() {
 
   return (
     <>
-      <Title>News</Title>
+      <Title>{t('news_title')}</Title>
       <SearchInput
         value={searchValue}
         onChange={handleChange}

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,6 +18,7 @@ function App() {
   const fontsLoaded = useFont(fonts);
   const currentTheme = useTheme();
   const dispatch = useDispatch();
+  const navigation = useNavigate();
 
   const [searchParams, setSearchParams] = useSearchParams();
   const token = searchParams.get('token');
@@ -26,10 +27,10 @@ function App() {
     if (token) {
       dispatch(googleAuth(token));
       setSearchParams('');
-    }
-
-    dispatch(fetchCurrentUser());
-  }, [dispatch, setSearchParams, token]);
+      dispatch(fetchCurrentUser());
+      navigation('/user');
+    } else dispatch(fetchCurrentUser());
+  }, [dispatch, navigation, setSearchParams, token]);
 
   return fontsLoaded ? (
     <ThemeProvider theme={currentTheme === 'light' ? lightTheme : darkTheme}>

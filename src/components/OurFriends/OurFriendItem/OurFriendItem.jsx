@@ -15,8 +15,17 @@ import {
   WorkDaysList,
   WorkTime,
 } from './OurFriendItem.styled';
+import { t } from 'i18next';
 
-const weekDays = ['MN', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
+const weekDays = [
+  t('other_MN'),
+  t('other_TU'),
+  t('other_WE'),
+  t('other_TH'),
+  t('other_FR'),
+  t('other_SA'),
+  t('other_SU'),
+];
 
 export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
   return (
@@ -45,17 +54,17 @@ export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
                   onMouseEnter={() => handleTimeHover(imageUrl)}
                   onMouseLeave={() => handleTimeHover('')}
                 >
-                  <FriendInfoTime>Time:</FriendInfoTime>
+                  <FriendInfoTime>{t('other_time')}:</FriendInfoTime>
                   <FriendInfoData>
                     {workDays
                       ? workDays[0].isOpen
                         ? `${workDays[0].from} - ${workDays[0].to}`
-                        : 'Close'
-                      : 'Day and Night'}
+                        : t('other_close')
+                      : t('friends_friendItem_workTime')}
                   </FriendInfoData>
                 </FriendInfo>
                 <FriendInfo>
-                  <FriendInfoTitle>Address:</FriendInfoTitle>
+                  <FriendInfoTitle>{t('other_address')}:</FriendInfoTitle>
                   <FriendInfoData
                     href={addressUrl}
                     target="_blank"
@@ -65,15 +74,15 @@ export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
                   </FriendInfoData>
                 </FriendInfo>
                 <FriendInfo>
-                  <FriendInfoTitle>Email:</FriendInfoTitle>
+                  <FriendInfoTitle>{t('other_email')}:</FriendInfoTitle>
                   <FriendInfoData href={`mailto:${email}`}>
-                    {email === null ? 'Telephone only' : email}
+                    {email === null ? t('friends_friendItem_phoneOnly') : email}
                   </FriendInfoData>
                 </FriendInfo>
                 <FriendInfo>
-                  <FriendInfoTitle>Phone:</FriendInfoTitle>
+                  <FriendInfoTitle>{t('other_phone')}:</FriendInfoTitle>
                   <FriendInfoData href={`tel:${phone}`}>
-                    {phone === null ? 'Email only' : phone}
+                    {phone === null ? t('friends_friendItem_emailOnly') : phone}
                   </FriendInfoData>
                 </FriendInfo>
               </FriendInfoThumb>
@@ -89,12 +98,12 @@ export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
                             <WorkTime>
                               {workDay.isOpen
                                 ? `${workDay.from} - ${workDay.to}`
-                                : 'Closed'}
+                                : t('other_closed')}
                             </WorkTime>
                           </WorkDayItem>
                         )
                     )
-                  : 'Day and Night'}
+                  : t('friends_friendItem_workTime')}
               </WorkDaysList>
             )}
           </FriendItem>

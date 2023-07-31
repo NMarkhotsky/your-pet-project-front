@@ -40,11 +40,12 @@ import photoLarinA from '../../assets/images/photoTeam/Larin.png';
 import photoKate from '../../assets/images/photoTeam/Kate.png';
 import photoBodya from '../../assets/images/photoTeam/Bodya.png';
 import photoDima from '../../assets/images/photoTeam/Dima.png';
+import { t } from 'i18next';
 
 export const Footer = () => {
   return (
     <FooterStyle>
-      <MainTitle>Our team</MainTitle>
+      <MainTitle>{t('footer_title')}</MainTitle>
       <MainContainer>
         <Link target="_blank" to="https://github.com/NMarkhotsky">
           <Person>
@@ -297,7 +298,7 @@ export const Footer = () => {
         </Link>
       </MainContainer>
       <Title>
-        &#xa9; 2023 | Developed with
+        &#xa9; 2023 | {t('footer_ps')}
         <Wrapper>
           <Pulsingheart></Pulsingheart>
         </Wrapper>
