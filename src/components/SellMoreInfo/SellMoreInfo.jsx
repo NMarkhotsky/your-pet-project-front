@@ -30,7 +30,6 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
   useEffect(() => {
     for (let key in moreInfo.data) {
       if (moreInfo.data[key] !== "") {
-        console.log(moreInfo.data[key]);
         formik.setFieldValue(key, moreInfo.data[key]);
       }
     }
