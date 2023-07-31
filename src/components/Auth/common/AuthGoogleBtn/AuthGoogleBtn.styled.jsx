@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { selectPhone } from '../../../../utils';
 
 export const GoogleBtn = styled.a`
   position: relative;
@@ -25,6 +26,13 @@ export const GoogleBtn = styled.a`
     background: ${props => props.theme.colors.blueGradient};
     fill: white;
     color: white;
+  }
+
+  @media ${selectPhone} {
+    text-align: center;
+    align-items: center;
+    height: 50px;
+    font-size: 18px;
   }
 `;
 
