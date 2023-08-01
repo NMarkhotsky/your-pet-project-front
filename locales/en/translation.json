@@ -37,6 +37,47 @@
   "notices_cardInfoDetails_theSex": "The sex",
   "notices_cardInfoDetails_addToBtn": "Add to",
 
+  "addPet_form_titleText_sell": "Add pet for sell",
+  "addPet_form_titleText_lostFound": "Add lost pet",
+  "addPet_form_titleText_inGoodHands": "Add pet in good hands",
+  "addPet_form_titleText_default": "Add pet",
+
+  "addPet_form_chooseOption_radio_yourPet": "your pet",
+  "addPet_form_chooseOption_radio_sell": "sell",
+  "addPet_form_chooseOption_radio_lost/found": "lost/found",
+  "addPet_form_chooseOption_radio_inGoodHands": "in good hands",
+
+  "addPet_formPaginationList_chooseOption": "Choose option",
+  "addPet_formPaginationList_personalDetails": "Personal details",
+  "addPet_formPaginationList_moreInfo": "More info",
+
+  "addPet_form_personalInfo_titleOfAdd": "Title of add",
+  "addPet_form_personalInfo_petName": "Pet's name",
+  "addPet_form_personalInfo_petName_placeholder": "Type name pet",
+  "addPet_form_personalInfo_petType_placeholder": "Type of pet",
+
+  "addPet_form_moreInfo_theSex": "The Sex",
+  "addPet_form_moreInfo_file": "Load the pet's image",
+  "addPet_form_moreInfo_location_placeholder": "Type location",
+  "addPet_form_moreInfo_price_placeholder": "Type price",
+
+  "addPet_form_validation_personalInfo_name": "Please enter pet name",
+  "addPet_form_validation_personalInfo_birtday": "Please enter date of birth",
+  "addPet_form_validation_personalInfo_birtday_max": "Date of birth cannot be in the future",
+  "addPet_form_validation_personalInfo_type": "Please enter breed",
+  "addPet_form_validation_personalInfo_title": "Please enter title",
+
+  "addPet_form_validation_moreInfo_gender": "Please select a gender",
+  "addPet_form_validation_moreInfo_location": "Location is required",
+  "addPet_form_validation_moreInfo_location_max": "Maximum location length - 20 characters",
+  "addPet_form_validation_moreInfo_price": "Price is required",
+  "addPet_form_validation_moreInfo_price_type": "Price must contain only numbers",
+  "addPet_form_validation_moreInfo_photo": "Pet photo is required",
+  "addPet_form_validation_moreInfo_photo_maxSize": "File size should not exceed 3 MB",
+  "addPet_form_validation_moreInfo_photo_fileType": "Only JPG files are allowed",
+  "addPet_form_validation_moreInfo_comments": "Comments are required",
+  "addPet_form_validation_moreInfo_comments_max": "Maximum message length - 70 characters`",
+
   "footer_title": "Our team",
   "footer_ps": "Developed with",
 
@@ -63,6 +104,14 @@
   "other_closed": "Closed",
   "other_address": "Address",
   "other_language": "Language",
+  "other_next": "Next",
+  "other_back": "Back",
+  "other_female": "Female",
+  "other_male": "Male",
+  "other_location": "Location",
+  "other_price": "Price",
+  "other_done": "Done",
+
   "other_MN": "MN",
   "other_TU": "TU",
   "other_WE": "WE",
