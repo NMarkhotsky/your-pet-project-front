@@ -1,19 +1,43 @@
 import styled from 'styled-components';
-import { selectTablet } from '../../utils/selectMediaRequests';
+import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
+
 
 
 export const SectionNoticesPage = styled.section`
-padding-bottom: 112px;
+padding-bottom: 117px;
+
+  @media ${selectTablet} {
+    padding-bottom: 209px;
+  }
+
+  @media ${selectDesktop} {
+    padding-bottom: 112px;
+  }
 `;
 
 export const TitleWrap = styled.div`
-margin-bottom: 40px;
+margin-bottom: 24px;
+
+  @media ${selectTablet} {
+    margin-bottom: 40px;
+  }
 `;
 
 export const FilterNavBar = styled.div`
   display: flex;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
-  margin: 43px 0;
+
+  margin: 24px 0;
+
+  @media ${selectTablet} {
+    margin: 43px 0;
+  }
+
+  @media ${selectDesktop} {
+      /* flex-wrap: nowrap; */
+
+  }
 `;
 
 export const FilterWrapper = styled.div`
