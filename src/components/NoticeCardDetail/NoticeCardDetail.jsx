@@ -188,7 +188,7 @@ export const NoticeCardDetail = ({ item }) => {
     // </Modal>
     // </>
     <ModalApproveAction >
-      {/* <Modal> */}
+      <Modal>
       {/* <ModalLayout> */}
       {/* <ModalCardWrapper> */}
       {/* <ButtonClose onClick={handleCloseModal}>
@@ -291,7 +291,7 @@ export const NoticeCardDetail = ({ item }) => {
       </ModalCard>
       {/* </ModalCardWrapper> */}
       {/* </ModalLayout> */}
-      {/* </Modal> */}
+      </Modal>
     </ModalApproveAction>
   );
 };
