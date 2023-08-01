@@ -9,6 +9,7 @@ import { ButtonsWrapper } from '../ChoiseOption/ChoiseOption.styled';
 import { useAddPet } from '../../hooks';
 import { useEffect } from 'react';
 import { Icon } from '../Icon/Icon';
+import { t } from 'i18next';
 
 function PersonalDetails({ onSubmit, handleDefinePage }) {
   const { personalDetails, option } = useAddPet();
@@ -32,8 +33,8 @@ function PersonalDetails({ onSubmit, handleDefinePage }) {
     <FormPetInfo onSubmit={formik.handleSubmit}>
       <FieldInput
         formik={formik}
-        placeholder="Type name pet"
-        text="Pet’s name"
+        placeholder={t('addPet_form_personalInfo_petName_placeholder')}
+        text={t('addPet_form_personalInfo_petName')}
         id="name"
         name={'name'}
         onChange={formik.handleChange}
@@ -41,7 +42,7 @@ function PersonalDetails({ onSubmit, handleDefinePage }) {
       <FieldInput
         formik={formik}
         placeholder="Type date of birth"
-        text="Date of birth"
+        text={t('user_mypets_petInfo_dateOfBirth')}
         id="birthday"
         date
         name={'birthday'}
@@ -49,20 +50,20 @@ function PersonalDetails({ onSubmit, handleDefinePage }) {
       />
       <FieldInput
         formik={formik}
-        placeholder="Type of pet"
-        text="Type"
+        placeholder={t('addPet_form_personalInfo_petType_placeholder')}
+        text={t('other_type')}
         id="type"
         name={'type'}
         onChange={formik.handleChange}
       />
       <ButtonsWrapper page={option}>
         <ButtonNext type="submit">
-          Next
+          {t('other_next')}
           <Icon iconName="icon-pawprint" fill="#FFFFFF" />
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
           <Icon iconName="icon-arrow-left" stroke="#54adff" />
-          Back
+          {t('other_back')}
         </ButtonPrev>
       </ButtonsWrapper>
     </FormPetInfo>

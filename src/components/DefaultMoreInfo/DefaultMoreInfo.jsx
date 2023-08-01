@@ -23,6 +23,7 @@ import {
   SexText,
 } from './DefaultMoreInfo.styled';
 import { Icon } from '../Icon/Icon';
+import { t } from 'i18next';
 
 function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
   const dispatch = useDispatch();
@@ -61,12 +62,12 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
     <FormDefaultMoreInfo onSubmit={formik.handleSubmit}>
       <Container>
         <RadioContainer>
-          <SexText>The Sex</SexText>
+          <SexText>{t('addPet_form_moreInfo_theSex')}</SexText>
           <SexContainer>
             <RadioWrapper>
               <GenderRadio
                 formik={formik}
-                text="Female"
+                text={t('other_female')}
                 id="female"
                 onChange={handleChangeSex}
                 value={petValues.female}
@@ -86,7 +87,7 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
               />
               <GenderRadio
                 formik={formik}
-                text="Male"
+                text={t('other_male')}
                 id="male"
                 onChange={handleChangeSex}
                 value={petValues.male}
@@ -107,7 +108,7 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
             </RadioWrapper>
           </SexContainer>
           <File
-            text="Load the pet’s image:"
+            text={t('addPet_form_moreInfo_file')}
             setFile={setFile}
             file={file}
             formik={formik}
@@ -116,10 +117,10 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
         <FieldContainer>
           <FieldInput
             formik={formik}
-            text="Location"
+            text={t('other_location')}
             id="location"
             name="location"
-            placeholder="Type of location"
+            placeholder={t('addPet_form_moreInfo_location_placeholder')}
             value={formik.values.location}
             onChange={handleChangeInput}
           />
@@ -128,12 +129,12 @@ function DefaultMoreInfo({ formik, handleDefinePage, setFile, file }) {
       </Container>
       <ButtonsWrapper>
         <ButtonNext type="submit">
-          Done
+          {t('other_done')}
           <Icon iconName="icon-pawprint" fill="#FFFFFF" />
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
           <Icon iconName="icon-arrow-left" stroke="#54adff" />
-          Back
+          {t('other_back')}
         </ButtonPrev>
       </ButtonsWrapper>
     </FormDefaultMoreInfo>
