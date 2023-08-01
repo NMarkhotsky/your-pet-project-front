@@ -16,7 +16,6 @@ import {
   SpanPetText,
   TextPetName,
 } from './NoticeCard.styled';
-// import { convertToYears } from '../../utils/convertToYears';
 import { truncateText } from '../../utils/truncateText';
 import { Btn } from '../../shared/components/Button/Btn';
 import { NoticeCardDetail } from '../NoticeCardDetail/NoticeCardDetail';
@@ -26,12 +25,9 @@ import {
   getNoticeById,
   updateNotice,
 } from '../../services/NoticesApi';
-// import { errorMessage } from '../../utils/messages';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
-// import { errorMessage } from '../../utils/messages';
-// import { updateNotice } from '../../services/NoticesApi';
 
 export const NoticeCard = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
