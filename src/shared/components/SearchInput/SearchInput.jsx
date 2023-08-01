@@ -11,7 +11,7 @@ import { t } from 'i18next';
 
 export const SearchInput = ({ value, onChange, onSubmit, onDelete }) => {
   return (
-    <SearchContainer>
+    <SearchContainer onSubmit={onSubmit}>
       <Input
         type="text"
         value={value}
@@ -19,7 +19,7 @@ export const SearchInput = ({ value, onChange, onSubmit, onDelete }) => {
         placeholder={t('other_search')}
       />
       <ButtonWrapper>
-        <SearchButton type="button" value={value} onClick={onSubmit}>
+        <SearchButton type="submit" value={value} onClick={onSubmit}>
           <SearchIcon iconName="icon-search" fill="#54ADFF" />
         </SearchButton>
         {value && (
