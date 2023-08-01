@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
+import { t } from 'i18next';
+import { useState } from 'react';
 import { Icon } from '../Icon/Icon';
 import {
   ModalCard,
@@ -23,11 +24,10 @@ import {
   ButtonLinkContact,
 } from './NoticeCardDetail.styled';
 import { updateNotice, getNoticeById } from '../../services/NoticesApi';
-import { useEffect, useState } from 'react';
-import { useAuth } from '../../hooks/useAuth/useAuth';
+import { useEffect } from 'react';
 import { errorMessage } from '../../utils/messages';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
-import { t } from 'i18next';
+import { useAuth } from '../../hooks/useAuth/useAuth';
 
 export const NoticeCardDetail = ({ item, toggleModal }) => {
   const [card, setCard] = useState({});
@@ -35,13 +35,11 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
 
   let formattedBirthday;
 
-  const handleCardById = async id => {
-    const response = await getNoticeById(id);
-    setCard(response.data.notice);
-  };
-
   useEffect(() => {
-    handleCardById(item.id);
+    (async () => {
+      const response = await getNoticeById(item.id);
+      setCard(response.data.notice);
+    })();
   }, [item.id]);
 
   useEffect(() => {
@@ -95,7 +93,7 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
                 </Tr>
                 <Tr>
                   <TdName>{t('notices_cardInfoDetails_theSex')}: </TdName>
-                  <TdValue>{item.sex}</TdValue>
+                  <TdValue>{card.sex}</TdValue>
                 </Tr>
                 <Tr>
                   <TdName>{t('other_mail')}: </TdName>
@@ -122,13 +120,14 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
         </Text>
         <ButtonsWrapper>
           <ButtonAddFavorite
+            onClick={handleAddInFavorite}
             style={{
               color: !card.isFavorite ? '#FEF9F9' : '#54ADFF',
               backgroundColor: card.isFavorite ? '#FEF9F9' : '#54ADFF',
               borderColor: card.isFavorite && '#54ADFF',
             }}
           >
-            <ButtonTextAdd onClick={handleAddInFavorite}>
+            <ButtonTextAdd>
               {t('notices_cardInfoDetails_addToBtn')}
             </ButtonTextAdd>
             {!card.isFavorite ? (

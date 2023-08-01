@@ -21,24 +21,21 @@ import { Btn } from '../../shared/components/Button/Btn';
 import { NoticeCardDetail } from '../NoticeCardDetail/NoticeCardDetail';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 import {
-  deleteNotice,
-  getNoticeById,
+  // deleteNotice,
   updateNotice,
 } from '../../services/NoticesApi';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
-import { errorMessage, successMessage } from '../../utils/messages';
+// import { errorMessage, successMessage } from '../../utils/messages';
 
-export const NoticeCard = ({ item }) => {
+export const NoticeCard = ({ item, handleDeleteNotice }) => {
   const [showModal, setShowModal] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [showAttentionModal, setShowAttentionModal] = useState(false);
   const [card, setCard] = useState({});
 
   const { user } = useAuth();
-
-  console.log('user -->', user);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
@@ -55,15 +52,6 @@ export const NoticeCard = ({ item }) => {
   const closeAttentionModal = () => {
     setShowAttentionModal(false);
   };
-
-  const handleCardById = async id => {
-    const response = await getNoticeById(id);
-    setCard(response.data.notice);
-  };
-
-  useEffect(() => {
-    handleCardById(item.id);
-  }, [item.id]);
 
   useEffect(() => {
     if (Object.keys(card).length === 0) {
@@ -83,19 +71,19 @@ export const NoticeCard = ({ item }) => {
 
   // console.log('card ==>', card);
 
-  const handleDeleteNotice = async id => {
-    if (user.email === card.ownerEmail) {
-      setShowModalDelete(false);
-      await deleteNotice(id);
+  // const handleDeleteNotice = async id => {
+  //   if (user.email === card.ownerEmail) {
+  //     setShowModalDelete(false);
+  //     await deleteNotice(id);
 
-      setCard({});
-      // console.log('card ==>', card);
+  //     setCard({});
+  //     // console.log('card ==>', card);
 
-      successMessage('The card was successfully removed');
-    } else {
-      errorMessage('It is not your pet and you cannot remove it');
-    }
-  };
+  //     successMessage('The card was successfully removed');
+  //   } else {
+  //     errorMessage('It is not your pet and you cannot remove it');
+  //   }
+  // };
 
   return (
     <>
@@ -109,7 +97,7 @@ export const NoticeCard = ({ item }) => {
                 onClick={handleAddInFavorite}
                 aria-label="add to favorites"
               >
-                {!card.isFavorite ? (
+                {!item.isFavorite ? (
                   <Icon
                     iconName={'icon-heart'}
                     width={'24px'}
@@ -163,25 +151,21 @@ export const NoticeCard = ({ item }) => {
 
         <Btn onClick={toggleModal}>Learn more</Btn>
         {showModalDelete && (
-          <div>
-            <ModalApproveAction onClose={closeModalDelete}>
-              <ModalConfirmDelete
-                title={'Delete a notice?'}
-                name={card.name}
-                handleModal={closeModalDelete}
-                handleDelete={() => handleDeleteNotice(card._id)}
-              />
-            </ModalApproveAction>
-          </div>
+          <ModalApproveAction onClose={closeModalDelete}>
+            <ModalConfirmDelete
+              title={'Delete a notice?'}
+              name={item.title}
+              handleModal={closeModalDelete}
+              handleDelete={() => handleDeleteNotice(item.id)}
+            />
+          </ModalApproveAction>
+        )}
+        {showModal && (
+          <NoticeCardDetail item={item} toggleModal={toggleModal} />
         )}
       </Item>
-      {showModal && <NoticeCardDetail item={item} toggleModal={toggleModal} />}
 
-      {showAttentionModal && (
-        <div>
-          <AttentionModal onClose={closeAttentionModal} />
-        </div>
-      )}
+      {showAttentionModal && <AttentionModal onClose={closeAttentionModal} />}
     </>
   );
 };

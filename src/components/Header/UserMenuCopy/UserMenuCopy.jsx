@@ -59,14 +59,12 @@ export const UserMenuCopy = ({ handleToggleBurger }) => {
         </NavLink>
       </Wrapper>
       {showModal && (
-        <div>
-          <ModalApproveAction onClose={closeModal}>
-            <ModalLogout
-              handleModal={closeModal}
-              handleLogout={() => dispatch(logout())}
-            />
-          </ModalApproveAction>
-        </div>
+        <ModalApproveAction onClose={closeModal}>
+          <ModalLogout
+            handleModal={closeModal}
+            handleLogout={() => dispatch(logout())}
+          />
+        </ModalApproveAction>
       )}
     </UserMenuBoxCopy>
   );
