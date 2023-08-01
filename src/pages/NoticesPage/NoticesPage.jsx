@@ -19,6 +19,7 @@ import {
 import { Pagination } from '../../components/Pagination/Pagination';
 import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
 import { Loader } from '../../shared/components/Loader/Loader';
+import { scrollToTop } from '../../utils/scrollToTop';
 
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
@@ -114,6 +115,7 @@ function NoticesPage() {
 
   const handlePageChange = useCallback(event => {
     setParams(prev => ({ ...prev, page: event.selected + 1 }));
+    scrollToTop();
   }, []);
 
   return (
