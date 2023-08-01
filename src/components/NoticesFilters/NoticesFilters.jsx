@@ -16,6 +16,7 @@ import {
   Label,
   Input,
   Button,
+  ButtonSpan
 } from './NoticesFilters.styled';
 
 import { Icon } from '../Icon/Icon';
@@ -205,7 +206,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
       </Wrapper>
       <Link to="/add-pet">
         <Button type="button">
-          {t('user_mypets_addBtn')}
+          <ButtonSpan>{t('user_mypets_addBtn')}</ButtonSpan>
           <Icon
             iconName={'icon-plus-small'}
             width={'24px'}

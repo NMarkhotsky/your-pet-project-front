@@ -1,10 +1,21 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { selectTablet } from '../../utils/selectMediaRequests';
+import { selectDesktop, selectTablet } from '../../utils/selectMediaRequests';
 
 export const CategoriesWrap = styled.div`
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 8px;
+
+    @media ${selectTablet} {
+    gap: 12px;
+  }
+
+  @media ${selectDesktop} {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
 `;
 
 export const NoticeCategoriesNavList = styled.ul`
@@ -12,6 +23,7 @@ export const NoticeCategoriesNavList = styled.ul`
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  justify-content: flex-start;
 
   @media ${selectTablet} {
     gap: 12px;
