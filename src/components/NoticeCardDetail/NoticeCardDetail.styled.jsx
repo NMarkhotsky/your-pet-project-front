@@ -1,9 +1,7 @@
 import { styled } from 'styled-components';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
-export const Modal = styled.div`
-  display: block;
-`;
+export const Modal = styled.div``;
 
 export const ModalLayout = styled.div`
   position: fixed;
@@ -283,9 +281,14 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 8px 20px;
+  padding: 6px 20px;
   border-radius: 40px;
 
+  
+`;
+
+export const ButtonAddFavorite = styled(Button)`
+  border: 2px solid transparent;
 `;
 
 export const ButtonTextAdd = styled.span`
@@ -340,7 +343,7 @@ export const ButtonLinkContact = styled.a`
 `;
 
 export const ButtonTextContact = styled.a`
-  font-family: ${props => props.theme.fonts.main.bold};
+  /* font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.md};
   letter-spacing: 0.04em;
   line-height: 22px;
@@ -350,6 +353,12 @@ export const ButtonTextContact = styled.a`
   z-index: 5;
 
   cursor: pointer;
+
+  &:hover {
+    color: ${props => props.theme.colors.white};
+
+    transition: ${({ theme }) => theme.transitionHover};
+  } */
 `;
 
 export const Comments = styled.span`
