@@ -69,22 +69,6 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
     setCard(response.data.notice);
   };
 
-  // console.log('card ==>', card);
-
-  // const handleDeleteNotice = async id => {
-  //   if (user.email === card.ownerEmail) {
-  //     setShowModalDelete(false);
-  //     await deleteNotice(id);
-
-  //     setCard({});
-  //     // console.log('card ==>', card);
-
-  //     successMessage('The card was successfully removed');
-  //   } else {
-  //     errorMessage('It is not your pet and you cannot remove it');
-  //   }
-  // };
-
   return (
     <>
       <Item key={item.id}>
