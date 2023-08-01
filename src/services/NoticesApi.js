@@ -14,82 +14,81 @@ axios.defaults.baseURL = BASE_URL;
 //     older: false
 // }
 
-export const getAllNotices = async (params) => {
-    try {
-
-        let reqURL = ''
-        for (let key in params) {
-            reqURL += `&${key}=${params[key]}`
-        }
-        const {data} = await axios.get(`/notices?${reqURL}`);
-        return data;
-    } catch (error) {
-        console.log(error);
+export const getAllNotices = async params => {
+  try {
+    let reqURL = '';
+    for (let key in params) {
+      reqURL += `&${key}=${params[key]}`;
     }
+    const { data } = await axios.get(`/notices?${reqURL}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const getNoticeById = async (id) => {
-    try {
-        const response = await axios.get(`/notices/${id}`);
-        return response;
-    } catch (error) {
-        console.log(error);
-    }
+export const getNoticeById = async id => {
+  try {
+    const response = await axios.get(`/notices/${id}`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const addNotice = async () => {
-    try {
-        const response = await axios.post('/notices');
-        return response;
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    const response = await axios.post('/notices');
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const deleteNotice = async (id) => {
-    try {
-        const response = await axios.delete(`/notices/${id}`);
+export const deleteNotice = async id => {
+  try {
+    const response = await axios.delete(`/notices/${id}`);
 
-        return response;
-    } catch (error) {
-        console.log(error);
-    }
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const updateNotice = async (id) => {
-    try {
-        const response = await axios.patch(`/notices/${id}`);
+export const updateNotice = async id => {
+  try {
+    const response = await axios.patch(`/notices/favorites/${id}`);
 
-        return response;
-    } catch (error) {
-        console.log(error);
-    }
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const getSelfNotices = async (params) => {
-    try {
-        let reqURL = ''
-        for (let key in params) {
-            reqURL += `&${key}=${params[key]}`
-        }
-        const {data} = await axios.get(`/notices/self?${reqURL}`);
-
-        return data;
-    } catch (error) {
-        console.log(error);
+export const getSelfNotices = async params => {
+  try {
+    let reqURL = '';
+    for (let key in params) {
+      reqURL += `&${key}=${params[key]}`;
     }
+    const { data } = await axios.get(`/notices/self?${reqURL}`);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-export const getFavoriteNotices = async (params) => {
-    try {
-        let reqURL = ''
-        for (let key in params) {
-            reqURL += `&${key}=${params[key]}`
-        }
-        const {data} = await axios.get(`/notices/self?${reqURL}`);
-
-        return data;
-    } catch (error) {
-        console.log(error);
+export const getFavoriteNotices = async params => {
+  try {
+    let reqURL = '';
+    for (let key in params) {
+      reqURL += `&${key}=${params[key]}`;
     }
+    const { data } = await axios.get(`/notices/self?${reqURL}`);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };

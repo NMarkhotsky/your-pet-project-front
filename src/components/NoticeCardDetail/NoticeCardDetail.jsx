@@ -24,13 +24,23 @@ import {
   Button,
   ButtonTextAdd,
   ButtonLinkContact,
-  ButtonTextContact,
+  // ButtonTextContact,
 } from './NoticeCardDetail.styled';
 import { updateNotice, getNoticeById } from '../../services/NoticesApi';
 import { useEffect, useState } from 'react';
+import { changeLanguage } from 'i18next';
+import { useAuth } from '../../hooks/useAuth/useAuth';
+import { errorMessage } from '../../utils/messages';
 
 export const NoticeCardDetail = ({ item }) => {
   const [card, setCard] = useState({});
+  const [isCloseModal, setIsCloseModal] = useState(false); 
+   const { user } = useAuth();
+  // const [isFavorite, setIsFavorite] = useState(card.isFavorite);
+
+  const handleCloseModal = () => {
+    setIsCloseModal(true); 
+  }
 
   let formattedBirthday;
 
@@ -50,9 +60,20 @@ export const NoticeCardDetail = ({ item }) => {
   });
 
   const handleAddInFavorite = async () => {
-    const response = await updateNotice(item.id);
-    setCard(response);
+    if (user.name === null && user.email === null) {
+      errorMessage('Sorry, but you are not authorized. Try it!');
+    }
+    console.log("Click")
+    // setIsFavorite(!isFavorite);
+  const response = await updateNotice(item.id, { ...card, isFavorite: !card.isFavorite });
+    console.log("response --->", response)
+    console.log("isFavorite ==>", card.isFavorite)
+    // setCard({...card, isFavorite: response});
   };
+
+  useEffect(() => {
+ 
+  }, [card.isFavorite])
 
   console.log('card ===>', card);
 
@@ -62,12 +83,14 @@ export const NoticeCardDetail = ({ item }) => {
     formattedBirthday = birthday.split('-').reverse().join('.');
   }
 
+  
+
   return (
     <>
-      <Modal>
+      <Modal style={{display: isCloseModal ? "none" : "block"}}>
         <ModalLayout>
           <ModalCardWrapper>
-            <ButtonClose>
+            <ButtonClose onClick={handleCloseModal}>
               <Icon
                 iconName={'icon-cross'}
                 width={'24px'}
@@ -156,10 +179,10 @@ export const NoticeCardDetail = ({ item }) => {
                     />
                   )}
                 </Button>
-                <ButtonLinkContact>
-                  <ButtonTextContact href={`tel:${card.ownerPhone}`}>
-                    Contact
-                  </ButtonTextContact>
+                <ButtonLinkContact href={`tel:${card.ownerPhone}`}>
+                  {/* <ButtonTextContact> */}
+                  Contact
+                  {/* </ButtonTextContact> */}
                 </ButtonLinkContact>
               </ButtonsWrapper>
             </ModalCard>
