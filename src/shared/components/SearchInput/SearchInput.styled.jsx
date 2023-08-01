@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { selectTablet } from '../../../utils/selectMediaRequests';
 import { Icon as IconSearch } from '../../../components/Icon/Icon';
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
   position: relative;
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@ export const Input = styled.input`
 
   &:focus {
     outline: 1px solid ${({ theme }) => theme.colors.blue};
-  };
+  }
 
   @media ${selectTablet} {
     padding: 10px 80px 10px 20px;

@@ -31,7 +31,7 @@ friend for your family.
 3. Add your favorite pets to the list for easy access to their information.
 4. Discover interesting news about animals.
 
-## <div align=center>Technology Stack</div>
+## <div align=center>Technology Stack:</div>
 
 "Your Pet" utilizes modern technologies and libraries to create a convenient and
 functional web application. Here are the key technologies used in the project:
@@ -50,6 +50,11 @@ functional web application. Here are the key technologies used in the project:
 - `i18next`: A library for localization and internationalization of the
   application.
 - `Yup`: A library for data validation in schemas.
+
+---
+
+### <div align=center>The Backend of the "Your Pet" Project:</div>
+###### <div align=center>["Your Pet - Backend" 🐾](https://github.com/yogurtfirst/mypets-project-backend)</div>
 
 ---
 

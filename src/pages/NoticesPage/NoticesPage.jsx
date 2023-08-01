@@ -1,5 +1,4 @@
 // import { Outlet } from 'react-router-dom';
-
 import { NoticesCategoriesNav } from '../../components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesFilters } from '../../components/NoticesFilters/NoticesFilters';
 import NoticesCategoriesList from '../../components/NoticesCategoriesList/NoticesCategoriesList';
@@ -18,6 +17,7 @@ import {
 } from './NoticesPage.styled';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
+import { Loader } from '../../shared/components/Loader/Loader';
 
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
@@ -28,32 +28,40 @@ function NoticesPage() {
     search: '',
   });
   const [pageCount, setPageCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const limit = 12;
 
   useEffect(() => {
     (async () => {
-      if (
-        !params.category ||
-        params.category === 'sell' ||
-        params.category === 'in-good-hands' ||
-        params.category === 'lost-or-found'
-      ) {
-        const data = await getAllNotices(params);
-        setPageCount(Math.ceil(data.total / limit));
-        return setNotices(changeCategoryForRender(data));
-      }
+      try {
+        setIsLoading(true);
+        if (
+          !params.category ||
+          params.category === 'sell' ||
+          params.category === 'in-good-hands' ||
+          params.category === 'lost-or-found'
+        ) {
+          const data = await getAllNotices(params);
+          setPageCount(Math.ceil(data.total / limit));
+          return setNotices(changeCategoryForRender(data));
+        }
 
-      if (params.category === 'my-ads') {
-        const data = await getSelfNotices(params);
-        setPageCount(Math.ceil(data.total / limit));
-        return setNotices(changeCategoryForRender(data));
-      }
+        if (params.category === 'my-ads') {
+          const data = await getSelfNotices(params);
+          setPageCount(Math.ceil(data.total / limit));
+          return setNotices(changeCategoryForRender(data));
+        }
 
-      if (params.category === 'favorite') {
-        const data = await getFavoriteNotices(params);
-        setPageCount(Math.ceil(data.total / limit));
-        return setNotices(changeCategoryForRender(data));
+        if (params.category === 'favorite') {
+          const data = await getFavoriteNotices(params);
+          setPageCount(Math.ceil(data.total / limit));
+          return setNotices(changeCategoryForRender(data));
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     })();
   }, [params]);
@@ -65,7 +73,8 @@ function NoticesPage() {
     }));
   };
 
-  const onSubmit = () => {
+  const onSubmit = e => {
+    e.preventDefault();
     setParams(prev => ({ ...prev, search: searchValue, page: 1 }));
   };
 
@@ -115,13 +124,13 @@ function NoticesPage() {
         <NoticesCategoriesNav getCategoryParams={getCategoryParams} />
         <NoticesFilters getFilterParams={getFilterParams} />
       </FilterNavBar>
-
       <NoticesCategoriesList
         notices={notices}
         pageCount={pageCount}
         handlePageChange={handlePageChange}
       />
       <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
+      {isLoading ? <Loader /> : null}
     </SectionNoticesPage>
   );
 }
