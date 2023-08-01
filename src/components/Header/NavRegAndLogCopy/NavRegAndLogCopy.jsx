@@ -7,6 +7,8 @@ import {
   LinkRegStyledCopy,
 } from './NavRegAndLogCopy.styled';
 import { ThemeSwitcher } from '../../../shared/components/ThemeSwitcher/ThemeSwitcher';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 
 export const NavRegAndLogCopy = ({ handleToggleBurger }) => {
   return (
@@ -14,7 +16,9 @@ export const NavRegAndLogCopy = ({ handleToggleBurger }) => {
       <MainNavLinkBoxCopy>
         <ThemeSwitcher />
         <LinkLogStyledCopy to="/login" onClick={handleToggleBurger}>
-          Log <SpanCopy>in</SpanCopy>
+          <Trans i18nKey="header_nav_loginBtn">
+            Log <SpanCopy>in</SpanCopy>
+          </Trans>
           <Icon
             iconName={'icon-pawprint'}
             width={'24px'}
@@ -23,7 +27,7 @@ export const NavRegAndLogCopy = ({ handleToggleBurger }) => {
           />
         </LinkLogStyledCopy>
         <LinkRegStyledCopy to="/register" onClick={handleToggleBurger}>
-          Registration
+          {t('header_nav_signupBtn')}
         </LinkRegStyledCopy>
       </MainNavLinkBoxCopy>
     </>

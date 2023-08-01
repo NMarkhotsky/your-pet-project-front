@@ -13,4 +13,10 @@ i18next
     backend: {
       loadPath: '/your-pet-project-front/locales/{{lng}}/{{ns}}.json',
     },
+    // detection: {
+    //   order: ['localStorage'],
+    //   caches: ['localStorage'],
+    //   lookupLocalStorage: 'i18nextLng',
+    //   checkWhitelist: true,
+    // },
   });

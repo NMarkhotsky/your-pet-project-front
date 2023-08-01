@@ -6,8 +6,8 @@ import {
 import { t } from 'i18next';
 
 const lngs = {
-  en: { nativeName: 'English' },
-  uk: { nativeName: 'Українська' },
+  en: { nativeName: 'ENG' },
+  uk: { nativeName: 'UA' },
 };
 
 const LanguageSwitcher = () => {
@@ -20,7 +20,6 @@ const LanguageSwitcher = () => {
 
   return (
     <LanguageSwitcherContainer>
-      {t('other_language')}:
       <LanguageSelect value={i18n.language} onChange={handleLanguageChange}>
         {Object.keys(lngs).map(lng => (
           <option

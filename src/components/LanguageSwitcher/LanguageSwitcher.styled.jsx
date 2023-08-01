@@ -6,7 +6,6 @@ export const LanguageSwitcherContainer = styled.div`
   top: 2px;
   right: 2px;
   display: block;
-  color: #ffc107;
   padding: 2px 2px;
   border-radius: 8px;
   border: 1px solid ${props => props.theme.colors.blue};
