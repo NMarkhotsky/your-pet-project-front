@@ -6,23 +6,15 @@ import { IconBurgerBox } from './Burger.styled';
 import { NavRegAndLog } from '../NavRegAndLog/NavRegAndLog';
 import { UserMenu } from '../../UserMenu/UserMenu';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
-// import useLockBodyScroll from '../../../hooks/useBodyScrollLock/useBodyScrollLock';
 
 export const Burger = () => {
   const [open, setOpen] = useState(false);
-  // const [lockBodyScroll, setLockBodyScroll] = useState(false);
 
   const { isLoggedIn } = useAuth();
-
-  // useLockBodyScroll(!lockBodyScroll);
 
   const handleToggleBurger = () => {
     setOpen(!open);
   };
-
-  // const handleLockBodyScroll = () => {
-  //   setLockBodyScroll(!open);
-  // };
 
   return (
     <>
