@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Icon } from '../Icon/Icon';
 import {
-  // Modal,
+  Modal,
   // ModalLayout,
   // ModalCardWrapper,
   // ButtonClose,
