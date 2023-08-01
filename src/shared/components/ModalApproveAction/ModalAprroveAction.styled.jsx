@@ -50,4 +50,13 @@ export const CloseBtn = styled.button`
     right: 24px;
     top: 24px;
   }
+
+  transform: scale(1);
+
+  transition: transform ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.2);
+    transition: transform ${({ theme }) => theme.transitionHover};
+  }
 `;
