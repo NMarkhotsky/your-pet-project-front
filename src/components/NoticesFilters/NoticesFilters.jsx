@@ -48,14 +48,15 @@ export const NoticesFilters = ({ getFilterParams }) => {
     updatedFilterParams.older = true
   } else {
     updatedFilterParams.older = false
-  }
-
-  if (filters.includes('male')) {
+    }
+    
+    
+  if (filters.includes('male') && filters.includes('female')) {
+    updatedFilterParams.sex = null
+  } else if (filters.includes('male')) {
     updatedFilterParams.sex = 'male'
   } else if (filters.includes('female')) {
     updatedFilterParams.sex = 'female'
-  } else if (filters.includes('male','female')) {
-    updatedFilterParams.sex = null
   } else {
     updatedFilterParams.sex = null
   }

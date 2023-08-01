@@ -6,6 +6,7 @@ import { SearchInput } from '../../shared/components/SearchInput/SearchInput';
 import { useEffect, useState, useCallback } from 'react';
 import {getAllNotices, getSelfNotices, getFavoriteNotices} from '../../services/NoticesApi'
 import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
+import { CATEGORIES_RENDER } from '../../constants/globalConstants';
 
 
 
@@ -22,24 +23,29 @@ function NoticesPage() {
 
       if (!params.category || params.category === 'sell' || params.category === 'in-good-hands' || params.category === 'lost-or-found') {
         const  data  = await getAllNotices(params);
-        setPageCount(Math.ceil(data.total/limit))
-        return setNotices(data.data)
+        setPageCount(Math.ceil(data.total / limit))
+        console.log(data.data[0].noticeType);
+        return setNotices(changeCategoryForRender(data))
       }
 
       if (params.category === 'my-ads') {
         const  data  = await getSelfNotices(params);
         setPageCount(Math.ceil(data.total/limit))
-        return setNotices(data.data)
+        return setNotices(changeCategoryForRender(data))
       }
 
       if (params.category === 'favorite') {
         const data = await getFavoriteNotices(params);
         setPageCount(Math.ceil(data.total/limit))
-        return setNotices(data.data)
+        return setNotices(changeCategoryForRender(data))
       }
 
     })()
   },[params])
+
+  const changeCategoryForRender = (data) => {
+    return data.data.map(item => ({...item, noticeType: CATEGORIES_RENDER[item.noticeType] || item.noticeType }))
+  }
 
   const onSubmit = () => {
     setParams(prev => ({...prev, search: searchValue, page: 1}))
