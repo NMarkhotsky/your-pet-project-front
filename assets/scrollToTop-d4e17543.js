@@ -1,4 +1,4 @@
-import{s as F,b as q,I as se,P as H,j as R,t as fe,r as me,a5 as be,a3 as he}from"./index-e14aeea0.js";const ve=F.form`
+import{s as F,b as q,I as se,P as H,j as R,t as fe,r as me,a5 as be,a3 as he}from"./index-ab34d60e.js";const ve=F.form`
   position: relative;
   display: flex;
   align-items: center;
@@ -181,4 +181,4 @@ See https://reactjs.org/docs/forms.html#controlled-components`),u=a.initialPage?
     color: ${({theme:r})=>r.colors.bgdColor};
     border-color: ${({theme:r})=>r.colors.blue};
   }
-`,je=({handlePageChange:r,pageCount:G=1})=>R.jsx(we,{children:R.jsx(Ne,{nextLabel:R.jsx(se,{iconName:"icon-pagination-arrow-right",width:"16",height:"7"}),onPageChange:r,pageRangeDisplayed:3,marginPagesDisplayed:1,pageCount:G,previousLabel:R.jsx(se,{iconName:"icon-pagination-arrow-left",width:"16",height:"7"}),pageClassName:"item",pageLinkClassName:"link",previousClassName:"item",previousLinkClassName:"prevLink",nextClassName:"item",nextLinkClassName:"nextLink",breakLabel:"...",breakClassName:"item",breakLinkClassName:"link",activeClassName:"active",renderOnZeroPageCount:null,className:"pagination"})});je.propTypes={handlePageChange:H.func.isRequired,pageCount:H.number.isRequired,currentPage:H.number};export{je as P,Pe as S};
+`,je=({handlePageChange:r,pageCount:G=1})=>R.jsx(we,{children:R.jsx(Ne,{nextLabel:R.jsx(se,{iconName:"icon-pagination-arrow-right",width:"16",height:"7"}),onPageChange:r,pageRangeDisplayed:3,marginPagesDisplayed:1,pageCount:G,previousLabel:R.jsx(se,{iconName:"icon-pagination-arrow-left",width:"16",height:"7"}),pageClassName:"item",pageLinkClassName:"link",previousClassName:"item",previousLinkClassName:"prevLink",nextClassName:"item",nextLinkClassName:"nextLink",breakLabel:"...",breakClassName:"item",breakLinkClassName:"link",activeClassName:"active",renderOnZeroPageCount:null,className:"pagination"})});je.propTypes={handlePageChange:H.func.isRequired,pageCount:H.number.isRequired,currentPage:H.number};const Ee=()=>{window.scrollTo({top:0,behavior:"smooth"})};export{je as P,Pe as S,Ee as s};
