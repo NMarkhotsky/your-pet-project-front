@@ -1,7 +1,7 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { setTheme } from '../../../redux/theme/themeSlice';
-import { useEffect } from 'react';
 
 export const ThemeSwitcher = () => {
   const currentTheme = useSelector(state => state.theme);

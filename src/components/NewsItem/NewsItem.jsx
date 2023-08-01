@@ -11,6 +11,7 @@ import {
   Date,
   LinkReadMore,
 } from './NewsItem.styled';
+import { t } from 'i18next';
 
 const NewsItem = ({ article }) => {
   const { url = '', text, title, imgUrl, date } = article;
@@ -29,7 +30,7 @@ const NewsItem = ({ article }) => {
         <ContainerInfo>
           <Date>{formatedDate}</Date>
           <LinkReadMore href={url} target="_blank">
-            Read more
+            {t('other_readMore')}
           </LinkReadMore>
         </ContainerInfo>
       </Content>

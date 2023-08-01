@@ -9,6 +9,8 @@ import {
   IconWraper,
   StyledIcon,
 } from '../../shared/sharedModalStyles/sharedModalStyles.styled';
+import { Trans } from 'react-i18next';
+import { t } from 'i18next';
 
 export const ModalConfirmDelete = ({
   handleModal,
@@ -20,15 +22,17 @@ export const ModalConfirmDelete = ({
     <Modal>
       <Title>{title}</Title>
       <Text>
-        Are you sure you want to delete <PetName>“{name}”</PetName>? You can`t
-        undo this action.
+        <Trans i18nKey="modal_deletePet_description" values={{ name }}>
+          Are you sure you want to delete <PetName>“{name}”</PetName>? You can`t
+          undo this action.
+        </Trans>
       </Text>
       <BtnWrapper>
         <CancelButton onClick={handleModal}>
-          <ButtonText>Cancel</ButtonText>
+          <ButtonText>{t('other_cancel')}</ButtonText>
         </CancelButton>
         <YesButton onClick={handleDelete}>
-          <ButtonText>Yes</ButtonText>
+          <ButtonText>{t('other_yes')}</ButtonText>
           <IconWraper>
             <StyledIcon iconName="icon-trash" stroke={'#FDF7F2'} />
           </IconWraper>

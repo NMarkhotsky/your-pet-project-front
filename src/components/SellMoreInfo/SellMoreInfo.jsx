@@ -1,19 +1,28 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { petValues } from '../../constants';
-import { BackIcon, FemaleIcon, MaleIcon, PawIcon } from '../../icons';
-import { getColorGender } from '../../utils';
 import { ButtonsWrapper } from '../ChoiseOption/ChoiseOption.styled';
 import Comments from '../Comment/Comment';
-import ErrorTextAddPet from '../ErrorTextAddPet/ErrorTextAddPet';
 import FieldInput from '../FieldInput/FieldInput';
 import File from '../File/File';
 import GenderRadio from '../GenderRadio/GenderRadio';
 import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
-import { RadioWrapper, FormSellMoreInfo } from './SellMoreInfo.styled';
-import { useDispatch } from 'react-redux';
-import { saveLocationOrPrice, saveSex } from '../../redux/add-pet/moreInfoSlice';
+import {
+  RadioWrapper,
+  FormSellMoreInfo,
+  SexContainer,
+  SexText,
+  RadioContainer,
+  Container,
+  FieldContainer,
+} from './SellMoreInfo.styled';
+import {
+  saveLocationOrPrice,
+  saveSex,
+} from '../../redux/add-pet/moreInfoSlice';
 import { useAddPet } from '../../hooks';
+import { Icon } from '../Icon/Icon';
 
 function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
   const dispatch = useDispatch();
@@ -29,8 +38,7 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
 
   useEffect(() => {
     for (let key in moreInfo.data) {
-      if (moreInfo.data[key] !== "") {
-        console.log(moreInfo.data[key]);
+      if (moreInfo.data[key] !== '') {
         formik.setFieldValue(key, moreInfo.data[key]);
       }
     }
@@ -42,81 +50,101 @@ function SellMoreInfo({ formik, handleDefinePage, setFile, file }) {
     dispatch(saveSex(event.target.id));
   };
 
-  const handleChangeInput = (event) => {
+  const handleChangeInput = event => {
     formik.handleChange(event);
 
     const { name, value } = event.target;
     dispatch(saveLocationOrPrice({ name, value }));
-  }
+  };
 
   return (
     <FormSellMoreInfo onSubmit={formik.handleSubmit}>
-      <RadioWrapper>
-        <GenderRadio
-          formik={formik}
-          text="Female"
-          id="female"
-          onChange={handleChangeSex}
-          value={petValues.female}
-          checked={formik.values.gender}
-          icon={
-            <FemaleIcon
-              stroke={getColorGender({ value: petValues.female, formik })}
-            />
-          }
-        />
-        <GenderRadio
-          formik={formik}
-          text="Male"
-          id="male"
-          onChange={handleChangeSex}
-          value={petValues.male}
-          checked={formik.values.gender}
-          icon={
-            <MaleIcon
-              stroke={getColorGender({ value: petValues.male, formik })}
-            />
-          }
-        />
-      </RadioWrapper>
-      {formik.errors.gender && formik.touched.gender ? (
-        <ErrorTextAddPet text={formik.errors.gender} />
-      ) : null}
+      <Container>
+        <RadioContainer>
+          <SexText>The Sex</SexText>
+          <SexContainer>
+            <RadioWrapper>
+              <GenderRadio
+                formik={formik}
+                text="Female"
+                id="female"
+                onChange={handleChangeSex}
+                value={petValues.female}
+                checked={formik.values.gender}
+                icon={
+                  <Icon
+                    iconName="icon-female"
+                    stroke={
+                      formik.values.gender === petValues.female
+                        ? '#fff'
+                        : formik.values.gender === petValues.male
+                        ? '#888888'
+                        : '#F43F5E'
+                    }
+                  />
+                }
+              />
+              <GenderRadio
+                formik={formik}
+                text="Male"
+                id="male"
+                onChange={handleChangeSex}
+                value={petValues.male}
+                checked={formik.values.gender}
+                icon={
+                  <Icon
+                    iconName="icon-male"
+                    stroke={
+                      formik.values.gender === petValues.male
+                        ? '#fff'
+                        : formik.values.gender === petValues.female
+                        ? '#888888'
+                        : '#54ADFF'
+                    }
+                  />
+                }
+              />
+            </RadioWrapper>
+          </SexContainer>
 
-      <File
-        setFile={setFile}
-        file={file}
-        text="Load the pet’s image:"
-        formik={formik}
-        items="center"
-        gap="14px"
-      />
-      <FieldInput
-        formik={formik}
-        text="Location"
-        id="location"
-        name="location"
-        placeholder="Type of location"
-        value={formik.values.location}
-        onChange={handleChangeInput}
-      />
-      <FieldInput
-        formik={formik}
-        text="Price"
-        id="price"
-        name="price"
-        placeholder="Type of price"
-        value={formik.values.price}
-        onChange={handleChangeInput}
-      />
-      <Comments formik={formik} />
+          <File
+            setFile={setFile}
+            file={file}
+            text="Load the pet’s image:"
+            formik={formik}
+            items="center"
+            gap="14px"
+          />
+        </RadioContainer>
+        <FieldContainer>
+          <FieldInput
+            formik={formik}
+            text="Location"
+            id="location"
+            name="location"
+            placeholder="Type of location"
+            value={formik.values.location}
+            onChange={handleChangeInput}
+          />
+          <FieldInput
+            formik={formik}
+            text="Price"
+            id="price"
+            name="price"
+            placeholder="Type of price"
+            value={formik.values.price}
+            onChange={handleChangeInput}
+          />
+          <Comments formik={formik} />
+        </FieldContainer>
+      </Container>
       <ButtonsWrapper>
         <ButtonNext type="submit">
           Done
-          <PawIcon />
+          <Icon iconName="icon-pawprint" fill="#FFFFFF" />
         </ButtonNext>
         <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
-          <BackIcon />
+          <Icon iconName="icon-arrow-left" stroke="#54adff" />
           Back
         </ButtonPrev>
       </ButtonsWrapper>

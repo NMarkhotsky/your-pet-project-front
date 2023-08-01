@@ -15,6 +15,8 @@ import { Icon } from '../Icon/Icon';
 import image from '../../assets/images/imageUserPage/catImg.png';
 import ScrollToTopButton from '../ScrollToTopButton/ScrollToTopButton';
 import { getPets, deletePet } from '../../services/PetsApi';
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
 
 export const PetsList = () => {
   const [pets, setPets] = useState([]);
@@ -43,11 +45,11 @@ export const PetsList = () => {
   return (
     <ContainerList>
       <TopPart>
-        <ListTitle>My pets:</ListTitle>
+        <ListTitle>{t('user_mypets_title')}:</ListTitle>
 
         <Link to="/add-pet" state={{ from: location }}>
           <Button type="button">
-            Add Pet
+            {t('user_mypets_addBtn')}
             <Icon
               iconName={'icon-plus-small'}
               width={'24px'}
@@ -66,8 +68,10 @@ export const PetsList = () => {
       {pets.length === 0 && (
         <ContainerImage>
           <Title>
-            <p>Sorry...</p> You do not have any pets &#58;&#40; <br />
-            <span style={{ color: '#FFC107' }}>But you can add them.</span>
+            <Trans i18nKey="user_mypets_petList">
+              <p>Sorry...</p> You do not have any pets &#58;&#40; <br />
+              <span style={{ color: '#FFC107' }}>But you can add them.</span>
+            </Trans>
           </Title>
           <Img src={image} alt="Cat with tongue" />
         </ContainerImage>

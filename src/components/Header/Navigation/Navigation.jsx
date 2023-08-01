@@ -3,8 +3,10 @@ import { NavigationBox, StyledLink } from './Navigation.styled';
 import { NavRegAndLogCopy } from '../NavRegAndLogCopy/NavRegAndLogCopy';
 import { UserMenuCopy } from '../UserMenuCopy/UserMenuCopy';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
+import { useTranslation } from 'react-i18next';
 
 export const Navigation = ({ open, handleToggleBurger }) => {
+  const { t } = useTranslation();
   const { isLoggedIn } = useAuth();
 
   return (
@@ -17,13 +19,13 @@ export const Navigation = ({ open, handleToggleBurger }) => {
         )}
 
         <StyledLink to="/news" onClick={handleToggleBurger}>
-          News
+          {t('header_nav_news')}
         </StyledLink>
         <StyledLink to="/notices" onClick={handleToggleBurger}>
-          Find pet
+          {t('header_nav_findPet')}
         </StyledLink>
         <StyledLink to="/friends" onClick={handleToggleBurger}>
-          Our friends
+          {t('header_nav_ourFriends')}
         </StyledLink>
       </NavigationBox>
     </>

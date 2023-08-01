@@ -5,7 +5,8 @@ export const validationPersonalDetailsPlus = Yup.object().shape({
     .string()
     .required("Please enter pet name"),
   birthday: Yup
-    .string()
+    .date()
+    .max(new Date(), "Date of birth cannot be in the future")
     .required("Please enter date of birth"),
   type: Yup
     .string()

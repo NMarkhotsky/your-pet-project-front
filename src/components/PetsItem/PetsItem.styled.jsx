@@ -91,4 +91,12 @@ export const DeleteIcon = styled.button`
     top: 8%;
     right: 2%;
   }
+
+  transform: scale(1);
+  transition: ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.1);
+    transition: ${({ theme }) => theme.transitionHover};
+  }
 `;

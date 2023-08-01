@@ -24,6 +24,7 @@ import { ModalLogout } from '../ModalLogout/ModalLogout';
 import { getCurrentUser, updateUser } from '../../services/UserApi';
 import { FILE_SIZE } from '../../constants/globalConstants';
 import { Loader } from '../../shared/components/Loader/Loader';
+import { t } from 'i18next';
 
 export const UserForm = () => {
   const dispatch = useDispatch();
@@ -172,7 +173,7 @@ export const UserForm = () => {
 
   return (
     <ContainerForm>
-      <FormTitle>My information:</FormTitle>
+      <FormTitle>{t('user_myinfo_title')}</FormTitle>
       <Formik initialValues={values} onSubmit={handleSubmit}>
         <FormBox>
           <EditIcon onClick={handleEditForm}>
@@ -227,7 +228,7 @@ export const UserForm = () => {
                   height={'24px'}
                   stroke={'#54ADFF'}
                 />
-                Edit photo
+                {t('user_myinfo_editPhoto')}
               </label>
             )}
 
@@ -254,7 +255,7 @@ export const UserForm = () => {
                     stroke={'#54ADFF'}
                   />
                 </button>
-                Confirm
+                {t('other_confirm')}
                 <button type="button" onClick={handleCancelClick}>
                   <Icon
                     iconName={'icon-cross'}
@@ -269,7 +270,7 @@ export const UserForm = () => {
 
           <div>
             <InputBox>
-              <Label htmlFor="name">Name:</Label>
+              <Label htmlFor="name"> {t('other_name')}:</Label>
               <Input
                 id="name"
                 name="name"
@@ -280,7 +281,7 @@ export const UserForm = () => {
               />
             </InputBox>
             <InputBox>
-              <Label htmlFor="email">Email:</Label>
+              <Label htmlFor="email">{t('other_mail')}:</Label>
               <Input
                 id="email"
                 name="email"
@@ -290,7 +291,7 @@ export const UserForm = () => {
               />
             </InputBox>
             <InputBox>
-              <Label htmlFor="birthday">Birthday:</Label>
+              <Label htmlFor="birthday">{t('other_birthday')}:</Label>
               <Input
                 type="date"
                 id="birthday"
@@ -301,7 +302,7 @@ export const UserForm = () => {
               />
             </InputBox>
             <InputBox>
-              <Label htmlFor="phone">Phone:</Label>
+              <Label htmlFor="phone">{t('other_phone')}:</Label>
               <Input
                 id="phone"
                 name="phone"
@@ -312,18 +313,18 @@ export const UserForm = () => {
               />
             </InputBox>
             <InputBox>
-              <Label htmlFor="city">City:</Label>
+              <Label htmlFor="city">{t('other_city')}:</Label>
               <Input
                 id="city"
                 name="city"
-                placeholder="Kyiv"
+                placeholder={t('user_myinfo_formPlaceholder_city')}
                 disabled={!isActiveEdit}
                 value={values.city}
                 onChange={handleChange}
               />
             </InputBox>
             {isActiveEdit ? (
-              <ButtonForm type="submit">Save</ButtonForm>
+              <ButtonForm type="submit">{t('user_myinfo_saveBtn')}</ButtonForm>
             ) : (
               <LogoutBox onClick={openModal}>
                 <Icon
@@ -332,7 +333,7 @@ export const UserForm = () => {
                   height={'24px'}
                   stroke={'#54ADFF'}
                 />
-                <p>Log Out</p>
+                <p>{t('user_myinfo_logout')}</p>
               </LogoutBox>
             )}
           </div>

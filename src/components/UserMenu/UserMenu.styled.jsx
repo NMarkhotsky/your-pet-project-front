@@ -31,6 +31,14 @@ export const UserMenuButton = styled.button`
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     z-index: 101;
   }
+
+  transition: ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    background-color: ${props => props.theme.colors.blueDark};
+
+    transition: ${({ theme }) => theme.transitionHover};
+  }
 `;
 
 export const UserMenuName = styled.p`

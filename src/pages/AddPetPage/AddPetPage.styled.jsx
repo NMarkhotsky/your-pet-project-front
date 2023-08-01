@@ -4,8 +4,7 @@ import { selectDesktop, selectTablet } from '../../utils';
 export const Main = styled.div`
   width: 100%;
   min-height: calc(100vh - 128px);
-  margin-top: 20px;
-  padding: 0 20px;
+  margin-top: 24px;
 
   @media ${selectTablet} {
     margin-top: 60px;
@@ -27,8 +26,14 @@ export const FormBody = styled.div`
   margin: 0 auto;
 
   @media ${selectTablet} {
-    max-width: 458px;
-    padding: 20px 32px;
+    width: ${props => (props.value === 2 ? '704px' : '458px')};
+    max-width: ${props => (props.namepage === 'yourPet' ? '458px' : '704px')};
+
+    padding: 20px 32px 20px 32px;
+  }
+
+  @media ${selectDesktop} {
+    width: ${props => (props.value === 2 ? '822px' : '458px')};
   }
 `;
 
@@ -43,5 +48,6 @@ export const Title = styled.h2`
   @media ${selectTablet} {
     font-size: ${props => props.theme.fontSizes.xxl};
     margin-left: 0px;
+    text-align: center;
   }
 `;

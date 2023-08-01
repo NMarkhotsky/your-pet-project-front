@@ -5,14 +5,15 @@ const moreInfoSlice = createSlice({
   name: 'moreInfoSlice',
   initialState: {
     data: {
-      comments: "",
-      sex: "",
-      location: "",
-      price: "",
-      photo: "",
+      comments: '',
+      sex: '',
+      location: '',
+      price: '',
+      photo: '',
     },
     isLoad: false,
     error: null,
+    redirect: false,
   },
   reducers: {
     saveComment(state, action) {
@@ -28,40 +29,55 @@ const moreInfoSlice = createSlice({
       state.data.photo = action.payload;
     },
     clearMoreInfo(state) {
-      state.comments = "";
-      state.gender = "";
-      state.location = "";
-      state.price = "";
-    }
+      state.data.comments = '';
+      state.data.sex = '';
+      state.data.location = '';
+      state.data.price = '';
+      state.redirect = false;
+    },
+    clearRedirect(state) {
+      state.redirect = false;
+    },
   },
   extraReducers: builder => {
     builder
       .addCase(addPet.pending, state => {
         state.isLoad = true;
+        state.redirect = false;
       })
-      .addCase(addPet.fulfilled, (state, action) => {
+      .addCase(addPet.fulfilled, state => {
         state.isLoad = false;
         state.error = null;
-        state.data = action.payload;
+        state.redirect = true;
       })
       .addCase(addPet.rejected, (state, action) => {
         state.isLoad = false;
         state.error = action.payload;
+        state.redirect = false;
       })
       .addCase(addNotice.pending, state => {
         state.isLoad = true;
+        state.redirect = false;
       })
-      .addCase(addNotice.fulfilled, (state, action) => {
+      .addCase(addNotice.fulfilled, state => {
         state.isLoad = false;
         state.error = null;
-        state.data = action.payload;
+        state.redirect = true;
       })
       .addCase(addNotice.rejected, (state, action) => {
         state.isLoad = false;
         state.error = action.payload;
+        state.redirect = false;
       });
   },
 });
 
-export const { saveComment, saveSex, saveLocationOrPrice, clearMoreInfo, savePhoto } = moreInfoSlice.actions;
+export const {
+  saveComment,
+  saveSex,
+  saveLocationOrPrice,
+  clearMoreInfo,
+  savePhoto,
+  clearRedirect,
+} = moreInfoSlice.actions;
 export const moreInfoReducer = moreInfoSlice.reducer;

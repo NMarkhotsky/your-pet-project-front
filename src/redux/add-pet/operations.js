@@ -12,7 +12,6 @@ export const addPet = createAsyncThunk(
         "Content-Type": "multipart/form-data",
       }
     });
-      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -30,7 +29,6 @@ export const addNotice = createAsyncThunk(
           "Content-Type": "multipart/form-data",
         }
       });
-      console.log(response);
       return response.data;
     } catch (error) {
       console.log(error);

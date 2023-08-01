@@ -3,8 +3,8 @@ import File from '../File/File';
 import Comments from '../Comment/Comment';
 import { ButtonsWrapper } from '../ChoiseOption/ChoiseOption.styled';
 import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
-import { BackIcon, PawIcon } from '../../icons';
 import { FormYourPetMoreInfo } from './YourPetMoreInfo.styled';
+import { Icon } from '../Icon/Icon';
 
 function YourPetMoreInfo({ formik, handleDefinePage, setFile, file }) {
   return (
@@ -23,10 +23,10 @@ function YourPetMoreInfo({ formik, handleDefinePage, setFile, file }) {
         <ButtonsWrapper>
           <ButtonNext disabled={formik.values.option === ''} type="submit">
             Done
-            <PawIcon />
+            <Icon iconName="icon-pawprint" fill="#FFFFFF" />
           </ButtonNext>
           <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
-            <BackIcon />
+            <Icon iconName="icon-arrow-left" stroke="#54adff" />
             Back
           </ButtonPrev>
         </ButtonsWrapper>

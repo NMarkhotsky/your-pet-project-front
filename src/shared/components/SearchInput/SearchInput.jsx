@@ -7,6 +7,7 @@ import {
   SearchIcon,
   ButtonWrapper,
 } from './SearchInput.styled';
+import { t } from 'i18next';
 
 export const SearchInput = ({ value, onChange, onSubmit, onDelete }) => {
   return (
@@ -15,7 +16,7 @@ export const SearchInput = ({ value, onChange, onSubmit, onDelete }) => {
         type="text"
         value={value}
         onChange={e => onChange(e.target.value)}
-        placeholder="Search"
+        placeholder={t('other_search')}
       />
       <ButtonWrapper>
         <SearchButton type="button" value={value} onClick={onSubmit}>

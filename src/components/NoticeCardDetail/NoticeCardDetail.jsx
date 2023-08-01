@@ -54,7 +54,7 @@ export const NoticeCardDetail = ({ item }) => {
     setCard(response);
   };
 
-  console.log("card ===>", card)
+  console.log('card ===>', card);
 
   if (card.birthday) {
     const birthday = card.birthday;
