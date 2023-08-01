@@ -16,7 +16,7 @@ import {
   Label,
   Input,
   Button,
-  ButtonSpan
+  ButtonSpan,
 } from './NoticesFilters.styled';
 
 import { Icon } from '../Icon/Icon';
@@ -219,10 +219,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
           </DropDownContainer>
         )}
       </Wrapper>
-      <Link
-        to={user.email !== null && '/add-pet'}
-        onClick={openAttentionModal}
-      >
+      <Link to={user.email !== null && '/add-pet'} onClick={openAttentionModal}>
         <Button type="button">
           <ButtonSpan>{t('user_mypets_addBtn')}</ButtonSpan>
           <Icon
@@ -234,11 +231,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
           />
         </Button>
       </Link>
-      {showAttentionModal && (
-        <div>
-          <AttentionModal onClose={closeAttentionModal} />
-        </div>
-      )}
+      {showAttentionModal && <AttentionModal onClose={closeAttentionModal} />}
     </ContainerFilter>
   );
 };

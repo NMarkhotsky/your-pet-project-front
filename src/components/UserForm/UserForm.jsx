@@ -340,14 +340,12 @@ export const UserForm = () => {
         </FormBox>
       </Formik>
       {showModal && (
-        <div>
-          <ModalApproveAction onClose={closeModal}>
-            <ModalLogout
-              handleModal={closeModal}
-              handleLogout={() => dispatch(logout())}
-            />
-          </ModalApproveAction>
-        </div>
+        <ModalApproveAction onClose={closeModal}>
+          <ModalLogout
+            handleModal={closeModal}
+            handleLogout={() => dispatch(logout())}
+          />
+        </ModalApproveAction>
       )}
       {isLoading ? <Loader /> : null}
     </ContainerForm>

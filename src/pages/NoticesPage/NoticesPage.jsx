@@ -8,6 +8,7 @@ import {
   getAllNotices,
   getSelfNotices,
   getFavoriteNotices,
+  deleteNotice,
 } from '../../services/NoticesApi';
 import { CATEGORIES_RENDER } from '../../constants/globalConstants';
 import {
@@ -31,6 +32,12 @@ function NoticesPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const limit = 12;
+
+  const handleDeleteNotice = async id => {
+    await deleteNotice(id);
+
+    setNotices(prevCards => prevCards.filter(cardItem => cardItem.id !== id));
+  };
 
   useEffect(() => {
     (async () => {
@@ -128,6 +135,7 @@ function NoticesPage() {
         notices={notices}
         pageCount={pageCount}
         handlePageChange={handlePageChange}
+        handleDeleteNotice={handleDeleteNotice}
       />
       <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
       {isLoading ? <Loader /> : null}

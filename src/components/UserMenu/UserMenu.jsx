@@ -94,14 +94,12 @@ export const UserMenu = ({ open, handleToggleBurger }) => {
         </UserMenuBox>
       )}
       {showModal && (
-        <div>
-          <ModalApproveAction onClose={closeModal}>
-            <ModalLogout
-              handleModal={closeModal}
-              handleLogout={() => dispatch(logout())}
-            />
-          </ModalApproveAction>
-        </div>
+        <ModalApproveAction onClose={closeModal}>
+          <ModalLogout
+            handleModal={closeModal}
+            handleLogout={() => dispatch(logout())}
+          />
+        </ModalApproveAction>
       )}
     </>
   );

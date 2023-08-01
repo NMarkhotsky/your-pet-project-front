@@ -43,16 +43,14 @@ export const PetsItem = ({ item, deletePet }) => {
         </Text>
       </div>
       {showModal && (
-        <div>
-          <ModalApproveAction onClose={closeModal}>
-            <ModalConfirmDelete
-              title={t('modal_deletePet_title')}
-              name={item.name}
-              handleModal={closeModal}
-              handleDelete={() => deletePet(item._id)}
-            />
-          </ModalApproveAction>
-        </div>
+        <ModalApproveAction onClose={closeModal}>
+          <ModalConfirmDelete
+            title={t('modal_deletePet_title')}
+            name={item.name}
+            handleModal={closeModal}
+            handleDelete={() => deletePet(item._id)}
+          />
+        </ModalApproveAction>
       )}
     </ContainerItem>
   );
