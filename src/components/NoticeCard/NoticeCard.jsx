@@ -20,8 +20,8 @@ import { Btn } from '../../shared/components/Button/Btn';
 import { NoticeCardDetail } from '../NoticeCardDetail/NoticeCardDetail';
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth/useAuth';
-import { errorMessage } from '../../utils/messages';
-import { updateNotice } from '../../services/NoticesApi';
+// import { errorMessage } from '../../utils/messages';
+// import { updateNotice } from '../../services/NoticesApi';
 
 export const NoticeCard = ({ item }) => {
   const [isLearnMore, setIsLearnMore] = useState(false);
@@ -35,13 +35,6 @@ export const NoticeCard = ({ item }) => {
     setIsLearnMore(true);
   };
 
-  const handleAddFavorite = async () => {
-    if (user.name === null && user.email === null) {
-      errorMessage('Sorry, but you are not authorized. Try it!');
-    }
-    // const response = await updateNotice(item.id);
-
-  }
 
   // const handleDeleteFromFavorite = () => {
 
@@ -55,7 +48,7 @@ export const NoticeCard = ({ item }) => {
           <ContainerPetStatus>
             <TextStatus>{item.noticeType}</TextStatus>
             <ContainerButton>
-              <Button onClick={handleAddFavorite} aria-label="add to favorites">
+              <Button aria-label="add to favorites">
                 <Icon
                   iconName={'icon-heart'}
                   width={'24px'}

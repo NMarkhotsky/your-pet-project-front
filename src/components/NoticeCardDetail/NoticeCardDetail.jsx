@@ -39,7 +39,6 @@ export const NoticeCardDetail = ({ item }) => {
   const [card, setCard] = useState({});
   // const [isCloseModal, setIsCloseModal] = useState(false);
   const { user } = useAuth();
-  // const [isFavorite, setIsFavorite] = useState(card.isFavorite);
 
   // const handleCloseModal = () => {
   //   setIsCloseModal(true);
@@ -62,27 +61,14 @@ export const NoticeCardDetail = ({ item }) => {
     }
   });
 
-  console.log('Fav-->', card.isFavorite);
-
   const handleAddInFavorite = async () => {
     if (user.name === null && user.email === null) {
       errorMessage('Sorry, but you are not authorized. Try it!');
     }
-    console.log('Click');
-
     const response = await updateNotice(item.id);
 
-    console.log('response --->', response.data.notice);
-    console.log('isFavorite ==>', card.isFavorite);
-
     setCard(response.data.notice);
-    // setCard(prevState => ({
-    //   ...response.data.notice,
-    //   isFavorite: !prevState.isFavorite,
-    // }));
   };
-
-  // useEffect(() => {}, [isFavorite]);
 
   console.log('card ===>', card.ownerPhone);
 
