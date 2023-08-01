@@ -74,7 +74,7 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
             <SpanStatus>{card.noticeType}</SpanStatus>
           </ModalCardImage>
           <ModalCardText>
-            <Title>Cute dog looking for a home</Title>
+            <Title>{card.title}</Title>
             <Table>
               <Tbody>
                 <Tr>
@@ -163,5 +163,8 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
 };
 
 NoticeCardDetail.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+  }).isRequired,
   toggleModal: PropTypes.func,
 };
