@@ -1,4 +1,4 @@
-import{s as A,b as ye,a as Oe,P,j as v,t as Ht,d as At,B as Is,r as ne}from"./index-cb6ef55e.js";import{P as Us}from"./Pagination-fcd4046a.js";import{S as Es}from"./SearchInput-4ed78c37.js";//! moment.js
+import{s as A,b as ye,a as Oe,P,j as v,t as Ht,d as At,B as Is,r as ne}from"./index-461b1c85.js";import{P as Us,S as Es}from"./Pagination-12d4bb80.js";//! moment.js
 //! version : 2.29.4
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
@@ -175,4 +175,4 @@ l.version="2.29.4";Hs(S);l.fn=o;l.min=Oa;l.max=ba;l.now=Ta;l.utc=z;l.unix=ai;l.m
     font-size: 48px;
     line-height: 66px;
   }
-`;At.defaults.baseURL=Is;const Xi=async e=>{try{let t="";for(let r in e)t+=`&${r}=${e[r]}`;return await At.get(`/news?${t}`)}catch(t){console.log(t)}},Ki=6;function ro(){const[e,t]=ne.useState(""),[s,r]=ne.useState(""),[a,n]=ne.useState(0),[i,d]=ne.useState(1),[f,g]=ne.useState([]),x=async(pe,Cs)=>{try{const Ft=await Xi({search:Cs,page:pe});g(Ft.data.data),n(Math.ceil(Ft.data.total/Ki))}catch(Wt){console.log(Wt)}},I=ne.useCallback(pe=>{d(pe.selected+1)},[]),V=pe=>{t(pe)},Fs=()=>{r(e)},Ls=()=>{t(""),r(""),x()};return ne.useEffect(()=>{x(i,s)},[i,s]),v.jsxs(v.Fragment,{children:[v.jsx(Qi,{children:Ht("news_title")}),v.jsx(Es,{value:e,onChange:V,onSubmit:Fs,onDelete:Ls}),v.jsx(Nt,{list:f,pageCount:a,handlePageChange:I})]})}export{ro as default};
+`;At.defaults.baseURL=Is;const Xi=async e=>{try{let t="";for(let r in e)t+=`&${r}=${e[r]}`;return await At.get(`/news?${t}`)}catch(t){console.log(t)}},Ki=6;function so(){const[e,t]=ne.useState(""),[s,r]=ne.useState(""),[a,n]=ne.useState(0),[i,d]=ne.useState(1),[f,g]=ne.useState([]),x=async(pe,Cs)=>{try{const Ft=await Xi({search:Cs,page:pe});g(Ft.data.data),n(Math.ceil(Ft.data.total/Ki))}catch(Wt){console.log(Wt)}},I=ne.useCallback(pe=>{d(pe.selected+1)},[]),V=pe=>{t(pe)},Fs=()=>{r(e)},Ls=()=>{t(""),r(""),x()};return ne.useEffect(()=>{x(i,s)},[i,s]),v.jsxs(v.Fragment,{children:[v.jsx(Qi,{children:Ht("news_title")}),v.jsx(Es,{value:e,onChange:V,onSubmit:Fs,onDelete:Ls}),v.jsx(Nt,{list:f,pageCount:a,handlePageChange:I})]})}export{so as default};
