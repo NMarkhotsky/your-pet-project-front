@@ -5,7 +5,6 @@ export const List = styled.ul`
   display: flex;
   align-items: stretch;
   flex-direction: column;
-  /* justify-content: flex-start; */
 
   width: 100%;
   margin-bottom: 60px;
@@ -30,7 +29,6 @@ export const Item = styled.li`
   flex-direction: column;
   width: 280px;
   padding-bottom: 24px;
-  /* min-height: 456px; */
 
   border-radius: 0 0 40px 40px;
 
@@ -97,7 +95,6 @@ export const TextStatus = styled.p`
 `;
 
 export const ContainerButton = styled.div`
-  /* display: block; */
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -133,26 +130,21 @@ export const Button = styled.button`
 export const ListPetInfo = styled.ul`
   position: absolute;
   bottom: 12px;
-  right: 8px;
-  left: 8px;
 
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 8px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
 
   padding: 0;
 
   @media ${selectTablet} {
-    left: 24px;
-    right: 24px;
-
     gap: 24px;
   }
 
   @media ${selectDesktop} {
-    left: 12px;
-    right: 12px;
-
     gap: 12px;
   }
 `;
@@ -162,9 +154,9 @@ export const ItemPetInfo = styled.li`
   align-items: center;
   justify-content: center;
   gap: 4px;
-  width: 80px;
+  max-width: 100%;
   height: 28px;
-  padding: 0 5px;
+  padding: 5px 5px;
 
   border-radius: 16px;
 
@@ -175,23 +167,12 @@ export const ItemPetInfo = styled.li`
   cursor: pointer;
 
   transition: ${({ theme }) => theme.transitionHover};
-
-  /* &:hover {
-    background-color: ${props => props.theme.colors.blue};
-    color: ${props => props.theme.colors.white};
-    transition: ${({ theme }) => theme.transitionHover};
-  }
-
-  &:hover > svg {
-    stroke: ${props => props.theme.colors.white};
-    transition: ${({ theme }) => theme.transitionHover};
-  } */
 `;
 
 export const SpanPetText = styled.span`
   font-family: ${props => props.theme.fonts.main.semiBold};
   font-size: ${props => props.theme.fontSizes.xs};
-
+  text-align: center;
   letter-spacing: 0.48px;
 `;
 
