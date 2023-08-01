@@ -2,9 +2,7 @@
 
 # <div align=center>Ласкаво просимо до "Your Pet" - домівки для лапочок! 🐾</div>
 
-<a href="https://nmarkhotsky.github.io/your-pet-project-front/" target="_blank">
-  <img src="src/assets/images/readme/YorPet.png" alt="Your Pet">
-</a>
+[![Your Pet](src/assets/images/readme/YorPet.png)](https://nmarkhotsky.github.io/your-pet-project-front/)
 
 ## <div align=center>Про "Your Pet"</div>
 
