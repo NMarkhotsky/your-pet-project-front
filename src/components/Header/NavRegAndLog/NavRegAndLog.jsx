@@ -8,11 +8,13 @@ import {
   Span,
   LinkRegStyled,
 } from './NavRegAndLog.styled';
+import LanguageSwitcher from '../../LanguageSwitcher/LanguageSwitcher';
 
 export const NavRegAndLog = () => {
   return (
     <>
       <MainNavLinkBox>
+        <LanguageSwitcher />
         <ThemeSwitcher />
         <LinkLogStyled to="/login">
           <Trans i18nKey="header_nav_loginBtn">

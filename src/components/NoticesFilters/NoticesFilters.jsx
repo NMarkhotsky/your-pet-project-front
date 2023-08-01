@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import {
-  ContainerFilter, 
+  ContainerFilter,
   Wrapper,
   OpenBtn,
   OpenBtnLabel,
@@ -22,12 +22,26 @@ import {
 import { Icon } from '../Icon/Icon';
 import { t } from 'i18next';
 import { Link } from 'react-router-dom';
+import { AttentionModal } from '../AttentionModal/AttentionModal';
+import { useAuth } from '../../hooks/useAuth/useAuth';
 
 export const NoticesFilters = ({ getFilterParams }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
   const [genderOpen, setGenderOpen] = useState(false);
-  const [filters, setFilters] = useState([])
+  const [filters, setFilters] = useState([]);
+  const [showAttentionModal, setShowAttentionModal] = useState(false);
+  const { user } = useAuth();
+
+  const openAttentionModal = () => {
+    if (user.name === null && user.email === null) {
+      setShowAttentionModal(true);
+    }
+  };
+
+  const closeAttentionModal = () => {
+    setShowAttentionModal(false);
+  };
 
   useEffect(() => {
     const updatedFilterParams = {
@@ -35,46 +49,48 @@ export const NoticesFilters = ({ getFilterParams }) => {
       middle: false,
       older: false,
       sex: null,
+    };
+
+    if (filters.includes('0-12 m')) {
+      updatedFilterParams.young = true;
+    } else {
+      updatedFilterParams.young = false;
     }
 
-  if (filters.includes('0-12 m')) {
-    updatedFilterParams.young = true
-  } else {
-    updatedFilterParams.young = false
-  }
-
-  if (filters.includes('1 year')) {
-    updatedFilterParams.middle = true
-  } else {
-    updatedFilterParams.middle = false
-  }
-
-  if (filters.includes('2 years +')) {
-    updatedFilterParams.older = true
-  } else {
-    updatedFilterParams.older = false
+    if (filters.includes('1 year')) {
+      updatedFilterParams.middle = true;
+    } else {
+      updatedFilterParams.middle = false;
     }
-    
-    
-  if (filters.includes('male') && filters.includes('female')) {
-    updatedFilterParams.sex = null
-  } else if (filters.includes('male')) {
-    updatedFilterParams.sex = 'male'
-  } else if (filters.includes('female')) {
-    updatedFilterParams.sex = 'female'
-  } else {
-    updatedFilterParams.sex = null
-  }
 
-      Object.keys(updatedFilterParams).forEach((key) => {
-        if (updatedFilterParams[key] === false || updatedFilterParams[key] === null) {
-          delete updatedFilterParams[key];
-        }
-      });
+    if (filters.includes('2 years +')) {
+      updatedFilterParams.older = true;
+    } else {
+      updatedFilterParams.older = false;
+    }
 
-    getFilterParams(updatedFilterParams)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters])
+    if (filters.includes('male') && filters.includes('female')) {
+      updatedFilterParams.sex = null;
+    } else if (filters.includes('male')) {
+      updatedFilterParams.sex = 'male';
+    } else if (filters.includes('female')) {
+      updatedFilterParams.sex = 'female';
+    } else {
+      updatedFilterParams.sex = null;
+    }
+
+    Object.keys(updatedFilterParams).forEach(key => {
+      if (
+        updatedFilterParams[key] === false ||
+        updatedFilterParams[key] === null
+      ) {
+        delete updatedFilterParams[key];
+      }
+    });
+
+    getFilterParams(updatedFilterParams);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
 
   const handleBtnClick = () => {
     setIsOpen(prevState => !prevState);
@@ -90,11 +106,10 @@ export const NoticesFilters = ({ getFilterParams }) => {
 
   const handleCheckboxChange = e => {
     if (filters.includes(e.target.value)) {
-      setFilters(prev => (prev.filter(item => item !== e.target.value)));
+      setFilters(prev => prev.filter(item => item !== e.target.value));
     } else {
-      setFilters(prev => [...prev, e.target.value])
+      setFilters(prev => [...prev, e.target.value]);
     }
-    
   };
 
   return (
@@ -204,7 +219,10 @@ export const NoticesFilters = ({ getFilterParams }) => {
           </DropDownContainer>
         )}
       </Wrapper>
-      <Link to="/add-pet">
+      <Link
+        to={user.email !== null && '/add-pet'}
+        onClick={openAttentionModal}
+      >
         <Button type="button">
           <ButtonSpan>{t('user_mypets_addBtn')}</ButtonSpan>
           <Icon
@@ -216,6 +234,11 @@ export const NoticesFilters = ({ getFilterParams }) => {
           />
         </Button>
       </Link>
+      {showAttentionModal && (
+        <div>
+          <AttentionModal onClose={closeAttentionModal} />
+        </div>
+      )}
     </ContainerFilter>
   );
 };

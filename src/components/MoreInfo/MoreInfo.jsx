@@ -17,21 +17,24 @@ import {
 } from '../../redux/add-pet/moreInfoSlice';
 import { clearOption } from '../../redux/add-pet/optionSlice';
 import { clearPersonalDetails } from '../../redux/add-pet/personalDetailsSlice';
-import { Navigate, useLocation } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function MoreInfo({ option, handleDefinePage, setFile, file }) {
+  console.log('option: ', option);
   const {
     personalDetails,
     moreInfo: { redirect },
   } = useAddPet();
-  const location = useLocation();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (redirect) {
       dispatch(clearRedirect());
+      dispatch(clearPersonalDetails());
+      dispatch(clearMoreInfo());
+      dispatch(clearOption());
     }
   }, [redirect, dispatch]);
 
@@ -47,9 +50,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     if (option === petValues.yourPet) {
       dispatch(addPet(petObj));
       resetForm();
-      dispatch(clearPersonalDetails());
-      dispatch(clearMoreInfo());
-      dispatch(clearOption());
+
       return;
     }
 
@@ -66,9 +67,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
         })
       );
       resetForm();
-      dispatch(clearPersonalDetails());
-      dispatch(clearMoreInfo());
-      dispatch(clearOption());
+
       return;
     }
 
@@ -83,9 +82,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
         ...noticeObjWithoutPrice,
       })
     );
-    dispatch(clearPersonalDetails());
-    dispatch(clearMoreInfo());
-    dispatch(clearOption());
+
     resetForm();
   };
 
@@ -121,17 +118,10 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     validationSchema: validationDefaultInfo,
   });
 
+  const redirectPage = option === 'yourPet' ? '/user' : '/notices';
+
   if (redirect) {
-    return (
-      <Navigate
-        to={
-          (location.state &&
-            location.state.from &&
-            location.state.from.pathname) ||
-          '/notices'
-        }
-      />
-    );
+    return <Navigate to={redirectPage} />;
   }
 
   switch (option) {
