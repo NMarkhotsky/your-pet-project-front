@@ -25,8 +25,10 @@ export const Modal = styled.div`
   border-radius: 20px;
 
   position: absolute;
-  top: 20%;
-
+  /* top: 10%; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.bgdColor};
 `;
 
