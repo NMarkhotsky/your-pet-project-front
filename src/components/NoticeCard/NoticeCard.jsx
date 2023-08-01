@@ -28,15 +28,17 @@ import {
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
+import { errorMessage, successMessage } from '../../utils/messages';
 
 export const NoticeCard = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [showAttentionModal, setShowAttentionModal] = useState(false);
   const [card, setCard] = useState({});
+
   const { user } = useAuth();
 
-  // console.log('user -->', user);
+  console.log('user -->', user);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
@@ -73,17 +75,25 @@ export const NoticeCard = ({ item }) => {
     if (user.name === null && user.email === null) {
       setShowAttentionModal(true);
     }
-    console.log('item -->', item);
+
     const response = await updateNotice(item.id);
 
     setCard(response.data.notice);
   };
 
-  const handleDeleteFromFavorite = async id => {
-    console.log('card ==>', card);
+  // console.log('card ==>', card);
+
+  const handleDeleteNotice = async id => {
     if (user.email === card.ownerEmail) {
+      setShowModalDelete(false);
       await deleteNotice(id);
-      setCard(prevPets => prevPets.filter(card => card.id !== id));
+
+      setCard({});
+      // console.log('card ==>', card);
+
+      successMessage('The card was successfully removed');
+    } else {
+      errorMessage('It is not your pet and you cannot remove it');
     }
   };
 
@@ -157,9 +167,9 @@ export const NoticeCard = ({ item }) => {
             <ModalApproveAction onClose={closeModalDelete}>
               <ModalConfirmDelete
                 title={'Delete a notice?'}
-                name={item.title}
+                name={card.name}
                 handleModal={closeModalDelete}
-                handleDelete={() => handleDeleteFromFavorite(item.id)}
+                handleDelete={() => handleDeleteNotice(card._id)}
               />
             </ModalApproveAction>
           </div>
