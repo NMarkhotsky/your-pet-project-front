@@ -19,6 +19,7 @@ import {
 } from '../StyledButtons/StyledButtons';
 import { useAddPet } from '../../hooks';
 import { Icon } from '../Icon/Icon';
+import { t } from 'i18next';
 
 const initialValues = {
   option: '',
@@ -52,7 +53,7 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
       </ChooseOptionWrapper>
       <ButtonsWrapper>
         <ButtonNext disabled={formik.values.option === ''} type="submit">
-          Next
+          {t('other_next')}
           <Icon iconName="icon-pawprint" fill="#FFFFFF" />
         </ButtonNext>
         <ButtonPrevLink
@@ -65,7 +66,7 @@ function ChoiseOption({ handleDefinePage, currentPage }) {
         >
           <ButtonPrev type="button">
             <Icon iconName="icon-arrow-left" stroke="#54adff" />
-            Cancel
+            {t('other_cancel')}
           </ButtonPrev>
         </ButtonPrevLink>
       </ButtonsWrapper>

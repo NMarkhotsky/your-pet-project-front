@@ -6,8 +6,7 @@ export const LanguageSwitcherContainer = styled.div`
   top: 2px;
   right: 2px;
   display: block;
-  color: #ffc107;
-  padding: 2px 2px;
+  padding: 4px 4px;
   border-radius: 8px;
   border: 1px solid ${props => props.theme.colors.blue};
   z-index: 1;
@@ -26,6 +25,10 @@ export const LanguageSwitcherContainer = styled.div`
     font-size: 12px;
     right: 2px;
     transform: none;
+  }
+
+  & > button {
+    color: rgb(255, 193, 7);
   }
 `;
 

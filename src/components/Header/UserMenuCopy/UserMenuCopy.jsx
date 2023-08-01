@@ -10,6 +10,7 @@ import { ModalApproveAction } from '../../../shared/components/ModalApproveActio
 import { ModalLogout } from '../../ModalLogout/ModalLogout';
 import { useState } from 'react';
 import { ThemeSwitcher } from '../../../shared/components/ThemeSwitcher/ThemeSwitcher';
+import { t } from 'i18next';
 
 export const UserMenuCopy = ({ handleToggleBurger }) => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export const UserMenuCopy = ({ handleToggleBurger }) => {
     <UserMenuBoxCopy>
       <ThemeSwitcher />
       <UserMenuButton type="button" onClick={openModal}>
-        Log out
+        {t('auth_logoutBtn')}
         <Icon
           iconName={'icon-logout'}
           width={'24px'}

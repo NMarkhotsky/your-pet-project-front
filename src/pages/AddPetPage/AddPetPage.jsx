@@ -7,6 +7,7 @@ import { BackgroundWrapper } from '../../shared/components/BackgroundWrapper/Bac
 import { FormBody, Main, Title } from './AddPetPage.styled';
 import { useAddPet } from '../../hooks';
 import { petValues } from '../../constants';
+import { t } from 'i18next';
 
 function AddPetPage() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -18,12 +19,12 @@ function AddPetPage() {
 
   const titleText =
     option === petValues.SELL
-      ? 'Add pet for sell'
+      ? t('addPet_form_titleText_sell')
       : option === petValues.LOST_FOUND
-      ? 'Add lost pet'
+      ? t('addPet_form_titleText_lostFound')
       : option === petValues.IN_GOOD_HANDS
-      ? 'Add pet in good hands'
-      : 'Add pet';
+      ? t('addPet_form_titleText_inGoodHands')
+      : t('addPet_form_titleText_default');
 
   return (
     <>

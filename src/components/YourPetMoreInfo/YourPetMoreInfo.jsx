@@ -5,6 +5,7 @@ import { ButtonsWrapper } from '../ChoiseOption/ChoiseOption.styled';
 import { ButtonNext, ButtonPrev } from '../StyledButtons/StyledButtons';
 import { FormYourPetMoreInfo } from './YourPetMoreInfo.styled';
 import { Icon } from '../Icon/Icon';
+import { t } from 'i18next';
 
 function YourPetMoreInfo({ formik, handleDefinePage, setFile, file }) {
   return (
@@ -14,7 +15,7 @@ function YourPetMoreInfo({ formik, handleDefinePage, setFile, file }) {
           setFile={setFile}
           file={file}
           formik={formik}
-          text="Load the pet’s image:"
+          text={t('addPet_form_moreInfo_file')}
           direction="row"
           items="center"
           gap="14px"
@@ -22,12 +23,12 @@ function YourPetMoreInfo({ formik, handleDefinePage, setFile, file }) {
         <Comments formik={formik} />
         <ButtonsWrapper>
           <ButtonNext disabled={formik.values.option === ''} type="submit">
-            Done
+            {t('other_done')}
             <Icon iconName="icon-pawprint" fill="#FFFFFF" />
           </ButtonNext>
           <ButtonPrev type="button" onClick={() => handleDefinePage(-1)}>
             <Icon iconName="icon-arrow-left" stroke="#54adff" />
-            Back
+            {t('other_back')}
           </ButtonPrev>
         </ButtonsWrapper>
       </FormYourPetMoreInfo>

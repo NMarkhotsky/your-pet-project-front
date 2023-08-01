@@ -37,6 +37,47 @@
   "notices_cardInfoDetails_theSex": "Стать",
   "notices_cardInfoDetails_addToBtn": "Додати до",
 
+  "addPet_form_titleText_sell": "Додати на продаж",
+  "addPet_form_titleText_lostFound": "Додати втрачену тваринку",
+  "addPet_form_titleText_inGoodHands": "Додати в гарні руки",
+  "addPet_form_titleText_default": "Додати тваринку",
+
+  "addPet_form_chooseOption_radio_yourPet": "ваш",
+  "addPet_form_chooseOption_radio_sell": "продаж",
+  "addPet_form_chooseOption_radio_lost/found": "загублений/знайдений",
+  "addPet_form_chooseOption_radio_inGoodHands": "в гарні руки",
+
+  "addPet_formPaginationList_chooseOption": "Оберіть варіант",
+  "addPet_formPaginationList_personalDetails": "Особисте інфо",
+  "addPet_formPaginationList_moreInfo": "Додаткове інфо",
+
+  "addPet_form_personalInfo_titleOfAdd": "Назва",
+  "addPet_form_personalInfo_petName": "Ім'я домашнього улюбленця",
+  "addPet_form_personalInfo_petName_placeholder": "Введіть ім'я домашнього улюбленця",
+  "addPet_form_personalInfo_petType_placeholder": "Тип домашнього улюбленця",
+
+  "addPet_form_moreInfo_theSex": "Стать",
+  "addPet_form_moreInfo_file": "Завантажити фото",
+  "addPet_form_moreInfo_location_placeholder": "Введіть місцезнаходження",
+  "addPet_form_moreInfo_price_placeholder": "Введіть ціну",
+
+  "addPet_form_validation_personalInfo_name": "Будь ласка, введіть ім'я домашнього улюбленця",
+  "addPet_form_validation_personalInfo_birtday": "Будь ласка, введіть дату народження",
+  "addPet_form_validation_personalInfo_birtday_max": "Дата народження не може бути в майбутньому",
+  "addPet_form_validation_personalInfo_type": "Будь ласка, введіть породу",
+  "addPet_form_validation_personalInfo_title": "Будь ласка, введіть назву",
+
+  "addPet_form_validation_moreInfo_gender": "Будь ласка, виберіть стать",
+  "addPet_form_validation_moreInfo_location": "Розташування обов'язкове до заповнення",
+  "addPet_form_validation_moreInfo_location_max": "Максимальна довжина розташування - 20 символів",
+  "addPet_form_validation_moreInfo_price": "Ціна обов'язкова",
+  "addPet_form_validation_moreInfo_price_type": "Ціна має містити лише цифри",
+  "addPet_form_validation_moreInfo_photo": "Потрібна фотографія домашньої тварини",
+  "addPet_form_validation_moreInfo_photo_maxSize": "Розмір файлу не повинен перевищувати 3 MB",
+  "addPet_form_validation_moreInfo_photo_fileType": "Дозволені лише файли JPG",
+  "addPet_form_validation_moreInfo_comments": "Коментарі обов'язкові",
+  "addPet_form_validation_moreInfo_comments_max": "Максимальна довжина повідомлення - 70 символів",
+
   "footer_title": "Наша команда",
   "footer_ps": "Розроблено з",
 
@@ -63,6 +104,14 @@
   "other_closed": "Вихідний",
   "other_address": "Адреса",
   "other_language": "Мова",
+  "other_next": "Далі",
+  "other_back": "Назад",
+  "other_female": "Жіноча",
+  "other_male": "Чоловіча",
+  "other_location": "Місцезнаходження",
+  "other_price": "Ціна",
+  "other_done": "Готово",
+
   "other_MN": "Пн",
   "other_TU": "Вт",
   "other_WE": "Ср",
