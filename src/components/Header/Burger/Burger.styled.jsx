@@ -8,8 +8,6 @@ export const StyledBurger = styled.div`
   @media (max-width: 1279px) {
     display: flex;
   }
-
-  overflow: ${props => (props.open ? 'hidden' : 'auto')};
 `;
 
 export const IconBurgerBox = styled.div`
