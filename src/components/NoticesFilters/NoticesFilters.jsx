@@ -30,8 +30,8 @@ export const NoticesFilters = ({ getFilterParams }) => {
   const [genderOpen, setGenderOpen] = useState(false);
   const [filters, setFilters] = useState([]);
   const [showAttentionModal, setShowAttentionModal] = useState(false);
-  const { user } = useAuth(); 
-  
+  const { user } = useAuth();
+
   const openAttentionModal = () => {
     if (user.name === null && user.email === null) {
       setShowAttentionModal(true);
@@ -218,8 +218,11 @@ export const NoticesFilters = ({ getFilterParams }) => {
           </DropDownContainer>
         )}
       </Wrapper>
-      <Link to="/add-pet">
-        <Button type="button" onClick={openAttentionModal}>
+      <Link
+        to={user.email !== null && '/add-pet'}
+        onClick={openAttentionModal}
+      >
+        <Button type="button">
           {t('user_mypets_addBtn')}
           <Icon
             iconName={'icon-plus-small'}

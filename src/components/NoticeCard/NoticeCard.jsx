@@ -36,7 +36,7 @@ export const NoticeCard = ({ item }) => {
   const [card, setCard] = useState({});
   const { user } = useAuth();
 
-  console.log('user -->', user);
+  // console.log('user -->', user);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
