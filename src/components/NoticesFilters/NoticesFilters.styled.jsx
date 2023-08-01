@@ -43,6 +43,11 @@ export const OpenBtn = styled.button`
     transition: fill ${({ theme }) => theme.transitionHover};
   }
 
+  &:hover svg use {
+    stroke: ${props => props.theme.colors.white};
+    transition: stroke ${({ theme }) => theme.transitionHover};
+  }
+
   &:hover,
   &:focus svg use {
     stroke: ${props => props.theme.colors.white};
@@ -109,7 +114,6 @@ export const IconWraper = styled.div`
     stroke: ${props => props.theme.colors.white};
     transition: stroke ${({ theme }) => theme.transitionHover};
   }
-
 `;
 
 export const OpenBtnLabel = styled.span`
