@@ -1,6 +1,8 @@
+###### <div align=center> [ENG](README.md) </div>
+
 # <div align=center>Welcome to "Your Pet" - the home for adorable little paws! 🐾</div>
 
-![YorPet](src/assets/images/readme/YorPet.png)
+[![Your Pet](src/assets/images/readme/YorPet.png)](https://nmarkhotsky.github.io/your-pet-project-front/)
 
 ## <div align=center>About "Your Pet":</div>
 
