@@ -1,4 +1,4 @@
-###### <div align=center> [ENG](README.md) </div>
+###### <div align=center> [UA](README.md) </div>
 
 # <div align=center>Welcome to "Your Pet" - the home for adorable little paws! 🐾</div>
 
