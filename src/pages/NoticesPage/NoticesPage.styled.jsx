@@ -1,6 +1,21 @@
 import styled from 'styled-components';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
+
+export const SectionNoticesPage = styled.section`
+padding-bottom: 112px;
+`;
+
+export const TitleWrap = styled.div`
+margin-bottom: 40px;
+`;
+
+export const FilterNavBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 43px 0;
+`;
+
 export const FilterWrapper = styled.div`
   display: flex;
   justify-content: space-between;

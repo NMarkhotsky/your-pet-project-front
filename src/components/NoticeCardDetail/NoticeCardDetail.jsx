@@ -24,10 +24,10 @@ import {
 } from './NoticeCardDetail.styled';
 import { updateNotice, getNoticeById } from '../../services/NoticesApi';
 import { useEffect, useState } from 'react';
-// import { changeLanguage } from 'i18next';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 import { errorMessage } from '../../utils/messages';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
+import { t } from 'i18next';
 
 export const NoticeCardDetail = ({ item, toggleModal }) => {
   const [card, setCard] = useState({});
@@ -78,27 +78,27 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
             <Table>
               <Tbody>
                 <Tr>
-                  <TdName>Name: </TdName>
+                  <TdName>{t('other_name')}: </TdName>
                   <TdValue>{card.name}</TdValue>
                 </Tr>
                 <Tr>
-                  <TdName>Birthday: </TdName>
+                  <TdName>{t('other_birthday')}: </TdName>
                   <TdValue>{formattedBirthday}</TdValue>
                 </Tr>
                 <Tr>
-                  <TdName>Type: </TdName>
+                  <TdName>{t('other_type')}: </TdName>
                   <TdValue>{card.petType}</TdValue>
                 </Tr>
                 <Tr>
-                  <TdName>Place: </TdName>
+                  <TdName>{t('other_place')}: </TdName>
                   <TdValue>{card.location}</TdValue>
                 </Tr>
                 <Tr>
-                  <TdName>The sex: </TdName>
+                  <TdName>{t('notices_cardInfoDetails_theSex')}: </TdName>
                   <TdValue>{item.sex}</TdValue>
                 </Tr>
                 <Tr>
-                  <TdName>Email: </TdName>
+                  <TdName>{t('other_mail')}: </TdName>
                   <TdValue>
                     <Link href={`mailto:${card.ownerEmail}`}>
                       {card.ownerEmail}
@@ -106,7 +106,7 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
                   </TdValue>
                 </Tr>
                 <Tr>
-                  <TdName>Phone: </TdName>
+                  <TdName>{t('other_phone')}: </TdName>
                   <TdValue>
                     <Link href={`tel:${card.ownerPhone}`}>
                       {card.ownerPhone}
@@ -118,7 +118,7 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
           </ModalCardText>
         </ModalCardInfo>
         <Text>
-          <Comments>Comments:</Comments> {card.comments}
+          <Comments>{t('other_comments')}:</Comments> {card.comments}
         </Text>
         <ButtonsWrapper>
           <ButtonAddFavorite
@@ -128,7 +128,9 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
               borderColor: card.isFavorite && '#54ADFF',
             }}
           >
-            <ButtonTextAdd onClick={handleAddInFavorite}>Add to</ButtonTextAdd>
+            <ButtonTextAdd onClick={handleAddInFavorite}>
+              {t('notices_cardInfoDetails_addToBtn')}
+            </ButtonTextAdd>
             {!card.isFavorite ? (
               <Icon
                 iconName={'icon-heart'}
@@ -147,11 +149,11 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
           </ButtonAddFavorite>
           {card.ownerPhone === undefined ? (
             <ButtonLinkContact href={`mailto:${card.ownerEmail}`}>
-              Contact
+              {t('other_contact')}
             </ButtonLinkContact>
           ) : (
             <ButtonLinkContact href={`tel:${card.ownerPhone}`}>
-              Contact
+              {t('other_contact')}
             </ButtonLinkContact>
           )}
         </ButtonsWrapper>
