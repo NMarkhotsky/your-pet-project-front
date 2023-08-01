@@ -54,4 +54,9 @@
 
 ---
 
+### <div align=center>Бекенд проекту "Your Pet"</div>
+###### <div align=center>["Your Pet - Backend" 🐾](https://github.com/yogurtfirst/mypets-project-backend)</div>
+
+---
+
 ### <div align=center>"Your Pet" - місце, де ласка та дружба - найкращі умови для усіх. 🐶🐱💕</div>
