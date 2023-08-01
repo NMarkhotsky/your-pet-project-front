@@ -281,8 +281,14 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 8px 20px;
+  padding: 6px 20px;
   border-radius: 40px;
+
+  
+`;
+
+export const ButtonAddFavorite = styled(Button)`
+  border: 2px solid transparent;
 `;
 
 export const ButtonTextAdd = styled.span`
