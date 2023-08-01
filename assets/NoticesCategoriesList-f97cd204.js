@@ -1,4 +1,4 @@
-import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,a9 as Q,t as a,a as B,e as g,B as X,r as c,u as _,v as Y,z as Z}from"./index-6dd5c7ff.js";import{B as ee}from"./Btn.styled-0b219a47.js";import{M as te}from"./ModalConfirmDelete-0eea816d.js";const oe=o.div`
+import{s as o,b as s,P as d,j as t,M as z,T as F,a6 as V,a7 as G,a8 as J,I as l,a9 as Q,t as a,a as A,e as y,B as X,r as c,u as _,v as B,x as Y,z as Z}from"./index-6441cd90.js";import{B as ee}from"./Btn.styled-f8f404f7.js";import{M as te}from"./ModalConfirmDelete-7bf274a3.js";const oe=o.div`
   width: 280px;
   padding: 60px 20px;
   border-radius: 20px;
@@ -37,7 +37,7 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
     letter-spacing: 0.8px;
     line-height: 28px;
   }
-`,L=({onClose:e})=>t.jsx(S,{onClose:e,children:t.jsxs(oe,{children:[t.jsxs(C,{i18nKey:"modal_attention",children:[t.jsx(ie,{children:"Attention"}),t.jsx(ne,{children:"We would like to remind you that certain functionality is available only to authorized users.If you have an account, please log in with your credentials. If you do not already have an account, you must register to access these features."})]}),t.jsxs(V,{children:[t.jsxs(G,{to:"/login",children:[t.jsxs(C,{i18nKey:"header_nav_loginBtn",children:["Log ",t.jsx(J,{children:"in"})]}),t.jsx(l,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#FEF9F9"})]}),t.jsx(Q,{to:"/register",children:a("header_nav_signupBtn")})]})]})});L.propTypes={onClose:d.func.isRequired};const se=o.ul`
+`,N=({onClose:e})=>t.jsx(z,{onClose:e,children:t.jsxs(oe,{children:[t.jsxs(F,{i18nKey:"modal_attention",children:[t.jsx(ie,{children:"Attention"}),t.jsx(ne,{children:"We would like to remind you that certain functionality is available only to authorized users.If you have an account, please log in with your credentials. If you do not already have an account, you must register to access these features."})]}),t.jsxs(V,{children:[t.jsxs(G,{to:"/login",children:[t.jsxs(F,{i18nKey:"header_nav_loginBtn",children:["Log ",t.jsx(J,{children:"in"})]}),t.jsx(l,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#FEF9F9"})]}),t.jsx(Q,{to:"/register",children:a("header_nav_signupBtn")})]})]})});N.propTypes={onClose:d.func.isRequired};const se=o.ul`
   display: flex;
   align-items: stretch;
   flex-direction: column;
@@ -74,7 +74,7 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
     width: 336px;
   }
 
-  @media ${B} {
+  @media ${A} {
     width: 288px;
   }
 
@@ -168,13 +168,13 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
     gap: 24px;
   }
 
-  @media ${B} {
+  @media ${A} {
     left: 12px;
     right: 12px;
 
     gap: 12px;
   }
-`,v=o.li`
+`,w=o.li`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,7 +203,7 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
     stroke: ${e=>e.theme.colors.white};
     transition: ${({theme:e})=>e.transitionHover};
   } */
-`,z=o.span`
+`,v=o.span`
   font-family: ${e=>e.theme.fonts.main.semiBold};
   font-size: ${e=>e.theme.fontSizes.xs};
 
@@ -215,7 +215,7 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
   font-family: ${e=>e.theme.fonts.main.bold};
   font-size: ${e=>e.theme.fontSizes.xl};
   line-height: 33px;
-`,me=e=>e.length>5?e.substring(0,5)+"...":e,N=({children:e,onClick:i})=>t.jsx(ee,{type:"button",onClick:i,children:e});N.propTypes={children:d.any.isRequired,onClick:d.func};o.button`
+`,me=e=>e.length>5?e.substring(0,5)+"...":e,L=({children:e,onClick:i})=>t.jsx(ee,{type:"button",onClick:i,children:e});L.propTypes={children:d.any.isRequired,onClick:d.func};o.button`
   position: absolute;
   right: 12px;
   top: 12px;
@@ -344,13 +344,13 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
   border-color: inherit;
 
   vertical-align: middle;
-`,x=o.tr`
+`,f=o.tr`
   display: table-row;
 
   vertical-align: inherit;
 
   border-color: inherit;
-`,m=o.td`
+`,g=o.td`
   display: table-cell;
   width: 80px;
 
@@ -367,7 +367,7 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
     font-size: ${e=>e.theme.fontSizes.md};
     line-height: 22px;
   }
-`,f=o.td`
+`,u=o.td`
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -382,7 +382,7 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
     font-size: ${e=>e.theme.fontSizes.md};
     line-height: 22px;
   }
-`,A=o.a`
+`,C=o.a`
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -429,7 +429,7 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
   border-radius: 40px;
 `,Fe=o(ke)`
   border: 2px solid transparent;
-`,Ce=o.span`
+`,Te=o.span`
   font-family: ${e=>e.theme.fonts.main.bold};
   font-size: ${e=>e.theme.fontSizes.md};
   letter-spacing: 0.04em;
@@ -476,6 +476,6 @@ import{s as o,b as s,P as d,j as t,M as S,T as C,a6 as V,a7 as G,a8 as J,I as l,
     color: ${e=>e.theme.colors.white};
     transition: ${({theme:e})=>e.transitionHover};
   }
-`,Te=o.span`
+`,Ce=o.span`
   font-family: ${e=>e.theme.fonts.main.bold};
-`;g.defaults.baseURL=X;const Le=async e=>{try{let i="";for(let r in e)i+=`&${r}=${e[r]}`;const{data:n}=await g.get(`/notices?${i}`);return n}catch(i){console.log(i)}},D=async e=>{try{return await g.get(`/notices/${e}`)}catch(i){console.log(i)}},Ae=async e=>{try{return await g.delete(`/notices/${e}`)}catch(i){console.log(i)}},I=async e=>{try{return await g.patch(`/notices/favorites/${e}`)}catch(i){console.log(i)}},Ne=async e=>{try{let i="";for(let r in e)i+=`&${r}=${e[r]}`;const{data:n}=await g.get(`/notices/self?${i}`);return n}catch(i){console.log(i)}},De=async e=>{try{let i="";for(let r in e)i+=`&${r}=${e[r]}`;const{data:n}=await g.get(`/notices/self?${i}`);return n}catch(i){console.log(i)}},E=({item:e,toggleModal:i})=>{const[n,r]=c.useState({}),{user:$}=_();let b;const j=async h=>{const y=await D(h);r(y.data.notice)};c.useEffect(()=>{j(e.id)},[e.id]),c.useEffect(()=>{Object.keys(n).length});const u=async()=>{$.name===null&&$.email===null&&Y("Sorry, but you are not authorized. Try it!");const h=await I(e.id);r(h.data.notice)};return n.birthday&&(b=n.birthday.split("-").reverse().join(".")),t.jsx(S,{onClose:i,children:t.jsxs(fe,{children:[t.jsxs(ge,{children:[t.jsxs(ue,{children:[t.jsx(ye,{src:n.photoURL,alt:"pet",loading:"lazy"}),t.jsx($e,{children:n.noticeType})]}),t.jsxs(be,{children:[t.jsx(je,{children:n.title}),t.jsx(we,{children:t.jsxs(ve,{children:[t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_name"),": "]}),t.jsx(f,{children:n.name})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_birthday"),": "]}),t.jsx(f,{children:b})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_type"),": "]}),t.jsx(f,{children:n.petType})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_place"),": "]}),t.jsx(f,{children:n.location})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("notices_cardInfoDetails_theSex"),": "]}),t.jsx(f,{children:e.sex})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_mail"),": "]}),t.jsx(f,{children:t.jsx(A,{href:`mailto:${n.ownerEmail}`,children:n.ownerEmail})})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_phone"),": "]}),t.jsx(f,{children:t.jsx(A,{href:`tel:${n.ownerPhone}`,children:n.ownerPhone})})]})]})})]})]}),t.jsxs(ze,{children:[t.jsxs(Te,{children:[a("other_comments"),":"]})," ",n.comments]}),t.jsxs(Se,{children:[t.jsxs(Fe,{style:{color:n.isFavorite?"#54ADFF":"#FEF9F9",backgroundColor:n.isFavorite?"#FEF9F9":"#54ADFF",borderColor:n.isFavorite&&"#54ADFF"},children:[t.jsx(Ce,{onClick:u,children:a("notices_cardInfoDetails_addToBtn")}),n.isFavorite?t.jsx(l,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(l,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#fff"})]}),n.ownerPhone===void 0?t.jsx(M,{href:`mailto:${n.ownerEmail}`,children:a("other_contact")}):t.jsx(M,{href:`tel:${n.ownerPhone}`,children:a("other_contact")})]})]})})};E.propTypes={item:d.shape({id:d.string.isRequired}).isRequired,toggleModal:d.func};const R=({item:e})=>{const[i,n]=c.useState(!1),[r,$]=c.useState(!1),[b,j]=c.useState(!1),[u,h]=c.useState({}),{user:y}=_(),k=()=>{n(p=>!p)},H=()=>{$(!0)},F=()=>{$(!1)},q=()=>{j(!1)},U=async p=>{const w=await D(p);h(w.data.notice)};c.useEffect(()=>{U(e.id)},[e.id]),c.useEffect(()=>{Object.keys(u).length});const O=async()=>{y.name===null&&y.email===null&&j(!0),console.log("item -->",e);const p=await I(e.id);h(p.data.notice)},W=async p=>{console.log("card ==>",u),y.email===u.ownerEmail&&(await Ae(p),h(w=>w.filter(K=>K.id!==p)))};return t.jsxs(t.Fragment,{children:[t.jsxs(re,{children:[t.jsxs(ae,{children:[t.jsx(le,{src:e.photoURL,alt:"pet",loading:"lazy"}),t.jsxs(ce,{children:[t.jsx(de,{children:e.noticeType}),t.jsxs(he,{children:[t.jsx(T,{onClick:O,"aria-label":"add to favorites",children:u.isFavorite?t.jsx(l,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(l,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#54ADFF"})}),y.name!==null&&t.jsx(T,{onClick:H,"aria-label":"delete from favorites",children:t.jsx(l,{iconName:"icon-trash",width:"24px",height:"24px",stroke:"#54ADFF",fill:"#54ADFF"})})]})]}),t.jsxs(pe,{children:[t.jsxs(v,{children:[t.jsx(l,{iconName:"icon-location"}),t.jsx(z,{children:me(e.location)})]}),t.jsxs(v,{children:[t.jsx(l,{iconName:"icon-clock"}),t.jsx(z,{children:e.age})]}),t.jsxs(v,{children:[t.jsx(l,{iconName:e.sex==="female"?"icon-female":"icon-male"}),t.jsx(z,{children:e.sex})]})]})]}),t.jsx(xe,{children:e.title}),t.jsx(N,{onClick:k,children:"Learn more"}),r&&t.jsx("div",{children:t.jsx(S,{onClose:F,children:t.jsx(te,{title:"Delete a notice?",name:e.title,handleModal:F,handleDelete:()=>W(e.id)})})})]},e.id),i&&t.jsx(E,{item:e,toggleModal:k}),b&&t.jsx("div",{children:t.jsx(L,{onClose:q})})]})};R.propTypes={props:d.object};const P=({notices:e})=>t.jsx(se,{children:e&&e.map(i=>t.jsx(R,{item:i},i.id))});P.propTypes={notices:d.arrayOf(Z.shape({id:d.string.isRequired})).isRequired};const Ie=Object.freeze(Object.defineProperty({__proto__:null,default:P},Symbol.toStringTag,{value:"Module"}));export{L as A,P as N,Ne as a,De as b,Ie as c,Le as g};
+`;y.defaults.baseURL=X;const Ne=async e=>{try{let i="";for(let r in e)i+=`&${r}=${e[r]}`;const{data:n}=await y.get(`/notices?${i}`);return n}catch(i){console.log(i)}},I=async e=>{try{return await y.get(`/notices/${e}`)}catch(i){console.log(i)}},Me=async e=>{try{return await y.delete(`/notices/${e}`)}catch(i){console.log(i)}},D=async e=>{try{return await y.patch(`/notices/favorites/${e}`)}catch(i){console.log(i)}},Le=async e=>{try{let i="";for(let r in e)i+=`&${r}=${e[r]}`;const{data:n}=await y.get(`/notices/self?${i}`);return n}catch(i){console.log(i)}},Ie=async e=>{try{let i="";for(let r in e)i+=`&${r}=${e[r]}`;const{data:n}=await y.get(`/notices/self?${i}`);return n}catch(i){console.log(i)}},E=({item:e,toggleModal:i})=>{const[n,r]=c.useState({}),{user:$}=_();let b;const j=async h=>{const x=await I(h);r(x.data.notice)};c.useEffect(()=>{j(e.id)},[e.id]),c.useEffect(()=>{Object.keys(n).length});const p=async()=>{$.name===null&&$.email===null&&B("Sorry, but you are not authorized. Try it!");const h=await D(e.id);r(h.data.notice)};return n.birthday&&(b=n.birthday.split("-").reverse().join(".")),t.jsx(z,{onClose:i,children:t.jsxs(fe,{children:[t.jsxs(ge,{children:[t.jsxs(ue,{children:[t.jsx(ye,{src:n.photoURL,alt:"pet",loading:"lazy"}),t.jsx($e,{children:n.noticeType})]}),t.jsxs(be,{children:[t.jsx(je,{children:n.title}),t.jsx(we,{children:t.jsxs(ve,{children:[t.jsxs(f,{children:[t.jsxs(g,{children:[a("other_name"),": "]}),t.jsx(u,{children:n.name})]}),t.jsxs(f,{children:[t.jsxs(g,{children:[a("other_birthday"),": "]}),t.jsx(u,{children:b})]}),t.jsxs(f,{children:[t.jsxs(g,{children:[a("other_type"),": "]}),t.jsx(u,{children:n.petType})]}),t.jsxs(f,{children:[t.jsxs(g,{children:[a("other_place"),": "]}),t.jsx(u,{children:n.location})]}),t.jsxs(f,{children:[t.jsxs(g,{children:[a("notices_cardInfoDetails_theSex"),": "]}),t.jsx(u,{children:e.sex})]}),t.jsxs(f,{children:[t.jsxs(g,{children:[a("other_mail"),": "]}),t.jsx(u,{children:t.jsx(C,{href:`mailto:${n.ownerEmail}`,children:n.ownerEmail})})]}),t.jsxs(f,{children:[t.jsxs(g,{children:[a("other_phone"),": "]}),t.jsx(u,{children:t.jsx(C,{href:`tel:${n.ownerPhone}`,children:n.ownerPhone})})]})]})})]})]}),t.jsxs(ze,{children:[t.jsxs(Ce,{children:[a("other_comments"),":"]})," ",n.comments]}),t.jsxs(Se,{children:[t.jsxs(Fe,{style:{color:n.isFavorite?"#54ADFF":"#FEF9F9",backgroundColor:n.isFavorite?"#FEF9F9":"#54ADFF",borderColor:n.isFavorite&&"#54ADFF"},children:[t.jsx(Te,{onClick:p,children:a("notices_cardInfoDetails_addToBtn")}),n.isFavorite?t.jsx(l,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(l,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#fff"})]}),n.ownerPhone===void 0?t.jsx(M,{href:`mailto:${n.ownerEmail}`,children:a("other_contact")}):t.jsx(M,{href:`tel:${n.ownerPhone}`,children:a("other_contact")})]})]})})};E.propTypes={item:d.shape({id:d.string.isRequired}).isRequired,toggleModal:d.func};const R=({item:e})=>{const[i,n]=c.useState(!1),[r,$]=c.useState(!1),[b,j]=c.useState(!1),[p,h]=c.useState({}),{user:x}=_();console.log("user -->",x);const S=()=>{n(m=>!m)},H=()=>{$(!0)},k=()=>{$(!1)},q=()=>{j(!1)},U=async m=>{const K=await I(m);h(K.data.notice)};c.useEffect(()=>{U(e.id)},[e.id]),c.useEffect(()=>{Object.keys(p).length});const O=async()=>{x.name===null&&x.email===null&&j(!0);const m=await D(e.id);h(m.data.notice)},W=async m=>{x.email===p.ownerEmail?($(!1),await Me(m),h({}),Y("The card was successfully removed")):B("It is not your pet and you cannot remove it")};return t.jsxs(t.Fragment,{children:[t.jsxs(re,{children:[t.jsxs(ae,{children:[t.jsx(le,{src:e.photoURL,alt:"pet",loading:"lazy"}),t.jsxs(ce,{children:[t.jsx(de,{children:e.noticeType}),t.jsxs(he,{children:[t.jsx(T,{onClick:O,"aria-label":"add to favorites",children:p.isFavorite?t.jsx(l,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(l,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#54ADFF"})}),x.name!==null&&t.jsx(T,{onClick:H,"aria-label":"delete from favorites",children:t.jsx(l,{iconName:"icon-trash",width:"24px",height:"24px",stroke:"#54ADFF",fill:"#54ADFF"})})]})]}),t.jsxs(pe,{children:[t.jsxs(w,{children:[t.jsx(l,{iconName:"icon-location"}),t.jsx(v,{children:me(e.location)})]}),t.jsxs(w,{children:[t.jsx(l,{iconName:"icon-clock"}),t.jsx(v,{children:e.age})]}),t.jsxs(w,{children:[t.jsx(l,{iconName:e.sex==="female"?"icon-female":"icon-male"}),t.jsx(v,{children:e.sex})]})]})]}),t.jsx(xe,{children:e.title}),t.jsx(L,{onClick:S,children:"Learn more"}),r&&t.jsx("div",{children:t.jsx(z,{onClose:k,children:t.jsx(te,{title:"Delete a notice?",name:p.name,handleModal:k,handleDelete:()=>W(p._id)})})})]},e.id),i&&t.jsx(E,{item:e,toggleModal:S}),b&&t.jsx("div",{children:t.jsx(N,{onClose:q})})]})};R.propTypes={props:d.object};const P=({notices:e})=>t.jsx(se,{children:e&&e.map(i=>t.jsx(R,{item:i},i.id))});P.propTypes={notices:d.arrayOf(Z.shape({id:d.string.isRequired})).isRequired};const De=Object.freeze(Object.defineProperty({__proto__:null,default:P},Symbol.toStringTag,{value:"Module"}));export{N as A,P as N,Le as a,Ie as b,De as c,Ne as g};
