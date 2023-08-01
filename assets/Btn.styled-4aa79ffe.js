@@ -1,4 +1,4 @@
-import{s as t}from"./index-776af8de.js";const r=t.button`
+import{s as t}from"./index-e366dee9.js";const r=t.button`
   position: relative;
   display: flex;
   margin: auto;
@@ -10,6 +10,7 @@ import{s as t}from"./index-776af8de.js";const r=t.button`
   padding: 8px 28px 8px 28px;
   letter-spacing: 0.64px;
   border-radius: 40px;
+  outline: transparent;
 
   color: ${e=>e.theme.colors.blue};
   font-family: ${e=>e.theme.fonts.main.bold};
