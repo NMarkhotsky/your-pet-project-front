@@ -53,4 +53,8 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+
+input, textarea {
+  outline: transparent;
+}
 `;

@@ -2,7 +2,11 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../redux/auth/operations';
 import { Icon } from '../../Icon/Icon';
-import { UserMenuBoxCopy, UserMenuButton } from './UserMenuCopy.styled';
+import {
+  UserMenuBoxCopy,
+  UserMenuButton,
+  Wrapper,
+} from './UserMenuCopy.styled';
 import { useAuth } from '../../../hooks/useAuth/useAuth';
 import { UserMenuName } from '../../UserMenu/UserMenu.styled';
 import { NavLink } from 'react-router-dom';
@@ -11,6 +15,7 @@ import { ModalLogout } from '../../ModalLogout/ModalLogout';
 import { useState } from 'react';
 import { ThemeSwitcher } from '../../../shared/components/ThemeSwitcher/ThemeSwitcher';
 import { t } from 'i18next';
+import LanguageSwitcher from '../../LanguageSwitcher/LanguageSwitcher';
 
 export const UserMenuCopy = ({ handleToggleBurger }) => {
   const dispatch = useDispatch();
@@ -28,28 +33,31 @@ export const UserMenuCopy = ({ handleToggleBurger }) => {
 
   return (
     <UserMenuBoxCopy>
-      <ThemeSwitcher />
-      <UserMenuButton type="button" onClick={openModal}>
-        {t('auth_logoutBtn')}
-        <Icon
-          iconName={'icon-logout'}
-          width={'24px'}
-          height={'24px'}
-          stroke={'#FEF9F9'}
-        />
-      </UserMenuButton>
-      <NavLink to="/user" onClick={handleToggleBurger}>
-        <UserMenuName>
+      <Wrapper>
+        <LanguageSwitcher />
+        <ThemeSwitcher />
+        <UserMenuButton type="button" onClick={openModal}>
+          {t('auth_logoutBtn')}
           <Icon
-            iconName={'icon-user'}
+            iconName={'icon-logout'}
             width={'24px'}
             height={'24px'}
-            fill={'#FFC107'}
+            stroke={'#FEF9F9'}
           />
+        </UserMenuButton>
+        <NavLink to="/user" onClick={handleToggleBurger}>
+          <UserMenuName>
+            <Icon
+              iconName={'icon-user'}
+              width={'24px'}
+              height={'24px'}
+              fill={'#FFC107'}
+            />
 
-          {user.name}
-        </UserMenuName>
-      </NavLink>
+            {user.name}
+          </UserMenuName>
+        </NavLink>
+      </Wrapper>
       {showModal && (
         <div>
           <ModalApproveAction onClose={closeModal}>
