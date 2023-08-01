@@ -3,11 +3,18 @@ import { selectTablet } from '../../utils/selectMediaRequests';
 
 export const ContainerFilter = styled.div`
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 50px;
+
+  @media ${selectTablet}{
+    flex-direction: row;
+    gap: 12px;
+    
+  }
 `;
 
 export const Wrapper = styled.div`
-  position: absolute;
+  position: relative;
   right: 0;
   top: 0;
   z-index: 1;
@@ -166,15 +173,6 @@ export const SubMenu = styled.div`
   border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.blueLight};
   transition: all ${({ theme }) => theme.transitionHover};
-
-  /* &:hover,
-  &:focus {
-    background-color: #aed1f3;
-
-    & button {
-      background-color: #aed1f3;
-    }
-  } */
 `;
 
 export const FilterBtn = styled.button`
@@ -265,7 +263,6 @@ export const Button = styled.button`
   background-color: ${props => props.theme.colors.blue};
   border: none;
   border-radius: 40px;
-  padding: 8px 20px;
   color: ${props => props.theme.colors.textBtn};
   font-size: ${props => props.theme.fontSizes.md};
   font-family: ${props => props.theme.fonts.main.bold};
@@ -277,5 +274,19 @@ export const Button = styled.button`
     background-color: ${props => props.theme.colors.blueDark};
 
     transition: ${({ theme }) => theme.transitionHover};
+  }
+
+  @media screen and (max-width: 767px) {
+      width: 40px;
+      height: 40px;
+  }
+  @media ${selectTablet} {
+    padding: 8px 20px;
+  }
+`;
+
+export const ButtonSpan = styled.span`
+  @media screen and (max-width: 768px) {
+      display: none;
   }
 `;

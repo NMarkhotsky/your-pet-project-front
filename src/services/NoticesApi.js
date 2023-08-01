@@ -85,7 +85,7 @@ export const getFavoriteNotices = async params => {
     for (let key in params) {
       reqURL += `&${key}=${params[key]}`;
     }
-    const { data } = await axios.get(`/notices/self?${reqURL}`);
+    const { data } = await axios.get(`/notices/favorites?${reqURL}`);
 
     return data;
   } catch (error) {
