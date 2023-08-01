@@ -1,4 +1,4 @@
-import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I as d,v as N,G as B}from"./index-96a8865b.js";import{B as P}from"./Btn.styled-53245ec5.js";import{P as A}from"./Pagination-5aebc636.js";const I=i.ul`
+import{s as o,b as r,a as w,P as a,j as t,d as p,B,r as g,u as v,M as A,I as h,v as L,G as P}from"./index-5a5d7908.js";import{B as I}from"./Btn.styled-be740b35.js";import{P as R}from"./Pagination-e68d0478.js";const E=o.ul`
   display: flex;
   align-items: stretch;
   flex-direction: column;
@@ -19,7 +19,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
   & > li > p {
     flex-grow: 1;
   }
-`,H=i.li`
+`,H=o.li`
   display: flex;
   flex-direction: column;
   width: 280px;
@@ -35,7 +35,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     width: 336px;
   }
 
-  @media ${j} {
+  @media ${w} {
     width: 288px;
   }
 
@@ -45,17 +45,17 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     transform: scale(1.02);
     transition: transform ${({theme:e})=>e.transitionHover};
   }
-`,R=i.div`
+`,M=o.div`
   position: relative;
   display: block;
 
   height: 288px;
   width: 100%;
-`,E=i.img`
+`,D=o.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-`,M=i.div`
+`,q=o.div`
   position: absolute;
   top: 12px;
   left: 0;
@@ -64,7 +64,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-`,D=i.p`
+`,U=o.p`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,12 +80,12 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
 
   background-color: ${e=>e.theme.colors.blueLight};
   color: ${e=>e.theme.colors.black};
-`,q=i.div`
+`,_=o.div`
   /* display: block; */
   display: flex;
   flex-direction: column;
   gap: 12px;
-`,b=i.button`
+`,$=o.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,7 +109,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     transform: scale(1.2);
     transition: transform ${({theme:e})=>e.transitionHover};
   }
-`,U=i.ul`
+`,O=o.ul`
   position: absolute;
   bottom: 12px;
   right: 8px;
@@ -128,13 +128,13 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     gap: 24px;
   }
 
-  @media ${j} {
+  @media ${w} {
     left: 12px;
     right: 12px;
 
     gap: 12px;
   }
-`,g=i.li`
+`,u=o.li`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,51 +163,19 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     stroke: ${e=>e.theme.colors.white};
     transition: ${({theme:e})=>e.transitionHover};
   }
-`,u=i.span`
+`,b=o.span`
   font-family: ${e=>e.theme.fonts.main.semiBold};
   font-size: ${e=>e.theme.fontSizes.xs};
 
   letter-spacing: 0.48px;
-`,_=i.p`
+`,G=o.p`
   display: flex;
   padding: 20px;
 
   font-family: ${e=>e.theme.fonts.main.bold};
   font-size: ${e=>e.theme.fontSizes.xl};
   line-height: 33px;
-`,O=e=>e.length>5?e.substring(0,5)+"...":e,v=({children:e,onClick:o})=>t.jsx(P,{type:"button",onClick:o,children:e});v.propTypes={children:h.any.isRequired,onClick:h.func};const G=i.div``;i.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow-y: scroll;
-  z-index: 1200;
-
-  backdrop-filter: blur(4px);
-  background: rgba(97, 97, 97, 0.6);
-`;i.div`
-  position: absolute;
-  top: 10%;
-  min-height: 200px;
-  min-width: 200px;
-
-  border-radius: 20px;
-  background-color: ${e=>e.theme.colors.bgdColor};
-
-  @media ${r} {
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-  }
-`;i.button`
+`,V=e=>e.length>5?e.substring(0,5)+"...":e,k=({children:e,onClick:n})=>t.jsx(I,{type:"button",onClick:n,children:e});k.propTypes={children:a.any.isRequired,onClick:a.func};o.button`
   position: absolute;
   right: 12px;
   top: 12px;
@@ -234,7 +202,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     transform: scale(1.2);
     transition: transform ${({theme:e})=>e.transitionHover};
   }
-`;const V=i.div`
+`;const W=o.div`
   padding: 44px 12px 16px;
   width: 280px;
 
@@ -242,7 +210,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     padding: 32px 32px 24px;
     width: 681px;
   }
-`,W=i.div`
+`,J=o.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -253,7 +221,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     flex-direction: row;
     gap: 24px;
   }
-`,J=i.div`
+`,K=o.div`
   position: relative;
 
   height: 240px;
@@ -265,14 +233,14 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     height: 298px;
     width: 262px;
   }
-`,K=i.img`
+`,Q=o.img`
   height: 100%;
   width: 100%;
 
   border-radius: 0 0 40px 40px;
 
   object-fit: cover;
-`,Q=i.span`
+`,X=o.span`
   position: absolute;
   top: 16px;
   left: 0;
@@ -294,13 +262,13 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
 
   background-color: ${e=>e.theme.colors.blueLight};
   color: #111;
-`,X=i.div`
+`,Y=o.div`
   @media ${r} {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0%;
   }
-`,Y=i.h4`
+`,Z=o.h4`
   width: 198px;
 
   margin-bottom: 20px;
@@ -318,7 +286,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     font-size: ${e=>e.theme.fontSizes.xxl};
     line-height: 38px;
   }
-`,Z=i.table`
+`,ee=o.table`
   width: 256px;
 
   table-layout: fixed;
@@ -330,19 +298,19 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
   @media ${r} {
     width: 340px;
   }
-`,ee=i.tbody`
+`,te=o.tbody`
   display: table-row-group;
 
   border-color: inherit;
 
   vertical-align: middle;
-`,a=i.tr`
+`,l=o.tr`
   display: table-row;
 
   vertical-align: inherit;
 
   border-color: inherit;
-`,l=i.td`
+`,c=o.td`
   display: table-cell;
   width: 80px;
 
@@ -359,7 +327,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     font-size: ${e=>e.theme.fontSizes.md};
     line-height: 22px;
   }
-`,c=i.td`
+`,d=o.td`
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -374,7 +342,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     font-size: ${e=>e.theme.fontSizes.md};
     line-height: 22px;
   }
-`,$=i.a`
+`,y=o.a`
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -383,7 +351,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
   color: ${e=>e.theme.colors.yellow};
 
   cursor: pointer;
-`,te=i.p`
+`,oe=o.p`
   margin-bottom: 12px;
   word-wrap: break-word;
 
@@ -401,7 +369,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     font-size: ${e=>e.theme.fontSizes.md};
     line-height: 24px;
   }
-`,oe=i.div`
+`,ie=o.div`
   display: flex;
   flex-direction: column-reverse;
   gap: 8px;
@@ -411,7 +379,7 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     justify-content: flex-end;
     gap: 17px;
   }
-`,ie=i.button`
+`,ne=o.button`
   position: relative;
   display: flex;
   align-items: center;
@@ -419,18 +387,16 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
   gap: 8px;
   padding: 6px 20px;
   border-radius: 40px;
-
-  
-`,ne=i(ie)`
+`,se=o(ne)`
   border: 2px solid transparent;
-`,re=i.span`
+`,re=o.span`
   font-family: ${e=>e.theme.fonts.main.bold};
   font-size: ${e=>e.theme.fontSizes.md};
   letter-spacing: 0.04em;
   line-height: 22px;
 
   z-index: 5;
-`,y=i.a`
+`,j=o.a`
   position: relative;
 
   display: flex;
@@ -470,23 +436,6 @@ import{s as i,b as r,a as j,P as h,j as t,d as p,B as T,r as f,u as w,M as L,I a
     color: ${e=>e.theme.colors.white};
     transition: ${({theme:e})=>e.transitionHover};
   }
-`;i.a`
-  /* font-family: ${e=>e.theme.fonts.main.bold};
-  font-size: ${e=>e.theme.fontSizes.md};
-  letter-spacing: 0.04em;
-  line-height: 22px;
-
-  color: ${e=>e.theme.colors.blue};
-
-  z-index: 5;
-
-  cursor: pointer;
-
-  &:hover {
-    color: ${e=>e.theme.colors.white};
-
-    transition: ${({theme:e})=>e.transitionHover};
-  } */
-`;const se=i.span`
+`,ae=o.span`
   font-family: ${e=>e.theme.fonts.main.bold};
-`;p.defaults.baseURL=T;const xe=async e=>{try{let o="";for(let n in e)o+=`&${n}=${e[n]}`;const{data:s}=await p.get(`/notices?${o}`);return s}catch(o){console.log(o)}},ae=async e=>{try{return await p.get(`/notices/${e}`)}catch(o){console.log(o)}},le=async e=>{try{return await p.patch(`/notices/favorites/${e}`)}catch(o){console.log(o)}},me=async e=>{try{let o="";for(let n in e)o+=`&${n}=${e[n]}`;const{data:s}=await p.get(`/notices/self?${o}`);return s}catch(o){console.log(o)}},fe=async e=>{try{let o="";for(let n in e)o+=`&${n}=${e[n]}`;const{data:s}=await p.get(`/notices/self?${o}`);return s}catch(o){console.log(o)}},ce=({item:e})=>{console.log(e.id);const[o,s]=f.useState({}),{user:n}=w();let x;const F=async m=>{const C=await ae(m);s(C.data.notice)};f.useEffect(()=>{F(e.id)},[e.id]),f.useEffect(()=>{Object.keys(o).length});const S=async()=>{n.name===null&&n.email===null&&N("Sorry, but you are not authorized. Try it!");const m=await le(e.id);s(m.data.notice)};return console.log("card ===>",o.ownerPhone),o.birthday&&(x=o.birthday.split("-").reverse().join(".")),t.jsx(L,{children:t.jsx(G,{children:t.jsxs(V,{children:[t.jsxs(W,{children:[t.jsxs(J,{children:[t.jsx(K,{src:o.photoURL,alt:"pet",loading:"lazy"}),t.jsx(Q,{children:o.noticeType})]}),t.jsxs(X,{children:[t.jsx(Y,{children:"Cute dog looking for a home"}),t.jsx(Z,{children:t.jsxs(ee,{children:[t.jsxs(a,{children:[t.jsx(l,{children:"Name: "}),t.jsx(c,{children:o.name})]}),t.jsxs(a,{children:[t.jsx(l,{children:"Birthday: "}),t.jsx(c,{children:x})]}),t.jsxs(a,{children:[t.jsx(l,{children:"Type: "}),t.jsx(c,{children:o.petType})]}),t.jsxs(a,{children:[t.jsx(l,{children:"Place: "}),t.jsx(c,{children:o.location})]}),t.jsxs(a,{children:[t.jsx(l,{children:"The sex: "}),t.jsx(c,{children:e.sex})]}),t.jsxs(a,{children:[t.jsx(l,{children:"Email: "}),t.jsx(c,{children:t.jsx($,{href:`mailto:${o.ownerEmail}`,children:o.ownerEmail})})]}),t.jsxs(a,{children:[t.jsx(l,{children:"Phone: "}),t.jsx(c,{children:t.jsx($,{href:`tel:${o.ownerPhone}`,children:o.ownerPhone})})]})]})})]})]}),t.jsxs(te,{children:[t.jsx(se,{children:"Comments:"})," ",o.comments]}),t.jsxs(oe,{children:[t.jsxs(ne,{style:{color:o.isFavorite?"#54ADFF":"#FEF9F9",backgroundColor:o.isFavorite?"#FEF9F9":"#54ADFF",borderColor:o.isFavorite&&"#54ADFF"},children:[t.jsx(re,{onClick:S,children:"Add to"}),o.isFavorite?t.jsx(d,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(d,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#fff"})]}),o.ownerPhone===void 0?t.jsx(y,{href:`mailto:${o.ownerEmail}`,children:"Contact"}):t.jsx(y,{href:`tel:${o.ownerPhone}`,children:"Contact"})]})]})})})},k=({item:e})=>{const[o,s]=f.useState(!1),{user:n}=w();console.log("user -->",n),console.log("item-->",e);const x=()=>{s(!0)};return t.jsxs(t.Fragment,{children:[t.jsxs(H,{children:[t.jsxs(R,{children:[t.jsx(E,{src:e.photoURL,alt:"pet",loading:"lazy"}),t.jsxs(M,{children:[t.jsx(D,{children:e.noticeType}),t.jsxs(q,{children:[t.jsx(b,{"aria-label":"add to favorites",children:t.jsx(d,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#54ADFF",fill:"#54ADFF"})}),n.name!==null&&t.jsx(b,{"aria-label":"delete from favorites",children:t.jsx(d,{iconName:"icon-trash",width:"24px",height:"24px",stroke:"#54ADFF",fill:"#54ADFF"})})]})]}),t.jsxs(U,{children:[t.jsxs(g,{children:[t.jsx(d,{iconName:"icon-location"}),t.jsx(u,{children:O(e.location)})]}),t.jsxs(g,{children:[t.jsx(d,{iconName:"icon-clock"}),t.jsx(u,{children:e.age})]}),t.jsxs(g,{children:[t.jsx(d,{iconName:e.sex==="female"?"icon-female":"icon-male"}),t.jsx(u,{children:e.sex})]})]})]}),t.jsx(_,{children:e.title}),t.jsx(v,{onClick:x,children:"Learn more"})]},e.id),o&&t.jsx(ce,{item:e})]})};k.propTypes={props:h.object};const z=({notices:e,pageCount:o,handlePageChange:s})=>t.jsxs(I,{children:[e&&e.map(n=>t.jsx(k,{item:n},n.id)),t.jsx(A,{pageCount:o,handlePageChange:s})]});z.propTypes={notices:h.arrayOf(B.shape({id:h.string.isRequired})).isRequired,pageCount:h.number.isRequired,handlePageChange:h.func.isRequired};const ge=Object.freeze(Object.defineProperty({__proto__:null,default:z},Symbol.toStringTag,{value:"Module"}));export{z as N,me as a,fe as b,ge as c,xe as g};
+`;p.defaults.baseURL=B;const xe=async e=>{try{let n="";for(let s in e)n+=`&${s}=${e[s]}`;const{data:i}=await p.get(`/notices?${n}`);return i}catch(n){console.log(n)}},le=async e=>{try{return await p.get(`/notices/${e}`)}catch(n){console.log(n)}},ce=async e=>{try{return await p.patch(`/notices/favorites/${e}`)}catch(n){console.log(n)}},me=async e=>{try{let n="";for(let s in e)n+=`&${s}=${e[s]}`;const{data:i}=await p.get(`/notices/self?${n}`);return i}catch(n){console.log(n)}},fe=async e=>{try{let n="";for(let s in e)n+=`&${s}=${e[s]}`;const{data:i}=await p.get(`/notices/self?${n}`);return i}catch(n){console.log(n)}},z=({item:e,toggleModal:n})=>{const[i,s]=g.useState({}),{user:x}=v();let m;const C=async f=>{const N=await le(f);s(N.data.notice)};g.useEffect(()=>{C(e.id)},[e.id]),g.useEffect(()=>{Object.keys(i).length});const T=async()=>{x.name===null&&x.email===null&&L("Sorry, but you are not authorized. Try it!");const f=await ce(e.id);s(f.data.notice)};return i.birthday&&(m=i.birthday.split("-").reverse().join(".")),t.jsx(A,{onClose:n,children:t.jsxs(W,{children:[t.jsxs(J,{children:[t.jsxs(K,{children:[t.jsx(Q,{src:i.photoURL,alt:"pet",loading:"lazy"}),t.jsx(X,{children:i.noticeType})]}),t.jsxs(Y,{children:[t.jsx(Z,{children:"Cute dog looking for a home"}),t.jsx(ee,{children:t.jsxs(te,{children:[t.jsxs(l,{children:[t.jsx(c,{children:"Name: "}),t.jsx(d,{children:i.name})]}),t.jsxs(l,{children:[t.jsx(c,{children:"Birthday: "}),t.jsx(d,{children:m})]}),t.jsxs(l,{children:[t.jsx(c,{children:"Type: "}),t.jsx(d,{children:i.petType})]}),t.jsxs(l,{children:[t.jsx(c,{children:"Place: "}),t.jsx(d,{children:i.location})]}),t.jsxs(l,{children:[t.jsx(c,{children:"The sex: "}),t.jsx(d,{children:e.sex})]}),t.jsxs(l,{children:[t.jsx(c,{children:"Email: "}),t.jsx(d,{children:t.jsx(y,{href:`mailto:${i.ownerEmail}`,children:i.ownerEmail})})]}),t.jsxs(l,{children:[t.jsx(c,{children:"Phone: "}),t.jsx(d,{children:t.jsx(y,{href:`tel:${i.ownerPhone}`,children:i.ownerPhone})})]})]})})]})]}),t.jsxs(oe,{children:[t.jsx(ae,{children:"Comments:"})," ",i.comments]}),t.jsxs(ie,{children:[t.jsxs(se,{style:{color:i.isFavorite?"#54ADFF":"#FEF9F9",backgroundColor:i.isFavorite?"#FEF9F9":"#54ADFF",borderColor:i.isFavorite&&"#54ADFF"},children:[t.jsx(re,{onClick:T,children:"Add to"}),i.isFavorite?t.jsx(h,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(h,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#fff"})]}),i.ownerPhone===void 0?t.jsx(j,{href:`mailto:${i.ownerEmail}`,children:"Contact"}):t.jsx(j,{href:`tel:${i.ownerPhone}`,children:"Contact"})]})]})})};z.propTypes={toggleModal:a.func};const F=({item:e})=>{const[n,i]=g.useState(!1),{user:s}=v();console.log("user -->",s),console.log("item-->",e);const x=()=>{i(m=>!m)};return t.jsxs(t.Fragment,{children:[t.jsxs(H,{children:[t.jsxs(M,{children:[t.jsx(D,{src:e.photoURL,alt:"pet",loading:"lazy"}),t.jsxs(q,{children:[t.jsx(U,{children:e.noticeType}),t.jsxs(_,{children:[t.jsx($,{"aria-label":"add to favorites",children:t.jsx(h,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#54ADFF",fill:"#54ADFF"})}),s.name!==null&&t.jsx($,{"aria-label":"delete from favorites",children:t.jsx(h,{iconName:"icon-trash",width:"24px",height:"24px",stroke:"#54ADFF",fill:"#54ADFF"})})]})]}),t.jsxs(O,{children:[t.jsxs(u,{children:[t.jsx(h,{iconName:"icon-location"}),t.jsx(b,{children:V(e.location)})]}),t.jsxs(u,{children:[t.jsx(h,{iconName:"icon-clock"}),t.jsx(b,{children:e.age})]}),t.jsxs(u,{children:[t.jsx(h,{iconName:e.sex==="female"?"icon-female":"icon-male"}),t.jsx(b,{children:e.sex})]})]})]}),t.jsx(G,{children:e.title}),t.jsx(k,{onClick:x,children:"Learn more"})]},e.id),n&&t.jsx(z,{item:e,toggleModal:x})]})};F.propTypes={props:a.object};const S=({notices:e,pageCount:n,handlePageChange:i})=>t.jsxs(E,{children:[e&&e.map(s=>t.jsx(F,{item:s},s.id)),t.jsx(R,{pageCount:n,handlePageChange:i})]});S.propTypes={notices:a.arrayOf(P.shape({id:a.string.isRequired})).isRequired,pageCount:a.number.isRequired,handlePageChange:a.func.isRequired};const ge=Object.freeze(Object.defineProperty({__proto__:null,default:S},Symbol.toStringTag,{value:"Module"}));export{S as N,me as a,fe as b,ge as c,xe as g};
