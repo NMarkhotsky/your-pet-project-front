@@ -78,6 +78,7 @@ import { Title } from './NewsPage.styled';
 import { SearchInput } from '../../shared/components/SearchInput/SearchInput';
 import { getNews } from '../../services/NewsApi';
 import { t } from 'i18next';
+import { Loader } from '../../shared/components/Loader/Loader';
 
 const PER_PAGE = 6;
 
@@ -87,6 +88,7 @@ function NewsPage() {
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [news, setNews] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getData = async (page, search) => {
     try {
@@ -95,11 +97,14 @@ function NewsPage() {
         page,
       };
 
+      setIsLoading(true);
       const newsData = await getNews(params);
       setNews(newsData.data.data);
       setPageCount(Math.ceil(newsData.data.total / PER_PAGE));
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -111,7 +116,8 @@ function NewsPage() {
     setSearchValue(value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = e => {
+    e.preventDefault();
     setSearchValueSubmit(searchValue);
   };
 
@@ -139,6 +145,7 @@ function NewsPage() {
         pageCount={pageCount}
         handlePageChange={handlePageChange}
       />
+      {isLoading ? <Loader /> : null}
     </>
   );
 }
