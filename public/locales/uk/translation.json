@@ -34,6 +34,9 @@
   "friends_friendItem_emailOnly": "Тільки електронна пошта",
   "friends_friendItem_phoneOnly": "Тільки телефон",
 
+  "notices_cardInfoDetails_theSex": "Стать",
+  "notices_cardInfoDetails_addToBtn": "Додати до",
+
   "footer_title": "Наша команда",
   "footer_ps": "Розроблено з",
 
@@ -48,11 +51,13 @@
   "other_city": "Місто",
   "other_type": "Тип",
   "other_comments": "Коментарі",
+  "other_place": "Місце",
   "other_confirm": "Підтвердити",
   "other_cancel": "Скасувати",
   "other_yes": "Так",
   "other_search": "Пошук",
   "other_readMore": "Читати далі",
+  "other_contact": "Зв'язатись",
   "other_time": "Графік роботи",
   "other_close": "Вихідний",
   "other_closed": "Вихідний",

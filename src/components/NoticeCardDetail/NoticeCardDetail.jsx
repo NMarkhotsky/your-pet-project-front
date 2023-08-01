@@ -1,10 +1,7 @@
 /* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import { Icon } from '../Icon/Icon';
 import {
-  Modal,
-  ModalLayout,
-  ModalCardWrapper,
-  ButtonClose,
   ModalCard,
   ModalCardInfo,
   ModalCardImage,
@@ -21,16 +18,20 @@ import {
   Text,
   Comments,
   ButtonsWrapper,
-  Button,
+  ButtonAddFavorite,
   ButtonTextAdd,
   ButtonLinkContact,
-  ButtonTextContact,
 } from './NoticeCardDetail.styled';
 import { updateNotice, getNoticeById } from '../../services/NoticesApi';
 import { useEffect, useState } from 'react';
+import { useAuth } from '../../hooks/useAuth/useAuth';
+import { errorMessage } from '../../utils/messages';
+import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
+import { t } from 'i18next';
 
-export const NoticeCardDetail = ({ item }) => {
+export const NoticeCardDetail = ({ item, toggleModal }) => {
   const [card, setCard] = useState({});
+  const { user } = useAuth();
 
   let formattedBirthday;
 
@@ -50,11 +51,13 @@ export const NoticeCardDetail = ({ item }) => {
   });
 
   const handleAddInFavorite = async () => {
+    if (user.name === null && user.email === null) {
+      errorMessage('Sorry, but you are not authorized. Try it!');
+    }
     const response = await updateNotice(item.id);
-    setCard(response);
-  };
 
-  console.log('card ===>', card);
+    setCard(response.data.notice);
+  };
 
   if (card.birthday) {
     const birthday = card.birthday;
@@ -63,109 +66,102 @@ export const NoticeCardDetail = ({ item }) => {
   }
 
   return (
-    <>
-      <Modal>
-        <ModalLayout>
-          <ModalCardWrapper>
-            <ButtonClose>
+    <ModalApproveAction onClose={toggleModal}>
+      <ModalCard>
+        <ModalCardInfo>
+          <ModalCardImage>
+            <Image src={card.photoURL} alt="pet" loading="lazy"></Image>
+            <SpanStatus>{card.noticeType}</SpanStatus>
+          </ModalCardImage>
+          <ModalCardText>
+            <Title>Cute dog looking for a home</Title>
+            <Table>
+              <Tbody>
+                <Tr>
+                  <TdName>{t('other_name')}: </TdName>
+                  <TdValue>{card.name}</TdValue>
+                </Tr>
+                <Tr>
+                  <TdName>{t('other_birthday')}: </TdName>
+                  <TdValue>{formattedBirthday}</TdValue>
+                </Tr>
+                <Tr>
+                  <TdName>{t('other_type')}: </TdName>
+                  <TdValue>{card.petType}</TdValue>
+                </Tr>
+                <Tr>
+                  <TdName>{t('other_place')}: </TdName>
+                  <TdValue>{card.location}</TdValue>
+                </Tr>
+                <Tr>
+                  <TdName>{t('notices_cardInfoDetails_theSex')}: </TdName>
+                  <TdValue>{item.sex}</TdValue>
+                </Tr>
+                <Tr>
+                  <TdName>{t('other_mail')}: </TdName>
+                  <TdValue>
+                    <Link href={`mailto:${card.ownerEmail}`}>
+                      {card.ownerEmail}
+                    </Link>
+                  </TdValue>
+                </Tr>
+                <Tr>
+                  <TdName>{t('other_phone')}: </TdName>
+                  <TdValue>
+                    <Link href={`tel:${card.ownerPhone}`}>
+                      {card.ownerPhone}
+                    </Link>
+                  </TdValue>
+                </Tr>
+              </Tbody>
+            </Table>
+          </ModalCardText>
+        </ModalCardInfo>
+        <Text>
+          <Comments>{t('other_comments')}:</Comments> {card.comments}
+        </Text>
+        <ButtonsWrapper>
+          <ButtonAddFavorite
+            style={{
+              color: !card.isFavorite ? '#FEF9F9' : '#54ADFF',
+              backgroundColor: card.isFavorite ? '#FEF9F9' : '#54ADFF',
+              borderColor: card.isFavorite && '#54ADFF',
+            }}
+          >
+            <ButtonTextAdd onClick={handleAddInFavorite}>
+              {t('notices_cardInfoDetails_addToBtn')}
+            </ButtonTextAdd>
+            {!card.isFavorite ? (
               <Icon
-                iconName={'icon-cross'}
+                iconName={'icon-heart'}
                 width={'24px'}
                 height={'24px'}
-                stroke={'#54ADFF'}
+                stroke={'#fff'}
+              />
+            ) : (
+              <Icon
+                iconName={'icon-heart-full'}
+                width={'24px'}
+                height={'24px'}
                 fill={'#54ADFF'}
               />
-            </ButtonClose>
-            <ModalCard>
-              <ModalCardInfo>
-                <ModalCardImage>
-                  <Image src={card.photoURL} alt="pet" loading="lazy"></Image>
-                  <SpanStatus>{card.noticeType}</SpanStatus>
-                </ModalCardImage>
-                <ModalCardText>
-                  <Title>Cute dog looking for a home</Title>
-                  <Table>
-                    <Tbody>
-                      <Tr>
-                        <TdName>Name: </TdName>
-                        <TdValue>{card.name}</TdValue>
-                      </Tr>
-                      <Tr>
-                        <TdName>Birthday: </TdName>
-                        <TdValue>{formattedBirthday}</TdValue>
-                      </Tr>
-                      <Tr>
-                        <TdName>Type: </TdName>
-                        <TdValue>{card.petType}</TdValue>
-                      </Tr>
-                      <Tr>
-                        <TdName>Place: </TdName>
-                        <TdValue>{card.location}</TdValue>
-                      </Tr>
-                      <Tr>
-                        <TdName>The sex: </TdName>
-                        <TdValue>{item.sex}</TdValue>
-                      </Tr>
-                      <Tr>
-                        <TdName>Email: </TdName>
-                        <TdValue>
-                          <Link href={`mailto:${card.ownerEmail}`}>
-                            {card.ownerEmail}
-                          </Link>
-                        </TdValue>
-                      </Tr>
-                      <Tr>
-                        <TdName>Phone: </TdName>
-                        <TdValue>
-                          <Link href={`tel:${card.ownerPhone}`}>
-                            {card.ownerPhone}
-                          </Link>
-                        </TdValue>
-                      </Tr>
-                    </Tbody>
-                  </Table>
-                </ModalCardText>
-              </ModalCardInfo>
-              <Text>
-                <Comments>Comments:</Comments> {card.comments}
-              </Text>
-              <ButtonsWrapper>
-                <Button
-                  style={{
-                    color: !card.isFavorite ? '#FEF9F9' : '#54ADFF',
-                    backgroundColor: card.isFavorite ? '#FEF9F9' : '#54ADFF',
-                    borderColor: !card.isFavorite ? 'transparent' : '#54ADFF',
-                  }}
-                >
-                  <ButtonTextAdd onClick={handleAddInFavorite}>
-                    Add to
-                  </ButtonTextAdd>
-                  {!card.isFavorite ? (
-                    <Icon
-                      iconName={'icon-heart'}
-                      width={'24px'}
-                      height={'24px'}
-                      stroke={'#fff'}
-                    />
-                  ) : (
-                    <Icon
-                      iconName={'icon-heart-full'}
-                      width={'24px'}
-                      height={'24px'}
-                      fill={'#54ADFF'}
-                    />
-                  )}
-                </Button>
-                <ButtonLinkContact>
-                  <ButtonTextContact href={`tel:${card.ownerPhone}`}>
-                    Contact
-                  </ButtonTextContact>
-                </ButtonLinkContact>
-              </ButtonsWrapper>
-            </ModalCard>
-          </ModalCardWrapper>
-        </ModalLayout>
-      </Modal>
-    </>
+            )}
+          </ButtonAddFavorite>
+          {card.ownerPhone === undefined ? (
+            <ButtonLinkContact href={`mailto:${card.ownerEmail}`}>
+              {t('other_contact')}
+            </ButtonLinkContact>
+          ) : (
+            <ButtonLinkContact href={`tel:${card.ownerPhone}`}>
+              {t('other_contact')}
+            </ButtonLinkContact>
+          )}
+        </ButtonsWrapper>
+      </ModalCard>
+    </ModalApproveAction>
   );
+};
+
+NoticeCardDetail.propTypes = {
+  toggleModal: PropTypes.func,
 };

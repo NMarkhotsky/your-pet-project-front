@@ -64,7 +64,6 @@ export const Image = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 10px;
 `;
 
 export const ContainerPetStatus = styled.div`
@@ -97,7 +96,10 @@ export const TextStatus = styled.p`
 `;
 
 export const ContainerButton = styled.div`
-  display: block;
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 `;
 
 export const Button = styled.button`
@@ -133,7 +135,7 @@ export const ListPetInfo = styled.ul`
   left: 8px;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 12px;
 
   padding: 0;
@@ -188,8 +190,7 @@ export const SpanPetText = styled.span`
   font-family: ${props => props.theme.fonts.main.semiBold};
   font-size: ${props => props.theme.fontSizes.xs};
 
-  line-height: 16px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.48px;
 `;
 
 export const TextPetName = styled.p`
