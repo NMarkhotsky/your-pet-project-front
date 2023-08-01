@@ -24,17 +24,16 @@ import { useAuth } from '../../hooks/useAuth/useAuth';
 // import { updateNotice } from '../../services/NoticesApi';
 
 export const NoticeCard = ({ item }) => {
-  const [isLearnMore, setIsLearnMore] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { user } = useAuth();
-  
-  console.log("user -->", user)
 
-  console.log("item-->", item)
+  console.log('user -->', user);
 
-  const handleLearnMore = () => {
-    setIsLearnMore(true);
+  console.log('item-->', item);
+
+  const toggleModal = () => {
+    setShowModal(prevState => !prevState);
   };
-
 
   // const handleDeleteFromFavorite = () => {
 
@@ -90,9 +89,9 @@ export const NoticeCard = ({ item }) => {
 
         <TextPetName>{item.title}</TextPetName>
 
-        <Btn onClick={handleLearnMore}>Learn more</Btn>
+        <Btn onClick={toggleModal}>Learn more</Btn>
       </Item>
-      {isLearnMore && <NoticeCardDetail item={item} />}
+      {showModal && <NoticeCardDetail item={item} toggleModal={toggleModal} />}
     </>
   );
 };

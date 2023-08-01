@@ -1,44 +1,6 @@
 import { styled } from 'styled-components';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
-export const Modal = styled.div``;
-
-export const ModalLayout = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  overflow-y: scroll;
-  z-index: 1200;
-
-  backdrop-filter: blur(4px);
-  background: rgba(97, 97, 97, 0.6);
-`;
-
-export const ModalCardWrapper = styled.div`
-  position: absolute;
-  top: 10%;
-  min-height: 200px;
-  min-width: 200px;
-
-  border-radius: 20px;
-  background-color: ${props => props.theme.colors.bgdColor};
-
-  @media ${selectTablet} {
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-  }
-`;
-
 export const ButtonClose = styled.button`
   position: absolute;
   right: 12px;
@@ -283,8 +245,6 @@ export const Button = styled.button`
   gap: 8px;
   padding: 6px 20px;
   border-radius: 40px;
-
-  
 `;
 
 export const ButtonAddFavorite = styled(Button)`
@@ -340,25 +300,6 @@ export const ButtonLinkContact = styled.a`
     color: ${props => props.theme.colors.white};
     transition: ${({ theme }) => theme.transitionHover};
   }
-`;
-
-export const ButtonTextContact = styled.a`
-  /* font-family: ${props => props.theme.fonts.main.bold};
-  font-size: ${props => props.theme.fontSizes.md};
-  letter-spacing: 0.04em;
-  line-height: 22px;
-
-  color: ${props => props.theme.colors.blue};
-
-  z-index: 5;
-
-  cursor: pointer;
-
-  &:hover {
-    color: ${props => props.theme.colors.white};
-
-    transition: ${({ theme }) => theme.transitionHover};
-  } */
 `;
 
 export const Comments = styled.span`
