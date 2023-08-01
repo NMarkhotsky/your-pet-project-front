@@ -8,7 +8,6 @@ import { useAuth } from '../../hooks/useAuth/useAuth';
 import { useAddPet } from '../../hooks';
 import { Loader } from '../../shared/components/Loader/Loader';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../LanguageSwitcher';
 
 function SharedLayout() {
   const [isTeamVisible, setIsTeamVisible] = useState(false);
@@ -23,7 +22,6 @@ function SharedLayout() {
   return (
     <>
       <Header />
-      <LanguageSwitcher />
       <Main>
         <AppRoutes />
       </Main>

@@ -9,6 +9,7 @@ import { ModalLogout } from '../ModalLogout/ModalLogout';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ThemeSwitcher } from '../../shared/components/ThemeSwitcher/ThemeSwitcher';
 import { t } from 'i18next';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 
 export const UserMenu = ({ open, handleToggleBurger }) => {
   const dispatch = useDispatch();
@@ -43,6 +44,7 @@ export const UserMenu = ({ open, handleToggleBurger }) => {
     <>
       {isDesktop ? (
         <UserMenuBox>
+          <LanguageSwitcher />
           <ThemeSwitcher />
           <UserMenuButton type="button" onClick={openModal}>
             {t('auth_logoutBtn')}
@@ -66,6 +68,7 @@ export const UserMenu = ({ open, handleToggleBurger }) => {
         </UserMenuBox>
       ) : (
         <UserMenuBox>
+          <LanguageSwitcher />
           <ThemeSwitcher />
           {open ? (
             <UserMenuButton type="button" onClick={openModal}>

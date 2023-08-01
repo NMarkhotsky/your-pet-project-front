@@ -7,7 +7,7 @@ export const UserMenuBoxCopy = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: 20px;
   }
 `;
 
@@ -36,4 +36,11 @@ export const UserMenuButton = styled.button`
 
     transition: ${({ theme }) => theme.transitionHover};
   }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 `;
