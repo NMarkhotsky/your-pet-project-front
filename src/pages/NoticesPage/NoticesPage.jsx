@@ -5,8 +5,10 @@ import NoticesCategoriesList from '../../components/NoticesCategoriesList/Notice
 import { SearchInput } from '../../shared/components/SearchInput/SearchInput';
 import { useEffect, useState, useCallback } from 'react';
 import {getAllNotices, getSelfNotices, getFavoriteNotices} from '../../services/NoticesApi'
-import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
 import { CATEGORIES_RENDER } from '../../constants/globalConstants';
+import { FilterNavBar, SectionNoticesPage, TitleWrap } from './NoticesPage.styled'
+import { Pagination } from '../../components/Pagination/Pagination';
+import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
 
 
 
@@ -24,7 +26,6 @@ function NoticesPage() {
       if (!params.category || params.category === 'sell' || params.category === 'in-good-hands' || params.category === 'lost-or-found') {
         const  data  = await getAllNotices(params);
         setPageCount(Math.ceil(data.total / limit))
-        console.log(data.data[0].noticeType);
         return setNotices(changeCategoryForRender(data))
       }
 
@@ -86,13 +87,18 @@ function NoticesPage() {
   }, []);
 
   return (
-    <>
+    <SectionNoticesPage>
+      <TitleWrap>
         <TitlePage>Find your favorite pet</TitlePage>
+      </TitleWrap>
         <SearchInput onSubmit={onSubmit} onChange={onChange} onDelete={onDelete} value={searchValue}/>
-        <NoticesCategoriesNav getCategoryParams={getCategoryParams} />
-        <NoticesFilters getFilterParams={getFilterParams} />
+        <FilterNavBar>
+            <NoticesCategoriesNav getCategoryParams={getCategoryParams} />
+            <NoticesFilters getFilterParams={getFilterParams} />
+        </FilterNavBar>
         <NoticesCategoriesList notices={notices} pageCount={pageCount} handlePageChange={handlePageChange}/>
-    </>
+        <Pagination pageCount={pageCount} handlePageChange={handlePageChange}/>
+    </SectionNoticesPage>
   );
 }
 

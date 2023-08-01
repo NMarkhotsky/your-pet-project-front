@@ -34,6 +34,9 @@
   "friends_friendItem_emailOnly": "Email only",
   "friends_friendItem_phoneOnly": "Telephone only",
 
+  "notices_cardInfoDetails_theSex": "The sex",
+  "notices_cardInfoDetails_addToBtn": "Add to",
+
   "footer_title": "Our team",
   "footer_ps": "Developed with",
 
@@ -48,11 +51,13 @@
   "other_city": "City",
   "other_type": "Type",
   "other_comments": "Comments",
+  "other_place": "Place",
   "other_confirm": "Confirm",
   "other_cancel": "Cancel",
   "other_yes": "Yes",
   "other_search": "Search",
   "other_readMore": "Read more",
+  "other_contact": "Contact",
   "other_time": "Time",
   "other_close": "Close",
   "other_closed": "Closed",

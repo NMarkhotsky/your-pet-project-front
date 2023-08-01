@@ -6,6 +6,7 @@ import { publicCategories, privateCategories } from './categories';
 import {
   NoticeCategoriesNavList,
   NoticeCategoryItem,
+  CategoriesWrap
 } from './NoticesCategoriesNav.styled';
 
 import PropTypes from 'prop-types';
@@ -15,7 +16,7 @@ export const NoticesCategoriesNav = ({ getCategoryParams }) => {
   const { search } = useLocation();
 
   return (
-    <>
+    <CategoriesWrap>
       <NoticeCategoriesNavList>
         {publicCategories.map(({ to, text, id, name }) => (
           <li key={id}>
@@ -36,7 +37,7 @@ export const NoticesCategoriesNav = ({ getCategoryParams }) => {
           ))}
         </NoticeCategoriesNavList>
       )}
-    </>
+    </CategoriesWrap>
   );
 };
 NoticesCategoriesNav.propTypes = {

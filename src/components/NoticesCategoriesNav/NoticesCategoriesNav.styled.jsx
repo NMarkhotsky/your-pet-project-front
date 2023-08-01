@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
+export const CategoriesWrap = styled.div`
+  display: flex;
+  gap: 12px;
+`;
+
 export const NoticeCategoriesNavList = styled.ul`
   list-style: none;
   display: flex;
