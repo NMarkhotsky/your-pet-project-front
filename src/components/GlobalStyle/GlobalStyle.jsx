@@ -14,6 +14,12 @@ body {
   color: ${({ theme }) => theme.colors.text};
 
   transition: ${({ theme }) => theme.transitionHover};
+
+  
+  overflow: ${props => console.log(props.open)};
+
+
+  ${'' /* overflow: ${props => (props.open ? 'hidden' : 'auto')}; */}
 }
 
 code {

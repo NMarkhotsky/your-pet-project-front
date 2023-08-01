@@ -9,11 +9,13 @@ import {
 import { ThemeSwitcher } from '../../../shared/components/ThemeSwitcher/ThemeSwitcher';
 import { t } from 'i18next';
 import { Trans } from 'react-i18next';
+import LanguageSwitcher from '../../LanguageSwitcher/LanguageSwitcher';
 
 export const NavRegAndLogCopy = ({ handleToggleBurger }) => {
   return (
     <>
       <MainNavLinkBoxCopy>
+        <LanguageSwitcher />
         <ThemeSwitcher />
         <LinkLogStyledCopy to="/login" onClick={handleToggleBurger}>
           <Trans i18nKey="header_nav_loginBtn">

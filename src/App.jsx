@@ -9,7 +9,7 @@ import { GlobalStyle } from './components/GlobalStyle/GlobalStyle';
 import { fetchCurrentUser } from './redux/auth/operations';
 import { useTheme } from './hooks/useTheme/useTheme';
 import { darkTheme, lightTheme } from './theme/theme';
-import { useFont } from './hooks/useFonts';
+import { useFont } from './hooks/useFonts/useFonts';
 import { fonts } from './constants/fonts';
 import { Loader } from './shared/components/Loader/Loader';
 import { googleAuth } from './redux/auth/authSlice';
