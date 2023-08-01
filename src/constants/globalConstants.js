@@ -9,6 +9,15 @@ export const CATEGORIES = {
   IN_GOOD_HANDS: "in-good-hands",
 }
 
+export const CATEGORIES_RENDER = {
+  'sell': 'sell',
+  'lost-or-found': 'lost or found',
+  'in-good-hands': 'in good hands',
+  'favorite': 'favorite',
+  'my-ads': 'my ads'
+  
+}
+
 export const AGE_FILTER = {
   YOUNG: 'young',
   MIDDLE: 'middle',

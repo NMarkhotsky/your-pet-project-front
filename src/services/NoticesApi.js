@@ -58,7 +58,7 @@ export const deleteNotice = async (id) => {
 
 export const updateNotice = async (id) => {
     try {
-        const response = await axios.patch(`/notices/${id}`);
+        const response = await axios.patch(`/notices/favorites/${id}`);
 
         return response;
     } catch (error) {
