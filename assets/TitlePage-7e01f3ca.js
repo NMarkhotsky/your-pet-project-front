@@ -1,4 +1,4 @@
-import{s as i,b as o,P as s,j as t}from"./index-5d47b4ee.js";const n=i.div`
+import{s as i,b as o,P as s,j as t}from"./index-0256676c.js";const n=i.div`
   margin-top: 40px;
 
   @media ${o} {
