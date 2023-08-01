@@ -21,7 +21,7 @@ function Comments({ formik }) {
 
   const handleTextareaChange = (event) => {
     formik.handleChange(event);
-    dispatch(saveComment(event.target.textContent));
+    dispatch(saveComment(event.target.value));
   };
 
   const handleTextareaBlur = (event) => {
