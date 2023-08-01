@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
+export const ContainerFilter = styled.div`
+  display: flex;
+  gap: 12px;
+`;
+
 export const Wrapper = styled.div`
   position: absolute;
   right: 0;
@@ -99,11 +104,12 @@ export const IconWraper = styled.div`
   & svg use {
     stroke: ${props => props.theme.colors.blue};
   }
-  &:hover,
+  &:hover svg use,
   &:focus svg use {
     stroke: ${props => props.theme.colors.white};
-    transition: fill ${({ theme }) => theme.transitionHover};
+    transition: stroke ${({ theme }) => theme.transitionHover};
   }
+
 `;
 
 export const OpenBtnLabel = styled.span`
@@ -244,5 +250,28 @@ export const Input = styled.input`
     &:focus {
       transform: scale(1.2);
     }
+  }
+`;
+
+export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: ${props => props.theme.colors.blue};
+  border: none;
+  border-radius: 40px;
+  padding: 8px 20px;
+  color: ${props => props.theme.colors.textBtn};
+  font-size: ${props => props.theme.fontSizes.md};
+  font-family: ${props => props.theme.fonts.main.bold};
+  letter-spacing: 0.64px;
+
+  transition: ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    background-color: ${props => props.theme.colors.blueDark};
+
+    transition: ${({ theme }) => theme.transitionHover};
   }
 `;

@@ -106,6 +106,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  outline: transparent;
 
   width: 40px;
   height: 40px;
@@ -174,7 +175,7 @@ export const ItemPetInfo = styled.li`
 
   transition: ${({ theme }) => theme.transitionHover};
 
-  &:hover {
+  /* &:hover {
     background-color: ${props => props.theme.colors.blue};
     color: ${props => props.theme.colors.white};
     transition: ${({ theme }) => theme.transitionHover};
@@ -183,7 +184,7 @@ export const ItemPetInfo = styled.li`
   &:hover > svg {
     stroke: ${props => props.theme.colors.white};
     transition: ${({ theme }) => theme.transitionHover};
-  }
+  } */
 `;
 
 export const SpanPetText = styled.span`

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import {
+  ContainerFilter, 
   Wrapper,
   OpenBtn,
   OpenBtnLabel,
@@ -14,9 +15,12 @@ import {
   Form,
   Label,
   Input,
+  Button,
 } from './NoticesFilters.styled';
 
 import { Icon } from '../Icon/Icon';
+import { t } from 'i18next';
+import { Link } from 'react-router-dom';
 
 export const NoticesFilters = ({ getFilterParams }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -93,111 +97,125 @@ export const NoticesFilters = ({ getFilterParams }) => {
   };
 
   return (
-    <Wrapper>
-      <OpenBtn
-        onClick={handleBtnClick}
-        type="button"
-        aria-label="toggle filters"
-      >
-        <OpenBtnLabel>Filter</OpenBtnLabel>
-        <IconWraper>
-          <Icon iconName="icon-filters-3" stroke={'#FDF7F2'} />
-        </IconWraper>
-      </OpenBtn>
-      {isOpen && (
-        <DropDownContainer>
-          <div>
-            <Text>Filters</Text>
-            <SubMenu>
-              <FilterBtn
-                type="button"
-                onClick={handleAgeClick}
-                aria-label="toggle age options"
-              >
-                {ageOpen ? (
-                  <Icon iconName="icon-chevron-down" stroke={'#54ADFF'} />
-                ) : (
-                  <Icon iconName="icon-chevron-up" stroke={'#54ADFF'} />
+    <ContainerFilter>
+      <Wrapper>
+        <OpenBtn
+          onClick={handleBtnClick}
+          type="button"
+          aria-label="toggle filters"
+        >
+          <OpenBtnLabel>Filter</OpenBtnLabel>
+          <IconWraper>
+            <Icon iconName="icon-filters-3" stroke={'#FDF7F2'} />
+          </IconWraper>
+        </OpenBtn>
+        {isOpen && (
+          <DropDownContainer>
+            <div>
+              <Text>Filters</Text>
+              <SubMenu>
+                <FilterBtn
+                  type="button"
+                  onClick={handleAgeClick}
+                  aria-label="toggle age options"
+                >
+                  {ageOpen ? (
+                    <Icon iconName="icon-chevron-down" stroke={'#54ADFF'} />
+                  ) : (
+                    <Icon iconName="icon-chevron-up" stroke={'#54ADFF'} />
+                  )}
+                  <BtnLabel>By age</BtnLabel>
+                </FilterBtn>
+                {ageOpen && (
+                  <Form>
+                    <Label>
+                      <Input
+                        onChange={handleCheckboxChange}
+                        type="checkbox"
+                        name="age"
+                        value="0-12 m"
+                        checked={filters.includes('0-12 m')}
+                      />
+                      0-12 m
+                    </Label>
+                    <Label>
+                      <Input
+                        onChange={handleCheckboxChange}
+                        type="checkbox"
+                        name="age"
+                        value="1 year"
+                        checked={filters.includes('1 year')}
+                      />
+                      1 year
+                    </Label>
+                    <Label>
+                      <Input
+                        onChange={handleCheckboxChange}
+                        type="checkbox"
+                        name="age"
+                        value="2 years +"
+                        checked={filters.includes('2 years +')}
+                      />
+                      2 year +
+                    </Label>
+                  </Form>
                 )}
-                <BtnLabel>By age</BtnLabel>
-              </FilterBtn>
-              {ageOpen && (
-                <Form>
-                  <Label>
-                    <Input
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="age"
-                      value="0-12 m"
-                      checked={filters.includes('0-12 m')}
-                    />
-                    0-12 m
-                  </Label>
-                  <Label>
-                    <Input
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="age"
-                      value="1 year"
-                      checked={filters.includes('1 year')}
-                    />
-                    1 year
-                  </Label>
-                  <Label>
-                    <Input
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="age"
-                      value="2 years +"
-                      checked={filters.includes('2 years +')}
-                    />
-                    2 year +
-                  </Label>
-                </Form>
-              )}
-            </SubMenu>
-            <SubMenu>
-              <FilterBtn
-                type="button"
-                onClick={handleGenderClick}
-                aria-label="toggle gender options"
-              >
-                {genderOpen ? (
-                  <Icon iconName="icon-chevron-down" stroke={'#54ADFF'} />
-                ) : (
-                  <Icon iconName="icon-chevron-up" stroke={'#54ADFF'} />
+              </SubMenu>
+              <SubMenu>
+                <FilterBtn
+                  type="button"
+                  onClick={handleGenderClick}
+                  aria-label="toggle gender options"
+                >
+                  {genderOpen ? (
+                    <Icon iconName="icon-chevron-down" stroke={'#54ADFF'} />
+                  ) : (
+                    <Icon iconName="icon-chevron-up" stroke={'#54ADFF'} />
+                  )}
+                  <BtnLabel>By gender</BtnLabel>
+                </FilterBtn>
+                {genderOpen && (
+                  <Form>
+                    <Label>
+                      <Input
+                        onChange={handleCheckboxChange}
+                        type="checkbox"
+                        name="gender"
+                        value="male"
+                        checked={filters.includes('male')}
+                      />
+                      male
+                    </Label>
+                    <Label>
+                      <Input
+                        onChange={handleCheckboxChange}
+                        type="checkbox"
+                        name="gender"
+                        value="female"
+                        checked={filters.includes('female')}
+                      />
+                      female
+                    </Label>
+                  </Form>
                 )}
-                <BtnLabel>By gender</BtnLabel>
-              </FilterBtn>
-              {genderOpen && (
-                <Form>
-                  <Label>
-                    <Input
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="gender"
-                      value="male"
-                      checked={filters.includes('male')}
-                    />
-                    male
-                  </Label>
-                  <Label>
-                    <Input
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="gender"
-                      value="female"
-                      checked={filters.includes('female')}
-                    />
-                    female
-                  </Label>
-                </Form>
-              )}
-            </SubMenu>
-          </div>
-        </DropDownContainer>
-      )}
-    </Wrapper>
+              </SubMenu>
+            </div>
+          </DropDownContainer>
+        )}
+      </Wrapper>
+      <Link to="/add-pet">
+        <Button type="button">
+          {t('user_mypets_addBtn')}
+          <Icon
+            iconName={'icon-plus-small'}
+            width={'24px'}
+            height={'24px'}
+            stroke={'#FEF9F9'}
+            fill={'#FEF9F9'}
+          />
+        </Button>
+      </Link>
+    </ContainerFilter>
   );
 };
 

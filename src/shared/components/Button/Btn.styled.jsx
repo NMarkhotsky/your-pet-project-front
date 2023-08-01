@@ -12,6 +12,7 @@ export const BtnStyled = styled.button`
   padding: 8px 28px 8px 28px;
   letter-spacing: 0.64px;
   border-radius: 40px;
+  outline: transparent;
 
   color: ${props => props.theme.colors.blue};
   font-family: ${props => props.theme.fonts.main.bold};
