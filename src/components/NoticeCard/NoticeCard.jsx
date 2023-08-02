@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-// import { t } from 'i18next';
 import { Icon } from '../Icon/Icon';
 import {
   Item,
@@ -20,10 +19,7 @@ import { truncateText } from '../../utils/truncateText';
 import { Btn } from '../../shared/components/Button/Btn';
 import { NoticeCardDetail } from '../NoticeCardDetail/NoticeCardDetail';
 import { useAuth } from '../../hooks/useAuth/useAuth';
-import {
-  // deleteNotice,
-  updateNotice,
-} from '../../services/NoticesApi';
+import { updateNotice } from '../../services/NoticesApi';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
