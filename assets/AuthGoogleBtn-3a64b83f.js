@@ -1,4 +1,4 @@
-import{s as t,n as x,b as r,N as u,P as i,j as o,I as s,o as b}from"./index-1310b7f4.js";import{a as $}from"./formik.esm-5aaa515a.js";const f=t.div`
+import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-3f3acab3.js";import{a as $}from"./formik.esm-1704a3f8.js";const f=t.div`
   margin: 80px auto 15px auto;
   padding: 40px 12px;
   width: 100%;
@@ -151,7 +151,7 @@ import{s as t,n as x,b as r,N as u,P as i,j as o,I as s,o as b}from"./index-1310
   &:focus {
     background: ${e=>e.theme.colors.blueGradient};
   }
-`,I=({btnText:e})=>o.jsx(T,{type:"submit",children:e});I.propTypes={btnText:i.string.isRequired};const B=t.a`
+`,I=({btnText:e})=>o.jsx(T,{type:"submit",children:e});I.propTypes={btnText:i.string.isRequired};const q=t.a`
   position: relative;
 
   display: flex;
@@ -184,7 +184,7 @@ import{s as t,n as x,b as r,N as u,P as i,j as o,I as s,o as b}from"./index-1310
     height: 50px;
     font-size: 18px;
   }
-`,N=t.div`
+`,B=t.div`
   position: absolute;
   left: 16px;
-`,E=()=>{const{t:e}=b();return o.jsxs(B,{href:"https://mypets-backend.onrender.com/api/auth/google",children:[o.jsx(N,{children:o.jsx(s,{iconName:"icon-google"})}),e("auth_googleBtn")]})};export{I as A,k as F,C as a,E as b,D as c,P as d,v as e};
+`,E=()=>{const{t:e}=b();return o.jsxs(q,{href:"https://mypets-backend.onrender.com/api/auth/google",children:[o.jsx(B,{children:o.jsx(s,{iconName:"icon-google"})}),e("auth_googleBtn")]})};export{I as A,k as F,C as a,E as b,D as c,P as d,v as e};
