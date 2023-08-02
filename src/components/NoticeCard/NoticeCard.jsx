@@ -78,8 +78,6 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
     }
   };
 
-  console.log('item ===>', item);
-
   return (
     <>
       <Item key={item.id}>
