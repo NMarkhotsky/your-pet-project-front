@@ -1,4 +1,4 @@
-// import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { NoticesCategoriesNav } from '../../components/NoticesCategoriesNav/NoticesCategoriesNav';
 import { NoticesFilters } from '../../components/NoticesFilters/NoticesFilters';
 import NoticesCategoriesList from '../../components/NoticesCategoriesList/NoticesCategoriesList';
@@ -25,6 +25,7 @@ import { useAuth } from '../../hooks/useAuth/useAuth';
 import { errorMessage, successMessage } from '../../utils/messages';
 
 import { t } from 'i18next';
+import { NoInfoPart } from '../../components/NoInfoPart/NoInfoPart';
 
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
@@ -133,29 +134,38 @@ function NoticesPage() {
   }, []);
 
   return (
-    <SectionNoticesPage>
-      <TitleWrap>
-        <TitlePage>{t('notices_title')}</TitlePage>
-      </TitleWrap>
-      <SearchInput
-        onSubmit={onSubmit}
-        onChange={onChange}
-        onDelete={onDelete}
-        value={searchValue}
-      />
-      <FilterNavBar>
-        <NoticesCategoriesNav getCategoryParams={getCategoryParams} />
-        <NoticesFilters getFilterParams={getFilterParams} />
-      </FilterNavBar>
-      <NoticesCategoriesList
-        notices={notices}
-        pageCount={pageCount}
-        handlePageChange={handlePageChange}
-        handleDeleteNotice={handleDeleteNotice}
-      />
-      {pageCount > 1 && <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />}
-      {isLoading ? <Loader /> : null}
-    </SectionNoticesPage>
+    <>
+      <SectionNoticesPage>
+        <TitleWrap>
+          <TitlePage>{t('notices_title')}</TitlePage>
+        </TitleWrap>
+        <SearchInput
+          onSubmit={onSubmit}
+          onChange={onChange}
+          onDelete={onDelete}
+          value={searchValue}
+        />
+        <FilterNavBar>
+          <NoticesCategoriesNav getCategoryParams={getCategoryParams} />
+          <NoticesFilters getFilterParams={getFilterParams} />
+        </FilterNavBar>
+        <NoticesCategoriesList
+          notices={notices}
+          pageCount={pageCount}
+          handlePageChange={handlePageChange}
+          handleDeleteNotice={handleDeleteNotice}
+        />
+        {pageCount > 1 && (
+          <Pagination
+            pageCount={pageCount}
+            handlePageChange={handlePageChange}
+          />
+        )}
+        {isLoading ? <Loader /> : null}
+        {notices.length === 0 && !isLoading && <NoInfoPart />}
+      </SectionNoticesPage>
+      <Outlet />
+    </>
   );
 }
 

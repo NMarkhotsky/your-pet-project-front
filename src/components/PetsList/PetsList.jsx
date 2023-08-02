@@ -20,15 +20,23 @@ import { Trans } from 'react-i18next';
 
 export const PetsList = () => {
   const [pets, setPets] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const location = useLocation();
 
   useEffect(() => {
     getPets()
       .then(({ data }) => {
+        setIsLoading(true);
         setPets(data.pets);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        setIsLoading(true);
+        console.log(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
 
   useEffect(() => {
@@ -65,7 +73,7 @@ export const PetsList = () => {
           <PetsItem key={card._id} item={card} deletePet={handleDeletePet} />
         ))}
       </PetsCardList>
-      {pets.length === 0 && (
+      {pets.length === 0 && !isLoading && (
         <ContainerImage>
           <Title>
             <Trans i18nKey="user_mypets_petList">

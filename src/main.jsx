@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter basename="/your-pet-project-front">
       <Provider store={store}>
         <PersistGate loading={<Loader />} persistor={persistor}>
-          <React.Suspense fallback={<Loader />}>
-            <App />
-          </React.Suspense>
+          {/* <React.Suspense fallback={<Loader />}> */}
+          <App />
+          {/* </React.Suspense> */}
         </PersistGate>
       </Provider>
     </BrowserRouter>

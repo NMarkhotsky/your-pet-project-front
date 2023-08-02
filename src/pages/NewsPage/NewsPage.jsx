@@ -6,6 +6,7 @@ import { getNews } from '../../services/NewsApi';
 import { t } from 'i18next';
 import { Loader } from '../../shared/components/Loader/Loader';
 import { scrollToTop } from '../../utils/scrollToTop';
+import { NoInfoPart } from '../../components/NoInfoPart/NoInfoPart';
 
 const PER_PAGE = 6;
 
@@ -75,6 +76,7 @@ function NewsPage() {
         handlePageChange={handlePageChange}
       />
       {isLoading ? <Loader /> : null}
+      {news.length === 0 && !isLoading && <NoInfoPart />}
     </>
   );
 }

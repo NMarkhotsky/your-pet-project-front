@@ -21,65 +21,69 @@ const NoticesCategoriesList = lazy(() =>
 
 const AppRoutes = () => {
   return (
-    <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/main" element={<MainPage />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/notices" element={<NoticesPage />}>
-          <Route index element={<Navigate to="sell" replace />} />
-          <Route path=":categoryName" element={<NoticesPage />} />
+    <>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/main" element={<MainPage />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/notices" element={<NoticesPage />}>
+            <Route index element={<Navigate to="sell" replace />} />
+            <Route path=":categoryName" element={<NoticesCategoriesList />} />
+            <Route
+              path="favorite"
+              element={
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<NoticesCategoriesList />}
+                />
+              }
+            />
+            <Route
+              path="own"
+              element={
+                <PrivateRoute
+                  redirectTo="/login"
+                  component={<NoticesCategoriesList />}
+                />
+              }
+            />
+          </Route>
+
+          <Route path="/friends" element={<OurFriendsPage />} />
+
           <Route
-            path="favorite"
+            path="/add-pet"
             element={
-              <PrivateRoute
-                redirectTo="/login"
-                component={<NoticesCategoriesList />}
-              />
+              <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
             }
           />
+
           <Route
-            path="own"
+            path="/login"
             element={
-              <PrivateRoute
-                redirectTo="/login"
-                component={<NoticesCategoriesList />}
-              />
+              <PublicRoute redirectTo="/user" component={<LoginPage />} />
             }
           />
-        </Route>
 
-        <Route path="/friends" element={<OurFriendsPage />} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute redirectTo="/user" component={<RegisterPage />} />
+            }
+          />
 
-        <Route
-          path="/add-pet"
-          element={
-            <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
-          }
-        />
+          <Route
+            path="/user"
+            element={
+              <PrivateRoute redirectTo="/login" component={<UserPage />} />
+            }
+          />
 
-        <Route
-          path="/login"
-          element={<PublicRoute redirectTo="/user" component={<LoginPage />} />}
-        />
-
-        <Route
-          path="/register"
-          element={
-            <PublicRoute redirectTo="/user" component={<RegisterPage />} />
-          }
-        />
-
-        <Route
-          path="/user"
-          element={
-            <PrivateRoute redirectTo="/login" component={<UserPage />} />
-          }
-        />
-
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Suspense>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 };
 

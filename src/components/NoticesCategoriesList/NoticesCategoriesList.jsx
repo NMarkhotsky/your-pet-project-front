@@ -1,12 +1,11 @@
-import PropTypes, { shape } from 'prop-types';
+/* eslint-disable react/prop-types */
 import { NoticeCard } from '../NoticeCard/NoticeCard';
 import { List } from '../NoticeCard/NoticeCard.styled';
-import { NoInfoPart } from '../NoInfoPart/NoInfoPart';
 
 const NoticesCategoriesList = ({ notices, handleDeleteNotice }) => {
   return (
     <>
-      {notices.length > 0 ? (
+      {notices && (
         <List>
           {notices.map(item => (
             <NoticeCard
@@ -16,20 +15,9 @@ const NoticesCategoriesList = ({ notices, handleDeleteNotice }) => {
             />
           ))}
         </List>
-      ) : (
-        <NoInfoPart />
       )}
     </>
   );
 };
 
 export default NoticesCategoriesList;
-
-NoticesCategoriesList.propTypes = {
-  notices: PropTypes.arrayOf(
-    shape({
-      id: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  handleDeleteNotice: PropTypes.func,
-};

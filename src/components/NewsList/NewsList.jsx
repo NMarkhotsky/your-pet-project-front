@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import NewsItem from '../NewsItem/NewsItem';
 import { Pagination } from '../Pagination/Pagination';
 import { List } from './NewsList.styled';
-import { NoInfoPart } from '../NoInfoPart/NoInfoPart';
 
 export const NewsList = ({ list, pageCount, handlePageChange }) => {
   return (
     <>
-      {list.length > 0 ? (
+      {list.length > 0 && (
         <List>
           {list.map(article => (
             <NewsItem key={article._id} article={article} />
           ))}
         </List>
-      ) : <NoInfoPart/>}
+      )}
       {pageCount > 1 && (
         <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
       )}
