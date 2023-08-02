@@ -134,7 +134,9 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
               }}
             >
               <ButtonTextAdd>
-                {t('notices_cardInfoDetails_addToBtn')}
+                {!card.isFavorite
+                  ? t('notices_cardInfoDetails_addToBtn')
+                  : 'Remove from'}
               </ButtonTextAdd>
               {!card.isFavorite ? (
                 <Icon
