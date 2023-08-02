@@ -66,7 +66,7 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
     setCard(response.data.notice);
   };
 
-  console.log('itemIsFavorite===>', item.isFavorite);
+  console.log('item===>', item);
   
   return (
     <>
