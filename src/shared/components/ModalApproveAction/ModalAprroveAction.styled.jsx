@@ -37,18 +37,18 @@ export const CloseBtn = styled.button`
   height: 24px;
   padding: 0;
   border: none;
+  top: 5px;
+  right: 10%;
 
   position: absolute;
-  right: 12px;
-  top: 12px;
 
   line-height: 0;
 
   background: transparent;
 
   @media ${selectTablet} {
-    right: 24px;
-    top: 24px;
+    right: 6%;
+    top: 12px;
   }
 
   transform: scale(1);

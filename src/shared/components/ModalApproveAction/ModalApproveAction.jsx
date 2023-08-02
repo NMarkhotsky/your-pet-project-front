@@ -31,8 +31,8 @@ export const ModalApproveAction = ({ children, onClose }) => {
         <CloseBtn type="button" onClick={onClose} aria-label="close">
           <Icon
             iconName="icon-cross-small"
-            width="24px"
-            height="24px"
+            width="50px"
+            height="50px"
             stroke={'#54ADFF'}
           />
         </CloseBtn>
