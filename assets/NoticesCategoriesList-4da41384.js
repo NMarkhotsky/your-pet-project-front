@@ -1,4 +1,4 @@
-import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,a9 as K,t as r,a as N,g as f,B as V,r as d,u as B,z as G}from"./index-230f05d6.js";import{B as J}from"./Btn.styled-5ca1b903.js";import{M as Q}from"./ModalConfirmDelete-507c8a5e.js";import{N as X}from"./NoInfoPart-a939ae83.js";const Y=o.div`
+import{s as o,b as s,P as l,j as t,M as k,T as M,a6 as U,a7 as O,a8 as W,I as h,a9 as K,t as a,a as I,g,B as V,r as d,u as G,z as J}from"./index-1dd221a6.js";import{B as Q}from"./Btn.styled-2458ea66.js";import{M as X}from"./ModalConfirmDelete-9f255f04.js";import{N as Y}from"./NoInfoPart-490ba225.js";const Z=o.div`
   width: 280px;
   padding: 60px 20px;
   border-radius: 20px;
@@ -9,7 +9,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     width: 608px;
     border-radius: 40px;
   }
-`,Z=o.h3`
+`,ee=o.h3`
   margin-bottom: 20px;
   font-family: ${e=>e.theme.fonts.main.medium};
   font-size: ${e=>e.theme.fontSizes.xl};
@@ -23,7 +23,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     font-size: ${e=>e.theme.fontSizes.big};
     letter-spacing: 1.44px;
   }
-`,ee=o.p`
+`,te=o.p`
   margin-bottom: 40px;
   font-size: ${e=>e.theme.fontSizes.sm};
   font-family: ${e=>e.theme.fonts.main.medium};
@@ -37,7 +37,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     letter-spacing: 0.8px;
     line-height: 28px;
   }
-`,k=({onClose:e})=>t.jsx(z,{onClose:e,children:t.jsxs(Y,{children:[t.jsxs(C,{i18nKey:"modal_attention",children:[t.jsx(Z,{children:"Attention"}),t.jsx(ee,{children:"We would like to remind you that certain functionality is available only to authorized users.If you have an account, please log in with your credentials. If you do not already have an account, you must register to access these features."})]}),t.jsxs(U,{children:[t.jsxs(O,{to:"/login",children:[t.jsxs(C,{i18nKey:"header_nav_loginBtn",children:["Log ",t.jsx(W,{children:"in"})]}),t.jsx(c,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#FEF9F9"})]}),t.jsx(K,{to:"/register",children:r("header_nav_signupBtn")})]})]})});k.propTypes={onClose:l.func.isRequired};const te=o.ul`
+`,F=({onClose:e})=>t.jsx(k,{onClose:e,children:t.jsxs(Z,{children:[t.jsxs(M,{i18nKey:"modal_attention",children:[t.jsx(ee,{children:"Attention"}),t.jsx(te,{children:"We would like to remind you that certain functionality is available only to authorized users.If you have an account, please log in with your credentials. If you do not already have an account, you must register to access these features."})]}),t.jsxs(U,{children:[t.jsxs(O,{to:"/login",children:[t.jsxs(M,{i18nKey:"header_nav_loginBtn",children:["Log ",t.jsx(W,{children:"in"})]}),t.jsx(h,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#FEF9F9"})]}),t.jsx(K,{to:"/register",children:a("header_nav_signupBtn")})]})]})});F.propTypes={onClose:l.func.isRequired};const oe=o.ul`
   display: flex;
   align-items: stretch;
   flex-direction: column;
@@ -58,7 +58,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
   & > li > p {
     flex-grow: 1;
   }
-`,oe=o.li`
+`,ne=o.li`
   display: flex;
   flex-direction: column;
   width: 280px;
@@ -73,7 +73,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     width: 336px;
   }
 
-  @media ${N} {
+  @media ${I} {
     width: 288px;
   }
 
@@ -83,17 +83,17 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     transform: scale(1.02);
     transition: transform ${({theme:e})=>e.transitionHover};
   }
-`,ne=o.div`
+`,ie=o.div`
   position: relative;
   display: block;
 
   height: 288px;
   width: 100%;
-`,ie=o.img`
+`,se=o.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-`,se=o.div`
+`,re=o.div`
   position: absolute;
   top: 12px;
   left: 0;
@@ -102,7 +102,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-`,re=o.p`
+`,ae=o.p`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,11 +118,11 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
 
   background-color: ${e=>e.theme.colors.blueLight};
   color: ${e=>e.theme.colors.black};
-`,ae=o.div`
+`,le=o.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-`,_=o.button`
+`,N=o.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,7 +147,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     transform: scale(1.2);
     transition: transform ${({theme:e})=>e.transitionHover};
   }
-`,le=o.ul`
+`,ce=o.ul`
   position: absolute;
   bottom: 12px;
 
@@ -164,10 +164,10 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     gap: 24px;
   }
 
-  @media ${N} {
+  @media ${I} {
     gap: 12px;
   }
-`,v=o.li`
+`,S=o.li`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,19 +185,19 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
   cursor: pointer;
 
   transition: ${({theme:e})=>e.transitionHover};
-`,S=o.span`
+`,z=o.span`
   font-family: ${e=>e.theme.fonts.main.semiBold};
   font-size: ${e=>e.theme.fontSizes.xs};
   text-align: center;
   letter-spacing: 0.48px;
-`,ce=o.p`
+`,de=o.p`
   display: flex;
   padding: 20px;
 
   font-family: ${e=>e.theme.fonts.main.bold};
   font-size: ${e=>e.theme.fontSizes.xl};
   line-height: 33px;
-`,de=e=>e.length>5?e.substring(0,5)+"...":e,L=({children:e,onClick:i})=>t.jsx(J,{type:"button",onClick:i,children:e});L.propTypes={children:l.any.isRequired,onClick:l.func};o.button`
+`,he=e=>e.length>5?e.substring(0,5)+"...":e,D=({children:e,onClick:n})=>t.jsx(Q,{type:"button",onClick:n,children:e});D.propTypes={children:l.any.isRequired,onClick:l.func};o.button`
   position: absolute;
   right: 12px;
   top: 12px;
@@ -224,7 +224,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     transform: scale(1.2);
     transition: transform ${({theme:e})=>e.transitionHover};
   }
-`;const he=o.div`
+`;const pe=o.div`
   padding: 44px 12px 16px;
   width: 280px;
 
@@ -232,7 +232,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     padding: 32px 32px 24px;
     width: 681px;
   }
-`,pe=o.div`
+`,xe=o.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -243,7 +243,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     flex-direction: row;
     gap: 24px;
   }
-`,xe=o.div`
+`,me=o.div`
   position: relative;
 
   height: 240px;
@@ -255,14 +255,14 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     height: 298px;
     width: 262px;
   }
-`,me=o.img`
+`,fe=o.img`
   height: 100%;
   width: 100%;
 
   border-radius: 0 0 40px 40px;
 
   object-fit: cover;
-`,fe=o.span`
+`,ge=o.span`
   position: absolute;
   top: 16px;
   left: 0;
@@ -284,13 +284,13 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
 
   background-color: ${e=>e.theme.colors.blueLight};
   color: #111;
-`,ge=o.div`
+`,ue=o.div`
   @media ${s} {
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: 0%;
   }
-`,ue=o.h4`
+`,je=o.h4`
   width: 198px;
 
   margin-bottom: 20px;
@@ -308,7 +308,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     font-size: ${e=>e.theme.fontSizes.xxl};
     line-height: 38px;
   }
-`,je=o.table`
+`,ye=o.table`
   width: 256px;
 
   table-layout: fixed;
@@ -320,19 +320,19 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
   @media ${s} {
     width: 340px;
   }
-`,ye=o.tbody`
+`,$e=o.tbody`
   display: table-row-group;
 
   border-color: inherit;
 
   vertical-align: middle;
-`,p=o.tr`
+`,x=o.tr`
   display: table-row;
 
   vertical-align: inherit;
 
   border-color: inherit;
-`,x=o.td`
+`,m=o.td`
   display: table-cell;
   width: 80px;
 
@@ -349,7 +349,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     font-size: ${e=>e.theme.fontSizes.md};
     line-height: 22px;
   }
-`,m=o.td`
+`,f=o.td`
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -364,7 +364,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     font-size: ${e=>e.theme.fontSizes.md};
     line-height: 22px;
   }
-`,A=o.a`
+`,B=o.a`
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -373,7 +373,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
   color: ${e=>e.theme.colors.yellow};
 
   cursor: pointer;
-`,$e=o.p`
+`,be=o.p`
   margin-bottom: 12px;
   word-wrap: break-word;
 
@@ -391,7 +391,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     font-size: ${e=>e.theme.fontSizes.md};
     line-height: 24px;
   }
-`,be=o.div`
+`,we=o.div`
   display: flex;
   flex-direction: column-reverse;
   gap: 8px;
@@ -401,7 +401,7 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     justify-content: flex-end;
     gap: 17px;
   }
-`,we=o.button`
+`,ve=o.button`
   position: relative;
   display: flex;
   align-items: center;
@@ -409,16 +409,16 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
   gap: 8px;
   padding: 6px 20px;
   border-radius: 40px;
-`,ve=o(we)`
+`,Se=o(ve)`
   border: 2px solid transparent;
-`,Se=o.span`
+`,ze=o.span`
   font-family: ${e=>e.theme.fonts.main.bold};
   font-size: ${e=>e.theme.fontSizes.md};
   letter-spacing: 0.04em;
   line-height: 22px;
 
   z-index: 5;
-`,M=o.a`
+`,L=o.a`
   position: relative;
 
   display: flex;
@@ -458,6 +458,6 @@ import{s as o,b as s,P as l,j as t,M as z,T as C,a6 as U,a7 as O,a8 as W,I as c,
     color: ${e=>e.theme.colors.white};
     transition: ${({theme:e})=>e.transitionHover};
   }
-`,ze=o.span`
+`,ke=o.span`
   font-family: ${e=>e.theme.fonts.main.bold};
-`;f.defaults.baseURL=V;const Ae=async e=>{try{let i="";for(let a in e)i+=`&${a}=${e[a]}`;const{data:n}=await f.get(`/notices?${i}`);return n}catch(i){console.log(i)}},ke=async e=>{try{return await f.get(`/notices/${e}`)}catch(i){console.log(i)}},Me=async e=>{try{return await f.delete(`/notices/${e}`)}catch(i){console.log(i)}},D=async e=>{try{return await f.patch(`/notices/favorites/${e}`)}catch(i){console.log(i)}},Ne=async e=>{try{let i="";for(let a in e)i+=`&${a}=${e[a]}`;const{data:n}=await f.get(`/notices/self?${i}`);return n}catch(i){console.log(i)}},Be=async e=>{try{let i="";for(let a in e)i+=`&${a}=${e[a]}`;const{data:n}=await f.get(`/notices/favorites?${i}`);return n}catch(i){console.log(i)}},I=({item:e,toggleModal:i})=>{const[n,a]=d.useState({}),[$,g]=d.useState(!1),{user:u}=B(),j=()=>{g(!1)};let y;d.useEffect(()=>{(async()=>{const h=await ke(e.id);a({...h.data.notice,noticeType:e.noticeType})})()},[e]),d.useEffect(()=>{Object.keys(n).length});const b=async()=>{u.name===null&&u.email===null&&g(!0);const h=await D(e.id);a(h.data.notice)};return n.birthday&&(y=n.birthday.split("-").reverse().join(".")),t.jsxs(t.Fragment,{children:[t.jsx(z,{onClose:i,children:t.jsxs(he,{children:[t.jsxs(pe,{children:[t.jsxs(xe,{children:[t.jsx(me,{src:n.photoURL,alt:"pet",loading:"lazy"}),t.jsx(fe,{children:n.noticeType})]}),t.jsxs(ge,{children:[t.jsx(ue,{children:n.title}),t.jsx(je,{children:t.jsxs(ye,{children:[t.jsxs(p,{children:[t.jsxs(x,{children:[r("other_name"),": "]}),t.jsx(m,{children:n.name})]}),t.jsxs(p,{children:[t.jsxs(x,{children:[r("other_birthday"),": "]}),t.jsx(m,{children:y})]}),t.jsxs(p,{children:[t.jsxs(x,{children:[r("other_type"),": "]}),t.jsx(m,{children:n.petType})]}),t.jsxs(p,{children:[t.jsxs(x,{children:[r("other_place"),": "]}),t.jsx(m,{children:n.location})]}),t.jsxs(p,{children:[t.jsxs(x,{children:[r("notices_cardInfoDetails_theSex"),": "]}),t.jsx(m,{children:n.sex})]}),t.jsxs(p,{children:[t.jsxs(x,{children:[r("other_mail"),": "]}),t.jsx(m,{children:t.jsx(A,{href:`mailto:${n.ownerEmail}`,children:n.ownerEmail})})]}),t.jsxs(p,{children:[t.jsxs(x,{children:[r("other_phone"),": "]}),t.jsx(m,{children:t.jsx(A,{href:`tel:${n.ownerPhone}`,children:n.ownerPhone})})]})]})})]})]}),t.jsxs($e,{children:[t.jsxs(ze,{children:[r("other_comments"),":"]})," ",n.comments]}),t.jsxs(be,{children:[t.jsxs(ve,{onClick:b,style:{color:n.isFavorite?"#54ADFF":"#FEF9F9",backgroundColor:n.isFavorite?"#FEF9F9":"#54ADFF",borderColor:n.isFavorite&&"#54ADFF"},children:[t.jsx(Se,{children:n.isFavorite?"Remove from":r("notices_cardInfoDetails_addToBtn")}),n.isFavorite?t.jsx(c,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(c,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#fff"})]}),n.ownerPhone===void 0?t.jsx(M,{href:`mailto:${n.ownerEmail}`,children:r("other_contact")}):t.jsx(M,{href:`tel:${n.ownerPhone}`,children:r("other_contact")})]})]})}),$&&t.jsx(k,{onClose:j})]})};I.propTypes={item:l.shape({id:l.string.isRequired,noticeType:l.string.isRequired}).isRequired,toggleModal:l.func};const R=({item:e,handleDeleteNotice:i})=>{const[n,a]=d.useState(!1),[$,g]=d.useState(!1),[u,j]=d.useState(!1),[y,b]=d.useState({}),{user:h}=B(),F=()=>{a(w=>!w)},E=()=>{g(!0)},T=()=>{g(!1)},q=()=>{j(!1)};d.useEffect(()=>{Object.keys(y).length});const H=async()=>{console.log("Click"),h.name===null&&h.email===null&&j(!0);const w=await D(e.id);b(w.data.notice)};return console.log("item ===>",e),t.jsxs(t.Fragment,{children:[t.jsxs(oe,{children:[t.jsxs(ne,{children:[t.jsx(ie,{src:e.photoURL,alt:"pet",loading:"lazy"}),t.jsxs(se,{children:[t.jsx(re,{children:e.noticeType}),t.jsxs(ae,{children:[t.jsx(_,{onClick:H,"aria-label":"add to favorites",children:e.isFavorite?t.jsx(c,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(c,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#54ADFF"})}),h.name!==null&&e.isOwn&&t.jsx(_,{onClick:E,"aria-label":"delete from favorites",children:t.jsx(c,{iconName:"icon-trash",width:"24px",height:"24px",stroke:"#54ADFF",fill:"#54ADFF"})})]})]}),t.jsxs(le,{children:[t.jsxs(v,{children:[t.jsx(c,{iconName:"icon-location"}),t.jsx(S,{children:de(e.location)})]}),t.jsxs(v,{children:[t.jsx(c,{iconName:"icon-clock"}),t.jsx(S,{children:e.age})]}),t.jsxs(v,{children:[t.jsx(c,{iconName:e.sex==="female"?"icon-female":"icon-male"}),t.jsx(S,{children:e.sex})]})]})]}),t.jsx(ce,{children:e.title}),t.jsx(L,{onClick:F,children:r("notice_card_learMore_Btn")}),$&&t.jsx(z,{onClose:T,children:t.jsx(Q,{title:r("notice_card_deleteNotice_Btn"),name:e.title,handleModal:T,handleDelete:()=>i(e.id)})}),n&&t.jsx(I,{item:e,toggleModal:F})]},e.id),u&&t.jsx(k,{onClose:q})]})};R.propTypes={props:l.object};const P=({notices:e,handleDeleteNotice:i})=>t.jsx(t.Fragment,{children:e.length>0?t.jsx(te,{children:e.map(n=>t.jsx(R,{item:n,handleDeleteNotice:i},n.id))}):t.jsx(X,{})});P.propTypes={notices:l.arrayOf(G.shape({id:l.string.isRequired})).isRequired,handleDeleteNotice:l.func};const Le=Object.freeze(Object.defineProperty({__proto__:null,default:P},Symbol.toStringTag,{value:"Module"}));export{k as A,P as N,Ne as a,Be as b,ke as c,Me as d,Le as e,Ae as g};
+`;g.defaults.baseURL=V;const Ne=async e=>{try{let n="";for(let c in e)n+=`&${c}=${e[c]}`;const{data:r}=await g.get(`/notices?${n}`);return r}catch(n){console.log(n)}},Fe=async e=>{try{return await g.get(`/notices/${e}`)}catch(n){console.log(n)}},Be=async e=>{try{return await g.delete(`/notices/${e}`)}catch(n){console.log(n)}},Te=async e=>{try{return await g.patch(`/notices/favorites/${e}`)}catch(n){console.log(n)}},Le=async e=>{try{let n="";for(let c in e)n+=`&${c}=${e[c]}`;const{data:r}=await g.get(`/notices/self?${n}`);return r}catch(n){console.log(n)}},Ie=async e=>{try{let n="";for(let c in e)n+=`&${c}=${e[c]}`;const{data:r}=await g.get(`/notices/favorites?${n}`);return r}catch(n){console.log(n)}},R=({item:e,toggleModal:n,isFavorite:r,handleAddInFavorite:c})=>{const[i,y]=d.useState({}),[w,$]=d.useState(!1),v=()=>{$(!1)};let b;return d.useEffect(()=>{(async()=>{const p=await Fe(e.id);y({...p.data.notice,noticeType:e.noticeType})})()},[e]),d.useEffect(()=>{Object.keys(i).length}),i.birthday&&(b=i.birthday.split("-").reverse().join(".")),t.jsxs(t.Fragment,{children:[t.jsx(k,{onClose:n,children:t.jsxs(pe,{children:[t.jsxs(xe,{children:[t.jsxs(me,{children:[t.jsx(fe,{src:i.photoURL,alt:"pet",loading:"lazy"}),t.jsx(ge,{children:i.noticeType})]}),t.jsxs(ue,{children:[t.jsx(je,{children:i.title}),t.jsx(ye,{children:t.jsxs($e,{children:[t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_name"),": "]}),t.jsx(f,{children:i.name})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_birthday"),": "]}),t.jsx(f,{children:b})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_type"),": "]}),t.jsx(f,{children:i.petType})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_place"),": "]}),t.jsx(f,{children:i.location})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("notices_cardInfoDetails_theSex"),": "]}),t.jsx(f,{children:i.sex})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_mail"),": "]}),t.jsx(f,{children:t.jsx(B,{href:`mailto:${i.ownerEmail}`,children:i.ownerEmail})})]}),t.jsxs(x,{children:[t.jsxs(m,{children:[a("other_phone"),": "]}),t.jsx(f,{children:t.jsx(B,{href:`tel:${i.ownerPhone}`,children:i.ownerPhone})})]})]})})]})]}),t.jsxs(be,{children:[t.jsxs(ke,{children:[a("other_comments"),":"]})," ",i.comments]}),t.jsxs(we,{children:[t.jsxs(Se,{onClick:c,style:{color:r?"#54ADFF":"#FEF9F9",backgroundColor:r?"#FEF9F9":"#54ADFF",borderColor:r&&"#54ADFF"},children:[t.jsx(ze,{children:r?"Remove from":a("notices_cardInfoDetails_addToBtn")}),r?t.jsx(h,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(h,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#fff"})]}),i.ownerPhone===void 0?t.jsx(L,{href:`mailto:${i.ownerEmail}`,children:a("other_contact")}):t.jsx(L,{href:`tel:${i.ownerPhone}`,children:a("other_contact")})]})]})}),w&&t.jsx(F,{onClose:v})]})};R.propTypes={item:l.shape({id:l.string.isRequired,noticeType:l.string.isRequired}).isRequired,toggleModal:l.func,isFavorite:l.bool,handleAddInFavorite:l.func};const E=({item:e,handleDeleteNotice:n})=>{const[r,c]=d.useState(!1),[i,y]=d.useState(!1),[w,$]=d.useState(!1),[v,b]=d.useState({}),[p,T]=d.useState(e.isFavorite),{user:u}=G();d.useEffect(()=>{!u.name&&!u.email&&T(!1)},[u]);const C=()=>{c(j=>!j)},q=()=>{y(!0)},_=()=>{y(!1)},H=()=>{$(!1)};d.useEffect(()=>{Object.keys(v).length});const A=async()=>{try{if(u.name===null&&u.email===null)$(!0);else{const j=await Te(e.id,{isFavorite:!p});b(j.data.notice),T(!p)}}catch(j){console.error(j)}};return console.log("item ===>",e),t.jsxs(t.Fragment,{children:[t.jsxs(ne,{children:[t.jsxs(ie,{children:[t.jsx(se,{src:e.photoURL,alt:"pet",loading:"lazy"}),t.jsxs(re,{children:[t.jsx(ae,{children:e.noticeType}),t.jsxs(le,{children:[t.jsx(N,{onClick:A,"aria-label":"add to favorites",children:p?t.jsx(h,{iconName:"icon-heart-full",width:"24px",height:"24px",fill:"#54ADFF"}):t.jsx(h,{iconName:"icon-heart",width:"24px",height:"24px",stroke:"#54ADFF"})}),u.name!==null&&e.isOwn&&t.jsx(N,{onClick:q,"aria-label":"delete from favorites",children:t.jsx(h,{iconName:"icon-trash",width:"24px",height:"24px",stroke:"#54ADFF",fill:"#54ADFF"})})]})]}),t.jsxs(ce,{children:[t.jsxs(S,{children:[t.jsx(h,{iconName:"icon-location"}),t.jsx(z,{children:he(e.location)})]}),t.jsxs(S,{children:[t.jsx(h,{iconName:"icon-clock"}),t.jsx(z,{children:e.age})]}),t.jsxs(S,{children:[t.jsx(h,{iconName:e.sex==="female"?"icon-female":"icon-male"}),t.jsx(z,{children:e.sex})]})]})]}),t.jsx(de,{children:e.title}),t.jsx(D,{onClick:C,children:a("notice_card_learMore_Btn")}),i&&t.jsx(k,{onClose:_,children:t.jsx(X,{title:a("notice_card_deleteNotice_Btn"),name:e.title,handleModal:_,handleDelete:()=>n(e.id)})}),r&&t.jsx(R,{item:e,isFavorite:p,toggleModal:C,handleAddInFavorite:A})]},e.id),w&&t.jsx(F,{onClose:H})]})};E.propTypes={props:l.object};const P=({notices:e,handleDeleteNotice:n})=>t.jsx(t.Fragment,{children:e.length>0?t.jsx(oe,{children:e.map(r=>t.jsx(E,{item:r,handleDeleteNotice:n},r.id))}):t.jsx(Y,{})});P.propTypes={notices:l.arrayOf(J.shape({id:l.string.isRequired})).isRequired,handleDeleteNotice:l.func};const De=Object.freeze(Object.defineProperty({__proto__:null,default:P},Symbol.toStringTag,{value:"Module"}));export{F as A,P as N,Le as a,Ie as b,Fe as c,Be as d,De as e,Ne as g};
