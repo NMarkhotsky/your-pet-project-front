@@ -159,6 +159,7 @@ export const UserForm = () => {
       successMessage('Changes saved successfully');
     } catch (error) {
       if (error.name === 'ValidationError') {
+        setIsActiveEdit(true);
         errorMessage(error.errors[0]);
       }
     } finally {
