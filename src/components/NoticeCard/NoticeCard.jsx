@@ -45,6 +45,12 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
     setShowModalDelete(false);
   };
 
+  const openAttentionModal = () => {
+    if (user.name === null && user.email === null) {
+      setShowAttentionModal(true);
+    }
+  };
+
   const closeAttentionModal = () => {
     setShowAttentionModal(false);
   };
@@ -56,11 +62,6 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
   });
 
   const handleAddInFavorite = async () => {
-    console.log('Click');
-    if (user.name === null && user.email === null) {
-      setShowAttentionModal(true);
-    }
-
     const response = await updateNotice(item.id);
 
     setCard(response.data.notice);
@@ -75,7 +76,9 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
             <TextStatus>{item.noticeType}</TextStatus>
             <ContainerButton>
               <Button
-                onClick={handleAddInFavorite}
+                onClick={
+                  user.email === null ? openAttentionModal : handleAddInFavorite
+                }
                 aria-label="add to favorites"
               >
                 {!item.isFavorite ? (
