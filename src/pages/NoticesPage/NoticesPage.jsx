@@ -153,7 +153,7 @@ function NoticesPage() {
         handlePageChange={handlePageChange}
         handleDeleteNotice={handleDeleteNotice}
       />
-      <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
+      {pageCount > 1 && <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />}
       {isLoading ? <Loader /> : null}
     </SectionNoticesPage>
   );
