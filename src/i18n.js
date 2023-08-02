@@ -8,7 +8,6 @@ i18next
   .use(LanguageDetector)
   .use(Backend)
   .init({
-    // debug: true,
     fallbackLng: 'en',
     backend: {
       loadPath: '/your-pet-project-front/locales/{{lng}}/{{ns}}.json',
