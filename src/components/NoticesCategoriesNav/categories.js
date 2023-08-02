@@ -10,7 +10,7 @@ export const publicCategories = [
   {
     id: nanoid(),
     to: '/notices/lost-found',
-    text: 'lost/found',
+    text: 'lost or found',
     name: 'lost-or-found'
   },
   {
