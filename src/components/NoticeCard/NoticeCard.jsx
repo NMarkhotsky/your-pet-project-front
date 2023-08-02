@@ -66,8 +66,6 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
     setCard(response.data.notice);
   };
 
-  console.log('item ===>', item);
-
   return (
     <>
       <Item key={item.id}>
