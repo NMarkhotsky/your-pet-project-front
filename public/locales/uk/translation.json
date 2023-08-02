@@ -34,8 +34,22 @@
   "friends_friendItem_emailOnly": "Тільки електронна пошта",
   "friends_friendItem_phoneOnly": "Тільки телефон",
 
+  "notices_title": "Знайдіть свого домашнього улюбленця",
   "notices_cardInfoDetails_theSex": "Стать",
   "notices_cardInfoDetails_addToBtn": "Додати до",
+
+  "notices_filterBnt": "Фільтр",
+  "notices_filterBnt_filters": "Фільтри",
+  "notices_filterBnt_filters_byAge": "За віком",
+  "notices_filterBnt_filters_byAge_lt1": "0-12 м",
+  "notices_filterBnt_filters_byAge_gt1": "1 рік",
+  "notices_filterBnt_filters_byAge_gt2": "2+ роки",
+  "notices_filterBnt_filters_byGender": "За статтю ",
+  "notices_filterBnt_filters_male": "чоловіча",
+  "notices_filterBnt_filters_female": "жіноча",
+
+  "notice_card_learMore_Btn": "Дізнатися більше",
+  "notice_card_deleteNotice_Btn": "Видалити оголошення?",
 
   "addPet_form_titleText_sell": "Додати на продаж",
   "addPet_form_titleText_lostFound": "Додати втрачену тваринку",
