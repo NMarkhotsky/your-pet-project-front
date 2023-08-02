@@ -28,7 +28,6 @@ import { t } from 'i18next';
 
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
-  console.log('notices: ', notices);
   const [searchValue, setSearchValue] = useState('');
   const [params, setParams] = useState({
     category: 'sell',
