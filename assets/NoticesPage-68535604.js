@@ -1,9 +1,9 @@
-import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C as K,d as Q,O as X,e as Y,f as Z}from"./index-0c2c32de.js";import{A as ee,g as te,a as oe,b as ne,N as se,c as ie,d as ae}from"./NoticesCategoriesList-65c90400.js";import{s as re,S as le,P as ce,N as de}from"./NoInfoPart-9688da62.js";import{T as pe}from"./TitlePage-a505e611.js";import"./Btn.styled-50007369.js";import"./ModalConfirmDelete-943ac2fd.js";import"./catImg-34c1bda9.js";let w=(e=21)=>crypto.getRandomValues(new Uint8Array(e)).reduce((r,l)=>(l&=63,l<36?r+=l.toString(36):l<62?r+=(l-26).toString(36).toUpperCase():l>62?r+="-":r+="_",r),"");const ge=[{id:w(),to:"/notices/sell",text:"sell",name:"sell"},{id:w(),to:"/notices/lost-found",text:"lost or found",name:"lost-or-found"},{id:w(),to:"/notices/for-free",text:"in good hands",name:"in-good-hands"}],ue=[{id:w(),to:"/notices/favorite",text:"favorite ads",name:"favorite"},{id:w(),to:"/notices/own",text:"my ads",name:"my-ads"}],xe=s.div`
+import{s,b as g,a as L,N as U,P as G,u as P,c as J,j as t,r as c,t as u,I as y,L as K,C as Q,d as X,O as Y,e as Z,f as ee}from"./index-44b86bba.js";import{A as te,g as oe,a as ne,b as se,N as ie,c as ae,d as re}from"./NoticesCategoriesList-74cdad99.js";import{s as le,S as ce,P as de,N as pe}from"./NoInfoPart-637bd53a.js";import{T as ge}from"./TitlePage-b674d6fb.js";import"./Btn.styled-6645344d.js";import"./ModalConfirmDelete-80c9ce3e.js";import"./catImg-34c1bda9.js";let w=(e=21)=>crypto.getRandomValues(new Uint8Array(e)).reduce((r,l)=>(l&=63,l<36?r+=l.toString(36):l<62?r+=(l-26).toString(36).toUpperCase():l>62?r+="-":r+="_",r),"");const ue=[{id:w(),to:"/notices/sell",text:"sell",name:"sell"},{id:w(),to:"/notices/lost-found",text:"lost or found",name:"lost-or-found"},{id:w(),to:"/notices/for-free",text:"in good hands",name:"in-good-hands"}],xe=[{id:w(),to:"/notices/favorite",text:"favorite ads",name:"favorite"},{id:w(),to:"/notices/own",text:"my ads",name:"my-ads"}],me=s.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
 
-    @media ${g} {
+  @media ${g} {
     gap: 12px;
   }
 
@@ -22,7 +22,7 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
   @media ${g} {
     gap: 12px;
   }
-`,I=s(G)`
+`,I=s(U)`
   display: flex;
   border: none;
   text-decoration: none;
@@ -46,7 +46,12 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
     color: ${({theme:e})=>e.colors.white};
     background-color: ${({theme:e})=>e.colors.blue};
   }
-`,V=({getCategoryParams:e})=>{const{isLoggedIn:r}=P(),{search:l}=J();return t.jsxs(xe,{children:[t.jsx(E,{children:ge.map(({to:m,text:a,id:d,name:h})=>t.jsx("li",{children:t.jsx(I,{to:{pathname:m,search:l},onClick:()=>e(h),children:a})},d))}),r&&t.jsx(E,{children:ue.map(({to:m,text:a,id:d,name:h})=>t.jsx("li",{children:t.jsx(I,{to:{pathname:m,search:l},onClick:()=>e(h),children:a})},d))})]})};V.propTypes={getCategoryParams:W.func.isRequired};const me=s.div`
+
+  &.active {
+    color: ${({theme:e})=>e.colors.white};
+    background-color: ${({theme:e})=>e.colors.blue};
+  }
+`,W=({getCategoryParams:e})=>{const{isLoggedIn:r}=P(),{search:l}=J();return t.jsxs(me,{children:[t.jsx(E,{children:ue.map(({to:m,text:a,id:d,name:h})=>t.jsx("li",{children:t.jsx(I,{to:{pathname:m,search:l},onClick:()=>e(h),children:a})},d))}),r&&t.jsx(E,{children:xe.map(({to:m,text:a,id:d,name:h})=>t.jsx("li",{children:t.jsx(I,{to:{pathname:m,search:l},onClick:()=>e(h),children:a})},d))})]})};W.propTypes={getCategoryParams:G.func.isRequired};const he=s.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -56,7 +61,7 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
     gap: 12px;
     
   }
-`,he=s.div`
+`,fe=s.div`
   position: relative;
   right: 0;
   top: 0;
@@ -67,7 +72,7 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
   @media ${g} {
     position: static;
   }
-`,fe=s.button`
+`,be=s.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -148,7 +153,7 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
     font-size: ${e=>e.theme.fontSizes.md};
     letter-spacing: 0.64px;
   }
-`,be=s.div`
+`,ye=s.div`
   position: relative;
   z-index: 5;
 
@@ -160,7 +165,7 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
     stroke: ${e=>e.theme.colors.white};
     transition: stroke ${({theme:e})=>e.transitionHover};
   }
-`,ye=s.span`
+`,je=s.span`
   display: none;
 
   @media ${g} {
@@ -171,7 +176,7 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
   z-index: 5;
   font-weight: 700;
   font-size: 16px;
-`;const je=s.div`
+`;const ve=s.div`
   position: absolute;
   margin-top: 50px;
   padding: 8px;
@@ -187,7 +192,7 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
   @media ${g} {
     margin-top: 20px;
   }
-`,ve=s.p`
+`,$e=s.p`
   margin-bottom: 8px;
   font-family: ${e=>e.theme.fonts.main.bold};
   font-size: ${e=>e.theme.fontSizes.md};
@@ -272,7 +277,7 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
       transform: scale(1.2);
     }
   }
-`,$e=s.button`
+`,ke=s.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -300,11 +305,11 @@ import{s,b as g,a as L,L as G,P as W,u as P,c as J,j as t,r as c,t as u,I as y,C
   @media ${g} {
     padding: 8px 20px;
   }
-`,ke=s.span`
+`,we=s.span`
   @media screen and (max-width: 768px) {
       display: none;
   }
-`,q=({getFilterParams:e})=>{const[r,l]=c.useState(!1),[m,a]=c.useState(!1),[d,h]=c.useState(!1),[i,j]=c.useState([]),[C,_]=c.useState(!1),{user:f}=P(),F=()=>{f.name===null&&f.email===null&&_(!0)},v=()=>{_(!1)};c.useEffect(()=>{const n={younger:!1,middle:!1,older:!1,sex:null};i.includes("0-12 m")?n.young=!0:n.young=!1,i.includes("1 year")?n.middle=!0:n.middle=!1,i.includes("2 years +")?n.older=!0:n.older=!1,i.includes("male")&&i.includes("female")?n.sex=null:i.includes("male")?n.sex="male":i.includes("female")?n.sex="female":n.sex=null,Object.keys(n).forEach(x=>{(n[x]===!1||n[x]===null)&&delete n[x]}),e(n)},[i]);const S=()=>{l(n=>!n)},N=()=>{a(n=>!n)},A=()=>{h(n=>!n)},b=n=>{i.includes(n.target.value)?j(x=>x.filter(o=>o!==n.target.value)):j(x=>[...x,n.target.value])};return t.jsxs(me,{children:[t.jsxs(he,{children:[t.jsxs(fe,{onClick:S,type:"button","aria-label":"toggle filters",children:[t.jsx(ye,{children:u("notices_filterBnt")}),t.jsx(be,{children:t.jsx(y,{iconName:"icon-filters-3",stroke:"#FDF7F2"})})]}),r&&t.jsx(je,{children:t.jsxs("div",{children:[t.jsx(ve,{children:u("notices_filterBnt_filters")}),t.jsxs(O,{children:[t.jsxs(M,{type:"button",onClick:N,"aria-label":"toggle age options",children:[m?t.jsx(y,{iconName:"icon-chevron-down",stroke:"#54ADFF"}):t.jsx(y,{iconName:"icon-chevron-up",stroke:"#54ADFF"}),t.jsx(H,{children:u("notices_filterBnt_filters_byAge")})]}),m&&t.jsxs(R,{children:[t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"age",value:"0-12 m",checked:i.includes("0-12 m")}),u("notices_filterBnt_filters_byAge_lt1")]}),t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"age",value:"1 year",checked:i.includes("1 year")}),u("notices_filterBnt_filters_byAge_gt1")]}),t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"age",value:"2 years +",checked:i.includes("2 years +")}),u("notices_filterBnt_filters_byAge_gt2")]})]})]}),t.jsxs(O,{children:[t.jsxs(M,{type:"button",onClick:A,"aria-label":"toggle gender options",children:[d?t.jsx(y,{iconName:"icon-chevron-down",stroke:"#54ADFF"}):t.jsx(y,{iconName:"icon-chevron-up",stroke:"#54ADFF"}),t.jsx(H,{children:u("notices_filterBnt_filters_byGender")})]}),d&&t.jsxs(R,{children:[t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"gender",value:"male",checked:i.includes("male")}),u("notices_filterBnt_filters_male")]}),t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"gender",value:"female",checked:i.includes("female")}),u("notices_filterBnt_filters_female")]})]})]})]})})]}),t.jsx(G,{to:f.email!==null&&"/add-pet",onClick:F,children:t.jsxs($e,{type:"button",children:[t.jsx(ke,{children:u("user_mypets_addBtn")}),t.jsx(y,{iconName:"icon-plus-small",width:"24px",height:"24px",stroke:"#FEF9F9",fill:"#FEF9F9"})]})}),C&&t.jsx(ee,{onClose:v})]})};q.propTypes={getFilterParams:W.func.isRequired};const we=s.section`
+`,V=({getFilterParams:e})=>{const[r,l]=c.useState(!1),[m,a]=c.useState(!1),[d,h]=c.useState(!1),[i,j]=c.useState([]),[C,_]=c.useState(!1),{user:f}=P(),F=()=>{f.name===null&&f.email===null&&_(!0)},v=()=>{_(!1)};c.useEffect(()=>{const n={younger:!1,middle:!1,older:!1,sex:null};i.includes("0-12 m")?n.young=!0:n.young=!1,i.includes("1 year")?n.middle=!0:n.middle=!1,i.includes("2 years +")?n.older=!0:n.older=!1,i.includes("male")&&i.includes("female")?n.sex=null:i.includes("male")?n.sex="male":i.includes("female")?n.sex="female":n.sex=null,Object.keys(n).forEach(x=>{(n[x]===!1||n[x]===null)&&delete n[x]}),e(n)},[i]);const N=()=>{l(n=>!n)},S=()=>{a(n=>!n)},A=()=>{h(n=>!n)},b=n=>{i.includes(n.target.value)?j(x=>x.filter(o=>o!==n.target.value)):j(x=>[...x,n.target.value])};return t.jsxs(he,{children:[t.jsxs(fe,{children:[t.jsxs(be,{onClick:N,type:"button","aria-label":"toggle filters",children:[t.jsx(je,{children:u("notices_filterBnt")}),t.jsx(ye,{children:t.jsx(y,{iconName:"icon-filters-3",stroke:"#FDF7F2"})})]}),r&&t.jsx(ve,{children:t.jsxs("div",{children:[t.jsx($e,{children:u("notices_filterBnt_filters")}),t.jsxs(O,{children:[t.jsxs(M,{type:"button",onClick:S,"aria-label":"toggle age options",children:[m?t.jsx(y,{iconName:"icon-chevron-down",stroke:"#54ADFF"}):t.jsx(y,{iconName:"icon-chevron-up",stroke:"#54ADFF"}),t.jsx(H,{children:u("notices_filterBnt_filters_byAge")})]}),m&&t.jsxs(R,{children:[t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"age",value:"0-12 m",checked:i.includes("0-12 m")}),u("notices_filterBnt_filters_byAge_lt1")]}),t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"age",value:"1 year",checked:i.includes("1 year")}),u("notices_filterBnt_filters_byAge_gt1")]}),t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"age",value:"2 years +",checked:i.includes("2 years +")}),u("notices_filterBnt_filters_byAge_gt2")]})]})]}),t.jsxs(O,{children:[t.jsxs(M,{type:"button",onClick:A,"aria-label":"toggle gender options",children:[d?t.jsx(y,{iconName:"icon-chevron-down",stroke:"#54ADFF"}):t.jsx(y,{iconName:"icon-chevron-up",stroke:"#54ADFF"}),t.jsx(H,{children:u("notices_filterBnt_filters_byGender")})]}),d&&t.jsxs(R,{children:[t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"gender",value:"male",checked:i.includes("male")}),u("notices_filterBnt_filters_male")]}),t.jsxs($,{children:[t.jsx(k,{onChange:b,type:"checkbox",name:"gender",value:"female",checked:i.includes("female")}),u("notices_filterBnt_filters_female")]})]})]})]})})]}),t.jsx(K,{to:f.email!==null&&"/add-pet",onClick:F,children:t.jsxs(ke,{type:"button",children:[t.jsx(we,{children:u("user_mypets_addBtn")}),t.jsx(y,{iconName:"icon-plus-small",width:"24px",height:"24px",stroke:"#FEF9F9",fill:"#FEF9F9"})]})}),C&&t.jsx(te,{onClose:v})]})};V.propTypes={getFilterParams:G.func.isRequired};const Ce=s.section`
 padding-bottom: 117px;
 
   @media ${g} {
@@ -314,13 +319,13 @@ padding-bottom: 117px;
   @media ${L} {
     padding-bottom: 112px;
   }
-`,Ce=s.div`
+`,_e=s.div`
 margin-bottom: 24px;
 
   @media ${g} {
     margin-bottom: 40px;
   }
-`,_e=s.div`
+`,Fe=s.div`
   display: flex;
   /* flex-wrap: wrap; */
   justify-content: space-between;
@@ -350,4 +355,4 @@ margin-bottom: 24px;
     margin-bottom: 40px;
     margin-top: 40px;
   }
-`;function Pe(){const[e,r]=c.useState([]),[l,m]=c.useState(""),[a,d]=c.useState({category:"sell",page:1,search:""}),[h,i]=c.useState(0),[j,C]=c.useState(!1),{user:_}=P(),f=12,F=async o=>{if((await ie(o)).data.notice.ownerEmail!==_.email){Y("It is not your pet and you cannot remove it");return}await ae(o),Z("The card was successfully removed"),r(B=>B.filter(z=>z.id!==o))};c.useEffect(()=>{(async()=>{try{if(C(!0),!a.category||a.category==="sell"||a.category==="in-good-hands"||a.category==="lost-or-found"){const o=await te(a);return i(Math.ceil(o.total/f)),r(v(o))}if(a.category==="my-ads"){const o=await oe(a);return i(Math.ceil(o.total/f)),r(v(o))}if(a.category==="favorite"){const o=await ne(a);return i(Math.ceil(o.total/f)),r(v(o))}}catch(o){console.log(o)}finally{C(!1)}})()},[a]);const v=o=>o.data.map(p=>({...p,noticeType:K[p.noticeType]||p.noticeType})),S=o=>{o.preventDefault(),d(p=>({...p,search:l,page:1}))},N=()=>{m(""),d(o=>({...o,search:"",page:1}))},A=o=>{m(o)},b=o=>{d(p=>({...p,category:o}))},n=o=>{d(p=>{const{category:B,page:z,search:U}=p,T={};return Object.keys(o).forEach(D=>{T[D]=o[D]}),{category:B,page:z,search:U,...T}})},x=c.useCallback(o=>{d(p=>({...p,page:o.selected+1})),re()},[]);return t.jsxs(t.Fragment,{children:[t.jsxs(we,{children:[t.jsx(Ce,{children:t.jsx(pe,{children:u("notices_title")})}),t.jsx(le,{onSubmit:S,onChange:A,onDelete:N,value:l}),t.jsxs(_e,{children:[t.jsx(V,{getCategoryParams:b}),t.jsx(q,{getFilterParams:n})]}),t.jsx(se,{notices:e,pageCount:h,handlePageChange:x,handleDeleteNotice:F}),h>1&&t.jsx(ce,{pageCount:h,handlePageChange:x}),j?t.jsx(Q,{}):null,e.length===0&&!j&&t.jsx(de,{})]}),t.jsx(X,{})]})}export{Pe as default};
+`;function Te(){const[e,r]=c.useState([]),[l,m]=c.useState(""),[a,d]=c.useState({category:"sell",page:1,search:""}),[h,i]=c.useState(0),[j,C]=c.useState(!1),{user:_}=P(),f=12,F=async o=>{if((await ae(o)).data.notice.ownerEmail!==_.email){Z("It is not your pet and you cannot remove it");return}await re(o),ee("The card was successfully removed"),r(B=>B.filter(z=>z.id!==o))};c.useEffect(()=>{(async()=>{try{if(C(!0),!a.category||a.category==="sell"||a.category==="in-good-hands"||a.category==="lost-or-found"){const o=await oe(a);return i(Math.ceil(o.total/f)),r(v(o))}if(a.category==="my-ads"){const o=await ne(a);return i(Math.ceil(o.total/f)),r(v(o))}if(a.category==="favorite"){const o=await se(a);return i(Math.ceil(o.total/f)),r(v(o))}}catch(o){console.log(o)}finally{C(!1)}})()},[a]);const v=o=>o.data.map(p=>({...p,noticeType:Q[p.noticeType]||p.noticeType})),N=o=>{o.preventDefault(),d(p=>({...p,search:l,page:1}))},S=()=>{m(""),d(o=>({...o,search:"",page:1}))},A=o=>{m(o)},b=o=>{d(p=>({...p,category:o}))},n=o=>{d(p=>{const{category:B,page:z,search:q}=p,T={};return Object.keys(o).forEach(D=>{T[D]=o[D]}),{category:B,page:z,search:q,...T}})},x=c.useCallback(o=>{d(p=>({...p,page:o.selected+1})),le()},[]);return t.jsxs(t.Fragment,{children:[t.jsxs(Ce,{children:[t.jsx(_e,{children:t.jsx(ge,{children:u("notices_title")})}),t.jsx(ce,{onSubmit:N,onChange:A,onDelete:S,value:l}),t.jsxs(Fe,{children:[t.jsx(W,{getCategoryParams:b}),t.jsx(V,{getFilterParams:n})]}),t.jsx(ie,{notices:e,pageCount:h,handlePageChange:x,handleDeleteNotice:F}),h>1&&t.jsx(de,{pageCount:h,handlePageChange:x}),j?t.jsx(X,{}):null,e.length===0&&!j&&t.jsx(pe,{})]}),t.jsx(Y,{})]})}export{Te as default};
