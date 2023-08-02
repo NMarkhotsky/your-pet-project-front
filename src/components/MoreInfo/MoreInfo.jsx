@@ -21,7 +21,6 @@ import { Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 function MoreInfo({ option, handleDefinePage, setFile, file }) {
-  console.log('option: ', option);
   const {
     personalDetails,
     moreInfo: { redirect },
