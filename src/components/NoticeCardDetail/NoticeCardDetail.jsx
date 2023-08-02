@@ -27,7 +27,6 @@ import { updateNotice, getNoticeById } from '../../services/NoticesApi';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
-// import {CATEGORIES_RENDER} from '../../constants/globalConstants'
 
 export const NoticeCardDetail = ({ item, toggleModal }) => {
   const [card, setCard] = useState({});
