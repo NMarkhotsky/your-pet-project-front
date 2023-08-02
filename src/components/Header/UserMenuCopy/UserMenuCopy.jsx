@@ -35,7 +35,7 @@ export const UserMenuCopy = ({ handleToggleBurger }) => {
     <UserMenuBoxCopy>
       <Wrapper>
         <LanguageSwitcher />
-        <ThemeSwitcher />
+        <ThemeSwitcher size={50} />
         <UserMenuButton type="button" onClick={openModal}>
           {t('auth_logoutBtn')}
           <Icon

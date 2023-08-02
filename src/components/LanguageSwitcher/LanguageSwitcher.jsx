@@ -17,7 +17,9 @@ const LanguageSwitcher = () => {
           key={lng}
           onClick={() => i18n.changeLanguage(lng)}
           disabled={i18n.resolvedLanguage === lng}
-          style={{ display: i18n.resolvedLanguage === lng ? 'none ' : 'flex' }}
+          style={{
+            display: i18n.resolvedLanguage === lng ? 'none ' : 'flex',
+          }}
         >
           {lngs[lng].nativeName}
         </button>

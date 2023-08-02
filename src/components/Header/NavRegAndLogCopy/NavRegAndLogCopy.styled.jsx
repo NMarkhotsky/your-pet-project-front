@@ -8,7 +8,7 @@ export const MainNavLinkBoxCopy = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 50px;
   }
 
   & svg use {
@@ -66,4 +66,19 @@ export const LinkRegStyledCopy = styled(Link)`
     background: ${props => props.theme.colors.yellow};
     color: ${props => props.theme.colors.bgdColor};
   }
+`;
+
+export const SwitcherWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+`;
+export const LinkWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 `;

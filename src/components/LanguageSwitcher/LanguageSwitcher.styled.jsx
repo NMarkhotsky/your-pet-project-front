@@ -1,12 +1,6 @@
 import styled from 'styled-components';
-import { selectDesktop, selectPhone, selectTablet } from '../../utils';
 
 export const LanguageSwitcherContainer = styled.div`
-  /* position: absolute; */
-  /* top: 2px; */
-  /* right: 2px; */
-  /* display: block; */
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,24 +9,24 @@ export const LanguageSwitcherContainer = styled.div`
   border: 1px solid ${props => props.theme.colors.yellow};
   z-index: 1;
 
-  @media ${selectPhone} {
-    /* right: 50%; */
-    /* transform: translateX(80%); */
-    /* font-size: 8px; */
-  }
-
-  @media ${selectTablet} {
-    /* font-size: 12px; */
-  }
-
-  @media ${selectDesktop} {
-    /* font-size: 12px; */
-    /* right: 2px; */
-    /* transform: none; */
-  }
-
   & > button {
     color: rgb(255, 193, 7);
+
+    @media screen and (max-width: 767px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 30px;
+    }
+  }
+
+  transform: scale(1);
+  transition: ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.2);
+    transition: ${({ theme }) => theme.transitionHover};
   }
 `;
 
@@ -52,5 +46,10 @@ export const LanguageSelect = styled.select`
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 50px;
+    height: 40px;
   }
 `;

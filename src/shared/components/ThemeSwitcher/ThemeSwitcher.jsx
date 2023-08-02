@@ -2,8 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import { setTheme } from '../../../redux/theme/themeSlice';
+import { SwitcherWrapper } from './ThemeSwitcher.styled';
 
-export const ThemeSwitcher = () => {
+// eslint-disable-next-line react/prop-types
+export const ThemeSwitcher = ({ size }) => {
   const currentTheme = useSelector(state => state.theme);
   const dispatch = useDispatch();
 
@@ -21,12 +23,14 @@ export const ThemeSwitcher = () => {
   }, [dispatch]);
 
   return (
-    <DarkModeSwitch
-      checked={currentTheme === 'dark'}
-      onChange={switchTheme}
-      size={25}
-      moonColor="#FFC107"
-      sunColor="#FFC107"
-    />
+    <SwitcherWrapper>
+      <DarkModeSwitch
+        checked={currentTheme === 'dark'}
+        onChange={switchTheme}
+        size={size ? size : 25}
+        moonColor="#FFC107"
+        sunColor="#FFC107"
+      />
+    </SwitcherWrapper>
   );
 };

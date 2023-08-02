@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 export const SwitcherWrapper = styled.div`
-  & svg:hover {
-    transform: scale(1.1);
+  transform: scale(1);
+  transition: ${({ theme }) => theme.transitionHover};
+
+  &:hover {
+    transform: scale(1.2);
+    transition: ${({ theme }) => theme.transitionHover};
   }
 `;

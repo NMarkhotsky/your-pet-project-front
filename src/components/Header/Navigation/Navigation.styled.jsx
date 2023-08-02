@@ -63,7 +63,7 @@ export const NavigationBox = styled.nav`
   @media ${selectDesktop} {
     display: flex;
     gap: 40px;
-    margin-left: 159px;
+    margin-left: auto;
 
     & > svg {
       display: none;
