@@ -1,4 +1,4 @@
-import{s as i,b as d,a as u,g as y,t as o,P as p,j as t,r as f,d as I}from"./index-3b0d8a39.js";import{T as S}from"./TitlePage-6b818b7e.js";const w=i.section`
+import{s as i,b as d,a as u,g as y,t as o,P as p,j as t,r as f,d as I}from"./index-4a5d1b46.js";import{T as S}from"./TitlePage-72c53b86.js";const w=i.section`
   padding-bottom: 75px;
 `,z=i.div`
   margin-bottom: 24px;
