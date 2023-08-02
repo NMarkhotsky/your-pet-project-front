@@ -27,6 +27,7 @@ import {
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
 import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
+import { t } from 'i18next';
 // import { errorMessage, successMessage } from '../../utils/messages';
 
 export const NoticeCard = ({ item, handleDeleteNotice }) => {
@@ -133,11 +134,11 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
 
         <TextPetName>{item.title}</TextPetName>
 
-        <Btn onClick={toggleModal}>Learn more</Btn>
+        <Btn onClick={toggleModal}>{t('notice_card_learMore_Btn')}</Btn>
         {showModalDelete && (
           <ModalApproveAction onClose={closeModalDelete}>
             <ModalConfirmDelete
-              title={'Delete a notice?'}
+              title={t('notice_card_deleteNotice_Btn')}
               name={item.title}
               handleModal={closeModalDelete}
               handleDelete={() => handleDeleteNotice(item.id)}

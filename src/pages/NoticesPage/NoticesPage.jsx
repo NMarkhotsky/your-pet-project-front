@@ -20,6 +20,7 @@ import { Pagination } from '../../components/Pagination/Pagination';
 import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
 import { Loader } from '../../shared/components/Loader/Loader';
 import { scrollToTop } from '../../utils/scrollToTop';
+import { t } from 'i18next';
 
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
@@ -121,7 +122,7 @@ function NoticesPage() {
   return (
     <SectionNoticesPage>
       <TitleWrap>
-        <TitlePage>Find your favorite pet</TitlePage>
+        <TitlePage>{t('notices_title')}</TitlePage>
       </TitleWrap>
       <SearchInput
         onSubmit={onSubmit}
