@@ -120,7 +120,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
           type="button"
           aria-label="toggle filters"
         >
-          <OpenBtnLabel>Filter</OpenBtnLabel>
+          <OpenBtnLabel>{t('notices_filterBnt')}</OpenBtnLabel>
           <IconWraper>
             <Icon iconName="icon-filters-3" stroke={'#FDF7F2'} />
           </IconWraper>
@@ -128,7 +128,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
         {isOpen && (
           <DropDownContainer>
             <div>
-              <Text>Filters</Text>
+              <Text>{t('notices_filterBnt_filters')}</Text>
               <SubMenu>
                 <FilterBtn
                   type="button"
@@ -140,7 +140,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
                   ) : (
                     <Icon iconName="icon-chevron-up" stroke={'#54ADFF'} />
                   )}
-                  <BtnLabel>By age</BtnLabel>
+                  <BtnLabel>{t('notices_filterBnt_filters_byAge')}</BtnLabel>
                 </FilterBtn>
                 {ageOpen && (
                   <Form>
@@ -152,7 +152,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
                         value="0-12 m"
                         checked={filters.includes('0-12 m')}
                       />
-                      0-12 m
+                      {t('notices_filterBnt_filters_byAge_lt1')}
                     </Label>
                     <Label>
                       <Input
@@ -162,7 +162,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
                         value="1 year"
                         checked={filters.includes('1 year')}
                       />
-                      1 year
+                      {t('notices_filterBnt_filters_byAge_gt1')}
                     </Label>
                     <Label>
                       <Input
@@ -172,7 +172,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
                         value="2 years +"
                         checked={filters.includes('2 years +')}
                       />
-                      2 year +
+                      {t('notices_filterBnt_filters_byAge_gt2')}
                     </Label>
                   </Form>
                 )}
@@ -188,7 +188,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
                   ) : (
                     <Icon iconName="icon-chevron-up" stroke={'#54ADFF'} />
                   )}
-                  <BtnLabel>By gender</BtnLabel>
+                  <BtnLabel>{t('notices_filterBnt_filters_byGender')}</BtnLabel>
                 </FilterBtn>
                 {genderOpen && (
                   <Form>
@@ -200,7 +200,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
                         value="male"
                         checked={filters.includes('male')}
                       />
-                      male
+                      {t('notices_filterBnt_filters_male')}
                     </Label>
                     <Label>
                       <Input
@@ -210,7 +210,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
                         value="female"
                         checked={filters.includes('female')}
                       />
-                      female
+                      {t('notices_filterBnt_filters_female')}
                     </Label>
                   </Form>
                 )}

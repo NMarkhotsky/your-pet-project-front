@@ -24,6 +24,8 @@ import { scrollToTop } from '../../utils/scrollToTop';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 import { errorMessage, successMessage } from '../../utils/messages';
 
+import { t } from 'i18next';
+
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
   console.log('notices: ', notices);
@@ -134,7 +136,7 @@ function NoticesPage() {
   return (
     <SectionNoticesPage>
       <TitleWrap>
-        <TitlePage>Find your favorite pet</TitlePage>
+        <TitlePage>{t('notices_title')}</TitlePage>
       </TitleWrap>
       <SearchInput
         onSubmit={onSubmit}

@@ -152,7 +152,7 @@ export const Footer = () => {
             </Container>
             <Divider>
               <Name>Artem Terzi</Name>
-              <TitlePosition>Backend developer</TitlePosition>
+              <TitlePosition>Fullstack developer</TitlePosition>
               <Link target="_blank" to="https://github.com/ArtemTerzi">
                 <Icon
                   iconName={'icon-icon-github'}
