@@ -42,9 +42,10 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
   useEffect(() => {
     (async () => {
       const response = await getNoticeById(item.id);
-      setCard(response.data.notice);
+
+      setCard({...response.data.notice, noticeType: item.noticeType});
     })();
-  }, [item.id]);
+  }, [item]);
 
   useEffect(() => {
     if (Object.keys(card).length === 0) {
@@ -171,6 +172,7 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
 NoticeCardDetail.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    noticeType: PropTypes.string.isRequired,
   }).isRequired,
   toggleModal: PropTypes.func,
 };
