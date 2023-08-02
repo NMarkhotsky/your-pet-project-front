@@ -56,6 +56,7 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
   });
 
   const handleAddInFavorite = async () => {
+    console.log('Click');
     if (user.name === null && user.email === null) {
       setShowAttentionModal(true);
     }
@@ -65,6 +66,8 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
     setCard(response.data.notice);
   };
 
+  console.log('itemIsFavorite===>', item.isFavorite);
+  
   return (
     <>
       <Item key={item.id}>

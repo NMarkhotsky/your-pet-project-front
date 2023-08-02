@@ -9,6 +9,14 @@ import { t } from 'i18next';
 export const PetsItem = ({ item, deletePet }) => {
   const [showModal, setShowModal] = useState(false);
 
+  let formattedBirthday;
+
+  if (item.birthday) {
+    const birthday = item.birthday;
+
+    formattedBirthday = birthday.split('-').reverse().join('.');
+  }
+
   const openModal = () => {
     setShowModal(true);
   };
@@ -33,7 +41,7 @@ export const PetsItem = ({ item, deletePet }) => {
           <b>{t('other_name')}:</b> {item.name}
         </Text>
         <Text>
-          <b>{t('user_mypets_petInfo_dateOfBirth')}:</b> {item.birthday}
+          <b>{t('user_mypets_petInfo_dateOfBirth')}:</b> {formattedBirthday}
         </Text>
         <Text>
           <b>{t('other_type')}:</b> {item.type}
