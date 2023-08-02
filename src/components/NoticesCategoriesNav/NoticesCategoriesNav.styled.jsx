@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { selectDesktop, selectTablet } from '../../utils/selectMediaRequests';
 
 export const CategoriesWrap = styled.div`
@@ -7,7 +7,7 @@ export const CategoriesWrap = styled.div`
   flex-direction: column;
   gap: 8px;
 
-    @media ${selectTablet} {
+  @media ${selectTablet} {
     gap: 12px;
   }
 
@@ -30,7 +30,7 @@ export const NoticeCategoriesNavList = styled.ul`
   }
 `;
 
-export const NoticeCategoryItem = styled(Link)`
+export const NoticeCategoryItem = styled(NavLink)`
   display: flex;
   border: none;
   text-decoration: none;
@@ -51,6 +51,11 @@ export const NoticeCategoryItem = styled(Link)`
 
   &:hover,
   &:focus {
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.blue};
+  }
+
+  &.active {
     color: ${({ theme }) => theme.colors.white};
     background-color: ${({ theme }) => theme.colors.blue};
   }
