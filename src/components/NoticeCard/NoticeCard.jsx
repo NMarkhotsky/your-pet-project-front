@@ -66,8 +66,8 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
     setCard(response.data.notice);
   };
 
+  console.log('item ===>', item);
 
-  
   return (
     <>
       <Item key={item.id}>
@@ -96,7 +96,7 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
                   />
                 )}
               </Button>
-              {user.name !== null && (
+              {user.name !== null && item.isOwn && (
                 <Button
                   onClick={openModalDelete}
                   aria-label="delete from favorites"
