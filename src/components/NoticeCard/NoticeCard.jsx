@@ -36,7 +36,6 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
 
   useEffect(() => {
     if (!user.name && !user.email) {
-      // Якщо користувач розлогінений, очистіть стан isFavorite
       setIsFavorite(false);
     }
   }, [user]);
