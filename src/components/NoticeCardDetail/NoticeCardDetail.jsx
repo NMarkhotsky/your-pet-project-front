@@ -46,7 +46,7 @@ export const NoticeCardDetail = ({
     (async () => {
       const response = await getNoticeById(item.id);
 
-      setCard({...response.data.notice, noticeType: item.noticeType});
+      setCard({ ...response.data.notice, noticeType: item.noticeType });
     })();
   }, [item]);
 
@@ -128,7 +128,7 @@ export const NoticeCardDetail = ({
               }}
             >
               <ButtonTextAdd>
-                {!card.isFavorite
+                {!isFavorite
                   ? t('notices_cardInfoDetails_addToBtn')
                   : 'Remove from'}
               </ButtonTextAdd>
