@@ -25,5 +25,5 @@ NoticesCategoriesList.propTypes = {
       id: PropTypes.string.isRequired,
     })
   ).isRequired,
-  handleDeleteNotice: PropTypes.func
+  handleDeleteNotice: PropTypes.func,
 };

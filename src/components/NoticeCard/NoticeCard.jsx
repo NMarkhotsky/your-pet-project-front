@@ -30,8 +30,16 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [showAttentionModal, setShowAttentionModal] = useState(false);
   const [card, setCard] = useState({});
+  const [isFavorite, setIsFavorite] = useState(item.isFavorite);
 
   const { user } = useAuth();
+
+  useEffect(() => {
+    if (!user.name && !user.email) {
+      // Якщо користувач розлогінений, очистіть стан isFavorite
+      setIsFavorite(false);
+    }
+  }, [user]);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
@@ -56,13 +64,19 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
   });
 
   const handleAddInFavorite = async () => {
-    if (user.name === null && user.email === null) {
-      setShowAttentionModal(true);
+    try {
+      if (user.name === null && user.email === null) {
+        setShowAttentionModal(true);
+      } else {
+        const response = await updateNotice(item.id, {
+          isFavorite: !isFavorite,
+        });
+        setCard(response.data.notice);
+        setIsFavorite(!isFavorite);
+      }
+    } catch (error) {
+      console.error(error);
     }
-
-    const response = await updateNotice(item.id);
-
-    setCard(response.data.notice);
   };
 
   return (
@@ -77,7 +91,7 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
                 onClick={handleAddInFavorite}
                 aria-label="add to favorites"
               >
-                {!item.isFavorite ? (
+                {!isFavorite ? (
                   <Icon
                     iconName={'icon-heart'}
                     width={'24px'}
@@ -141,7 +155,12 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
           </ModalApproveAction>
         )}
         {showModal && (
-          <NoticeCardDetail item={item} toggleModal={toggleModal} />
+          <NoticeCardDetail
+            item={item}
+            isFavorite={isFavorite}
+            toggleModal={toggleModal}
+            handleAddInFavorite={handleAddInFavorite}
+          />
         )}
       </Item>
 

@@ -19,7 +19,7 @@ const media = {
 };
 
 const boxShadow = {
-  main: '3px 8px 14px rgba(136, 198, 253, 0.19)',
+  main: '0px 8px 14px rgba(136, 198, 253, 0.19)',
   secondary: '7px 13px 14px rgba(116, 177, 232, 0.24)',
 };
 
@@ -71,7 +71,7 @@ export const darkTheme = {
   colors: {
     bgdColor: '#111111',
     bgdColorSecond: '#888888',
-    bgdColorAuth: '#8888887b',
+    bgdColorAuth: '#8888883a',
     bgdColorBurger: '#111111',
     yellow: '#FFC107',
     white: '#FDF7F2',

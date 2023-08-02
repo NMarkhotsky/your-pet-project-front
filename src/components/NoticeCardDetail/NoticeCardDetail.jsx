@@ -23,15 +23,18 @@ import {
   ButtonTextAdd,
   ButtonLinkContact,
 } from './NoticeCardDetail.styled';
-import { updateNotice, getNoticeById } from '../../services/NoticesApi';
+import { getNoticeById } from '../../services/NoticesApi';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
-import { useAuth } from '../../hooks/useAuth/useAuth';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
 
-export const NoticeCardDetail = ({ item, toggleModal }) => {
+export const NoticeCardDetail = ({
+  item,
+  toggleModal,
+  isFavorite,
+  handleAddInFavorite,
+}) => {
   const [card, setCard] = useState({});
   const [showAttentionModal, setShowAttentionModal] = useState(false);
-  const { user } = useAuth();
 
   const closeAttentionModal = () => {
     setShowAttentionModal(false);
@@ -44,22 +47,13 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
       const response = await getNoticeById(item.id);
       setCard(response.data.notice);
     })();
-  }, [item.id]);
+  }, [item]);
 
   useEffect(() => {
     if (Object.keys(card).length === 0) {
       return;
     }
   });
-
-  const handleAddInFavorite = async () => {
-    if (user.name === null && user.email === null) {
-      setShowAttentionModal(true);
-    }
-    const response = await updateNotice(item.id);
-
-    setCard(response.data.notice);
-  };
 
   if (card.birthday) {
     const birthday = card.birthday;
@@ -127,15 +121,15 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
             <ButtonAddFavorite
               onClick={handleAddInFavorite}
               style={{
-                color: !card.isFavorite ? '#FEF9F9' : '#54ADFF',
-                backgroundColor: card.isFavorite ? '#FEF9F9' : '#54ADFF',
-                borderColor: card.isFavorite && '#54ADFF',
+                color: !isFavorite ? '#FEF9F9' : '#54ADFF',
+                backgroundColor: isFavorite ? '#FEF9F9' : '#54ADFF',
+                borderColor: isFavorite && '#54ADFF',
               }}
             >
               <ButtonTextAdd>
                 {t('notices_cardInfoDetails_addToBtn')}
               </ButtonTextAdd>
-              {!card.isFavorite ? (
+              {!isFavorite ? (
                 <Icon
                   iconName={'icon-heart'}
                   width={'24px'}
@@ -171,6 +165,9 @@ export const NoticeCardDetail = ({ item, toggleModal }) => {
 NoticeCardDetail.propTypes = {
   item: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    noticeType: PropTypes.string.isRequired,
   }).isRequired,
   toggleModal: PropTypes.func,
+  isFavorite: PropTypes.bool,
+  handleAddInFavorite: PropTypes.func,
 };
