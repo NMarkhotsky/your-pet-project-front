@@ -9,6 +9,7 @@ import {
   getSelfNotices,
   getFavoriteNotices,
   deleteNotice,
+  getNoticeById,
 } from '../../services/NoticesApi';
 import { CATEGORIES_RENDER } from '../../constants/globalConstants';
 import {
@@ -20,9 +21,12 @@ import { Pagination } from '../../components/Pagination/Pagination';
 import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
 import { Loader } from '../../shared/components/Loader/Loader';
 import { scrollToTop } from '../../utils/scrollToTop';
+import { useAuth } from '../../hooks/useAuth/useAuth';
+import { errorMessage, successMessage } from '../../utils/messages';
 
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
+  console.log('notices: ', notices);
   const [searchValue, setSearchValue] = useState('');
   const [params, setParams] = useState({
     category: 'sell',
@@ -31,11 +35,20 @@ function NoticesPage() {
   });
   const [pageCount, setPageCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const { user } = useAuth();
 
   const limit = 12;
 
   const handleDeleteNotice = async id => {
+    const response = await getNoticeById(id);
+
+    if (response.data.notice.ownerEmail !== user.email) {
+      errorMessage('It is not your pet and you cannot remove it');
+      return;
+    }
+
     await deleteNotice(id);
+    successMessage('The card was successfully removed');
 
     setNotices(prevCards => prevCards.filter(cardItem => cardItem.id !== id));
   };

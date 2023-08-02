@@ -30,10 +30,12 @@ import { AttentionModal } from '../AttentionModal/AttentionModal';
 // import { errorMessage, successMessage } from '../../utils/messages';
 
 export const NoticeCard = ({ item, handleDeleteNotice }) => {
+  // console.log('item: ', item);
   const [showModal, setShowModal] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [showAttentionModal, setShowAttentionModal] = useState(false);
   const [card, setCard] = useState({});
+  // console.log('card: ', card);
 
   const { user } = useAuth();
 

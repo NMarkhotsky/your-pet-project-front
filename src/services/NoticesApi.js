@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { BASE_URL } from '../constants/globalConstants';
-import { errorMessage, successMessage } from '../utils/messages';
 
 axios.defaults.baseURL = BASE_URL;
 
@@ -49,11 +48,9 @@ export const addNotice = async () => {
 export const deleteNotice = async id => {
   try {
     const response = await axios.delete(`/notices/${id}`);
-    successMessage('The card was successfully removed');
     return response;
   } catch (error) {
     console.log(error);
-    errorMessage('It is not your pet and you cannot remove it');
   }
 };
 
