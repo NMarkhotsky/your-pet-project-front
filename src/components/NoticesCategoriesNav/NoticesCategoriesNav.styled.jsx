@@ -25,6 +25,10 @@ export const NoticeCategoriesNavList = styled.ul`
   flex-wrap: wrap;
   justify-content: flex-start;
 
+  @media screen and (max-width: 480px) {
+    width: 90%;
+  }
+
   @media ${selectTablet} {
     gap: 12px;
   }
