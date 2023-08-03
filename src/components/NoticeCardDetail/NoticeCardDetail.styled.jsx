@@ -81,7 +81,7 @@ export const SpanStatus = styled.span`
   top: 16px;
   left: 0;
 
-  width: 126px;
+  width: 130px;
   height: 32px;
 
   display: flex;

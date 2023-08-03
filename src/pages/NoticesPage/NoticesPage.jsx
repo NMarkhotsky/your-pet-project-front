@@ -26,6 +26,7 @@ import { errorMessage, successMessage } from '../../utils/messages';
 
 import { t } from 'i18next';
 import { NoInfoPart } from '../../components/NoInfoPart/NoInfoPart';
+import ScrollToTopButton from '../../components/ScrollToTopButton/ScrollToTopButton';
 
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
@@ -164,6 +165,7 @@ function NoticesPage() {
         {isLoading ? <Loader /> : null}
         {notices.length === 0 && !isLoading && <NoInfoPart />}
       </SectionNoticesPage>
+      <ScrollToTopButton />
       <Outlet />
     </>
   );
