@@ -11,16 +11,16 @@ export const Main = styled.main`
   padding: 0 20px;
 
   @media ${selectPhone} {
-    width: 320px;
+    max-width: 480px;
   }
 
   @media ${selectTablet} {
-    width: 768px;
+    max-width: 768px;
     padding: 0 32px;
   }
 
   @media ${selectDesktop} {
-    width: 1280px;
+    max-width: 1280px;
     padding: 0 16px;
   }
 `;

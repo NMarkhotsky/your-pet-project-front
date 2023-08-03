@@ -49,6 +49,11 @@ export const Image = styled.img`
   }
 `;
 
+export const InfoContainer = styled.div`
+  padding-top: 20px;
+  padding-bottom: 40px;
+`;
+
 export const Text = styled.p`
   font-size: ${props => props.theme.fontSizes.md};
   letter-spacing: 0.64px;
@@ -57,13 +62,13 @@ export const Text = styled.p`
     margin-bottom: 12px;
   }
 
-  &:last-child {
+  /* &:last-child {
     padding-bottom: 40px;
   }
 
   &:first-child {
     padding-top: 20px;
-  }
+  } */
 
   @media ${selectTablet} {
     font-size: ${props => props.theme.fontSizes.sm};
@@ -83,7 +88,7 @@ export const Text = styled.p`
 export const DeleteIcon = styled.button`
   display: block;
   position: absolute;
-  top: 62%;
+  /* top: 0; */
   right: 7%;
   cursor: pointer;
 

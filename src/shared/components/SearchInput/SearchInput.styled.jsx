@@ -9,7 +9,7 @@ export const SearchContainer = styled.form`
   justify-content: right;
   margin-left: auto;
   margin-right: auto;
-  width: 280px;
+  /* width: 280px; */
   height: 44px;
   border-radius: 24px;
   background-color: #fff;

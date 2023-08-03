@@ -74,6 +74,7 @@ export const FormBox = styled(Form)`
 export const InputBox = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
 `;
@@ -90,7 +91,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled(Field)`
-  width: 190px;
+  width: 70%;
   border-radius: 20px;
   border: 1px solid ${props => props.theme.colors.blue};
   font-size: ${props => props.theme.fontSizes.xs};
