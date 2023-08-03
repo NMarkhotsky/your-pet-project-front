@@ -2,6 +2,8 @@ import { styled } from 'styled-components';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
 export const StyledPaginateContainer = styled.div`
+  margin-top: 60px;
+
   width: 100%;
   padding-bottom: 20px;
   display: flex;

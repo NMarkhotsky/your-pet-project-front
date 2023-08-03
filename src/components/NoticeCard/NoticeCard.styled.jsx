@@ -7,7 +7,6 @@ export const List = styled.ul`
   flex-direction: column;
 
   width: 100%;
-  margin-bottom: 60px;
 
   gap: 24px;
 
@@ -58,7 +57,7 @@ export const ContainerPetInfo = styled.div`
   position: relative;
   display: block;
 
-  height: auto;
+  height: 288px;
   width: 100%;
 `;
 

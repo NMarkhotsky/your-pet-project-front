@@ -19,7 +19,6 @@ import {
 } from './NoticesPage.styled';
 import { Pagination } from '../../components/Pagination/Pagination';
 import { TitlePage } from '../../shared/components/TitlePage/TitlePage';
-import { Loader } from '../../shared/components/Loader/Loader';
 import { scrollToTop } from '../../utils/scrollToTop';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 import { errorMessage, successMessage } from '../../utils/messages';
@@ -27,6 +26,7 @@ import { errorMessage, successMessage } from '../../utils/messages';
 import { t } from 'i18next';
 import { NoInfoPart } from '../../components/NoInfoPart/NoInfoPart';
 import ScrollToTopButton from '../../components/ScrollToTopButton/ScrollToTopButton';
+import NoticeCardSkeleton from '../../shared/components/Skeleton/NoticeCardSkeleton/NoticeCardSkeleton';
 
 function NoticesPage() {
   const [notices, setNotices] = useState([]);
@@ -150,19 +150,23 @@ function NoticesPage() {
           <NoticesCategoriesNav getCategoryParams={getCategoryParams} />
           <NoticesFilters getFilterParams={getFilterParams} />
         </FilterNavBar>
-        <NoticesCategoriesList
-          notices={notices}
-          pageCount={pageCount}
-          handlePageChange={handlePageChange}
-          handleDeleteNotice={handleDeleteNotice}
-        />
+        {isLoading ? (
+          <NoticeCardSkeleton cards={12} />
+        ) : (
+          <NoticesCategoriesList
+            notices={notices}
+            pageCount={pageCount}
+            handlePageChange={handlePageChange}
+            handleDeleteNotice={handleDeleteNotice}
+          />
+        )}
         {pageCount > 1 && (
           <Pagination
             pageCount={pageCount}
             handlePageChange={handlePageChange}
           />
         )}
-        {isLoading ? <Loader /> : null}
+
         {notices.length === 0 && !isLoading && <NoInfoPart />}
       </SectionNoticesPage>
       <ScrollToTopButton />
