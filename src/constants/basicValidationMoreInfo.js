@@ -3,13 +3,14 @@ import * as Yup from 'yup';
 const MAX_SIZE_FILE = 3;
 const MAX_LENGTH_MESSAGE = 70;
 
+const ACCEPTED_IMAGE_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
+
 export const basicValidationMoreInfo = {
   photo: Yup.mixed()
     .required('Pet photo is required')
-    .test('fileFormat', 'Only JPG files are allowed', value => {
+    .test('fileFormat', 'Only Image files are allowed', value => {
       if (!value) return false;
-      return value.type;
-      // return value.type === 'image/jpeg';
+      return ACCEPTED_IMAGE_FORMATS.includes(value.type);
     })
     .test(
       'fileSize',
