@@ -1,4 +1,4 @@
-import{s,b as g,a as L,N as U,P as G,u as P,c as J,j as t,r as c,t as u,I as y,L as K,C as Q,d as X,O as Y,e as Z,f as ee}from"./index-c8c33458.js";import{A as te,g as oe,a as ne,b as se,N as ie,c as ae,d as re}from"./NoticesCategoriesList-4f73fca2.js";import{s as le,S as ce,P as de,N as pe}from"./NoInfoPart-b55d068d.js";import{T as ge}from"./TitlePage-0e5b7344.js";import"./Btn.styled-f714592e.js";import"./ModalConfirmDelete-5dfde2fa.js";import"./catImg-34c1bda9.js";let w=(e=21)=>crypto.getRandomValues(new Uint8Array(e)).reduce((r,l)=>(l&=63,l<36?r+=l.toString(36):l<62?r+=(l-26).toString(36).toUpperCase():l>62?r+="-":r+="_",r),"");const ue=[{id:w(),to:"/notices/sell",text:"sell",name:"sell"},{id:w(),to:"/notices/lost-found",text:"lost or found",name:"lost-or-found"},{id:w(),to:"/notices/for-free",text:"in good hands",name:"in-good-hands"}],xe=[{id:w(),to:"/notices/favorite",text:"favorite ads",name:"favorite"},{id:w(),to:"/notices/own",text:"my ads",name:"my-ads"}],me=s.div`
+import{s,b as g,a as L,N as U,P as G,u as P,c as J,j as t,r as c,t as u,I as y,L as K,C as Q,d as X,O as Y,e as Z,f as ee}from"./index-4dbb3421.js";import{A as te,g as oe,a as ne,b as se,N as ie,c as ae,d as re}from"./NoticesCategoriesList-48bd177c.js";import{s as le,S as ce,P as de,N as pe}from"./NoInfoPart-1b08fa33.js";import{T as ge}from"./TitlePage-6e0fd3c3.js";import"./Btn.styled-3b309930.js";import"./ModalConfirmDelete-71a2e362.js";import"./catImg-34c1bda9.js";let w=(e=21)=>crypto.getRandomValues(new Uint8Array(e)).reduce((r,l)=>(l&=63,l<36?r+=l.toString(36):l<62?r+=(l-26).toString(36).toUpperCase():l>62?r+="-":r+="_",r),"");const ue=[{id:w(),to:"/notices/sell",text:"sell",name:"sell"},{id:w(),to:"/notices/lost-found",text:"lost or found",name:"lost-or-found"},{id:w(),to:"/notices/for-free",text:"in good hands",name:"in-good-hands"}],xe=[{id:w(),to:"/notices/favorite",text:"favorite ads",name:"favorite"},{id:w(),to:"/notices/own",text:"my ads",name:"my-ads"}],me=s.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -18,6 +18,10 @@ import{s,b as g,a as L,N as U,P as G,u as P,c as J,j as t,r as c,t as u,I as y,L
   gap: 8px;
   flex-wrap: wrap;
   justify-content: flex-start;
+
+  @media screen and (max-width: 480px) {
+    width: 90%;
+  }
 
   @media ${g} {
     gap: 12px;
