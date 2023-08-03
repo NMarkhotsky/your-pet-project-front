@@ -16,14 +16,10 @@ export const Backdrop = styled.div`
 
   background: rgba(97, 97, 97, 0.6);
   backdrop-filter: blur(4px);
-  overflow-y: scroll;
 `;
 
 export const Modal = styled.div`
-  /* min-height: 200px; */
-  /* min-width: 200px; */
   min-width: 80%;
-  /* min-height: 80%; */
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -36,9 +32,7 @@ export const Modal = styled.div`
 
   @media ${selectTablet} {
     min-width: auto;
-    /* min-height: auto; */
     width: 681px;
-    /* height: 540px; */
   }
 `;
 
