@@ -1,4 +1,4 @@
-import{s,b as p,j as t,t as a,h as I,i as j,H as Y,a as f,L as ee,J as b,K as te,r as u,I as m,Q as ne,k as v,R as ae,U as oe,V as X,W as k,X as M,Y as ie,Z as se,_ as re,$ as le,a0 as de,a1 as ce,a2 as H,c as pe,a3 as xe}from"./index-aab2b34f.js";import{u as $}from"./formik.esm-859bd0ca.js";import{B as he}from"./BackgroundWrapper-92be75c4.js";const c={yourPet:"yourPet",SELL:"sell",LOST_FOUND:"lost-or-found",IN_GOOD_HANDS:"in-good-hands",name:"name",birthday:"birthday",type:"type",female:"female",male:"male"},O=({currentPage:e,type:r,num:i})=>{switch(r){case"text":if(e===i)return"current";if(e>i)return"select";if(e<i)return"ordinary";break;case"bar":if(e===i)return"current";if(e>i)return"select";if(e<i)return"opacity-ordinary";break}},D={current:"#54ADFF",select:"#00C3AD",ordinary:"#888",opacityOrdinary:"#CCE4FB"},J=e=>{switch(e.variant){case"current":return D.current;case"select":return D.select;case"ordinary":return D.ordinary;case"opacity-ordinary":return D.opacityOrdinary;default:return"tomato"}},me=s.ul`
+import{s,b as p,j as t,t as a,h as I,i as j,H as Y,a as f,L as ee,J as b,K as te,r as u,I as m,Q as ne,k as v,R as ae,U as oe,V as X,W as k,X as M,Y as ie,Z as se,_ as re,$ as le,a0 as de,a1 as ce,a2 as H,c as pe,a3 as xe}from"./index-c8c33458.js";import{u as $}from"./formik.esm-66c23580.js";import{B as he}from"./BackgroundWrapper-74b9bfd8.js";const c={yourPet:"yourPet",SELL:"sell",LOST_FOUND:"lost-or-found",IN_GOOD_HANDS:"in-good-hands",name:"name",birthday:"birthday",type:"type",female:"female",male:"male"},O=({currentPage:e,type:r,num:i})=>{switch(r){case"text":if(e===i)return"current";if(e>i)return"select";if(e<i)return"ordinary";break;case"bar":if(e===i)return"current";if(e>i)return"select";if(e<i)return"opacity-ordinary";break}},D={current:"#54ADFF",select:"#00C3AD",ordinary:"#888",opacityOrdinary:"#CCE4FB"},J=e=>{switch(e.variant){case"current":return D.current;case"select":return D.select;case"ordinary":return D.ordinary;case"opacity-ordinary":return D.opacityOrdinary;default:return"tomato"}},me=s.ul`
   max-width: 392px;
   display: flex;
   justify-content: space-between;
@@ -19,6 +19,8 @@ import{s,b as p,j as t,t as a,h as I,i as j,H as Y,a as f,L as ee,J as b,K as te
   font-size: 10px;
   font-weight: 500;
   line-height: 1.4;
+
+  text-align: center;
 
   @media ${p} {
     font-size: ${e=>e.theme.fontSizes.md};

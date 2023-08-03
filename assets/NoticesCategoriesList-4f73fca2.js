@@ -1,4 +1,4 @@
-import{s as o,b as s,P as d,j as t,M as k,T as M,a7 as q,a8 as U,a9 as O,I as h,aa as W,t as a,a as I,g,B as K,r as c,u as V}from"./index-aab2b34f.js";import{B as G}from"./Btn.styled-bb79b1d5.js";import{M as J}from"./ModalConfirmDelete-c04c68a4.js";const Q=o.div`
+import{s as o,b as s,P as d,j as t,M as k,T as M,a7 as q,a8 as U,a9 as O,I as h,aa as W,t as a,a as I,g,B as K,r as c,u as V}from"./index-c8c33458.js";import{B as G}from"./Btn.styled-f714592e.js";import{M as J}from"./ModalConfirmDelete-5dfde2fa.js";const Q=o.div`
   width: 280px;
   padding: 60px 20px;
   border-radius: 20px;
@@ -39,7 +39,7 @@ import{s as o,b as s,P as d,j as t,M as k,T as M,a7 as q,a8 as U,a9 as O,I as h,
   }
 `,F=({onClose:e})=>t.jsx(k,{onClose:e,children:t.jsxs(Q,{children:[t.jsxs(M,{i18nKey:"modal_attention",children:[t.jsx(X,{children:"Attention"}),t.jsx(Y,{children:"We would like to remind you that certain functionality is available only to authorized users.If you have an account, please log in with your credentials. If you do not already have an account, you must register to access these features."})]}),t.jsxs(q,{children:[t.jsxs(U,{to:"/login",children:[t.jsxs(M,{i18nKey:"header_nav_loginBtn",children:["Log ",t.jsx(O,{children:"in"})]}),t.jsx(h,{iconName:"icon-pawprint",width:"24px",height:"24px",fill:"#FEF9F9"})]}),t.jsx(W,{to:"/register",children:a("header_nav_signupBtn")})]})]})});F.propTypes={onClose:d.func.isRequired};const Z=o.ul`
   display: flex;
-  align-items: stretch;
+  align-items: center;
   flex-direction: column;
 
   width: 100%;
@@ -50,6 +50,7 @@ import{s as o,b as s,P as d,j as t,M as k,T as M,a7 as q,a8 as U,a9 as O,I as h,
   @media ${s} {
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: stretch;
 
     column-gap: 32px;
     row-gap: 24px;
@@ -61,7 +62,8 @@ import{s as o,b as s,P as d,j as t,M as k,T as M,a7 as q,a8 as U,a9 as O,I as h,
 `,ee=o.li`
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 100%;
+  height: auto;
   padding-bottom: 24px;
 
   border-radius: 0 0 40px 40px;
