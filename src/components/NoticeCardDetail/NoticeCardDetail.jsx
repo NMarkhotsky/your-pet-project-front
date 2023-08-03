@@ -130,7 +130,7 @@ export const NoticeCardDetail = ({
               <ButtonTextAdd>
                 {!isFavorite
                   ? t('notices_cardInfoDetails_addToBtn')
-                  : 'Remove from'}
+                  : t('notices_cardInfoDetails_removeFrom')}
               </ButtonTextAdd>
               {!isFavorite ? (
                 <Icon
