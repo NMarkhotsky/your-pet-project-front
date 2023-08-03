@@ -129,7 +129,7 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
             </ItemPetInfo>
             <ItemPetInfo>
               <Icon iconName={'icon-clock'} />
-              <SpanPetText>{item.age}</SpanPetText>
+              <SpanPetText>{truncateText(item.age)}</SpanPetText>
             </ItemPetInfo>
             <ItemPetInfo>
               <Icon

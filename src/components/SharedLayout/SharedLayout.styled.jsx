@@ -11,7 +11,7 @@ export const Main = styled.main`
   padding: 0 20px;
 
   @media ${selectPhone} {
-    max-width: 480px;
+    max-width: 400px;
   }
 
   @media ${selectTablet} {
