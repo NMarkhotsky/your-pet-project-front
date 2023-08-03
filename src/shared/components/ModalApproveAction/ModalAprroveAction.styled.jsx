@@ -20,16 +20,26 @@ export const Backdrop = styled.div`
 `;
 
 export const Modal = styled.div`
-  min-height: 200px;
-  min-width: 200px;
+  /* min-height: 200px; */
+  /* min-width: 200px; */
+  min-width: 80%;
+  /* min-height: 80%; */
   border-radius: 20px;
+  display: flex;
+  justify-content: center;
 
   position: absolute;
-  /* top: 10%; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: ${({ theme }) => theme.colors.bgdColor};
+
+  @media ${selectTablet} {
+    min-width: auto;
+    /* min-height: auto; */
+    width: 681px;
+    /* height: 540px; */
+  }
 `;
 
 export const CloseBtn = styled.button`

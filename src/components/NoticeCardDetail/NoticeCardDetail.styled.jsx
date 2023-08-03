@@ -32,7 +32,7 @@ export const ButtonClose = styled.button`
 
 export const ModalCard = styled.div`
   padding: 44px 12px 16px;
-  width: 280px;
+  /* width: 280px; */
 
   @media ${selectTablet} {
     padding: 32px 32px 24px;

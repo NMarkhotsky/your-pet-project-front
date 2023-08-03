@@ -28,6 +28,7 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
   flex-direction: column;
+  /* max-width: 480px; */
   width: 100%;
   height: auto;
   padding-bottom: 24px;
@@ -57,7 +58,7 @@ export const ContainerPetInfo = styled.div`
   position: relative;
   display: block;
 
-  height: 288px;
+  height: auto;
   width: 100%;
 `;
 
@@ -135,9 +136,9 @@ export const ListPetInfo = styled.ul`
 
   width: 100%;
   margin: 0 auto;
-  padding: 0 8px;
+  /* padding: 0 8px; */
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 12px;
 
   padding: 0;
@@ -156,7 +157,7 @@ export const ItemPetInfo = styled.li`
   align-items: center;
   justify-content: center;
   gap: 4px;
-  max-width: 100%;
+  width: 80px;
   height: 28px;
   padding: 5px 5px;
 
