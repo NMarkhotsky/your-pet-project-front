@@ -3,6 +3,7 @@ import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
 
 export const ItemNews = styled.li`
   position: relative;
+  width: 100%;
   height: 578px;
   background-color: ${props => props.theme.colors.bgdColorAuth};
   box-shadow: ${props => props.theme.boxShadow.main};

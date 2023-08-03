@@ -14,7 +14,7 @@ export const StyledContainer = styled.div`
   box-shadow: ${props => props.theme.boxShadow.main};
 
   @media ${selectPhone} {
-    width: 280px;
+    /* width: 280px; */
   }
 
   @media ${selectTablet} {

@@ -3,7 +3,7 @@ import { selectDesktop, selectTablet } from '../../utils/selectMediaRequests';
 
 export const List = styled.ul`
   display: flex;
-  align-items: stretch;
+  align-items: center;
   flex-direction: column;
 
   width: 100%;
@@ -14,6 +14,7 @@ export const List = styled.ul`
   @media ${selectTablet} {
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: stretch;
 
     column-gap: 32px;
     row-gap: 24px;
@@ -27,7 +28,8 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 100%;
+  height: auto;
   padding-bottom: 24px;
 
   border-radius: 0 0 40px 40px;

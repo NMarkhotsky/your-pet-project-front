@@ -27,6 +27,8 @@ export const Option = styled.p`
   font-weight: 500;
   line-height: 1.4;
 
+  text-align: center;
+
   @media ${selectTablet} {
     font-size: ${props => props.theme.fontSizes.md};
     line-height: 1.65;

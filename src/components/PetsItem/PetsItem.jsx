@@ -1,5 +1,11 @@
 import PropTypes from 'prop-types';
-import { ContainerItem, Image, DeleteIcon, Text } from './PetsItem.styled';
+import {
+  ContainerItem,
+  Image,
+  DeleteIcon,
+  Text,
+  InfoContainer,
+} from './PetsItem.styled';
 import { Icon } from '../Icon/Icon';
 import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
@@ -27,16 +33,16 @@ export const PetsItem = ({ item, deletePet }) => {
 
   return (
     <ContainerItem>
-      <DeleteIcon onClick={openModal}>
-        <Icon
-          iconName={'icon-trash'}
-          width={'24px'}
-          height={'24px'}
-          stroke={'#54ADFF'}
-        />
-      </DeleteIcon>
       <Image src={item.photoURL} />
-      <div>
+      <InfoContainer>
+        <DeleteIcon onClick={openModal}>
+          <Icon
+            iconName={'icon-trash'}
+            width={'24px'}
+            height={'24px'}
+            stroke={'#54ADFF'}
+          />
+        </DeleteIcon>
         <Text>
           <b>{t('other_name')}:</b> {item.name}
         </Text>
@@ -49,7 +55,7 @@ export const PetsItem = ({ item, deletePet }) => {
         <Text>
           <b>{t('other_comments')}:</b> {item.comments}
         </Text>
-      </div>
+      </InfoContainer>
       {showModal && (
         <ModalApproveAction onClose={closeModal}>
           <ModalConfirmDelete
