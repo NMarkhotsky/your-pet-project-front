@@ -108,7 +108,7 @@ export const Footer = () => {
             <Divider>
               <Name>Alla Basanko</Name>
               <TitlePosition>Scrum master</TitlePosition>
-              <TitlePosition>Backend developer</TitlePosition>
+              <TitlePosition>Fullstack developer</TitlePosition>
               <Link target="_blank" to="https://github.com/AllaGrey">
                 <Icon
                   iconName={'icon-icon-github'}

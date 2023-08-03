@@ -77,6 +77,13 @@ export const InputBox = styled.div`
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 10px;
+
+  @media ${selectTablet} {
+    gap: 8px;
+  }
+  @media ${selectDesktop} {
+    gap: 0;
+  }
 `;
 
 export const Label = styled.label`
@@ -91,7 +98,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled(Field)`
-  width: 70%;
+  width: 190px;
   border-radius: 20px;
   border: 1px solid ${props => props.theme.colors.blue};
   font-size: ${props => props.theme.fontSizes.xs};
