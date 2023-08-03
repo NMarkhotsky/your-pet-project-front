@@ -37,6 +37,7 @@
   "notices_title": "Знайдіть свого домашнього улюбленця",
   "notices_cardInfoDetails_theSex": "Стать",
   "notices_cardInfoDetails_addToBtn": "Додати до",
+  "notices_cardInfoDetails_removeFrom": "Видалити з",
 
   "notices_filterBnt": "Фільтр",
   "notices_filterBnt_filters": "Фільтри",
@@ -91,6 +92,8 @@
   "addPet_form_validation_moreInfo_photo_fileType": "Дозволені лише файли JPG",
   "addPet_form_validation_moreInfo_comments": "Коментарі обов'язкові",
   "addPet_form_validation_moreInfo_comments_max": "Максимальна довжина повідомлення - 70 символів",
+
+  "sorry_message": "<p>Вибачте...</p> На ваш запит немає інформації :(",
 
   "footer_title": "Наша команда",
   "footer_ps": "Розроблено з",
