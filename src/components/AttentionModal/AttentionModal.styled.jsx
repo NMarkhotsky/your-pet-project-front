@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
 export const Modal = styled.div`
-  /* width: 280px; */
+  width: 280px;
   padding: 60px 20px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.bgColor};
