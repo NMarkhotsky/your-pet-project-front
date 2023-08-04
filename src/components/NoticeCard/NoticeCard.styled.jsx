@@ -185,4 +185,5 @@ export const TextPetName = styled.p`
   font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.xl};
   line-height: 33px;
+  word-break: break-word;
 `;
