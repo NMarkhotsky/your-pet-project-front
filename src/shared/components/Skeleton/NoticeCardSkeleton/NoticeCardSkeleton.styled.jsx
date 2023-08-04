@@ -56,11 +56,6 @@ const FavoriteBtn = styled(BaseSkeleton)`
   border-radius: 50%;
 `;
 
-const DeleteBtn = styled(FavoriteBtn)`
-  top: 68px;
-  right: 12px;
-`;
-
 const InfoWrapper = styled.div`
   position: absolute;
   bottom: 0;
@@ -112,7 +107,6 @@ export {
   ImageWrapper,
   Category,
   FavoriteBtn,
-  DeleteBtn,
   InfoWrapper,
   Info,
   CardFooter,
