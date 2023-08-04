@@ -1,4 +1,4 @@
-import{s as o,b as d,a as F,N as J,P as V,u as P,c as K,j as t,r as c,t as g,I as y,L as Q,C as X,O as Y,e as Z,d as ee}from"./index-a1b5a053.js";import{A as te,L as oe,g as ne,a as se,b as ie,N as re,c as ae,d as le}from"./NoticesCategoriesList-b4fc08b5.js";import{s as ce,S as de,P as pe,N as xe}from"./NoInfoPart-c7780064.js";import{T as ge}from"./TitlePage-e8f848d8.js";import{S as ue}from"./ScrollToTopButton-b914961e.js";import{B as C}from"./BaseSkeleton.styled-d70f0874.js";import"./Btn.styled-cc333733.js";import"./ModalConfirmDelete-8b9ed4bf.js";let k=(e=21)=>crypto.getRandomValues(new Uint8Array(e)).reduce((l,r)=>(r&=63,r<36?l+=r.toString(36):r<62?l+=(r-26).toString(36).toUpperCase():r>62?l+="-":l+="_",l),"");const he=[{id:k(),to:"/notices/sell",text:"sell",name:"sell"},{id:k(),to:"/notices/lost-found",text:"lost or found",name:"lost-or-found"},{id:k(),to:"/notices/for-free",text:"in good hands",name:"in-good-hands"}],me=[{id:k(),to:"/notices/favorite",text:"favorite ads",name:"favorite"},{id:k(),to:"/notices/own",text:"my ads",name:"my-ads"}],fe=o.div`
+import{s as o,b as d,a as F,N as J,P as V,u as P,c as K,j as t,r as c,t as g,I as y,L as Q,C as X,O as Y,e as Z,d as ee}from"./index-af9d40fb.js";import{A as te,L as oe,g as ne,a as se,b as ie,N as re,c as ae,d as le}from"./NoticesCategoriesList-b65de764.js";import{s as ce,S as de,P as pe,N as xe}from"./NoInfoPart-73845d7d.js";import{T as ge}from"./TitlePage-7085dd37.js";import{S as ue}from"./ScrollToTopButton-eeb6fa0a.js";import{B as C}from"./BaseSkeleton.styled-ca2aa93b.js";import"./Btn.styled-5448547b.js";import"./ModalConfirmDelete-1d80e940.js";let k=(e=21)=>crypto.getRandomValues(new Uint8Array(e)).reduce((l,r)=>(r&=63,r<36?l+=r.toString(36):r<62?l+=(r-26).toString(36).toUpperCase():r>62?l+="-":l+="_",l),"");const he=[{id:k(),to:"/notices/sell",text:"sell",name:"sell"},{id:k(),to:"/notices/lost-found",text:"lost or found",name:"lost-or-found"},{id:k(),to:"/notices/for-free",text:"in good hands",name:"in-good-hands"}],me=[{id:k(),to:"/notices/favorite",text:"favorite ads",name:"favorite"},{id:k(),to:"/notices/own",text:"my ads",name:"my-ads"}],fe=o.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -379,7 +379,7 @@ margin-bottom: 24px;
   justify-content: center;
   align-items: center;
 
-  background-color: ${({theme:e})=>e.colors.bgdColorAuth};
+  background-color: ${({theme:e})=>e.colors.bgdColorSecond};
   background-position: center;
   background-size: cover;
 

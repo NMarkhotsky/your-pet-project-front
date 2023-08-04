@@ -1,4 +1,4 @@
-import{s as D,b as te,a as $,P,j as _,t as Ht,f as $t,B as Hs,r as ae,h as $s}from"./index-a1b5a053.js";import{s as Vs,S as Gs,P as zs,N as Zs}from"./NoInfoPart-c7780064.js";import{B as ct}from"./BaseSkeleton.styled-d70f0874.js";import{S as qs}from"./ScrollToTopButton-b914961e.js";//! moment.js
+import{s as D,b as te,a as $,P,j as _,t as Ht,f as $t,B as Hs,r as ae,h as $s}from"./index-af9d40fb.js";import{s as Vs,S as Gs,P as zs,N as Zs}from"./NoInfoPart-73845d7d.js";import{B as ct}from"./BaseSkeleton.styled-ca2aa93b.js";import{S as qs}from"./ScrollToTopButton-eeb6fa0a.js";//! moment.js
 //! version : 2.29.4
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
@@ -222,7 +222,7 @@ l.version="2.29.4";Bs(k);l.fn=o;l.min=Ca;l.max=Ia;l.now=Ua;l.utc=Z;l.unix=ci;l.m
 
   height: 252px;
 
-  background-color: #fbf0e7;
+  background-color: ${({theme:e})=>e.colors.bgdColorSecond};
   border-radius: 20px;
 
   @media ${te} {
