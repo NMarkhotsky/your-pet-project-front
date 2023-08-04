@@ -9,6 +9,7 @@ import { scrollToTop } from '../../utils/scrollToTop';
 import { NoInfoPart } from '../../components/NoInfoPart/NoInfoPart';
 import NewsCardSkeleton from '../../shared/components/Skeleton/NewsCardSkeleton/NewsCardSkeleton';
 import { Pagination } from '../../components/Pagination/Pagination';
+import ScrollToTopButton from '../../components/ScrollToTopButton/ScrollToTopButton';
 
 const PER_PAGE = 6;
 
@@ -86,6 +87,7 @@ function NewsPage() {
       )}
       {isLoading ? <Loader /> : null}
       {news.length === 0 && !isLoading && <NoInfoPart />}
+      <ScrollToTopButton />
     </>
   );
 }
