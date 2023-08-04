@@ -3,7 +3,6 @@ import {
   ImageWrapper,
   Category,
   FavoriteBtn,
-  DeleteBtn,
   InfoWrapper,
   Info,
   CardFooter,
@@ -23,7 +22,6 @@ const NoticeCardSkeleton = ({ cards }) => {
             <ImageWrapper>
               <Category inline={true} />
               <FavoriteBtn />
-              <DeleteBtn />
               <InfoWrapper>
                 <Info inline={true} />
                 <Info inline={true} />
