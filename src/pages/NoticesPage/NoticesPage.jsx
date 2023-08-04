@@ -100,6 +100,7 @@ function NoticesPage() {
   const onSubmit = e => {
     e.preventDefault();
     setParams(prev => ({ ...prev, search: searchValue, page: 1 }));
+    setPageCount(1)
   };
 
   const onDelete = () => {
@@ -112,12 +113,14 @@ function NoticesPage() {
   };
 
   const getCategoryParams = categoryParams => {
-    setParams(prev => ({ ...prev, category: categoryParams }));
+    setParams(prev => ({ ...prev, category: categoryParams, page: 1 }));
+    setPageCount(1)
   };
 
   const getFilterParams = filterParams => {
+    setPageCount(1)
     setParams(prev => {
-      const { category, page, search } = prev;
+      const { category, search } = prev;
 
       const updatedParams = {};
 
@@ -125,7 +128,7 @@ function NoticesPage() {
         updatedParams[key] = filterParams[key];
       });
 
-      return { category, page, search, ...updatedParams };
+      return { category, page: 1, search, ...updatedParams };
     });
   };
 
