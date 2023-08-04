@@ -42,7 +42,7 @@ const transitionHover = '250ms cubic-bezier(0.4, 0, 0.2, 1)';
 export const lightTheme = {
   colors: {
     bgdColor: '#FEF9F9',
-    bgdColorSecond: '#FEF9F9',
+    bgdColorSecond: '#fbf0e7',
     bgdColorAuth: '#FFFFFF',
     bgdColorBurger: '#FEF9F9',
     yellow: '#FFC107',

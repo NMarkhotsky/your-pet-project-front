@@ -53,7 +53,7 @@ export const ImageWrapper = styled.div`
 
   height: 252px;
 
-  background-color: #fbf0e7;
+  background-color: ${({ theme }) => theme.colors.bgdColorSecond};
   border-radius: 20px;
 
   @media ${selectTablet} {

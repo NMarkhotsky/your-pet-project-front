@@ -27,7 +27,7 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${({ theme }) => theme.colors.bgdColorAuth};
+  background-color: ${({ theme }) => theme.colors.bgdColorSecond};
   background-position: center;
   background-size: cover;
 
