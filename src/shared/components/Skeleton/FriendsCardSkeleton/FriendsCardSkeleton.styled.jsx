@@ -26,7 +26,7 @@ export const FriendItemSkeleton = styled.li`
   height: 255px;
 
   padding: 16px 12px;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.bgdColorAuth};
   box-shadow: ${({ theme }) => theme.boxShadow.main};
   border-radius: 20px;
 

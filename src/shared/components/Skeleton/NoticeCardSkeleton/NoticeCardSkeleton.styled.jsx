@@ -11,7 +11,6 @@ const ListItem = styled.li`
   padding-bottom: 24px;
   border-radius: 0px 0px 40px 40px;
   box-shadow: ${({ theme }) => theme.boxShadow.main};
-
   @media ${selectTablet} {
     width: 336px;
   }
@@ -28,7 +27,7 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: #e7f5fb;
+  background-color: ${({ theme }) => theme.colors.bgdColorAuth};
   background-position: center;
   background-size: cover;
 
@@ -82,7 +81,7 @@ const CardFooter = styled.div`
   align-items: center;
   gap: 20px;
   padding-bottom: 20px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.bgdColorAuth};
   border-radius: 0px 0px 40px 40px;
 `;
 

@@ -14,7 +14,7 @@ export const Item = styled.li`
   box-shadow: ${({ theme }) => theme.boxShadow.main};
   border-radius: 20px;
 
-  background: #ffffff;
+  background-color: ${({ theme }) => theme.colors.bgdColorAuth};
   transition: box-shadow 300ms ${({ theme }) => theme.transitionHover};
   &:hover {
     box-shadow: ${({ theme }) => theme.boxShadow.secondary};
