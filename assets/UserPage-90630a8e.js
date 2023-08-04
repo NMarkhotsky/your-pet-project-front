@@ -1,4 +1,4 @@
-import{s as o,b as a,a as g,f as y,B as D,l as T,r as n,j as t,t as i,I as f,M as A,w as te,x as se,h as oe,F as ne,e as R,y as ie,d as ae,q as re,P as m,c as le,L as ce,T as de,S as me,z as he,A as pe,D as xe,u as ue,E as fe}from"./index-b67bfc2a.js";import{b as ge,c as q,d as be,E as je}from"./formik.esm-7e1dde12.js";import{M as ye}from"./ModalConfirmDelete-94432239.js";import{i as $e,S as ve}from"./ScrollToTopButton-386a069e.js";const we=o.section`
+import{s as o,b as a,a as g,f as y,B as D,l as T,r as n,j as t,t as i,I as f,M as A,w as te,x as se,h as oe,F as ne,e as R,y as ie,d as ae,q as re,P as m,c as le,L as ce,T as de,S as me,z as he,A as pe,D as xe,u as ue,E as fe}from"./index-54ec674c.js";import{b as ge,c as q,d as be,E as je}from"./formik.esm-5cdd69e5.js";import{M as ye}from"./ModalConfirmDelete-f960a3b6.js";import{i as $e,S as ve}from"./ScrollToTopButton-6ad6d2e0.js";const we=o.section`
   background-color: ${e=>e.theme.colors.bgdColor};
   padding: 40px 0;
 
@@ -283,6 +283,7 @@ import{s as o,b as a,a as g,f as y,B as D,l as T,r as n,j as t,t as i,I as f,M a
 `,Ye=o.img`
   width: 100%;
   border-radius: 40px;
+  object-fit: cover;
 
   @media screen and (max-width: 767px) {
     margin-top: 20px;
@@ -290,10 +291,12 @@ import{s as o,b as a,a as g,f as y,B as D,l as T,r as n,j as t,t as i,I as f,M a
 
   @media ${a} {
     width: 128px;
+    height: 128px;
   }
 
   @media ${g} {
     width: 161px;
+    height: 161px;
   }
 `,Ge=o.div`
   padding-top: 20px;

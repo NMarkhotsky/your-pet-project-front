@@ -1,4 +1,4 @@
-import{s as t}from"./index-b67bfc2a.js";const r=t.button`
+import{s as t}from"./index-54ec674c.js";const r=t.button`
   position: relative;
   display: flex;
   margin: auto;
