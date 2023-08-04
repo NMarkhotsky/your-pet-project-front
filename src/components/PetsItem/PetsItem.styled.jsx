@@ -35,6 +35,7 @@ export const ContainerItem = styled.div`
 export const Image = styled.img`
   width: 100%;
   border-radius: 40px;
+  object-fit: cover;
 
   @media screen and (max-width: 767px) {
     margin-top: 20px;
@@ -42,10 +43,12 @@ export const Image = styled.img`
 
   @media ${selectTablet} {
     width: 128px;
+    height: 128px;
   }
 
   @media ${selectDesktop} {
     width: 161px;
+    height: 161px;
   }
 `;
 

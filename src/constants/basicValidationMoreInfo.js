@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 const MAX_SIZE_FILE = 3;
-const MAX_LENGTH_MESSAGE = 70;
+const MAX_LENGTH_MESSAGE = 120;
 
 const ACCEPTED_IMAGE_FORMATS = ['image/jpg', 'image/jpeg', 'image/png'];
 
