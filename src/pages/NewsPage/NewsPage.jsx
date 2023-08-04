@@ -7,6 +7,8 @@ import { t } from 'i18next';
 import { Loader } from '../../shared/components/Loader/Loader';
 import { scrollToTop } from '../../utils/scrollToTop';
 import { NoInfoPart } from '../../components/NoInfoPart/NoInfoPart';
+import NewsCardSkeleton from '../../shared/components/Skeleton/NewsCardSkeleton/NewsCardSkeleton';
+import { Pagination } from '../../components/Pagination/Pagination';
 
 const PER_PAGE = 6;
 
@@ -70,11 +72,18 @@ function NewsPage() {
         onSubmit={handleSearch}
         onDelete={handleDelete}
       />
-      <NewsList
-        list={news}
-        pageCount={pageCount}
-        handlePageChange={handlePageChange}
-      />
+      {isLoading ? (
+        <NewsCardSkeleton cards={6} />
+      ) : (
+        <NewsList
+          list={news}
+          pageCount={pageCount}
+          handlePageChange={handlePageChange}
+        />
+      )}
+      {pageCount > 1 && (
+        <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
+      )}
       {isLoading ? <Loader /> : null}
       {news.length === 0 && !isLoading && <NoInfoPart />}
     </>

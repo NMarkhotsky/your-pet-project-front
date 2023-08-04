@@ -92,16 +92,15 @@ const CardFooter = styled.div`
 `;
 
 const Comments = styled(BaseSkeleton)`
-  /* margin: 20px auto; */
+  margin-top: 20px;
 
   width: 248px;
-  height: 63px;
+  height: 40px;
 
   border-radius: 10px;
 `;
 
 const MoreBtn = styled(BaseSkeleton)`
-  /* margin: 0 auto; */
   width: 248px;
   height: 42px;
 

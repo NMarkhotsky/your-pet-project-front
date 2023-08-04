@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
 
 import NewsItem from '../NewsItem/NewsItem';
-import { Pagination } from '../Pagination/Pagination';
 import { List } from './NewsList.styled';
 
-export const NewsList = ({ list, pageCount, handlePageChange }) => {
+export const NewsList = ({ list }) => {
   return (
     <>
       {list.length > 0 && (
@@ -13,9 +12,6 @@ export const NewsList = ({ list, pageCount, handlePageChange }) => {
             <NewsItem key={article._id} article={article} />
           ))}
         </List>
-      )}
-      {pageCount > 1 && (
-        <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
       )}
     </>
   );
