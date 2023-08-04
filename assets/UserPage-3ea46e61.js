@@ -1,4 +1,4 @@
-import{s as o,b as a,a as g,f as y,B as D,l as T,r as n,j as t,t as i,I as f,M as A,w as te,x as se,h as oe,F as ne,e as R,y as ie,d as ae,q as re,P as m,c as le,L as ce,T as de,S as me,z as he,A as pe,D as xe,u as ue,E as fe}from"./index-58b0e4b9.js";import{b as ge,c as q,d as be,E as je}from"./formik.esm-89b5e558.js";import{M as ye}from"./ModalConfirmDelete-17c7f7ab.js";import{i as $e}from"./catImg-34c1bda9.js";import{S as ve}from"./ScrollToTopButton-7280de1f.js";const we=o.section`
+import{s as o,b as a,a as g,f as y,B as D,l as T,r as n,j as t,t as i,I as f,M as A,w as te,x as se,h as oe,F as ne,e as R,y as ie,d as ae,q as re,P as m,c as le,L as ce,T as de,S as me,z as he,A as pe,D as xe,u as ue,E as fe}from"./index-9e458746.js";import{b as ge,c as q,d as be,E as je}from"./formik.esm-2adf4575.js";import{M as ye}from"./ModalConfirmDelete-2c76881f.js";import{i as $e,S as ve}from"./ScrollToTopButton-b84f764c.js";const we=o.section`
   background-color: ${e=>e.theme.colors.bgdColor};
   padding: 40px 0;
 
@@ -385,4 +385,4 @@ import{s as o,b as a,a as g,f as y,B as D,l as T,r as n,j as t,t as i,I as f,M a
     margin-bottom: 60px;
     letter-spacing: 0.96px;
   }
-`,O=({onClose:e})=>t.jsx(A,{onClose:e,children:t.jsxs(Xe,{children:[t.jsx(et,{children:"Congrats!"}),t.jsx(tt,{children:"Your registration is success"}),t.jsx(H,{onClick:e,text:"Go to profile"})]})});O.propTypes={onClose:m.func.isRequired};function rt(){const{isNewUser:e}=ue(),[s,b]=n.useState(!0),h=T(),c=()=>{b(!1),h(fe())};return n.useEffect(()=>{},[e]),t.jsxs(we,{children:[e&&s&&t.jsx("div",{children:t.jsx(O,{onClose:c})}),t.jsx(Be,{}),t.jsx(Qe,{})]})}export{rt as default};
+`,O=({onClose:e})=>t.jsx(A,{onClose:e,children:t.jsxs(Xe,{children:[t.jsx(et,{children:"Congrats!"}),t.jsx(tt,{children:"Your registration is success"}),t.jsx(H,{onClick:e,text:"Go to profile"})]})});O.propTypes={onClose:m.func.isRequired};function at(){const{isNewUser:e}=ue(),[s,b]=n.useState(!0),h=T(),c=()=>{b(!1),h(fe())};return n.useEffect(()=>{},[e]),t.jsxs(we,{children:[e&&s&&t.jsx("div",{children:t.jsx(O,{onClose:c})}),t.jsx(Be,{}),t.jsx(Qe,{})]})}export{at as default};
