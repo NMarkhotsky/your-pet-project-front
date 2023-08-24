@@ -4,7 +4,6 @@ import { Title } from './NewsPage.styled';
 import { SearchInput } from '../../shared/components/SearchInput/SearchInput';
 import { getNews } from '../../services/NewsApi';
 import { t } from 'i18next';
-import { Loader } from '../../shared/components/Loader/Loader';
 import { scrollToTop } from '../../utils/scrollToTop';
 import { NoInfoPart } from '../../components/NoInfoPart/NoInfoPart';
 import NewsCardSkeleton from '../../shared/components/Skeleton/NewsCardSkeleton/NewsCardSkeleton';
@@ -85,7 +84,6 @@ function NewsPage() {
       {pageCount > 1 && (
         <Pagination pageCount={pageCount} handlePageChange={handlePageChange} />
       )}
-      {isLoading ? <Loader /> : null}
       {news.length === 0 && !isLoading && <NoInfoPart />}
       <ScrollToTopButton />
     </>
