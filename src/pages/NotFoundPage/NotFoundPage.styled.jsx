@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: ${props => props.theme.colors.black};
+  color: ${props => props.theme.colors.text};
   font-family: ${props => props.theme.fonts.main.bold};
   font-size: ${props => props.theme.fontSizes.xl};
   text-align: center;

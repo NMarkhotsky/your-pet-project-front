@@ -8,8 +8,12 @@ import { Backdrop, Modal, CloseBtn } from './ModalAprroveAction.styled';
 const modalRoot = document.querySelector('#modal-root');
 
 export const ModalApproveAction = ({ children, onClose }) => {
+  document.body.style.overflow = 'hidden';
+
   const handleClose = useCallback(
     ({ target, currentTarget, code }) => {
+      document.body.style.overflow = 'visible';
+
       if (target === currentTarget || code === 'Escape') {
         onClose();
       }

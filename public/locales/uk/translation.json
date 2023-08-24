@@ -29,6 +29,9 @@
 
   "news_title": "Новини",
 
+  "notFoundPage_title": "Упс! Цю сторінку не знайдено",
+  "notFoundPage_btn": "На головну",
+
   "friends_title": "Наші друзі",
   "friends_friendItem_workTime": "Вдень та вночі",
   "friends_friendItem_emailOnly": "Тільки електронна пошта",

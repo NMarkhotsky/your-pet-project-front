@@ -16,6 +16,10 @@ export const Burger = () => {
     setOpen(!open);
   };
 
+  open
+    ? (document.body.style.overflow = 'hidden')
+    : (document.body.style.overflow = 'visible');
+
   return (
     <>
       <Navigation open={open} handleToggleBurger={handleToggleBurger} />

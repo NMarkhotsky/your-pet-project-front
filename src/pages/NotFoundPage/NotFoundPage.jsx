@@ -3,7 +3,6 @@ import { Icon } from '../../components/Icon/Icon';
 import {
   Container,
   Title,
-  TitleBr,
   CatImg,
   Img,
   BtnToMain,
@@ -15,15 +14,14 @@ import cattablet1x from '../../assets/images/NotFoundImages/cattablet.png';
 import cattablet2x from '../../assets/images/NotFoundImages/cattablet@2x.png';
 import catmobile1x from '../../assets/images/NotFoundImages/catmobile.png';
 import catmobile2x from '../../assets/images/NotFoundImages/catmobile@2x.png';
+import { t } from 'i18next';
 
 const NotFoundPage = () => {
   return (
     <>
       <BackgroundWrapper />
       <Container>
-        <Title>
-          <TitleBr>Ooops!</TitleBr> This page not found &#58;&#40;
-        </Title>
+        <Title>{t('notFoundPage_title')}&#58;&#40;</Title>
         <CatImg>
           <picture>
             <source
@@ -43,7 +41,7 @@ const NotFoundPage = () => {
         </CatImg>
         <NavLink to="/">
           <BtnToMain>
-            To main page
+            {t('notFoundPage_btn')}
             <Icon
               iconName={'icon-pawprint'}
               width={'24px'}

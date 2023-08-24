@@ -29,6 +29,9 @@
 
   "news_title": "News",
 
+  "notFoundPage_title": "Ooops! This page not found",
+  "notFoundPage_btn": "To main page",
+
   "friends_title": "Our friends",
   "friends_friendItem_workTime": "Day and Night",
   "friends_friendItem_emailOnly": "Email only",
