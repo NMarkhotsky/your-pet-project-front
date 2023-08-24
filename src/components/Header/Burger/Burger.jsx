@@ -16,9 +16,11 @@ export const Burger = () => {
     setOpen(!open);
   };
 
-  open
-    ? (document.body.style.overflow = 'hidden')
-    : (document.body.style.overflow = 'visible');
+  if (window.innerWidth < 1280) {
+    open
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'visible');
+  }
 
   return (
     <>
