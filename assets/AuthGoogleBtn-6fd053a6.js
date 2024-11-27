@@ -1,4 +1,4 @@
-import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff7c19.js";import{a as $}from"./formik.esm-0acb5fe7.js";const f=t.div`
+import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./index-582bd8a7.js";import{a as f}from"./formik.esm-918e7f77.js";const F=t.div`
   margin: 80px auto 15px auto;
   padding: 40px 12px;
   width: 100%;
@@ -14,7 +14,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
     width: 608px;
     padding: 60px 75px;
   }
-`,F=t.h1`
+`,v=t.h1`
   margin-bottom: 20px;
   color: ${e=>e.theme.colors.text};
   text-align: center;
@@ -27,7 +27,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
     font-size: 36px;
     margin-bottom: 40px;
   }
-`,D=t.p`
+`,E=t.p`
   text-align: center;
   font-size: ${e=>e.theme.fontSizes.xs};
   letter-spacing: 0.48px;
@@ -35,7 +35,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
   color: ${e=>e.theme.colors.blue};
   text-decoration: underline;
   text-decoration-skip-ink: none;
-`;function v({title:e,children:n}){return o.jsxs(f,{children:[o.jsx(F,{children:e}),n]})}v.propTypes={title:i.string.isRequired,children:i.element.isRequired};const j=t.div`
+`;function j({title:e,children:n}){return o.jsxs(F,{children:[o.jsx(v,{children:e}),n]})}j.propTypes={title:i.string.isRequired,children:i.element.isRequired};const y=t.div`
   margin-bottom: 14px;
   position: relative;
 
@@ -46,7 +46,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
   @media ${r} {
     margin-bottom: 32px;
   }
-`,y=t.input`
+`,z=t.input`
   padding: 12px 16px;
   width: 100%;
   border-radius: 40px;
@@ -72,9 +72,9 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
     font-size: ${e=>e.theme.fontSizes.xs};
     bottom: -18px;
   }
-`,z=t(h)`
-  color: ${e=>e.theme.colors.red};
 `,w=t(h)`
+  color: ${e=>e.theme.colors.red};
+`,k=t(h)`
   color: ${e=>e.theme.colors.green};
 `,p=t.div`
   position: absolute;
@@ -84,7 +84,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
   position: absolute;
   top: 12px;
   right: ${e=>e.$touched?"52px":"16px"};
-`;const k=({successMessage:e,isFormSubmitted:n,...l})=>{const[a,d]=$(l),m=n&&d.error,c=n&&!d.error;return o.jsx(o.Fragment,{children:o.jsxs(j,{children:[o.jsx(y,{...a,...l,$invalid:m,$valid:c}),m?o.jsxs(o.Fragment,{children:[o.jsx(p,{children:o.jsx(s,{iconName:"icon-cross",stroke:"#F43F5E",fill:"#F43F5E"})}),o.jsx(z,{children:d.error})]}):null,c?o.jsx(p,{children:o.jsx(s,{iconName:"icon-check",stroke:"#00C3AD",fill:"#00C3AD"})}):null,c&&e?o.jsx(w,{children:e}):null]})})};k.propTypes={successMessage:i.string,isFormSubmitted:i.bool.isRequired};const S=t.div`
+`;const S=({successMessage:e,isFormSubmitted:n,...l})=>{const[a,d]=f(l),m=n&&d.error,c=n&&!d.error;return o.jsx(o.Fragment,{children:o.jsxs(y,{children:[o.jsx(z,{...a,...l,$invalid:m,$valid:c}),m?o.jsxs(o.Fragment,{children:[o.jsx(p,{children:o.jsx(s,{iconName:"icon-cross",stroke:"#F43F5E",fill:"#F43F5E"})}),o.jsx(w,{children:d.error})]}):null,c?o.jsx(p,{children:o.jsx(s,{iconName:"icon-check",stroke:"#00C3AD",fill:"#00C3AD"})}):null,c&&e?o.jsx(k,{children:e}):null]})})};S.propTypes={successMessage:i.string,isFormSubmitted:i.bool.isRequired};const A=t.div`
   margin-bottom: 14px;
   position: relative;
 
@@ -129,11 +129,11 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
   position: absolute;
   top: 12px;
   right: 16px;
-`;const A=t.div`
+`;const C=t.div`
   position: absolute;
   top: 12px;
   right: ${e=>e.$validated?"52px":"16px"};
-`,C=({isPasswordShown:e,isFormSubmitted:n,onClick:l,children:a})=>o.jsx(o.Fragment,{children:o.jsxs(S,{children:[a,o.jsx(A,{$validated:n,onClick:l,children:e?o.jsx(s,{iconName:"icon-eye-open",stroke:"#54ADFF",fill:"#54ADFF"}):o.jsx(s,{iconName:"icon-eye-closed",stroke:"#54ADFF",fill:"#54ADFF"})})]})});C.propTypes={isPasswordShown:i.bool,isFormSubmitted:i.bool,onClick:i.func.isRequired,children:i.node.isRequired};const T=t.button`
+`,T=({isPasswordShown:e,isFormSubmitted:n,onClick:l,children:a})=>o.jsx(o.Fragment,{children:o.jsxs(A,{children:[a,o.jsx(C,{$validated:n,onClick:l,children:e?o.jsx(s,{iconName:"icon-eye-open",stroke:"#54ADFF",fill:"#54ADFF"}):o.jsx(s,{iconName:"icon-eye-closed",stroke:"#54ADFF",fill:"#54ADFF"})})]})});T.propTypes={isPasswordShown:i.bool,isFormSubmitted:i.bool,onClick:i.func.isRequired,children:i.node.isRequired};const B=t.button`
   margin-bottom: 16px;
   padding: 10px 28px;
   width: 100%;
@@ -151,7 +151,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
   &:focus {
     background: ${e=>e.theme.colors.blueGradient};
   }
-`,I=({btnText:e})=>o.jsx(T,{type:"submit",children:e});I.propTypes={btnText:i.string.isRequired};const q=t.a`
+`,I=({btnText:e})=>o.jsx(B,{type:"submit",children:e});I.propTypes={btnText:i.string.isRequired};const R=t.a`
   position: relative;
 
   display: flex;
@@ -184,7 +184,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b}from"./index-95ff
     height: 50px;
     font-size: 18px;
   }
-`,B=t.div`
+`,q=t.div`
   position: absolute;
   left: 16px;
-`,E=()=>{const{t:e}=b();return o.jsxs(q,{href:"https://mypets-backend.onrender.com/api/auth/google",children:[o.jsx(B,{children:o.jsx(s,{iconName:"icon-google"})}),e("auth_googleBtn")]})};export{I as A,k as F,C as a,E as b,D as c,P as d,v as e};
+`,G=()=>{const{t:e}=b();return o.jsxs(R,{href:`${$}/auth/google`,children:[o.jsx(q,{children:o.jsx(s,{iconName:"icon-google"})}),e("auth_googleBtn")]})};export{I as A,S as F,T as a,G as b,E as c,P as d,j as e};
