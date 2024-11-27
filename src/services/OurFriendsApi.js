@@ -6,10 +6,10 @@ axios.defaults.baseURL = BASE_URL;
 export const getOurFriends = async () => {
   try {
     const {
-      data: { friends },
+      data: { data },
     } = await axios.get('/friends');
 
-    return friends;
+    return data;
   } catch (error) {
     console.log(error);
   }

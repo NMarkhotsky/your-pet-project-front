@@ -57,7 +57,7 @@ export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
                   <FriendInfoTime>{t('other_time')}:</FriendInfoTime>
                   <FriendInfoData>
                     {workDays
-                      ? workDays[0].isOpen
+                      ? workDays[0]?.isOpen
                         ? `${workDays[0].from} - ${workDays[0].to}`
                         : t('other_close')
                       : t('friends_friendItem_workTime')}
