@@ -55,7 +55,7 @@
 ---
 
 ### <div align=center>Бекенд проєкту "Your Pet":</div>
-###### <div align=center>["Your Pet - Backend" 🐾](https://github.com/yogurtfirst/mypets-project-backend)</div>
+###### <div align=center>["Your Pet - Backend" 🐾](https://github.com/NMarkhotsky/your-pet-project-backend)</div>
 
 ---
 
