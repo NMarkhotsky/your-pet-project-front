@@ -54,7 +54,7 @@ functional web application. Here are the key technologies used in the project:
 ---
 
 ### <div align=center>The Backend of the "Your Pet" Project:</div>
-###### <div align=center>["Your Pet - Backend" 🐾](https://github.com/yogurtfirst/mypets-project-backend)</div>
+###### <div align=center>["Your Pet - Backend" 🐾](https://github.com/NMarkhotsky/your-pet-project-backend)</div>
 
 ---
 
