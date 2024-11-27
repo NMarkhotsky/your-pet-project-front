@@ -12,6 +12,7 @@ function OurFriendsPage() {
     const getData = async () => {
       try {
         const friends = await getOurFriends();
+        console.log('friends: ', friends);
 
         setFriends(friends);
       } catch (error) {

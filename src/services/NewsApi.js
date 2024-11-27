@@ -3,16 +3,14 @@ import { BASE_URL } from '../constants/globalConstants';
 
 axios.defaults.baseURL = BASE_URL;
 
-export const getNews = async (params) => {
+export const getNews = async params => {
   try {
-    let reqURL = ''
-        for (let key in params) {
-            reqURL += `&${key}=${params[key]}`
+    let reqURL = '';
+    for (let key in params) {
+      reqURL += `&${key}=${params[key]}`;
     }
-    
-    const response = await axios.get(
-      `/news?${reqURL}`
-    );
+
+    const response = await axios.get(`/news?${reqURL}`);
 
     return response;
   } catch (error) {

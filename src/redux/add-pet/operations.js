@@ -1,33 +1,31 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { BASE_URL } from '../../constants/globalConstants';
 
-axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api/';
+axios.defaults.baseURL = BASE_URL;
 
-export const addPet = createAsyncThunk(
-  "addPet",
-  async (data, thunkAPI) => {
-    try {
-      const response = await axios.post("/pets", data, {
+export const addPet = createAsyncThunk('addPet', async (data, thunkAPI) => {
+  try {
+    const response = await axios.post('/pets', data, {
       headers: {
-        "Content-Type": "multipart/form-data",
-      }
+        'Content-Type': 'multipart/form-data',
+      },
     });
-      return response.data;
-    } catch (error) {
-      console.log(error);
-      return thunkAPI.rejectWithValue(error);
-    }
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    return thunkAPI.rejectWithValue(error);
   }
-);
+});
 
 export const addNotice = createAsyncThunk(
-  "addNotice",
+  'addNotice',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.post("/notices", data, {
+      const response = await axios.post('/notices', data, {
         headers: {
-          "Content-Type": "multipart/form-data",
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       });
       return response.data;
     } catch (error) {

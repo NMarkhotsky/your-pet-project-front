@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 
 //AXIOS
-export const BASE_URL = 'https://mypets-backend.onrender.com/api';
-// export const BASE_URL = 'http://localhost:3001/api';
+export const BASE_URL = 'https://your-pet-project-backend.vercel.app/api';
+// export const BASE_URL = 'http://localhost:3000/api';
 
 export const CATEGORIES = {
   SELL: 'sell',

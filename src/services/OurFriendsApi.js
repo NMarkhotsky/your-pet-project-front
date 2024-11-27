@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { BASE_URL } from '../constants/globalConstants';
 
-axios.defaults.baseURL = 'https://mypets-backend.onrender.com/api';
+axios.defaults.baseURL = BASE_URL;
 
 export const getOurFriends = async () => {
   try {
