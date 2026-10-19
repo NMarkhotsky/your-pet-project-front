@@ -1,4 +1,4 @@
-import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./index-8b649952.js";import{a as f}from"./formik.esm-31d4a871.js";const F=t.div`
+import{s as t,n as x,b as n,P as i,j as o,I as s,o as u}from"./index-ee3ce916.js";import{N as b}from"./react-ecc61561.js";import{f}from"./forms-b2853f00.js";import{u as $}from"./translations-5abde677.js";const F=t.div`
   margin: 80px auto 15px auto;
   padding: 40px 12px;
   width: 100%;
@@ -10,7 +10,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
     /* width: 280px; */
   }
 
-  @media ${r} {
+  @media ${n} {
     width: 608px;
     padding: 60px 75px;
   }
@@ -23,19 +23,19 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
   line-height: normal;
   letter-spacing: 1.44px;
 
-  @media ${r} {
+  @media ${n} {
     font-size: 36px;
     margin-bottom: 40px;
   }
-`,E=t.p`
+`,P=t.p`
   text-align: center;
   font-size: ${e=>e.theme.fontSizes.xs};
   letter-spacing: 0.48px;
-`,P=t(u)`
+`,M=t(b)`
   color: ${e=>e.theme.colors.blue};
   text-decoration: underline;
   text-decoration-skip-ink: none;
-`;function j({title:e,children:n}){return o.jsxs(F,{children:[o.jsx(v,{children:e}),n]})}j.propTypes={title:i.string.isRequired,children:i.element.isRequired};const y=t.div`
+`;function j({title:e,children:r}){return o.jsxs(F,{children:[o.jsx(v,{children:e}),r]})}j.propTypes={title:i.string.isRequired,children:i.element.isRequired};const y=t.div`
   margin-bottom: 14px;
   position: relative;
 
@@ -43,7 +43,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
     margin-bottom: 40px;
   }
 
-  @media ${r} {
+  @media ${n} {
     margin-bottom: 32px;
   }
 `,z=t.input`
@@ -68,7 +68,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
   left: 16px;
   font-size: 8px;
 
-  @media ${r} {
+  @media ${n} {
     font-size: ${e=>e.theme.fontSizes.xs};
     bottom: -18px;
   }
@@ -84,7 +84,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
   position: absolute;
   top: 12px;
   right: ${e=>e.$touched?"52px":"16px"};
-`;const S=({successMessage:e,isFormSubmitted:n,...l})=>{const[a,d]=f(l),m=n&&d.error,c=n&&!d.error;return o.jsx(o.Fragment,{children:o.jsxs(y,{children:[o.jsx(z,{...a,...l,$invalid:m,$valid:c}),m?o.jsxs(o.Fragment,{children:[o.jsx(p,{children:o.jsx(s,{iconName:"icon-cross",stroke:"#F43F5E",fill:"#F43F5E"})}),o.jsx(w,{children:d.error})]}):null,c?o.jsx(p,{children:o.jsx(s,{iconName:"icon-check",stroke:"#00C3AD",fill:"#00C3AD"})}):null,c&&e?o.jsx(k,{children:e}):null]})})};S.propTypes={successMessage:i.string,isFormSubmitted:i.bool.isRequired};const A=t.div`
+`;const S=({successMessage:e,isFormSubmitted:r,...l})=>{const[a,d]=f(l),m=r&&d.error,c=r&&!d.error;return o.jsx(o.Fragment,{children:o.jsxs(y,{children:[o.jsx(z,{...a,...l,$invalid:m,$valid:c}),m?o.jsxs(o.Fragment,{children:[o.jsx(p,{children:o.jsx(s,{iconName:"icon-cross",stroke:"#F43F5E",fill:"#F43F5E"})}),o.jsx(w,{children:d.error})]}):null,c?o.jsx(p,{children:o.jsx(s,{iconName:"icon-check",stroke:"#00C3AD",fill:"#00C3AD"})}):null,c&&e?o.jsx(k,{children:e}):null]})})};S.propTypes={successMessage:i.string,isFormSubmitted:i.bool.isRequired};const A=t.div`
   margin-bottom: 14px;
   position: relative;
 
@@ -92,7 +92,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
     margin-bottom: 40px;
   }
 
-  @media ${r} {
+  @media ${n} {
     margin-bottom: 32px;
   }
 `;t.input`
@@ -117,7 +117,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
   left: 16px;
   font-size: 8px;
 
-  @media ${r} {
+  @media ${n} {
     font-size: ${e=>e.theme.fontSizes.xs};
     bottom: -18px;
   }
@@ -129,11 +129,11 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
   position: absolute;
   top: 12px;
   right: 16px;
-`;const C=t.div`
+`;const C=t.button`
   position: absolute;
   top: 12px;
   right: ${e=>e.$validated?"52px":"16px"};
-`,T=({isPasswordShown:e,isFormSubmitted:n,onClick:l,children:a})=>o.jsx(o.Fragment,{children:o.jsxs(A,{children:[a,o.jsx(C,{$validated:n,onClick:l,children:e?o.jsx(s,{iconName:"icon-eye-open",stroke:"#54ADFF",fill:"#54ADFF"}):o.jsx(s,{iconName:"icon-eye-closed",stroke:"#54ADFF",fill:"#54ADFF"})})]})});T.propTypes={isPasswordShown:i.bool,isFormSubmitted:i.bool,onClick:i.func.isRequired,children:i.node.isRequired};const B=t.button`
+`,T=({isPasswordShown:e,isFormSubmitted:r,onClick:l,children:a})=>o.jsx(o.Fragment,{children:o.jsxs(A,{children:[a,o.jsx(C,{type:"button","aria-label":"Show or hide password","aria-pressed":e,$validated:r,onClick:l,children:e?o.jsx(s,{iconName:"icon-eye-open",stroke:"#54ADFF",fill:"#54ADFF"}):o.jsx(s,{iconName:"icon-eye-closed",stroke:"#54ADFF",fill:"#54ADFF"})})]})});T.propTypes={isPasswordShown:i.bool,isFormSubmitted:i.bool,onClick:i.func.isRequired,children:i.node.isRequired};const B=t.button`
   margin-bottom: 16px;
   padding: 10px 28px;
   width: 100%;
@@ -184,7 +184,7 @@ import{s as t,p as x,b as r,N as u,P as i,j as o,I as s,q as b,B as $}from"./ind
     height: 50px;
     font-size: 18px;
   }
-`,q=t.div`
+`,N=t.div`
   position: absolute;
   left: 16px;
-`,G=()=>{const{t:e}=b();return o.jsxs(R,{href:`${$}/auth/google`,children:[o.jsx(q,{children:o.jsx(s,{iconName:"icon-google"})}),e("auth_googleBtn")]})};export{I as A,S as F,T as a,G as b,E as c,P as d,j as e};
+`,L=()=>{const{t:e}=$();return o.jsxs(R,{href:`${u}/auth/google`,children:[o.jsx(N,{children:o.jsx(s,{iconName:"icon-google"})}),e("auth_googleBtn")]})};export{I as A,S as F,T as a,L as b,P as c,M as d,j as e};

@@ -1,16 +1,16 @@
-import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}from"./index-8b649952.js";import{T as R}from"./TitlePage-185a54a6.js";import{B as w}from"./BaseSkeleton.styled-b6680972.js";const H=t.section`
+import{s as t,b as o,a as d,e as W,d as O,P as p,j as i,k as H}from"./index-ee3ce916.js";import{r as k}from"./react-ecc61561.js";import{T as L}from"./TitlePage-12b93e7d.js";import{t as n}from"./translations-5abde677.js";import{B as w,u as C,N as q}from"./useResource-0c2fa8d4.js";import{R as E}from"./catImg-bc7fe17e.js";import"./state-c18d5234.js";import"./forms-b2853f00.js";import"./Btn.styled-bc5f3f54.js";const P=t.section`
   padding-bottom: 75px;
-`,L=t.div`
+`,A=t.div`
   margin-bottom: 24px;
 
   @media ${o} {
     margin-top: 40px;
   }
 
-  @media ${s} {
+  @media ${d} {
     margin-bottom: 60px;
   }
-`;v.defaults.baseURL=W;const C=async()=>{try{const{data:{data:e}}=await v.get("/friends");return e}catch(e){console.log(e)}},E=t.li`
+`,M=async(e={})=>(await W.get("/friends",e)).data.data,B=t.li`
   position: relative;
 
   flex: 1;
@@ -29,7 +29,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
     min-width: 336px;
   }
 
-  @media ${s} {
+  @media ${d} {
     min-width: 394px;
 
     &:last-child {
@@ -47,11 +47,12 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   }
 
   cursor: pointer;
-`,A=t.div`
+  ${O}
+`,N=t.div`
   display: flex;
   gap: 16px;
   flex-grow: 1;
-`,B=t.a`
+`,D=t.a`
   display: block;
   margin-bottom: 16px;
 
@@ -61,7 +62,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   text-align: center;
 
   color: ${({theme:e})=>e.colors.blue};
-`,q=t.div``,P=t.img`
+`,G=t.div``,J=t.img`
   width: 100px;
   height: 68px;
 
@@ -70,15 +71,15 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
     height: 88px;
   }
 
-  @media ${s} {
+  @media ${d} {
     width: 146px;
     height: 104px;
   }
-`,M=t.div`
+`,K=t.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
-`,x=t.div`
+`,m=t.div`
   font-family: ${({theme:e})=>e.fonts.main.semiBold};
   font-size: ${({theme:e})=>e.fontSizes.xs};
   line-height: normal;
@@ -87,7 +88,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
     font-size: ${({theme:e})=>e.fontSizes.sm};
   }
 
-  @media ${s} {
+  @media ${d} {
     font-size: ${({theme:e})=>e.fontSizes.md};
   }
 
@@ -102,12 +103,12 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
 
     cursor: pointer;
   }
-`,N=t.p`
+`,Q=t.p`
   position: relative;
-`,b=t.p``,p=t.a`
+`,y=t.p``,f=t.a`
   font-family: ${({theme:e})=>e.fonts.main.regular};
   color: ${({theme:e})=>e.colors.text};
-`,U=t.ul`
+`,V=t.ul`
   position: absolute;
   top: 107px;
   right: 97px;
@@ -126,7 +127,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   background-color: ${e=>e.theme.colors.bgdColorSecond};
 
   transition: all ${({theme:e})=>e.transitionHover};
-`,D=t.li`
+`,X=t.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,11 +136,11 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   font-size: ${({theme:e})=>e.fontSizes.xs};
 
   /* color: #111; */
-`,G=t.p`
+`,Y=t.p`
   color: ${e=>e.theme.colors.text};
-`,J=t.p`
+`,Z=t.p`
   color: ${e=>e.theme.colors.text};
-`,K=[n("other_MN"),n("other_TU"),n("other_WE"),n("other_TH"),n("other_FR"),n("other_SA"),n("other_SU")],T=({items:e,handleTimeHover:d,hoveredTime:a})=>i.jsx(i.Fragment,{children:e.map(({imageUrl:r,url:g,title:k,workDays:l,address:F,email:$,phone:j,addressUrl:z})=>{var S;return i.jsxs(E,{children:[i.jsx(B,{href:`${g}`,target:"_blank",children:k}),i.jsxs(A,{children:[i.jsx(q,{children:i.jsx(P,{src:r})}),i.jsxs(M,{children:[i.jsxs(x,{onMouseEnter:()=>d(r),onMouseLeave:()=>d(""),children:[i.jsxs(N,{children:[n("other_time"),":"]}),i.jsx(p,{children:l?(S=l[0])!=null&&S.isOpen?`${l[0].from} - ${l[0].to}`:n("other_close"):n("friends_friendItem_workTime")})]}),i.jsxs(x,{children:[i.jsxs(b,{children:[n("other_address"),":"]}),i.jsx(p,{href:z,target:"_blank",rel:"noopener noreferrer",children:F===null?"Website only":F})]}),i.jsxs(x,{children:[i.jsxs(b,{children:[n("other_email"),":"]}),i.jsx(p,{href:`mailto:${$}`,children:$===null?n("friends_friendItem_phoneOnly"):$})]}),i.jsxs(x,{children:[i.jsxs(b,{children:[n("other_phone"),":"]}),i.jsx(p,{href:`tel:${j}`,children:j===null?n("friends_friendItem_emailOnly"):j})]})]})]}),a===r&&i.jsx(U,{children:l?l.map((c,_)=>c&&i.jsxs(D,{children:[i.jsxs(G,{children:[K[_],": "]}),i.jsx(J,{children:c.isOpen?`${c.from} - ${c.to}`:n("other_closed")})]},_)):n("friends_friendItem_workTime")})]},r)})});T.propTypes={items:u.array.isRequired,handleTimeHover:u.func.isRequired,hoveredTime:u.string.isRequired};const Q=t.div``,V=t.ul`
+`,_=({items:e,handleTimeHover:a,hoveredTime:r})=>{const c=["MN","TU","WE","TH","FR","SA","SU"].map(s=>n(`other_${s}`)),l=(new Date().getDay()+6)%7;return i.jsx(i.Fragment,{children:e.map(({imageUrl:s,url:F,title:v,workDays:x,address:S,email:j,phone:b,addressUrl:R})=>{var T;return i.jsxs(B,{children:[i.jsx(D,{href:`${F}`,target:"_blank",rel:"noopener noreferrer",children:v}),i.jsxs(N,{children:[i.jsx(G,{children:i.jsx(J,{src:s,alt:v,loading:"lazy"})}),i.jsxs(K,{children:[i.jsxs(m,{onMouseEnter:()=>a(s),onMouseLeave:()=>a(""),children:[i.jsxs(Q,{children:[n("other_time"),":"]}),i.jsx(f,{children:x?(T=x[l])!=null&&T.isOpen?`${x[l].from} - ${x[l].to}`:n("other_close"):n("friends_friendItem_workTime")})]}),i.jsxs(m,{children:[i.jsxs(y,{children:[n("other_address"),":"]}),i.jsx(f,{href:R,target:"_blank",rel:"noopener noreferrer",children:S===null?"Website only":S})]}),i.jsxs(m,{children:[i.jsxs(y,{children:[n("other_email"),":"]}),i.jsx(f,{href:`mailto:${j}`,children:j===null?n("friends_friendItem_phoneOnly"):j})]}),i.jsxs(m,{children:[i.jsxs(y,{children:[n("other_phone"),":"]}),i.jsx(f,{href:`tel:${b}`,children:b===null?n("friends_friendItem_emailOnly"):b})]})]})]}),r===s&&i.jsx(V,{children:x?x.map((h,I)=>h&&i.jsxs(X,{children:[i.jsxs(Y,{children:[c[I],": "]}),i.jsx(Z,{children:h.isOpen?`${h.from} - ${h.to}`:n("other_closed")})]},I)):n("friends_friendItem_workTime")})]},F||s)})})};_.propTypes={items:p.array.isRequired,handleTimeHover:p.func.isRequired,hoveredTime:p.string.isRequired};const U=t.div``,ee=t.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -150,7 +151,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
     flex-direction: row;
     flex-wrap: wrap;
   }
-`,X=O`
+`,ie=H`
 0%{
   opacity: 0.5;
 }
@@ -160,7 +161,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
 100%{
   opacity: 0.5;
 }
-`,Y=t.li`
+`,te=t.li`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -179,7 +180,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
     height: 263px;
   }
 
-  @media ${s} {
+  @media ${d} {
     width: 394px;
     height: 287px;
 
@@ -189,7 +190,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
       margin-right: auto;
     }
   }
-`,Z=t(w)`
+`,ne=t(w)`
   display: block;
   margin: 0 auto;
 
@@ -200,7 +201,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   @media ${o} {
     border-radius: 40px;
   }
-`,ee=t.div`
+`,oe=t.div`
   display: flex;
   width: 100%;
   gap: 16px;
@@ -208,10 +209,10 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   @media ${o} {
     gap: 12px;
   }
-  @media ${s} {
+  @media ${d} {
     gap: 16px;
   }
-`,ie=t.span`
+`,re=t.span`
   position: relative;
   display: flex;
   align-items: center;
@@ -222,18 +223,18 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   background-color: #fbf0e7;
 
   & svg {
-    animation: ${X} 1s ease infinite;
+    animation: ${ie} 1s ease infinite;
   }
 
   @media ${o} {
     width: 120px;
     height: 88px;
   }
-  @media ${s} {
+  @media ${d} {
     width: 158px;
     height: 104px;
   }
-`,te=t.ul`
+`,se=t.ul`
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -242,15 +243,15 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   @media ${o} {
     gap: 16px;
   }
-  @media ${s} {
+  @media ${d} {
     gap: 16px;
   }
-`,h=t.li`
+`,u=t.li`
   display: flex;
   flex-direction: column;
   gap: 4px;
   width: 100%;
-`,m=t(w)`
+`,g=t(w)`
   width: 40%;
   height: 16px;
   margin: 0;
@@ -260,10 +261,10 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   @media ${o} {
     height: 16px;
   }
-  @media ${s} {
+  @media ${d} {
     height: 16px;
   }
-`,f=t(w)`
+`,$=t(w)`
   width: 60%;
   height: 16px;
 
@@ -272,7 +273,7 @@ import{s as t,b as o,a as s,f as v,B as W,t as n,P as u,j as i,g as O,r as y}fro
   @media ${o} {
     height: 16px;
   }
-  @media ${s} {
+  @media ${d} {
     height: 16px;
   }
-`,ne=({count:e})=>i.jsx(i.Fragment,{children:Array(e).fill(0).map((d,a)=>i.jsxs(Y,{children:[i.jsx(Z,{inline:!0}),i.jsxs(ee,{children:[i.jsx(ie,{}),i.jsxs(te,{children:[i.jsxs(h,{children:[i.jsx(m,{inline:!0}),i.jsx(f,{inline:!0})]}),i.jsxs(h,{children:[i.jsx(m,{inline:!0}),i.jsx(f,{inline:!0})]}),i.jsxs(h,{children:[i.jsx(m,{inline:!0}),i.jsx(f,{inline:!0})]}),i.jsxs(h,{children:[i.jsx(m,{inline:!0}),i.jsx(f,{inline:!0})]})]})]})]},a))}),I=({items:e})=>{const[d,a]=y.useState(""),r=g=>{a(g)};return i.jsx(Q,{children:i.jsx(V,{children:e.length!==0?i.jsx(T,{items:e,handleTimeHover:r,hoveredTime:d}):i.jsx(ne,{count:10})})})};I.propTypes={items:u.array.isRequired};function de(){const[e,d]=y.useState([]);return y.useEffect(()=>{(async()=>{try{const r=await C();d(r)}catch(r){console.log(r)}})()},[]),i.jsxs(H,{children:[i.jsx(L,{children:i.jsx(R,{children:n("friends_title")})}),i.jsx(I,{items:e})]})}export{de as default};
+`,de=({count:e})=>i.jsx(i.Fragment,{children:Array(e).fill(0).map((a,r)=>i.jsxs(te,{children:[i.jsx(ne,{inline:!0}),i.jsxs(oe,{children:[i.jsx(re,{}),i.jsxs(se,{children:[i.jsxs(u,{children:[i.jsx(g,{inline:!0}),i.jsx($,{inline:!0})]}),i.jsxs(u,{children:[i.jsx(g,{inline:!0}),i.jsx($,{inline:!0})]}),i.jsxs(u,{children:[i.jsx(g,{inline:!0}),i.jsx($,{inline:!0})]}),i.jsxs(u,{children:[i.jsx(g,{inline:!0}),i.jsx($,{inline:!0})]})]})]})]},r))}),z=({items:e,isLoading:a=!1})=>{const[r,c]=k.useState(""),l=s=>{c(s)};return i.jsx(U,{children:i.jsx(ee,{children:a?i.jsx(de,{count:10}):i.jsx(_,{items:e,handleTimeHover:l,hoveredTime:r})})})};z.propTypes={items:p.array.isRequired,isLoading:p.bool};const ae=(e,a)=>M(a);function $e(){const[e,a]=k.useState(0),{data:r=[],isLoading:c,error:l}=C(ae,{},e);return i.jsxs(P,{children:[i.jsx(A,{children:i.jsx(L,{children:n("friends_title")})}),i.jsx(z,{items:r||[],isLoading:c}),l&&i.jsx(E,{onRetry:()=>a(s=>s+1)}),!c&&!l&&!(r!=null&&r.length)&&i.jsx(q,{})]})}export{$e as default};
