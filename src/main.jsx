@@ -10,7 +10,7 @@ import { Loader } from './shared/components/Loader/Loader';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/your-pet-project-front">
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Provider store={store}>
         <PersistGate loading={<Loader />} persistor={persistor}>
           <React.Suspense fallback={<Loader />}>

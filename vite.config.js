@@ -2,9 +2,12 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
+const base = process.env.VITE_BASE_PATH ||
+  (process.env.VERCEL ? '/' : '/your-pet-project-front/');
+
 export default defineConfig({
   plugins: [react()],
-  base: '/your-pet-project-front',
+  base: base.endsWith('/') ? base : `${base}/`,
   build: {
     rollupOptions: {
       output: {

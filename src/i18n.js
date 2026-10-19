@@ -10,6 +10,6 @@ i18next
   .init({
     fallbackLng: 'en',
     backend: {
-      loadPath: '/your-pet-project-front/locales/{{lng}}/{{ns}}.json',
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
     },
   });
