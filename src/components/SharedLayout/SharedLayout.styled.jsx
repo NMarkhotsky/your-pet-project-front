@@ -1,3 +1,4 @@
+import { riseIn } from '../../theme/motion';
 import styled, { keyframes } from 'styled-components';
 import {
   selectPhone,
@@ -6,6 +7,7 @@ import {
 } from '../../utils/selectMediaRequests';
 
 export const Main = styled.main`
+  animation: ${riseIn} 320ms cubic-bezier(.22, 1, .36, 1);
   width: 100%;
   margin: 0 auto;
   padding: 0 20px;

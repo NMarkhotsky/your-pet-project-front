@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
 import { useState } from 'react';
 import { StyledBurger } from './Burger.styled';
 import { Navigation } from '../Navigation/Navigation';
@@ -16,11 +19,15 @@ export const Burger = () => {
     setOpen(!open);
   };
 
-  if (window.innerWidth < 1280) {
-    open
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'visible');
-  }
+  const { pathname } = useLocation();
+  useBodyScrollLock(open);
+  useEffect(() => { setOpen(false); }, [pathname]);
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 1280px)');
+    const close = () => { if (media.matches) setOpen(false); };
+    media.addEventListener('change', close);
+    return () => media.removeEventListener('change', close);
+  }, []);
 
   return (
     <>
@@ -31,7 +38,7 @@ export const Burger = () => {
         <NavRegAndLog />
       )}
 
-      <StyledBurger open={open} onClick={handleToggleBurger}>
+      <StyledBurger aria-label="Menu" aria-expanded={open} open={open} onClick={handleToggleBurger}>
         {!open ? (
           <IconBurgerBox>
             <Icon

@@ -33,9 +33,9 @@ export const PetsItem = ({ item, deletePet }) => {
 
   return (
     <ContainerItem>
-      <Image src={item.photoURL} />
+      <Image src={item.photoURL} alt={item.name} loading="lazy" />
       <InfoContainer>
-        <DeleteIcon onClick={openModal}>
+        <DeleteIcon aria-label="Delete pet" onClick={openModal}>
           <Icon
             iconName={'icon-trash'}
             width={'24px'}

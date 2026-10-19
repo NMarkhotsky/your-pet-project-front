@@ -2,7 +2,7 @@
 import { NoticeCard } from '../NoticeCard/NoticeCard';
 import { List } from '../NoticeCard/NoticeCard.styled';
 
-const NoticesCategoriesList = ({ notices, handleDeleteNotice }) => {
+const NoticesCategoriesList = ({ notices, handleDeleteNotice, onFavoriteChange }) => {
   return (
     <>
       {notices && (
@@ -11,6 +11,7 @@ const NoticesCategoriesList = ({ notices, handleDeleteNotice }) => {
             <NoticeCard
               key={item.id}
               item={item}
+              onFavoriteChange={onFavoriteChange}
               handleDeleteNotice={handleDeleteNotice}
             />
           ))}

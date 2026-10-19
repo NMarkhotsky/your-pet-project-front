@@ -4,12 +4,14 @@ import { Icon } from '../Icon/Icon';
 
 import { StyledPaginateContainer } from './Pagination.styled';
 
-export const Pagination = ({ handlePageChange, pageCount = 1 }) => {
+export const Pagination = ({ handlePageChange, pageCount = 1, currentPage = 1 }) => {
   return (
     <StyledPaginateContainer>
       <ReactPaginate
         nextLabel={<Icon iconName={'icon-pagination-arrow-right'}  width="16" height="7" />}
         onPageChange={handlePageChange}
+        disableInitialCallback
+        forcePage={Math.max(0, Math.min(currentPage - 1, pageCount - 1))}
         pageRangeDisplayed={3}
         marginPagesDisplayed={1}
         pageCount={pageCount}

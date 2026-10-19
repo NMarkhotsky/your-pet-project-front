@@ -47,8 +47,8 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     const { title, ...petObj } = data;
 
     if (option === petValues.yourPet) {
-      dispatch(addPet(petObj));
-      resetForm();
+      const result = await dispatch(addPet(petObj));
+      if (addPet.fulfilled.match(result)) resetForm();
 
       return;
     }
@@ -57,7 +57,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     const { type, gender, ...noticeObj } = data;
 
     if (option === petValues.SELL) {
-      dispatch(
+      const result = await dispatch(
         addNotice({
           noticeType: option,
           sex: data.gender,
@@ -65,7 +65,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
           ...noticeObj,
         })
       );
-      resetForm();
+      if (addNotice.fulfilled.match(result)) resetForm();
 
       return;
     }
@@ -73,7 +73,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
     // eslint-disable-next-line
     const { price, ...noticeObjWithoutPrice } = noticeObj;
 
-    dispatch(
+    const result = await dispatch(
       addNotice({
         noticeType: option,
         sex: data.gender,
@@ -82,7 +82,7 @@ function MoreInfo({ option, handleDefinePage, setFile, file }) {
       })
     );
 
-    resetForm();
+    if (addNotice.fulfilled.match(result)) resetForm();
   };
 
   const formikYourPet = useFormik({

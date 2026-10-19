@@ -16,38 +16,40 @@ import image from '../../assets/images/imageUserPage/catImg.png';
 import ScrollToTopButton from '../ScrollToTopButton/ScrollToTopButton';
 import { getPets, deletePet } from '../../services/PetsApi';
 import { t } from 'i18next';
+import { errorMessage } from '../../utils/messages';
+import { getErrorMessage } from '../../services/api';
+import { RequestError } from '../../shared/components/RequestError/RequestError';
+import { Loader } from '../../shared/components/Loader/Loader';
 import { Trans } from 'react-i18next';
 
 export const PetsList = () => {
   const [pets, setPets] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [revision, setRevision] = useState(0);
 
   const location = useLocation();
 
   useEffect(() => {
+    let active = true;
+    setIsLoading(true);
+    setError(false);
     getPets()
       .then(({ data }) => {
-        setIsLoading(true);
-        setPets(data.pets);
+        if (active) setPets(data.pets);
       })
-      .catch(error => {
-        setIsLoading(true);
-        console.log(error);
-      })
+      .catch(() => { if (active) setError(true); })
       .finally(() => {
-        setIsLoading(false);
+        if (active) setIsLoading(false);
       });
-  }, []);
-
-  useEffect(() => {
-    if (pets.length === 0 && !pets) {
-      return;
-    }
-  }, [pets]);
+    return () => { active = false; };
+  }, [revision]);
 
   const handleDeletePet = async id => {
-    await deletePet(id);
-    setPets(prevPets => prevPets.filter(pet => pet._id !== id));
+    try {
+      await deletePet(id);
+      setPets(prevPets => prevPets.filter(pet => pet._id !== id));
+    } catch (error) { errorMessage(getErrorMessage(error)); }
   };
 
   return (
@@ -68,12 +70,14 @@ export const PetsList = () => {
           </Button>
         </Link>
       </TopPart>
+      {isLoading && <Loader />}
+      {error && <RequestError onRetry={() => setRevision(value => value + 1)} />}
       <PetsCardList>
         {pets.map(card => (
           <PetsItem key={card._id} item={card} deletePet={handleDeletePet} />
         ))}
       </PetsCardList>
-      {pets.length === 0 && !isLoading && (
+      {pets.length === 0 && !isLoading && !error && (
         <ContainerImage>
           <Title>
             <Trans i18nKey="user_mypets_petList">

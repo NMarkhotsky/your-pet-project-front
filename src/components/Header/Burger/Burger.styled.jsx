@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { selectDesktop } from '../../../utils/selectMediaRequests';
 
-export const StyledBurger = styled.div`
+export const StyledBurger = styled.button`
   display: none;
   z-index: 99;
 

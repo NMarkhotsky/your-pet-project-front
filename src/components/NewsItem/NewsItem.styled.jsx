@@ -1,3 +1,4 @@
+import { cardMotion } from '../../theme/motion';
 import styled from 'styled-components';
 import { selectTablet, selectDesktop } from '../../utils/selectMediaRequests';
 
@@ -44,6 +45,7 @@ export const ItemNews = styled.li`
   }
 
   cursor: pointer;
+  ${cardMotion}
 `;
 
 export const WrapperImage = styled.div`
@@ -108,6 +110,10 @@ export const TitleNews = styled.h4`
 `;
 
 export const TextNews = styled.p`
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
   margin-top: 16px;
 
   font-family: ${props => props.theme.fonts.main.regular};

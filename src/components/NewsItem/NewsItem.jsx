@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import {
   ItemNews,
   WrapperImage,
@@ -15,12 +14,15 @@ import { t } from 'i18next';
 
 const NewsItem = ({ article }) => {
   const { url = '', text, title, imgUrl, date } = article;
-  const formatedDate = moment(date).format('L');
+  const articleDate = new globalThis.Date(date);
+  const formatedDate = Number.isFinite(articleDate.getTime())
+    ? new Intl.DateTimeFormat(undefined, { dateStyle: 'short' }).format(articleDate)
+    : '—';
 
   return (
     <ItemNews>
       <WrapperImage>
-        <ImageNews src={imgUrl} alt="news" />
+        <ImageNews src={imgUrl} alt={title} loading="lazy" />
       </WrapperImage>
       <Content>
         <div>
@@ -29,7 +31,7 @@ const NewsItem = ({ article }) => {
         </div>
         <ContainerInfo>
           <Date>{formatedDate}</Date>
-          <LinkReadMore href={url} target="_blank">
+          <LinkReadMore href={url} target="_blank" rel="noopener noreferrer">
             {t('other_readMore')}
           </LinkReadMore>
         </ContainerInfo>

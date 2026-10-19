@@ -1,9 +1,14 @@
+import { fadeIn, riseIn } from '../../../theme/motion';
 import { styled } from 'styled-components';
 import { selectTablet } from '../../../utils/selectMediaRequests';
 
 export const Backdrop = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100dvh;
+  padding: 24px 12px;
+  overflow-y: auto;
+  animation: ${fadeIn} 180ms ease;
 
   position: fixed;
   top: 0;
@@ -19,15 +24,16 @@ export const Backdrop = styled.div`
 `;
 
 export const Modal = styled.div`
-  min-width: 80%;
+  width: min(100%, 400px);
+  max-width: 100%;
   border-radius: 20px;
   display: flex;
   justify-content: center;
 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  margin: auto;
+  flex-shrink: 0;
+  animation: ${riseIn} 240ms cubic-bezier(.22, 1, .36, 1);
   background-color: ${({ theme }) => theme.colors.bgdColor};
 
   @media ${selectTablet} {

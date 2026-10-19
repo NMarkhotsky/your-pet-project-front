@@ -1,3 +1,4 @@
+import { cardMotion } from '../../../theme/motion';
 import styled from 'styled-components';
 import {
   selectDesktop,
@@ -41,6 +42,7 @@ export const FriendItem = styled.li`
   }
 
   cursor: pointer;
+  ${cardMotion}
 `;
 
 export const FriendWrapper = styled.div`

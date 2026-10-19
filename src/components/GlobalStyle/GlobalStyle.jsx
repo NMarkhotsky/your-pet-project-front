@@ -57,4 +57,21 @@ button {
 input, textarea {
   outline: transparent;
 }
+
+html { scroll-behavior: smooth; }
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+button:disabled { cursor: wait; opacity: .65; }
+:focus-visible { outline: 3px solid #54adff; outline-offset: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  button, a { transition: color 180ms ease, background-color 180ms ease, opacity 180ms ease; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 `;

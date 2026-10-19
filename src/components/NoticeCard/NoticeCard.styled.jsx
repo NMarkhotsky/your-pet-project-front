@@ -1,3 +1,4 @@
+import { cardMotion } from '../../theme/motion';
 import { styled } from 'styled-components';
 import { selectDesktop, selectTablet } from '../../utils/selectMediaRequests';
 
@@ -51,6 +52,7 @@ export const Item = styled.li`
     transform: scale(1.02);
     transition: transform ${({ theme }) => theme.transitionHover};
   }
+  ${cardMotion}
 `;
 
 export const ContainerPetInfo = styled.div`

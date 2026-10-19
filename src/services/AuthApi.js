@@ -1,33 +1,21 @@
-import axios from 'axios';
-import { BASE_URL } from '../constants/globalConstants';
-
-axios.defaults.baseURL = BASE_URL;
-
-const authHeader = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = '';
-  },
-};
+import { api, authHeader } from './api';
 
 export const registerUser = async credentials => {
-  const { data } = await axios.post('/auth/register', credentials);
+  const { data } = await api.post('/auth/register', credentials);
   authHeader.set(data.token);
 
   return data;
 };
 
 export const loginUser = async credentials => {
-  const { data } = await axios.post('/auth/login', credentials);
+  const { data } = await api.post('/auth/login', credentials);
   authHeader.set(data.token);
 
   return data;
 };
 
 export const logoutUser = async () => {
-  const { data } = await axios.post('/auth/logout');
+  const { data } = await api.post('/auth/logout');
   authHeader.unset();
 
   return data;
@@ -35,9 +23,11 @@ export const logoutUser = async () => {
 
 export const fetchUserByToken = async persistedToken => {
   authHeader.set(persistedToken);
-  const {
-    data: { user },
-  } = await axios.get('/users');
-
-  return user;
+  try {
+    const { data: { user } } = await api.get('/users');
+    return user;
+  } catch (error) {
+    if (error.response?.status === 401) authHeader.unset();
+    throw error;
+  }
 };

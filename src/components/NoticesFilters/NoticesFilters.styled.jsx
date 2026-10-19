@@ -1,3 +1,4 @@
+import { riseIn } from '../../theme/motion';
 import styled from 'styled-components';
 import { selectTablet } from '../../utils/selectMediaRequests';
 
@@ -139,6 +140,7 @@ export const ButtonText = styled.span`
 `;
 
 export const DropDownContainer = styled.div`
+  animation: ${riseIn} 180ms ease;
   position: absolute;
   margin-top: 50px;
   padding: 8px;

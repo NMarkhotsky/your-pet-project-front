@@ -147,7 +147,7 @@ export const ButtonForm = styled.button`
   }
 `;
 
-export const LogoutBox = styled.div`
+export const LogoutBox = styled.button`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -171,7 +171,7 @@ export const LogoutText = styled.p`
   letter-spacing: 0.64px;
 `;
 
-export const EditIcon = styled.div`
+export const EditIcon = styled.button`
   display: block;
   position: absolute;
   top: 3%;

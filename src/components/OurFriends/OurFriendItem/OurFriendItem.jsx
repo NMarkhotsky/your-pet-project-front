@@ -17,17 +17,9 @@ import {
 } from './OurFriendItem.styled';
 import { t } from 'i18next';
 
-const weekDays = [
-  t('other_MN'),
-  t('other_TU'),
-  t('other_WE'),
-  t('other_TH'),
-  t('other_FR'),
-  t('other_SA'),
-  t('other_SU'),
-];
-
 export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
+  const weekDays = ['MN', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'].map(day => t(`other_${day}`));
+  const today = (new Date().getDay() + 6) % 7;
   return (
     <>
       {items.map(
@@ -41,13 +33,13 @@ export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
           phone,
           addressUrl,
         }) => (
-          <FriendItem key={imageUrl}>
-            <FriendTitle href={`${url}`} target="_blank">
+          <FriendItem key={url || imageUrl}>
+            <FriendTitle href={`${url}`} target="_blank" rel="noopener noreferrer">
               {title}
             </FriendTitle>
             <FriendWrapper>
               <FriendImgThumb>
-                <Img src={imageUrl} />
+                <Img src={imageUrl} alt={title} loading="lazy" />
               </FriendImgThumb>
               <FriendInfoThumb>
                 <FriendInfo
@@ -57,8 +49,8 @@ export const OurFriendItem = ({ items, handleTimeHover, hoveredTime }) => {
                   <FriendInfoTime>{t('other_time')}:</FriendInfoTime>
                   <FriendInfoData>
                     {workDays
-                      ? workDays[0]?.isOpen
-                        ? `${workDays[0].from} - ${workDays[0].to}`
+                      ? workDays[today]?.isOpen
+                        ? `${workDays[today].from} - ${workDays[today].to}`
                         : t('other_close')
                       : t('friends_friendItem_workTime')}
                   </FriendInfoData>

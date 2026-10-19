@@ -21,7 +21,7 @@ import {
 
 import { Icon } from '../Icon/Icon';
 import { t } from 'i18next';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
 import { useAuth } from '../../hooks/useAuth/useAuth';
 
@@ -29,12 +29,14 @@ export const NoticesFilters = ({ getFilterParams }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
   const [genderOpen, setGenderOpen] = useState(false);
+  const [params] = useSearchParams();
   const [filters, setFilters] = useState([]);
   const [showAttentionModal, setShowAttentionModal] = useState(false);
-  const { user } = useAuth();
+  const { isLoggedIn } = useAuth();
 
-  const openAttentionModal = () => {
-    if (user.name === null && user.email === null) {
+  const openAttentionModal = event => {
+    if (!isLoggedIn) {
+      event.preventDefault();
       setShowAttentionModal(true);
     }
   };
@@ -44,53 +46,13 @@ export const NoticesFilters = ({ getFilterParams }) => {
   };
 
   useEffect(() => {
-    const updatedFilterParams = {
-      younger: false,
-      middle: false,
-      older: false,
-      sex: null,
-    };
-
-    if (filters.includes('0-12 m')) {
-      updatedFilterParams.young = true;
-    } else {
-      updatedFilterParams.young = false;
-    }
-
-    if (filters.includes('1 year')) {
-      updatedFilterParams.middle = true;
-    } else {
-      updatedFilterParams.middle = false;
-    }
-
-    if (filters.includes('2 years +')) {
-      updatedFilterParams.older = true;
-    } else {
-      updatedFilterParams.older = false;
-    }
-
-    if (filters.includes('male') && filters.includes('female')) {
-      updatedFilterParams.sex = null;
-    } else if (filters.includes('male')) {
-      updatedFilterParams.sex = 'male';
-    } else if (filters.includes('female')) {
-      updatedFilterParams.sex = 'female';
-    } else {
-      updatedFilterParams.sex = null;
-    }
-
-    Object.keys(updatedFilterParams).forEach(key => {
-      if (
-        updatedFilterParams[key] === false ||
-        updatedFilterParams[key] === null
-      ) {
-        delete updatedFilterParams[key];
-      }
-    });
-
-    getFilterParams(updatedFilterParams);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters]);
+    const next = [];
+    if (params.get('young') === 'true') next.push('0-12 m');
+    if (params.get('middle') === 'true') next.push('1 year');
+    if (params.get('older') === 'true') next.push('2 years +');
+    if (params.get('sex')) next.push(params.get('sex'));
+    setFilters(next);
+  }, [params]);
 
   const handleBtnClick = () => {
     setIsOpen(prevState => !prevState);
@@ -104,12 +66,16 @@ export const NoticesFilters = ({ getFilterParams }) => {
     setGenderOpen(prevState => !prevState);
   };
 
-  const handleCheckboxChange = e => {
-    if (filters.includes(e.target.value)) {
-      setFilters(prev => prev.filter(item => item !== e.target.value));
-    } else {
-      setFilters(prev => [...prev, e.target.value]);
-    }
+  const handleCheckboxChange = event => {
+    const value = event.target.value;
+    const next = filters.includes(value) ? filters.filter(item => item !== value) : [...filters, value];
+    setFilters(next);
+    getFilterParams({
+      young: next.includes('0-12 m') || null,
+      middle: next.includes('1 year') || null,
+      older: next.includes('2 years +') || null,
+      sex: next.includes('male') === next.includes('female') ? null : next.includes('male') ? 'male' : 'female',
+    });
   };
 
   return (
@@ -119,6 +85,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
           onClick={handleBtnClick}
           type="button"
           aria-label="toggle filters"
+          aria-expanded={isOpen}
         >
           <OpenBtnLabel>{t('notices_filterBnt')}</OpenBtnLabel>
           <IconWraper>
@@ -219,7 +186,7 @@ export const NoticesFilters = ({ getFilterParams }) => {
           </DropDownContainer>
         )}
       </Wrapper>
-      <Link to={user.email !== null && '/add-pet'} onClick={openAttentionModal}>
+      <Link to='/add-pet' onClick={openAttentionModal}>
         <Button type="button">
           <ButtonSpan>{t('user_mypets_addBtn')}</ButtonSpan>
           <Icon

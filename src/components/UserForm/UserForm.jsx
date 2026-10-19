@@ -1,8 +1,11 @@
+import defaultAvatar from '../../assets/images/imageUserPage/default_user.png';
 import { Field, Formik, ErrorMessage } from 'formik';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { schema } from '../../constants/globalConstants';
 import { Icon } from '../Icon/Icon';
+import { updateProfile } from '../../redux/auth/authSlice';
+import { getErrorMessage } from '../../services/api';
 import { logout } from '../../redux/auth/operations';
 import { errorMessage, successMessage } from '../../utils/messages';
 import {
@@ -57,12 +60,6 @@ export const UserForm = () => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  useEffect(() => {
-    if (user === null) {
-      return;
-    }
-  }, [user]);
-
   // Стан модалки виходу із додатку
   const [showModal, setShowModal] = useState(false);
 
@@ -75,20 +72,16 @@ export const UserForm = () => {
   };
 
   useEffect(() => {
-    if (!user) {
-      return;
-    }
-    setValues({
-      name: user && user.name,
-      birthday: user ? user.birthday : '',
-      phone: user ? user.phone : '',
-      city: user ? user.city : '',
-      avatar: values.avatar || '',
-      avatarURL: user.avatarURL,
-    });
-    setEmail(user && user.email);
-    setPreviewURL(fileAvatar ? previewURL : user.avatarURL);
-  }, [fileAvatar, previewURL, user, values.avatar]);
+    if (!user) return;
+    setValues({ name: user.name || '', birthday: user.birthday || '', phone: user.phone || '', city: user.city || '', avatar: '' });
+    setEmail(user.email || '');
+  }, [user]);
+  useEffect(() => {
+    if (!fileAvatar) { setPreviewURL(user?.avatarURL); return; }
+    const url = URL.createObjectURL(fileAvatar);
+    setPreviewURL(url);
+    return () => URL.revokeObjectURL(url);
+  }, [fileAvatar, user?.avatarURL]);
 
   // Зміна режимів редагування config i edit
   const handleEditClick = () => {
@@ -109,15 +102,16 @@ export const UserForm = () => {
 
   const handleCancelClick = () => {
     setFileAvatar(null);
+    setValues(prev => ({ ...prev, avatar: '' }));
     setIsActiveEdit(true);
     setIsAbleAdd(true);
   };
 
   const handleAvatarChange = e => {
     const file = e.target.files[0];
-    if (file && file.size <= FILE_SIZE) {
+    if (file && file.type.startsWith('image/') && file.size <= FILE_SIZE) {
       setFileAvatar(file);
-      setPreviewURL(URL.createObjectURL(file));
+
     } else {
       errorMessage('Your photo is large');
       setIsAbleAdd(true);
@@ -130,41 +124,23 @@ export const UserForm = () => {
       errorMessage('Press confirm or cancel your new photo');
       return;
     }
-    setIsActiveEdit(false);
     try {
+      const { name, birthday, phone, city } = values;
+      await schema.validate({ name, birthday, phone, city });
       const formData = new FormData();
-      const entries = Object.entries(values);
-
-      let validationObject = {};
-
-      entries.forEach(entry => {
-        if (entry[1]) {
-          formData.append(entry[0], entry[1]);
-          validationObject = {
-            ...validationObject,
-            [entry[0]]: entry[1],
-          };
-        }
-      });
-
-      const formDataObject = {};
-      formData.forEach((value, key) => {
-        formDataObject[key] = value;
-      });
-
-      await schema.validate(validationObject);
-
+      Object.entries({ name, birthday, phone, city }).forEach(([key, value]) => formData.append(key, value));
+      if (values.avatar) formData.append('avatar', values.avatar);
       setIsLoading(true);
-      updateUser(formData);
+      const { data } = await updateUser(formData);
+      setUser(data.user);
+      dispatch(updateProfile(data.user));
+      setFileAvatar(null);
+      setIsActiveEdit(false);
       successMessage('Changes saved successfully');
     } catch (error) {
-      if (error.name === 'ValidationError') {
-        setIsActiveEdit(true);
-        errorMessage(error.errors[0]);
-      }
-    } finally {
-      setIsLoading(false);
-    }
+      setIsActiveEdit(true);
+      errorMessage(error.name === 'ValidationError' ? error.errors[0] : getErrorMessage(error));
+    } finally { setIsLoading(false); }
   };
 
   // Функція, на зміну форми із звичайного стану в стан редагування і навпаки
@@ -177,7 +153,7 @@ export const UserForm = () => {
       <FormTitle>{t('user_myinfo_title')}</FormTitle>
       <Formik initialValues={values} onSubmit={handleSubmit}>
         <FormBox>
-          <EditIcon onClick={handleEditForm}>
+          <EditIcon aria-label="Edit profile" type="button" onClick={handleEditForm}>
             {!isActiveEdit ? (
               <Icon
                 iconName={'icon-edit'}
@@ -196,9 +172,10 @@ export const UserForm = () => {
           </EditIcon>
           <ImageInputBox>
             <ImageBox>
-              {previewURL && (
+              {(previewURL || defaultAvatar) && (
                 <img
-                  src={previewURL}
+                  src={previewURL || defaultAvatar}
+                  onError={event => { if (!event.currentTarget.src.endsWith(defaultAvatar)) event.currentTarget.src = defaultAvatar; }}
                   style={{
                     borderRadius: 40,
                     objectFit: 'cover',
@@ -325,9 +302,9 @@ export const UserForm = () => {
               />
             </InputBox>
             {isActiveEdit ? (
-              <ButtonForm type="submit">{t('user_myinfo_saveBtn')}</ButtonForm>
+              <ButtonForm disabled={isLoading} type="submit">{t('user_myinfo_saveBtn')}</ButtonForm>
             ) : (
-              <LogoutBox onClick={openModal}>
+              <LogoutBox type="button" onClick={openModal}>
                 <Icon
                   iconName={'icon-logout'}
                   width={'24px'}

@@ -4,7 +4,7 @@ import { OurFriendItem } from '../OurFriendItem/OurFriendItem';
 import { FriendsContainer, FriendsList } from './OurFriendsList.styled';
 import FriendCardSkeleton from '../../../shared/components/Skeleton/FriendsCardSkeleton/FriendsCardSkeleton';
 
-export const OurFriendsList = ({ items }) => {
+export const OurFriendsList = ({ items, isLoading = false }) => {
   const [hoveredTime, setHoveredTime] = useState('');
 
   const handleTimeHover = index => {
@@ -14,7 +14,7 @@ export const OurFriendsList = ({ items }) => {
   return (
     <FriendsContainer>
       <FriendsList>
-        {items.length !== 0 ? (
+        {!isLoading ? (
           <OurFriendItem
             items={items}
             handleTimeHover={handleTimeHover}
@@ -30,4 +30,5 @@ export const OurFriendsList = ({ items }) => {
 
 OurFriendsList.propTypes = {
   items: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool,
 };

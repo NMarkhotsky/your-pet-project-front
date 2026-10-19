@@ -63,7 +63,7 @@ export const FormIconContainer = styled.div`
   right: 16px;
 `;
 
-export const FormIconEyeContainer = styled.div`
+export const FormIconEyeContainer = styled.button`
   position: absolute;
   top: 12px;
   right: ${props => (props.$validated ? '52px' : '16px')};

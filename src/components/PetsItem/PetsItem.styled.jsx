@@ -1,3 +1,4 @@
+import { cardMotion } from '../../theme/motion';
 import styled from 'styled-components';
 import { selectDesktop, selectTablet } from '../../utils/selectMediaRequests';
 
@@ -30,6 +31,7 @@ export const ContainerItem = styled.div`
   &:not(:last-child) {
     margin-bottom: 24px;
   }
+  ${cardMotion}
 `;
 
 export const Image = styled.img`

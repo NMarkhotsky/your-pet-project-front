@@ -1,8 +1,8 @@
 import * as Yup from 'yup';
 
 //AXIOS
-export const BASE_URL = 'https://your-pet-project-backend.vercel.app/api';
-// export const BASE_URL = 'http://localhost:3000/api';
+export const BASE_URL = import.meta.env.VITE_API_URL ||
+  (import.meta.env.DEV ? '/api' : 'https://your-pet-project-backend.vercel.app/api');
 
 export const CATEGORIES = {
   SELL: 'sell',
@@ -41,9 +41,10 @@ export const FILE_SIZE = 3000000;
 export const schema = Yup.object().shape({
   name: Yup.string().min(2).max(16).required('Name  is required field'),
   birthday: Yup.date()
-    .required('Enter a date of birth')
+    .nullable()
+    .transform((value, original) => original === '' ? null : value)
     .min(new Date(1900, 0, 1))
     .max(new Date(), "You can't be born in the future!"),
-  phone: Yup.string().matches(phoneRegExp, 'Invalid phone number'),
-  city: Yup.string().min(2).max(16),
+  phone: Yup.string().matches(phoneRegExp, { message: 'Invalid phone number', excludeEmptyString: true }),
+  city: Yup.string().max(30).test('city-length', 'City must contain at least 2 characters', value => !value || value.length >= 2),
 });

@@ -24,21 +24,21 @@ import { ModalApproveAction } from '../../shared/components/ModalApproveAction/M
 import { ModalConfirmDelete } from '../ModalConfirmDelete/ModalConfirmDelete';
 import { AttentionModal } from '../AttentionModal/AttentionModal';
 import { t } from 'i18next';
+import { errorMessage } from '../../utils/messages';
+import { getErrorMessage } from '../../services/api';
+import { useRef } from 'react';
 
-export const NoticeCard = ({ item, handleDeleteNotice }) => {
+export const NoticeCard = ({ item, handleDeleteNotice, onFavoriteChange }) => {
   const [showModal, setShowModal] = useState(false);
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [showAttentionModal, setShowAttentionModal] = useState(false);
-  const [card, setCard] = useState({});
+  const [isSaving, setIsSaving] = useState(false);
+  const saving = useRef(false);
   const [isFavorite, setIsFavorite] = useState(item.isFavorite);
 
-  const { user } = useAuth();
+  const { user, isLoggedIn } = useAuth();
 
-  useEffect(() => {
-    if (!user.name && !user.email) {
-      setIsFavorite(false);
-    }
-  }, [user]);
+  useEffect(() => { setIsFavorite(isLoggedIn && item.isFavorite); }, [isLoggedIn, item.isFavorite]);
 
   const toggleModal = () => {
     setShowModal(prevState => !prevState);
@@ -56,39 +56,32 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
     setShowAttentionModal(false);
   };
 
-  useEffect(() => {
-    if (Object.keys(card).length === 0) {
-      return;
-    }
-  });
-
   const handleAddInFavorite = async () => {
+    if (!isLoggedIn) { setShowAttentionModal(true); return; }
+    if (saving.current) return;
+    saving.current = true;
+    setIsSaving(true);
     try {
-      if (user.name === null && user.email === null) {
-        setShowAttentionModal(true);
-      } else {
-        const response = await updateNotice(item.id, {
-          isFavorite: !isFavorite,
-        });
-        setCard(response.data.notice);
-        setIsFavorite(!isFavorite);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+      const response = await updateNotice(item.id);
+      setIsFavorite(response.data.notice.isFavorite);
+      onFavoriteChange?.();
+    } catch (error) { errorMessage(getErrorMessage(error)); }
+    finally { saving.current = false; setIsSaving(false); }
   };
 
   return (
     <>
       <Item key={item.id}>
         <ContainerPetInfo>
-          <Image src={item.photoURL} alt="pet" loading="lazy"></Image>
+          <Image src={item.photoURL} alt={item.title} loading="lazy"></Image>
           <ContainerPetStatus>
-            <TextStatus>{item.noticeType}</TextStatus>
+            <TextStatus>{t(`category_${item.noticeType}`)}</TextStatus>
             <ContainerButton>
               <Button
                 onClick={handleAddInFavorite}
                 aria-label="add to favorites"
+                aria-pressed={isFavorite}
+                disabled={isSaving}
               >
                 {!isFavorite ? (
                   <Icon
@@ -135,7 +128,7 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
               <Icon
                 iconName={item.sex === 'female' ? 'icon-female' : 'icon-male'}
               />
-              <SpanPetText>{item.sex}</SpanPetText>
+              <SpanPetText>{t(`notices_filterBnt_filters_${item.sex}`)}</SpanPetText>
             </ItemPetInfo>
           </ListPetInfo>
         </ContainerPetInfo>
@@ -157,6 +150,7 @@ export const NoticeCard = ({ item, handleDeleteNotice }) => {
           <NoticeCardDetail
             item={item}
             isFavorite={isFavorite}
+            isSaving={isSaving}
             toggleModal={toggleModal}
             handleAddInFavorite={handleAddInFavorite}
           />

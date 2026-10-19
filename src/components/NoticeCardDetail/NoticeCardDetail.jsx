@@ -25,36 +25,28 @@ import {
 } from './NoticeCardDetail.styled';
 import { getNoticeById } from '../../services/NoticesApi';
 import { ModalApproveAction } from '../../shared/components/ModalApproveAction/ModalApproveAction';
-import { AttentionModal } from '../AttentionModal/AttentionModal';
+import { RequestError } from '../../shared/components/RequestError/RequestError';
+import { Loader } from '../../shared/components/Loader/Loader';
 
 export const NoticeCardDetail = ({
   item,
   toggleModal,
   isFavorite,
+  isSaving,
   handleAddInFavorite,
 }) => {
   const [card, setCard] = useState({});
-  const [showAttentionModal, setShowAttentionModal] = useState(false);
-
-  const closeAttentionModal = () => {
-    setShowAttentionModal(false);
-  };
-
+  const [error, setError] = useState(false);
+  const [revision, setRevision] = useState(0);
   let formattedBirthday;
-
   useEffect(() => {
-    (async () => {
-      const response = await getNoticeById(item.id);
-
-      setCard({ ...response.data.notice, noticeType: item.noticeType });
-    })();
-  }, [item]);
-
-  useEffect(() => {
-    if (Object.keys(card).length === 0) {
-      return;
-    }
-  });
+    const controller = new AbortController();
+    setError(false);
+    getNoticeById(item.id, { signal: controller.signal })
+      .then(response => { if (!controller.signal.aborted) setCard({ ...response.data.notice, noticeType: item.noticeType }); })
+      .catch(() => { if (!controller.signal.aborted) setError(true); });
+    return () => controller.abort();
+  }, [item.id, item.noticeType, revision]);
 
   if (card.birthday) {
     const birthday = card.birthday;
@@ -66,10 +58,11 @@ export const NoticeCardDetail = ({
     <>
       <ModalApproveAction onClose={toggleModal}>
         <ModalCard>
+          {error ? <RequestError onRetry={() => setRevision(value => value + 1)} /> : !card._id ? <Loader /> : <>
           <ModalCardInfo>
             <ModalCardImage>
               <Image src={card.photoURL} alt="pet" loading="lazy"></Image>
-              <SpanStatus>{card.noticeType}</SpanStatus>
+              <SpanStatus>{t(`category_${card.noticeType}`)}</SpanStatus>
             </ModalCardImage>
             <ModalCardText>
               <Title>{card.title}</Title>
@@ -93,24 +86,20 @@ export const NoticeCardDetail = ({
                   </Tr>
                   <Tr>
                     <TdName>{t('notices_cardInfoDetails_theSex')}: </TdName>
-                    <TdValue>{card.sex}</TdValue>
+                    <TdValue>{t(`notices_filterBnt_filters_${card.sex}`)}</TdValue>
                   </Tr>
-                  <Tr>
-                    <TdName>{t('other_mail')}: </TdName>
-                    <TdValue>
-                      <Link href={`mailto:${card.ownerEmail}`}>
-                        {card.ownerEmail}
-                      </Link>
-                    </TdValue>
-                  </Tr>
-                  <Tr>
-                    <TdName>{t('other_phone')}: </TdName>
-                    <TdValue>
-                      <Link href={`tel:${card.ownerPhone}`}>
-                        {card.ownerPhone}
-                      </Link>
-                    </TdValue>
-                  </Tr>
+                  {card.price != null && <Tr>
+                    <TdName>{t('other_price')}:</TdName>
+                    <TdValue>{new Intl.NumberFormat(undefined, { style: 'currency', currency: 'UAH', maximumFractionDigits: 0 }).format(card.price)}</TdValue>
+                  </Tr>}
+                  {card.ownerEmail && <Tr>
+                    <TdName>{t('other_mail')}:</TdName>
+                    <TdValue><Link href={`mailto:${card.ownerEmail}`}>{card.ownerEmail}</Link></TdValue>
+                  </Tr>}
+                  {card.ownerPhone && <Tr>
+                    <TdName>{t('other_phone')}:</TdName>
+                    <TdValue><Link href={`tel:${card.ownerPhone}`}>{card.ownerPhone}</Link></TdValue>
+                  </Tr>}
                 </Tbody>
               </Table>
             </ModalCardText>
@@ -120,11 +109,12 @@ export const NoticeCardDetail = ({
           </Text>
           <ButtonsWrapper>
             <ButtonAddFavorite
+              disabled={isSaving}
               onClick={handleAddInFavorite}
               style={{
                 color: !isFavorite ? '#FEF9F9' : '#54ADFF',
                 backgroundColor: isFavorite ? '#FEF9F9' : '#54ADFF',
-                borderColor: isFavorite && '#54ADFF',
+                borderColor: isFavorite ? '#54ADFF' : undefined,
               }}
             >
               <ButtonTextAdd>
@@ -148,19 +138,13 @@ export const NoticeCardDetail = ({
                 />
               )}
             </ButtonAddFavorite>
-            {card.ownerPhone === undefined ? (
-              <ButtonLinkContact href={`mailto:${card.ownerEmail}`}>
-                {t('other_contact')}
-              </ButtonLinkContact>
-            ) : (
-              <ButtonLinkContact href={`tel:${card.ownerPhone}`}>
-                {t('other_contact')}
-              </ButtonLinkContact>
-            )}
+            {(card.ownerPhone || card.ownerEmail) && <ButtonLinkContact href={card.ownerPhone ? `tel:${card.ownerPhone}` : `mailto:${card.ownerEmail}`}>
+              {t('other_contact')}
+            </ButtonLinkContact>}
           </ButtonsWrapper>
+          </>}
         </ModalCard>
       </ModalApproveAction>
-      {showAttentionModal && <AttentionModal onClose={closeAttentionModal} />}
     </>
   );
 };
@@ -172,5 +156,6 @@ NoticeCardDetail.propTypes = {
   }).isRequired,
   toggleModal: PropTypes.func,
   isFavorite: PropTypes.bool,
+  isSaving: PropTypes.bool,
   handleAddInFavorite: PropTypes.func,
 };

@@ -6,7 +6,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isNewUser: false,
-  isRefreshing: false,
+  isRefreshing: true,
   error: null,
 };
 
@@ -23,6 +23,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    updateProfile(state, action) { state.user = action.payload; },
     setIsNewUserFalse: {
       reducer(state) {
         state.isNewUser = false;
@@ -68,6 +69,8 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = action.payload;
         state.isLoggedIn = false;
+        state.user = initialState.user;
+        if (action.payload?.unauthorized) state.token = null;
       })
       .addMatcher(
         isAnyOf(
@@ -85,5 +88,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { setIsNewUserFalse, googleAuth } = authSlice.actions;
+export const { setIsNewUserFalse, googleAuth, updateProfile } = authSlice.actions;
 export const authReducer = authSlice.reducer;

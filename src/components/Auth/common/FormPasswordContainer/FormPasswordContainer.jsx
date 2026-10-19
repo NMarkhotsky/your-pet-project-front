@@ -15,7 +15,7 @@ export const FormPasswordContainer = ({
     <>
       <FormPasswordInputContainer>
         {children}
-        <FormIconEyeContainer $validated={isFormSubmitted} onClick={onClick}>
+        <FormIconEyeContainer type="button" aria-label="Show or hide password" aria-pressed={isPasswordShown} $validated={isFormSubmitted} onClick={onClick}>
           {isPasswordShown ? (
             <Icon
               iconName={'icon-eye-open'}

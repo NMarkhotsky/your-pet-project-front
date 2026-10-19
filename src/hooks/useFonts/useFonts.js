@@ -18,6 +18,7 @@ export const useFont = fonts => {
       })
       .catch(error => {
         console.error(`Error loading fonts: ${error}`);
+        setFontsLoaded(true);
       });
   }, [fonts]);
 

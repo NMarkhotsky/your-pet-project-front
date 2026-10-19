@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
@@ -23,12 +23,15 @@ function App() {
   const [searchParams, setSearchParams] = useSearchParams();
   const token = searchParams.get('token');
 
+  const restored = useRef(false);
   useEffect(() => {
+    if (restored.current) return;
+    restored.current = true;
     if (token) {
       dispatch(googleAuth(token));
-      setSearchParams('');
+      setSearchParams(prev => { const next = new URLSearchParams(prev); next.delete('token'); return next; }, { replace: true });
       dispatch(fetchCurrentUser());
-      navigation('/user');
+      navigation('/user', { replace: true });
     } else dispatch(fetchCurrentUser());
   }, [dispatch, navigation, setSearchParams, token]);
 

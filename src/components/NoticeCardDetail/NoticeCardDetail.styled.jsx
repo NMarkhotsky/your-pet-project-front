@@ -31,6 +31,8 @@ export const ButtonClose = styled.button`
 `;
 
 export const ModalCard = styled.div`
+  width: 100%;
+  min-width: 0;
   padding: 44px 12px 16px;
   /* width: 280px; */
 
@@ -109,7 +111,8 @@ export const ModalCardText = styled.div`
 `;
 
 export const Title = styled.h4`
-  width: 198px;
+  width: 100%;
+  overflow-wrap: anywhere;
 
   margin-bottom: 20px;
 
@@ -129,7 +132,7 @@ export const Title = styled.h4`
 `;
 
 export const Table = styled.table`
-  width: 256px;
+  width: 100%;
 
   table-layout: fixed;
   border-color: inherit;

@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { getErrorMessage } from '../../services/api';
 import { errorMessage } from '../../utils/messages';
 import {
   fetchUserByToken,
@@ -13,8 +14,8 @@ export const register = createAsyncThunk(
     try {
       return await registerUser(credentials);
     } catch (e) {
-      errorMessage(e.response.data.message);
-      return thunkAPI.rejectWithValue(e.response.data.message);
+      errorMessage(getErrorMessage(e));
+      return thunkAPI.rejectWithValue(getErrorMessage(e));
     }
   }
 );
@@ -25,18 +26,18 @@ export const login = createAsyncThunk(
     try {
       return await loginUser(credentials);
     } catch (e) {
-      errorMessage(e.response.data.message);
-      return thunkAPI.rejectWithValue(e.response.data.message);
+      errorMessage(getErrorMessage(e));
+      return thunkAPI.rejectWithValue(getErrorMessage(e));
     }
   }
 );
 
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    return logoutUser();
+    return await logoutUser();
   } catch (e) {
-    errorMessage(e.response.data.message);
-    return thunkAPI.rejectWithValue(e.response.data.message);
+    errorMessage(getErrorMessage(e));
+    return thunkAPI.rejectWithValue(getErrorMessage(e));
   }
 });
 
@@ -50,10 +51,9 @@ export const fetchCurrentUser = createAsyncThunk(
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
     try {
-      return fetchUserByToken(persistedToken);
+      return await fetchUserByToken(persistedToken);
     } catch (e) {
-      errorMessage(e.response.data.message);
-      return thunkAPI.rejectWithValue(e.response.data.message);
+      return thunkAPI.rejectWithValue({ message: getErrorMessage(e), unauthorized: e.response?.status === 401 });
     }
   }
 );

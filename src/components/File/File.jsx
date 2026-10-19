@@ -46,7 +46,7 @@ function File({ formik, text, direction, items, justify, gap, setFile, file }) {
         name="photo"
         id="photo"
         accept=".jpg, .png, .jpeg"
-        onBlur={formik.handleFileChange}
+        onBlur={formik.handleBlur}
         onChange={handleFileChange}
       />
     </>

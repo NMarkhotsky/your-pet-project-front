@@ -13,17 +13,18 @@ export const SearchInput = ({ value, onChange, onSubmit, onDelete }) => {
   return (
     <SearchContainer onSubmit={onSubmit}>
       <Input
-        type="text"
+        aria-label={t('other_search')}
+        type="search"
         value={value}
         onChange={e => onChange(e.target.value)}
         placeholder={t('other_search')}
       />
       <ButtonWrapper>
-        <SearchButton type="submit" value={value} onClick={onSubmit}>
+        <SearchButton type="submit" value={value} aria-label={t('other_search')}>
           <SearchIcon iconName="icon-search" fill="#54ADFF" />
         </SearchButton>
         {value && (
-          <DeleteSearchButton type="button" onClick={onDelete}>
+          <DeleteSearchButton aria-label="Clear search" type="button" onClick={onDelete}>
             <SearchIcon iconName="icon-cross" stroke="#FFC107" />
           </DeleteSearchButton>
         )}

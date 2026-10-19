@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Modal, Title, Text, PetName } from './ModalConfirmDelete.styled';
@@ -18,6 +19,12 @@ export const ModalConfirmDelete = ({
   title = 'Delete advertisement?',
   name,
 }) => {
+  const [busy, setBusy] = useState(false);
+  const confirm = async () => {
+    if (busy) return;
+    setBusy(true);
+    try { await handleDelete(); handleModal(); } finally { setBusy(false); }
+  };
   return (
     <Modal>
       <Title>{title}</Title>
@@ -31,21 +38,13 @@ export const ModalConfirmDelete = ({
         <CancelButton onClick={handleModal}>
           <ButtonText>{t('other_cancel')}</ButtonText>
         </CancelButton>
-        <YesButton onClick={handleDelete}>
+        <YesButton disabled={busy} onClick={confirm}>
           <ButtonText>{t('other_yes')}</ButtonText>
           <IconWraper>
             <StyledIcon iconName="icon-trash" stroke={'#FDF7F2'} />
           </IconWraper>
         </YesButton>
-        {/* <CancelButton onClick={handleModal}>
-          <span>Cancel</span>
-        </CancelButton>
-        <YesButton onClick={handleDelete}>
-          <ButtonText>Yes</ButtonText>
-          <IconWraper>
-            <StyledIcon iconName="icon-trash" stroke={'#FDF7F2'} />
-          </IconWraper>
-        </YesButton> */}
+
       </BtnWrapper>
     </Modal>
   );
